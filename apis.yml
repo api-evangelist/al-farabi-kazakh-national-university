@@ -1,0 +1,53 @@
+---
+aid: al-farabi-kazakh-national-university
+name: Al-Farabi Kazakh National University
+description: >-
+  Al-Farabi Kazakh National University (KazNU) is the leading public research
+  university in Kazakhstan, headquartered in Almaty, and is ranked #163 in the
+  QS World University Rankings 2025. The institution operates a public web
+  presence across kaznu.kz and farabi.university, an electronic library portal
+  (elibrary.kaznu.kz), and an open courseware / MOOC platform (open.kaznu.kz).
+  As of this review no public, documented developer portal or open API was
+  found; the institution's digital footprint is primarily web properties and
+  internal information systems, so this profile catalogs the verified public
+  properties rather than any open developer endpoints.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/al-farabi-kazakh-national-university/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Library
+  - Open Education
+  - Kazakhstan
+  - Central Asia
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://farabi.university/?lang=en
+  - type: Website
+    url: https://www.kaznu.kz/en
+  - type: DeveloperPortal
+    url: https://open.kaznu.kz/
+  - type: SourceCode
+    url: https://github.com/NLP-KazNU
+  - type: LinkedIn
+    url: https://kz.linkedin.com/school/kaznu/
+  - type: Plans
+    url: plans/al-farabi-kazakh-national-university-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/al-farabi-kazakh-national-university-rate-limits.yml
+  - type: FinOps
+    url: finops/al-farabi-kazakh-national-university-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

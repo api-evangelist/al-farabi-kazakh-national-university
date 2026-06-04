@@ -1,0 +1,45 @@
+---
+name: Al-Farabi Kazakh National University
+description: Al-Farabi Kazakh National University public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/al-farabi-kazakh-national-university/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 1
+    summary: >-
+      No public, documented developer portal or open API was found for
+      Al-Farabi Kazakh National University (QS World 2025 #163). The primary
+      website at farabi.university resolves (HTTP 200) and the electronic
+      library (elibrary.kaznu.kz) and MOOC platform (open.kaznu.kz) resolve
+      (HTTP 200), but probed OAI-PMH and DSpace/REST paths returned 404 / no
+      response. No official institutional GitHub organization exists; the
+      NLP-KazNU org is a research-lab source-code presence rather than an
+      official API program. The LinkedIn school page exists (LinkedIn returns
+      a 999 anti-bot code to automated probes). Catalog records only verified
+      public web properties; no endpoints were fabricated.
+    endpoints:
+      - url: https://farabi.university/?lang=en
+        status: 200
+        note: Official university website (English), resolves.
+      - url: https://www.kaznu.kz/en
+        status: 404
+        note: Legacy domain; /en path returns 404 but the kaznu.kz domain serves content.
+      - url: https://elibrary.kaznu.kz/en/
+        status: 200
+        note: Al-Farabi electronic library portal; no public OAI-PMH/REST API found.
+      - url: https://elibrary.kaznu.kz/oai
+        status: 404
+        note: Probed OAI-PMH endpoint; not present.
+      - url: https://open.kaznu.kz/
+        status: 200
+        note: Open courseware / MOOC platform; no documented public API.
+      - url: https://pps.kaznu.kz/en
+        status: 200
+        note: Faculty profiles site; no public API.
+      - url: https://github.com/NLP-KazNU
+        status: 200
+        note: NLP research-lab GitHub org (Kazakh NLP corpora/tools); not an official institutional API program.
+      - url: https://kz.linkedin.com/school/kaznu/
+        status: 999
+        note: Official LinkedIn school page; 999 is LinkedIn's anti-bot code, page exists in browser.
