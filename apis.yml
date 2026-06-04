@@ -28,7 +28,38 @@ tags:
 created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - name: KazNU Open edX API
+    description: >-
+      Open edX REST API powering the KazNU open courseware / MOOC platform at
+      open.kaznu.kz, providing access to courses, enrollments, bookmarks,
+      grades, certificates and related learner information. A public Swagger 2.0
+      description is served at https://open.kaznu.kz/swagger.json; it has been
+      converted to OpenAPI 3.0 below.
+    humanURL: https://open.kaznu.kz/
+    baseURL: https://open.kaznu.kz/api
+    properties:
+      - type: Swagger
+        url: https://open.kaznu.kz/swagger.json
+      - type: OpenAPI
+        url: openapi/al-farabi-kazakh-national-university-open-edx.yaml
+      - type: x-json-schema
+        url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+      - type: x-json-structure
+        url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+      - type: x-examples
+        url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+      - type: x-spectral-rules
+        url: rules/al-farabi-kazakh-national-university-rules.yml
+      - type: x-vocabulary
+        url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+      - type: x-json-ld
+        url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+    tags:
+      - Education
+      - Open Education
+      - MOOC
+      - Open edX
 common:
   - type: Website
     url: https://farabi.university/?lang=en

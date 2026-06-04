@@ -1,0 +1,80 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "kaznu": "https://open.kaznu.kz/vocab#",
+    "@vocab": "https://open.kaznu.kz/vocab#",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "Institution": {
+      "@id": "schema:CollegeOrUniversity"
+    },
+    "Course": {
+      "@id": "schema:Course",
+      "@context": {
+        "id": "schema:identifier",
+        "course_id": "schema:identifier",
+        "number": "schema:courseCode",
+        "name": "schema:name",
+        "org": {
+          "@id": "schema:provider",
+          "@type": "@id"
+        },
+        "short_description": "schema:description",
+        "start": {
+          "@id": "schema:startDate",
+          "@type": "schema:DateTime"
+        },
+        "end": {
+          "@id": "schema:endDate",
+          "@type": "schema:DateTime"
+        },
+        "effort": "kaznu:effort",
+        "pacing": "kaznu:pacing",
+        "media": "schema:image",
+        "blocks_url": {
+          "@id": "schema:url",
+          "@type": "@id"
+        }
+      }
+    },
+    "Enrollment": {
+      "@id": "kaznu:Enrollment",
+      "@context": {
+        "user": "schema:agent",
+        "course_id": "schema:identifier",
+        "mode": "kaznu:enrollmentMode",
+        "is_active": "kaznu:isActive",
+        "created": {
+          "@id": "schema:dateCreated",
+          "@type": "schema:DateTime"
+        }
+      }
+    },
+    "Bookmark": {
+      "@id": "kaznu:Bookmark",
+      "@context": {
+        "course_id": "schema:identifier",
+        "usage_id": "kaznu:usageId",
+        "block_type": "kaznu:blockType",
+        "created": {
+          "@id": "schema:dateCreated",
+          "@type": "schema:DateTime"
+        }
+      }
+    },
+    "CourseGrade": {
+      "@id": "kaznu:CourseGrade",
+      "@context": {
+        "percent": "kaznu:gradePercent",
+        "letter_grade": "kaznu:letterGrade",
+        "is_passing": "kaznu:isPassing"
+      }
+    }
+  },
+  "@type": "Institution",
+  "name": "Al-Farabi Kazakh National University",
+  "url": "https://www.kaznu.kz/en",
+  "description": "Leading public research university in Kazakhstan, operating the Open edX courseware platform at open.kaznu.kz."
+}

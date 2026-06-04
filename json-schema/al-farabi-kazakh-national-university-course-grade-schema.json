@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open.kaznu.kz/schemas/course-grade.json",
+  "title": "CourseGrade",
+  "required": [
+    "letter_grade",
+    "percent",
+    "is_passing"
+  ],
+  "type": "object",
+  "properties": {
+    "letter_grade": {
+      "title": "Letter grade",
+      "type": "string",
+      "minLength": 1
+    },
+    "percent": {
+      "title": "Percent",
+      "type": "number"
+    },
+    "is_passing": {
+      "title": "Is passing",
+      "type": "boolean"
+    }
+  }
+}

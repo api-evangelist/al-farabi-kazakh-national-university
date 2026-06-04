@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "CourseEnrollmentsApiList",
+  "type": "object",
+  "properties": {
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "user": {
+      "type": "string"
+    },
+    "course_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "course_id"
+  ]
+}

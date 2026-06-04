@@ -1,0 +1,51 @@
+vocabulary:
+  name: Al-Farabi Kazakh National University Open edX API Vocabulary
+  description: >-
+    Controlled vocabulary for the terms observed in the Open edX API served at
+    open.kaznu.kz (Open courseware / MOOC platform of Al-Farabi Kazakh National
+    University). Terms are derived directly from the published Swagger 2.0
+    description and its object definitions.
+  version: v1
+  terms:
+    - term: Course
+      definition: >-
+        A unit of learning content with metadata such as org, number, name,
+        start/end dates, pacing, effort, and media.
+      tags: [courses, content]
+    - term: CourseDetail
+      definition: Detailed representation of a course including overview and media collection.
+      tags: [courses, content]
+    - term: Bookmark
+      definition: >-
+        A learner's saved reference to an XBlock, identified by course_id and
+        usage_id.
+      tags: [bookmarks, learner]
+    - term: CourseEnrollmentsApiList
+      definition: An enrollment record linking a user to a course with a mode and active flag.
+      tags: [enrollment, learner]
+    - term: CourseGrade
+      definition: A learner's grade for a course expressed as percent, letter grade, and passing flag.
+      tags: [grades, learner]
+    - term: GradingPolicy
+      definition: The configuration describing how assignment types contribute to a course grade.
+      tags: [grades, courses]
+    - term: mode
+      definition: The enrollment mode of a course (for example audit, verified, honor).
+      tags: [enrollment, commerce]
+    - term: course_id
+      definition: >-
+        Opaque string identifier of a course, typically in the form
+        course-v1:Org+Course+Run.
+      tags: [identifier, courses]
+    - term: usage_id
+      definition: Identifier string for a specific XBlock within a course.
+      tags: [identifier, content]
+    - term: org
+      definition: The organization (institution) short code that owns the course.
+      tags: [organizations, courses]
+    - term: Certificate
+      definition: A credential awarded to a learner upon course completion.
+      tags: [certificates, learner]
+    - term: Cohort
+      definition: A grouping of learners within a course for content and discussion management.
+      tags: [cohorts, course_experience]

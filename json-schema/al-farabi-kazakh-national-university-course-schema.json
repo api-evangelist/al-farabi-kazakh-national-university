@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open.kaznu.kz/schemas/course.json",
+  "title": "Course",
+  "required": [
+    "effort",
+    "end",
+    "enrollment_start",
+    "enrollment_end",
+    "id",
+    "media",
+    "name",
+    "number",
+    "org",
+    "short_description",
+    "start",
+    "start_display",
+    "start_type",
+    "pacing",
+    "mobile_available",
+    "invitation_only"
+  ],
+  "type": "object",
+  "properties": {
+    "blocks_url": {
+      "title": "Blocks url",
+      "type": "string",
+      "readOnly": true
+    },
+    "effort": {
+      "title": "Effort",
+      "type": "string",
+      "minLength": 1
+    },
+    "end": {
+      "title": "End",
+      "type": "string",
+      "format": "date-time"
+    },
+    "enrollment_start": {
+      "title": "Enrollment start",
+      "type": "string",
+      "format": "date-time"
+    },
+    "enrollment_end": {
+      "title": "Enrollment end",
+      "type": "string",
+      "format": "date-time"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string",
+      "minLength": 1
+    },
+    "media": {
+      "required": [
+        "banner_image",
+        "course_image",
+        "course_video",
+        "image"
+      ],
+      "type": "object",
+      "properties": {
+        "banner_image": {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "title": "Uri",
+              "type": "string",
+              "readOnly": true
+            },
+            "uri_absolute": {
+              "title": "Uri absolute",
+              "type": "string",
+              "readOnly": true
+            }
+          }
+        },
+        "course_image": {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "title": "Uri",
+              "type": "string",
+              "readOnly": true
+            }
+          }
+        },
+        "course_video": {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "title": "Uri",
+              "type": "string",
+              "readOnly": true
+            }
+          }
+        },
+        "image": {
+          "required": [
+            "raw",
+            "small",
+            "large"
+          ],
+          "type": "object",
+          "properties": {
+            "raw": {
+              "title": "Raw",
+              "type": "string",
+              "format": "uri",
+              "minLength": 1
+            },
+            "small": {
+              "title": "Small",
+              "type": "string",
+              "format": "uri",
+              "minLength": 1
+            },
+            "large": {
+              "title": "Large",
+              "type": "string",
+              "format": "uri",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "minLength": 1
+    },
+    "number": {
+      "title": "Number",
+      "type": "string",
+      "minLength": 1
+    },
+    "org": {
+      "title": "Org",
+      "type": "string",
+      "minLength": 1
+    },
+    "short_description": {
+      "title": "Short description",
+      "type": "string",
+      "minLength": 1
+    },
+    "start": {
+      "title": "Start",
+      "type": "string",
+      "format": "date-time"
+    },
+    "start_display": {
+      "title": "Start display",
+      "type": "string",
+      "minLength": 1
+    },
+    "start_type": {
+      "title": "Start type",
+      "type": "string",
+      "minLength": 1
+    },
+    "pacing": {
+      "title": "Pacing",
+      "type": "string",
+      "minLength": 1
+    },
+    "mobile_available": {
+      "title": "Mobile available",
+      "type": "boolean"
+    },
+    "hidden": {
+      "title": "Hidden",
+      "type": "string",
+      "readOnly": true
+    },
+    "invitation_only": {
+      "title": "Invitation only",
+      "type": "boolean"
+    },
+    "course_id": {
+      "title": "Course id",
+      "type": "string",
+      "readOnly": true,
+      "minLength": 1
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/enrollment/v1/enrollment",
+    "body": {
+      "course_id": "course-v1:KazNU+CS101+2026",
+      "mode": "audit"
+    }
+  },
+  "response": {
+    "created": "2026-01-15T00:00:00Z",
+    "mode": "string",
+    "is_active": false,
+    "user": "string",
+    "course_id": "string"
+  }
+}

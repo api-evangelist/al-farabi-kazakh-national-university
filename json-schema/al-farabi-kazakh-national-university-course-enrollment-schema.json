@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open.kaznu.kz/schemas/course-enrollment.json",
+  "title": "CourseEnrollmentsApiList",
+  "required": [
+    "course_id"
+  ],
+  "type": "object",
+  "properties": {
+    "created": {
+      "title": "Created",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true,
+      "x-nullable": true
+    },
+    "mode": {
+      "title": "Mode",
+      "type": "string",
+      "maxLength": 100,
+      "minLength": 1
+    },
+    "is_active": {
+      "title": "Is active",
+      "type": "boolean"
+    },
+    "user": {
+      "title": "User",
+      "type": "string",
+      "readOnly": true
+    },
+    "course_id": {
+      "title": "Course id",
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

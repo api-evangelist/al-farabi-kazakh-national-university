@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/bookmarks/v1/bookmarks/"
+  },
+  "response": {
+    "id": "string",
+    "course_id": "string",
+    "usage_id": "string",
+    "block_type": "string",
+    "created": "2026-01-15T00:00:00Z"
+  }
+}

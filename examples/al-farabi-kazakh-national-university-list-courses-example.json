@@ -1,0 +1,52 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/courses/v1/courses/"
+  },
+  "response": {
+    "pagination": {
+      "count": 1,
+      "next": null,
+      "previous": null
+    },
+    "results": [
+      {
+        "blocks_url": "string",
+        "effort": "string",
+        "end": "2026-01-15T00:00:00Z",
+        "enrollment_start": "2026-01-15T00:00:00Z",
+        "enrollment_end": "2026-01-15T00:00:00Z",
+        "id": "string",
+        "media": {
+          "banner_image": {
+            "uri": "string",
+            "uri_absolute": "string"
+          },
+          "course_image": {
+            "uri": "string"
+          },
+          "course_video": {
+            "uri": "string"
+          },
+          "image": {
+            "raw": "https://open.kaznu.kz/",
+            "small": "https://open.kaznu.kz/",
+            "large": "https://open.kaznu.kz/"
+          }
+        },
+        "name": "string",
+        "number": "string",
+        "org": "string",
+        "short_description": "string",
+        "start": "2026-01-15T00:00:00Z",
+        "start_display": "string",
+        "start_type": "string",
+        "pacing": "string",
+        "mobile_available": false,
+        "hidden": "string",
+        "invitation_only": false,
+        "course_id": "string"
+      }
+    ]
+  }
+}

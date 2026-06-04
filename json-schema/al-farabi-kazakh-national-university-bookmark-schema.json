@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open.kaznu.kz/schemas/bookmark.json",
+  "title": "Bookmark",
+  "required": [
+    "course_id",
+    "usage_id"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "description": "The identifier string for the bookmark: {user_id},{usage_id}.",
+      "type": "string",
+      "readOnly": true
+    },
+    "course_id": {
+      "title": "Course id",
+      "description": "The identifier string of the bookmark's course.",
+      "type": "string"
+    },
+    "usage_id": {
+      "title": "Usage id",
+      "description": "The identifier string of the bookmark's XBlock.",
+      "type": "string"
+    },
+    "block_type": {
+      "title": "Block type",
+      "type": "string",
+      "readOnly": true
+    },
+    "created": {
+      "title": "Создано",
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    }
+  }
+}

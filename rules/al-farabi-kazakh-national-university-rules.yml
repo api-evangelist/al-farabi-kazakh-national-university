@@ -1,0 +1,48 @@
+extends: []
+formats:
+  - oas3
+rules:
+  kaznu-info-contact:
+    description: Open edX API at KazNU should expose a contact email (observed dl@kaznu.kz).
+    given: $.info
+    severity: warn
+    then:
+      field: contact
+      function: truthy
+  kaznu-https-server:
+    description: Servers must use HTTPS as observed for open.kaznu.kz.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https"
+  kaznu-operation-id:
+    description: Every operation should carry an operationId (the Open edX spec provides them).
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: warn
+    then:
+      field: operationId
+      function: truthy
+  kaznu-operation-tags:
+    description: Operations should be tagged by Open edX subsystem (courses, enrollment, grades, etc.).
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: warn
+    then:
+      field: tags
+      function: truthy
+  kaznu-basic-auth-scheme:
+    description: A Basic auth security scheme is expected as observed in the source spec.
+    given: $.components.securitySchemes
+    severity: info
+    then:
+      function: truthy
+  kaznu-course-id-string:
+    description: course_id properties are opaque string identifiers (e.g. course-v1:Org+Course+Run).
+    given: $.components.schemas[*].properties.course_id
+    severity: info
+    then:
+      field: type
+      function: pattern
+      functionOptions:
+        match: "string"

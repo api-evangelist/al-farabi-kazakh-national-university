@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "Course",
+  "type": "object",
+  "properties": {
+    "blocks_url": {
+      "type": "string"
+    },
+    "effort": {
+      "type": "string"
+    },
+    "end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "enrollment_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "enrollment_end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "id": {
+      "type": "string"
+    },
+    "media": {
+      "type": "object",
+      "properties": {
+        "banner_image": {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "type": "string"
+            },
+            "uri_absolute": {
+              "type": "string"
+            }
+          }
+        },
+        "course_image": {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "type": "string"
+            }
+          }
+        },
+        "course_video": {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "type": "string"
+            }
+          }
+        },
+        "image": {
+          "type": "object",
+          "properties": {
+            "raw": {
+              "type": "string",
+              "format": "uri"
+            },
+            "small": {
+              "type": "string",
+              "format": "uri"
+            },
+            "large": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      }
+    },
+    "name": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    },
+    "org": {
+      "type": "string"
+    },
+    "short_description": {
+      "type": "string"
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "start_display": {
+      "type": "string"
+    },
+    "start_type": {
+      "type": "string"
+    },
+    "pacing": {
+      "type": "string"
+    },
+    "mobile_available": {
+      "type": "boolean"
+    },
+    "hidden": {
+      "type": "string"
+    },
+    "invitation_only": {
+      "type": "boolean"
+    },
+    "course_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "effort",
+    "end",
+    "enrollment_start",
+    "enrollment_end",
+    "id",
+    "media",
+    "name",
+    "number",
+    "org",
+    "short_description",
+    "start",
+    "start_display",
+    "start_type",
+    "pacing",
+    "mobile_available",
+    "invitation_only"
+  ]
+}

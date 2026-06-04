@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "CourseGrade",
+  "type": "object",
+  "properties": {
+    "letter_grade": {
+      "type": "string"
+    },
+    "percent": {
+      "type": "number"
+    },
+    "is_passing": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "letter_grade",
+    "percent",
+    "is_passing"
+  ]
+}
