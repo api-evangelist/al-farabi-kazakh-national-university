@@ -1,0 +1,30 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: farabi.university
+  https: true
+  tls_cert_error: '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get
+    local issuer certificate (_ssl.c:1082)'
+  hsts: null
+- host: www.kaznu.kz
+  https: true
+  tls_cert_error: '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has
+    expired (_ssl.c:1082)'
+  hsts: null
+- host: open.kaznu.kz
+  https: true
+  tls_cert_error: '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get
+    local issuer certificate (_ssl.c:1082)'
+  hsts: null
+domains:
+- domain: farabi.university
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
+- domain: kaznu.kz
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false

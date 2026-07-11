@@ -1,0 +1,12 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/al-farabi-kazakh-national-university-open-edx.yaml
+summary:
+  types:
+  - http
+schemes:
+- name: Basic
+  type: http
+  scheme: basic
+  sources:
+  - openapi/al-farabi-kazakh-national-university-open-edx.yaml
