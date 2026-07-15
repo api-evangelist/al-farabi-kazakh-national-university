@@ -61,6 +61,8 @@ apis:
       - MOOC
       - Open edX
 common:
+  - type: AgenticAccess
+    url: agentic-access/al-farabi-kazakh-national-university-agentic-access.yml
   - type: DomainSecurity
     url: security/al-farabi-kazakh-national-university-domain-security.yml
   - type: Authentication
