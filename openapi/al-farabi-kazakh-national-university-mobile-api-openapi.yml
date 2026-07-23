@@ -1,0 +1,422 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements mobile API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: mobile
+paths:
+  /mobile/{api_version}/course_info/blocks/:
+    get:
+      operationId: mobile_course_info_blocks_list
+      summary: '**Use Case**'
+      description: "This API endpoint is specifically optimized for the course homepage on Mobile Apps.\n    The endpoint returns the blocks in the course according to the requesting user's access level.\n    Additionally, response encompasses info fields with information about the course,\n    including certificate URL, media dictionary with course image URLs, start and end dates for the course.\n\n**Example requests**:\n\n    This api works with all versions {api_version}, you can use: v0.5, v1, v2 or v3\n\n    GET /api/mobile/{api_version}/course_info/blocks/?course_id=<course_id>\n    GET /api/mobile/{api_version}/course_info/blocks/?course_id=<course_id>\n        &username=anjali\n        &depth=all\n        &requested_fields=graded,format,student_view_multi_device,lti_url\n        &block_counts=video\n        &student_view_data=video\n        &block_types_filter=problem,html\n\n**Parameters:**\n\n        username (str): The username of the specified user for whom the course data\n            is being accessed.\n        depth (integer, str, None): Optional number of blocks you receive in response\n            course nesting depth, you can get only sections, sections and subsections,\n            or provide string 'all' to receive all blocks of the course.\n        requested_field (list): Optional list of names of additional fields to return for each block.\n            Supported fields can be found in transformers.SUPPORTED_FIELDS.\n        block_counts (list): Optional list of names of block types for which an aggregated count\n            of blocks is returned.\n        student_view_data (list): Optional list of names of block types for\n            which student_view_data is returned.\n        block_types_filter (list): Filter by block types:\n            'video', 'discussion', 'html', 'chapter', 'sequential', 'vertical'.\n        return_type (list, dict): Optional list or dictionary of block's fields based on 'return_type'.\n\n**Response example**\n\n    Body consists of the following fields, you received this response if you use\n    'return_type=dict' in query params:\n\n    root: (str) The ID of the root node of the requested course block structure.        blocks: (dict) A dictionary or list, based on the value of the\n        \"return_type\" parameter. Maps block usage IDs to a collection of\n        information about each block. Each block contains the following\n        fields.\n\n    id: (str) The Course's id (Course Run key)\n    name: (str) The course's name\n    number: (str) The course's number\n    org: (str) The course's organisation\n    start: (str) Date the course begins, in ISO 8601 notation\n    start_display: (str) Readably formatted start of the course\n    start_type: (str) Hint describing how `start_display` is set. One of:\n        * `\"string\"`: manually set by the course author\n        * `\"timestamp\"`: generated from the `start` timestamp\n        * `\"empty\"`: no start date is specified\n    end: (str) Date the course ends, in ISO 8601 notation\n    media: (dict) An object that contains named media items. Included here:\n        * course_image: An image to show for the course.  Represented\n          as an object with the following fields:\n            * uri: The location of the image\n    certificate: (dict) Information about the user's earned certificate in the course.\n        Included here:\n            * uri: The location of the user's certificate\n    is_self_paced: (bool) Indicates if the course is self paced\n\n    Body consists of the following fields, you received this response if you use\n    'return_type=list' in query params:\n\n    id: (str) The Course's id (Course Run key)\n    block_id: (str) The unique identifier for the block_id\n    lms_web_url: (str) The URL to the navigational container of the xBlock on the web.\n    legacy_web_url: (str) Like `lms_web_url`, but always directs to\n        the \"Legacy\" frontend experience.\n    student_view_url: (str) The URL to retrieve the HTML rendering\n        of this block's student view\n    type: (str): The type of block. Possible values the names of any\n        XBlock type in the system, including custom blocks. Examples are\n        course, chapter, sequential, vertical, html, problem, video, and\n        discussion.\n    display_name: (str) The display name of the block.\n    course_progress: (dict) Contains information about how many assignments are in the course\n        and how many assignments the student has completed.\n        Included here:\n            * total_assignments_count: (int) Total course's assignments count.\n            * assignments_completed: (int) Assignments witch the student has completed.\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 400 if an invalid parameter was sent or the username was not provided\n    * 401 unauthorized, the provided access token has expired and is no longer valid\n      for an authenticated request.\n    * 403 if a user who does not have permission to masquerade as\n      another user specifies a username other than their own.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /mobile/{api_version}/course_info/record_user_activity:
+    post:
+      operationId: mobile_course_info_record_user_activity_create
+      summary: Handle the POST request
+      description: Populate the user activity table.
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /mobile/{api_version}/course_info/{course_id}/enrollment_details:
+    get:
+      operationId: mobile_course_info_enrollment_details_list
+      summary: Handle the GET request
+      description: Returns user enrollment and course details.
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /mobile/{api_version}/course_info/{course_id}/handouts:
+    get:
+      operationId: mobile_course_info_handouts_list
+      summary: '**Use Case**'
+      description: "Get the HTML for course handouts.\n\n**Example Request**\n\n    GET /api/mobile/v0.5/course_info/{course_id}/handouts\n\n**Response Values**\n\n    If the request is successful, the request returns an HTTP 200 \"OK\"\n    response along with the following value.\n\n    * handouts_html: The HTML for course handouts."
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /mobile/{api_version}/course_info/{course_id}/updates:
+    get:
+      operationId: mobile_course_info_updates_list
+      summary: '**Use Case**'
+      description: "Get the content for course updates.\n\n**Example Request**\n\n    GET /api/mobile/v0.5/course_info/{course_id}/updates\n\n**Response Values**\n\n    If the request is successful, the request returns an HTTP 200 \"OK\"\n    response along with an array of course updates. Each course update\n    contains the following values.\n\n        * content: The content, as an HTML string, of the course update.\n        * date: The date of the course update.\n        * id: The unique identifier of the update.\n        * status: Whether the update is visible or not."
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /mobile/{api_version}/my_user_info:
+    get:
+      operationId: mobile_my_user_info_list
+      description: Redirect to the currently-logged-in user's info page
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /mobile/{api_version}/notifications/create-token/:
+    post:
+      operationId: mobile_notifications_create-token_create
+      summary: "**Use Case**\n    This endpoint allows clients to register a device for push notifications."
+      description: "If the device is already registered, the existing registration will be updated.\n    If setting PUSH_NOTIFICATIONS_SETTINGS is not configured, the endpoint will return a 501 error.\n\n**Example Request**\n    POST /api/mobile/{version}/notifications/create-token/\n    **POST Parameters**\n      The body of the POST request can include the following parameters.\n      * name (optional) - A name of the device.\n      * registration_id (required) - The device token of the device.\n      * device_id (optional) - ANDROID_ID / TelephonyManager.getDeviceId() (always as hex)\n      * active (optional) - Whether the device is active, default is True.\n        If False, the device will not receive notifications.\n      * cloud_message_type (required) - You should choose FCM or GCM. Currently, only FCM is supported.\n      * application_id (optional) - Opaque application identity, should be filled in for multiple\n        key/certificate access. Should be equal settings.FCM_APP_NAME.\n**Example Response**\n    ```json\n    {\n        \"id\": 1,\n        \"name\": \"My Device\",\n        \"registration_id\": \"fj3j4\",\n        \"device_id\": 1234,\n        \"active\": true,\n        \"date_created\": \"2024-04-18T07:39:37.132787Z\",\n        \"cloud_message_type\": \"FCM\",\n        \"application_id\": \"my_app_id\"\n    }\n    ```"
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GCMDevice'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCMDevice'
+  /mobile/{api_version}/users/{username}:
+    get:
+      operationId: mobile_users_read
+      summary: '**Use Case**'
+      description: "Get information about the specified user and access other resources\n    the user has permissions for.\n\n    Users are redirected to this endpoint after they sign in.\n\n    You can use the **course_enrollments** value in the response to get a\n    list of courses the user is enrolled in.\n\n**Example Request**\n\n    GET /api/mobile/{version}/users/{username}\n\n**Response Values**\n\n    If the request is successful, the request returns an HTTP 200 \"OK\" response.\n\n    The HTTP 200 response has the following values.\n\n    * course_enrollments: The URI to list the courses the currently signed\n      in user is enrolled in.\n    * email: The email address of the currently signed in user.\n    * id: The ID of the user.\n    * name: The full name of the currently signed in user.\n    * username: The username of the currently signed in user."
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: path
+        required: true
+        description: Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.
+        schema:
+          type: string
+          pattern: ^[\w.@+-]+$
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mobile_api.User'
+  /mobile/{api_version}/users/{username}/course_enrollments/:
+    get:
+      operationId: mobile_users_course_enrollments_list
+      summary: '**Use Case**'
+      description: "Get information about the courses that the currently signed in user is\n    enrolled in.\n\n    v1 differs from v0.5 version by returning ALL enrollments for\n    a user rather than only the enrollments the user has access to (that haven't expired).\n    An additional attribute \"expiration\" has been added to the response, which lists the date\n    when access to the course will expire or null if it doesn't expire.\n\n    In v4 we added to the response primary object. Primary object contains the latest user's enrollment\n    or course where user has the latest progress. Primary object has been cut from user's\n    enrolments array and inserted into separated section with key `primary`.\n\n**Example Request**\n\n    GET /api/mobile/v1/users/{username}/course_enrollments/\n\n**Response Values**\n\n    If the request for information about the user is successful, the\n    request returns an HTTP 200 \"OK\" response.\n\n    The HTTP 200 response has the following values.\n\n    * expiration: The course expiration date for given user course pair\n      or null if the course does not expire.\n    * certificate: Information about the user's earned certificate in the\n      course.\n    * course: A collection of the following data about the course.\n\n    * courseware_access: A JSON representation with access information for the course,\n      including any access errors.\n\n      * course_about: The URL to the course about page.\n      * course_sharing_utm_parameters: Encoded UTM parameters to be included in course sharing url\n      * course_handouts: The URI to get data for course handouts.\n      * course_image: The path to the course image.\n      * course_updates: The URI to get data for course updates.\n      * discussion_url: The URI to access data for course discussions if\n        it is enabled, otherwise null.\n      * end: The end date of the course.\n      * id: The unique ID of the course.\n      * name: The name of the course.\n      * number: The course number.\n      * org: The organization that created the course.\n      * start: The date and time when the course starts.\n      * start_display:\n        If start_type is a string, then the advertised_start date for the course.\n        If start_type is a timestamp, then a formatted date for the start of the course.\n        If start_type is empty, then the value is None and it indicates that the course has not yet started.\n      * start_type: One of either \"string\", \"timestamp\", or \"empty\"\n      * subscription_id: A unique \"clean\" (alphanumeric with '_') ID of\n        the course.\n      * video_outline: The URI to get the list of all videos that the user\n        can access in the course.\n\n    * created: The date the course was created.\n    * is_active: Whether the course is currently active. Possible values\n      are true or false.\n    * mode: The type of certificate registration for this course (honor or\n      certified).\n    * url: URL to the downloadable version of the certificate, if exists.\n    * course_progress: Contains information about how many assignments are in the course\n      and how many assignments the student has completed.\n    * total_assignments_count: Total course's assignments count.\n    * assignments_completed: Assignments witch the student has completed."
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CourseEnrollment'
+  /mobile/{api_version}/users/{username}/course_status_info/{course_id}:
+    get:
+      operationId: mobile_users_course_status_info_read
+      description: Get the ID of the module that the specified user last visited in the specified course.
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    patch:
+      operationId: mobile_users_course_status_info_partial_update
+      description: Update the ID of the module that the specified user last visited in the specified course.
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /mobile/{api_version}/users/{username}/enrollments_status/:
+    get:
+      operationId: mobile_users_enrollments_status_list
+      description: Gets user's enrollments status.
+      tags:
+      - mobile
+      parameters:
+      - name: api_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    CourseEnrollment:
+      type: object
+      properties:
+        audit_access_expires:
+          title: Audit access expires
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        mode:
+          title: Mode
+          type: string
+          maxLength: 100
+          minLength: 1
+        is_active:
+          title: Is active
+          type: boolean
+        course:
+          title: Course
+          type: string
+          readOnly: true
+        certificate:
+          title: Certificate
+          type: string
+          readOnly: true
+        course_modes:
+          title: Course modes
+          type: string
+          readOnly: true
+    mobile_api.User:
+      required:
+      - username
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        username:
+          title: Имя пользователя
+          description: Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.
+          type: string
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+          minLength: 1
+        email:
+          title: Адрес электронной почты
+          type: string
+          format: email
+          maxLength: 254
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        course_enrollments:
+          title: Course enrollments
+          type: string
+          readOnly: true
+    GCMDevice:
+      required:
+      - registration_id
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+        name:
+          title: Имя
+          type: string
+          maxLength: 255
+          nullable: true
+        registration_id:
+          title: Registration ID
+          type: string
+          minLength: 1
+        device_id:
+          title: Device id
+          description: 'ANDROID_ID / TelephonyManager.getDeviceId() (e.g: 0x01)'
+          type: integer
+          nullable: true
+        active:
+          title: Is active
+          description: Inactive devices will not be sent notifications
+          type: boolean
+        date_created:
+          title: Creation date
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        cloud_message_type:
+          title: Cloud Message Type
+          description: You should choose FCM, GCM is deprecated
+          type: string
+          enum:
+          - FCM
+          - GCM
+        application_id:
+          title: Application ID
+          description: Opaque application identity, should be filled in for multiple key/certificate access
+          type: string
+          maxLength: 64
+          nullable: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

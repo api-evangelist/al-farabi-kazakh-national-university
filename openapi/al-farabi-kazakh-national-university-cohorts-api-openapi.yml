@@ -1,0 +1,280 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements cohorts API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: cohorts
+paths:
+  /cohorts/v1/courses/{course_key_string}/cohorts/{cohort_id}:
+    get:
+      operationId: cohorts_v1_courses_cohorts_read
+      description: Endpoint to get either one or all cohorts.
+      tags:
+      - cohorts
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cohort_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+    post:
+      operationId: cohorts_v1_courses_cohorts_create
+      description: Endpoint to create a new cohort, must not include cohort_id.
+      tags:
+      - cohorts
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cohort_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+    patch:
+      operationId: cohorts_v1_courses_cohorts_partial_update
+      description: Endpoint to update a cohort name and/or assignment type.
+      tags:
+      - cohorts
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cohort_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+  /cohorts/v1/courses/{course_key_string}/cohorts/{cohort_id}/users/{username}:
+    get:
+      operationId: cohorts_v1_courses_cohorts_users_read
+      description: Lists the users in a specific cohort.
+      tags:
+      - cohorts
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cohort_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CohortUsersAPI'
+    post:
+      operationId: cohorts_v1_courses_cohorts_users_create
+      description: Add given users to the cohort.
+      tags:
+      - cohorts
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cohort_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CohortUsersAPI'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CohortUsersAPI'
+    delete:
+      operationId: cohorts_v1_courses_cohorts_users_delete
+      description: Removes and user from a specific cohort.
+      tags:
+      - cohorts
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cohort_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /cohorts/v1/courses/{course_key_string}/users:
+    post:
+      operationId: cohorts_v1_courses_users_create
+      description: 'View method that accepts an uploaded file (using key "uploaded-file")
+
+        containing cohort assignments for users. This method spawns a celery task
+
+        to do the assignments, and a CSV file with results is provided via data downloads.'
+      tags:
+      - cohorts
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /cohorts/v1/settings/{course_key_string}:
+    get:
+      operationId: cohorts_v1_settings_read
+      description: Endpoint to fetch the course cohort settings.
+      tags:
+      - cohorts
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+    put:
+      operationId: cohorts_v1_settings_update
+      description: Endpoint to set the course cohort settings.
+      tags:
+      - cohorts
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+components:
+  schemas:
+    CohortUsersAPI:
+      required:
+      - username
+      type: object
+      properties:
+        username:
+          title: Имя пользователя
+          description: Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.
+          type: string
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+          minLength: 1
+        email:
+          title: Адрес электронной почты
+          type: string
+          format: email
+          maxLength: 254
+        name:
+          title: Name
+          type: string
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

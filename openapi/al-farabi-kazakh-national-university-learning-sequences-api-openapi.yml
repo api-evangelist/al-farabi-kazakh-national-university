@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements learning_sequences API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: learning_sequences
+paths:
+  /learning_sequences/v1/course_outline/{course_key_str}:
+    get:
+      operationId: learning_sequences_v1_course_outline_read
+      description: The CourseOutline, customized for a given user.
+      tags:
+      - learning_sequences
+      parameters:
+      - name: course_key_str
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

@@ -1,0 +1,345 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements courseware API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: courseware
+paths:
+  /courseware/celebration/{course_key_string}:
+    post:
+      operationId: courseware_celebration_create
+      description: Handle a POST request.
+      tags:
+      - courseware
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /courseware/course/{course_key_string}:
+    get:
+      operationId: courseware_course_read
+      summary: '**Use Cases**'
+      description: "Request details for a course\n\n**Example Requests**\n\n    GET /api/courseware/course/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    * access_expiration: An object detailing when access to this course will expire\n        * expiration_date: (str) When the access expires, in ISO 8601 notation\n        * masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        * upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        * upgrade_url: (str) Upgrade linke (or None if can't upgrade anymore)\n    * celebrations: An object detailing which celebrations to render\n        * first_section: (bool) If the first section celebration should render\n            Note: Also uses information from frontend so this value is not final\n        * streak_length_to_celebrate: (int) The streak length to celebrate for the learner\n        * streak_discount_enabled: (bool) If the frontend should render an upgrade discount for hitting the streak\n        * weekly_goal: (bool) If the weekly goal celebration should render\n    * course_goals:\n        * selected_goal:\n            * days_per_week: (int) The number of days the learner wants to learn per week\n            * subscribed_to_reminders: (bool) Whether the learner wants email reminders about their goal\n        * weekly_learning_goal_enabled: Flag indicating if this feature is enabled for this call\n    * effort: A textual description of the weekly hours of effort expected\n        in the course.\n    * end: Date the course ends, in ISO 8601 notation\n    * enrollment: Enrollment status of authenticated user\n        * mode: `audit`, `verified`, etc\n        * is_active: boolean\n    * enrollment_end: Date enrollment ends, in ISO 8601 notation\n    * enrollment_start: Date enrollment begins, in ISO 8601 notation\n    * entrance_exam_data: An object containing information about the course's entrance exam\n        * entrance_exam_current_score: (float) The users current score on the entrance exam\n        * entrance_exam_enabled: (bool) If the course has an entrance exam\n        * entrance_exam_id: (str) The block id for the entrance exam if enabled. Will be a section (chapter)\n        * entrance_exam_minimum_score_pct: (float) The minimum score a user must receive on the entrance exam\n            to unlock the remainder of the course. Returned as a float (i.e. 0.7 for 70%)\n        * entrance_exam_passed: (bool) Indicates if the entrance exam has been passed\n    * id: A unique identifier of the course; a serialized representation\n        of the opaque key identifying the course.\n    * language: The language code for the course\n    * media: An object that contains named media items.  Included here:\n        * course_image: An image to show for the course.  Represented\n          as an object with the following fields:\n            * uri: The location of the image\n    * name: Name of the course\n    * offer: An object detailing upgrade discount information\n        * code: (str) Checkout code\n        * expiration_date: (str) Expiration of offer, in ISO 8601 notation\n        * original_price: (str) Full upgrade price without checkout code; includes currency symbol\n        * discounted_price: (str) Upgrade price with checkout code; includes currency symbol\n        * percentage: (int) Amount of discount\n        * upgrade_url: (str) Checkout URL\n    * org: Name of the organization that owns the course\n    * related_programs: A list of objects that contains program data related to the given course including:\n        * progress: An object containing program progress:\n            * complete: (int) Number of complete courses in the program (a course is completed if the user has\n                earned a certificate for any of the nested course runs)\n            * in_progress: (int) Number of courses in the program that are in progress (a course is in progress if\n                the user has enrolled in any of the nested course runs)\n            * not_started: (int) Number of courses in the program that have not been started\n        * slug: (str) The program type\n        * title: (str) The title of the program\n        * url: (str) The link to the program's landing page\n        * uuid: (str) A unique identifier of the program\n    * short_description: A textual description of the course\n    * start: Date the course begins, in ISO 8601 notation\n    * start_display: Readably formatted start of the course\n    * start_type: Hint describing how `start_display` is set. One of:\n        * `\"string\"`: manually set by the course author\n        * `\"timestamp\"`: generated from the `start` timestamp\n        * `\"empty\"`: no start date is specified\n    * pacing: Course pacing. Possible values: instructor, self\n    * user_timezone: User's chosen timezone setting (or null for browser default)\n    * user_has_passing_grade: Whether or not the effective user's grade is equal to or above the courses minimum\n        passing grade\n    * course_exit_page_is_active: Flag for the learning mfe on whether or not the course exit page should display\n    * certificate_data: data regarding the effective user's certificate for the given course\n    * verify_identity_url: URL for a learner to verify their identity. Only returned for learners enrolled in a\n        verified mode. Will update to reverify URL if necessary.\n    * linkedin_add_to_profile_url: URL to add the effective user's certificate to a LinkedIn Profile.\n    * user_needs_integrity_signature: Whether the user needs to sign the integrity agreement for the course\n    * learning_assistant_enabled: Whether the Xpert Learning Assistant is enabled for the requesting user\n\n**Parameters:**\n\n    requested_fields (optional) comma separated list:\n        If set, then only those fields will be returned.\n    username (optional) username to masquerade as (if requesting user is staff)\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 400 if an invalid parameter was sent or the username was not provided\n      for an authenticated request.\n    * 403 if a user who does not have permission to masquerade as\n      another user specifies a username other than their own.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - courseware
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseInfo'
+  /courseware/resume/{course_key_string}:
+    get:
+      operationId: courseware_resume_read
+      description: Return response to a GET request.
+      tags:
+      - courseware
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /courseware/sequence/{usage_key_string}:
+    get:
+      operationId: courseware_sequence_read
+      description: Return response to a GET request.
+      tags:
+      - courseware
+      parameters:
+      - name: usage_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    CertificateData:
+      required:
+      - cert_status
+      - cert_web_view_url
+      - download_url
+      - certificate_available_date
+      type: object
+      properties:
+        cert_status:
+          title: Cert status
+          type: string
+          minLength: 1
+        cert_web_view_url:
+          title: Cert web view url
+          type: string
+          minLength: 1
+        download_url:
+          title: Download url
+          type: string
+          minLength: 1
+        certificate_available_date:
+          title: Certificate available date
+          type: string
+          format: date-time
+    CourseGoals:
+      required:
+      - selected_goal
+      type: object
+      properties:
+        selected_goal:
+          title: Selected goal
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        weekly_learning_goal_enabled:
+          title: Weekly learning goal enabled
+          type: boolean
+          default: false
+    CourseInfo:
+      required:
+      - access_expiration
+      - content_type_gating_enabled
+      - course_goals
+      - effort
+      - end
+      - enrollment
+      - enrollment_start
+      - enrollment_end
+      - entrance_exam_data
+      - id
+      - license
+      - language
+      - media
+      - name
+      - offer
+      - related_programs
+      - short_description
+      - start
+      - start_display
+      - start_type
+      - pacing
+      - user_timezone
+      - show_calculator
+      - can_access_proctored_exams
+      - notes
+      - marketing_url
+      - celebrations
+      - user_has_passing_grade
+      - course_exit_page_is_active
+      - certificate_data
+      - verify_identity_url
+      - verification_status
+      - linkedin_add_to_profile_url
+      - is_integrity_signature_enabled
+      - user_needs_integrity_signature
+      - learning_assistant_enabled
+      type: object
+      properties:
+        access_expiration:
+          title: Access expiration
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        content_type_gating_enabled:
+          title: Content type gating enabled
+          type: boolean
+        course_goals:
+          $ref: '#/components/schemas/CourseGoals'
+        effort:
+          title: Effort
+          type: string
+          minLength: 1
+        end:
+          title: End
+          type: string
+          format: date-time
+        enrollment:
+          title: Enrollment
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        enrollment_start:
+          title: Enrollment start
+          type: string
+          format: date-time
+        enrollment_end:
+          title: Enrollment end
+          type: string
+          format: date-time
+        entrance_exam_data:
+          title: Entrance exam data
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        id:
+          title: Id
+          type: string
+          minLength: 1
+        license:
+          title: License
+          type: string
+          minLength: 1
+        language:
+          title: Language
+          type: string
+          minLength: 1
+          nullable: true
+        media:
+          $ref: '#/components/schemas/courseware_api'
+        name:
+          title: Name
+          type: string
+          minLength: 1
+        offer:
+          title: Offer
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        related_programs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseProgram'
+        short_description:
+          title: Short description
+          type: string
+          minLength: 1
+        start:
+          title: Start
+          type: string
+          format: date-time
+        start_display:
+          title: Start display
+          type: string
+          minLength: 1
+        start_type:
+          title: Start type
+          type: string
+          minLength: 1
+        pacing:
+          title: Pacing
+          type: string
+          minLength: 1
+        user_timezone:
+          title: User timezone
+          type: string
+          minLength: 1
+        show_calculator:
+          title: Show calculator
+          type: boolean
+        can_access_proctored_exams:
+          title: Can access proctored exams
+          type: boolean
+        notes:
+          title: Notes
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        marketing_url:
+          title: Marketing url
+          type: string
+          minLength: 1
+        celebrations:
+          title: Celebrations
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        user_has_passing_grade:
+          title: User has passing grade
+          type: boolean
+        course_exit_page_is_active:
+          title: Course exit page is active
+          type: boolean
+        certificate_data:
+          $ref: '#/components/schemas/CertificateData'
+        verify_identity_url:
+          title: Verify identity url
+          type: string
+          format: uri
+          minLength: 1
+        verification_status:
+          title: Verification status
+          type: string
+          minLength: 1
+        linkedin_add_to_profile_url:
+          title: Linkedin add to profile url
+          type: string
+          format: uri
+          minLength: 1
+        is_integrity_signature_enabled:
+          title: Is integrity signature enabled
+          type: boolean
+        user_needs_integrity_signature:
+          title: User needs integrity signature
+          type: boolean
+        learning_assistant_enabled:
+          title: Learning assistant enabled
+          type: boolean
+    courseware_api:
+      type: object
+      properties:
+        uri:
+          title: Uri
+          type: string
+          readOnly: true
+    CourseProgram:
+      required:
+      - slug
+      - title
+      - url
+      - uuid
+      type: object
+      properties:
+        progress:
+          title: Progress
+          type: string
+          readOnly: true
+        slug:
+          title: Slug
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          minLength: 1
+        uuid:
+          title: Uuid
+          type: string
+          format: uuid
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

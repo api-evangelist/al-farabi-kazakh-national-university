@@ -1,0 +1,365 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements val API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: val
+paths:
+  /val/v0/videos/:
+    get:
+      operationId: val_v0_videos_list
+      description: GETs or POST video objects
+      tags:
+      - val
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Video'
+    post:
+      operationId: val_v0_videos_create
+      description: GETs or POST video objects
+      tags:
+      - val
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+  /val/v0/videos/course-transcripts/{course_id}/:
+    get:
+      operationId: val_v0_videos_course-transcripts_read
+      description: Returns all transcript data for a course when given a course_id.
+      tags:
+      - val
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /val/v0/videos/courses/{course_id}/video-ids:
+    get:
+      operationId: val_v0_videos_courses_video-ids_list
+      description: Returns all video_ids for a course when given a course_id.
+      tags:
+      - val
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /val/v0/videos/missing-hls/:
+    post:
+      operationId: val_v0_videos_missing-hls_create
+      summary: 'Retrieve video IDs that are missing HLS profiles. This endpoint supports 2 types of input data:'
+      description: "1. If we want a batch of video ids which are missing HLS profile irrespective of their courses, the request\n   data should be in following format:\n        {\n            'batch_size': 50,\n            'offset': 0\n        }\n   And response will be in following format:\n        {\n            'videos': ['video_id1', 'video_id2', 'video_id3', ... , video_id50],\n            'total': 300,\n            'offset': 50,\n            'batch_size': 50\n        }\n\n2. If we want all the videos which are missing HLS profiles in a set of specific courses, the request data\n   should be in following format:\n        {\n            'courses': [\n                'course_id1',\n                'course_id2',\n                ...\n            ]\n        }\n   And response will be in following format:\n        {\n            'videos': ['video_id1', 'video_id2', 'video_id3', ...]\n        }"
+      tags:
+      - val
+      responses:
+        '201':
+          description: ''
+    put:
+      operationId: val_v0_videos_missing-hls_update
+      summary: Update a single profile for a given video.
+      description: "Example request data:\n    ```\n    {\n        'edx_video_id': '1234'\n        'profile': 'hls',\n        'encode_data': {\n            'url': 'foo.com/qwe.m3u8'\n            'file_size': 34\n            'bitrate': 12\n        }\n    }\n    ```"
+      tags:
+      - val
+      responses:
+        '200':
+          description: ''
+  /val/v0/videos/status/:
+    patch:
+      operationId: val_v0_videos_status_partial_update
+      description: Update the status of a video.
+      tags:
+      - val
+      responses:
+        '200':
+          description: ''
+  /val/v0/videos/video-images/update/:
+    post:
+      operationId: val_v0_videos_video-images_update_create
+      description: Update a course video image instance with auto generated image names.
+      tags:
+      - val
+      responses:
+        '201':
+          description: ''
+  /val/v0/videos/video-transcripts/:
+    post:
+      operationId: val_v0_videos_video-transcripts_create
+      description: Creates a video transcript instance with the given information.
+      tags:
+      - val
+      responses:
+        '201':
+          description: ''
+    patch:
+      operationId: val_v0_videos_video-transcripts_partial_update
+      description: Partially update a video transcript, only supporting updating the `provider` field.
+      tags:
+      - val
+      responses:
+        '200':
+          description: ''
+    delete:
+      operationId: val_v0_videos_video-transcripts_delete
+      description: Delete a video transcript instance with the given information.
+      tags:
+      - val
+      responses:
+        '204':
+          description: ''
+  /val/v0/videos/video-transcripts/create/:
+    post:
+      operationId: val_v0_videos_video-transcripts_create_create
+      description: Creates a video transcript instance with the given information.
+      tags:
+      - val
+      responses:
+        '201':
+          description: ''
+    patch:
+      operationId: val_v0_videos_video-transcripts_create_partial_update
+      description: Partially update a video transcript, only supporting updating the `provider` field.
+      tags:
+      - val
+      responses:
+        '200':
+          description: ''
+    delete:
+      operationId: val_v0_videos_video-transcripts_create_delete
+      description: Delete a video transcript instance with the given information.
+      tags:
+      - val
+      responses:
+        '204':
+          description: ''
+  /val/v0/videos/{edx_video_id}:
+    get:
+      operationId: val_v0_videos_read
+      description: Gets a video instance given its edx_video_id
+      tags:
+      - val
+      parameters:
+      - name: edx_video_id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-_]*$
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+    put:
+      operationId: val_v0_videos_update
+      description: Gets a video instance given its edx_video_id
+      tags:
+      - val
+      parameters:
+      - name: edx_video_id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-_]*$
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+    patch:
+      operationId: val_v0_videos_partial_update
+      description: Gets a video instance given its edx_video_id
+      tags:
+      - val
+      parameters:
+      - name: edx_video_id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-_]*$
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Video'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Video'
+    delete:
+      operationId: val_v0_videos_delete
+      description: Gets a video instance given its edx_video_id
+      tags:
+      - val
+      parameters:
+      - name: edx_video_id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9\-_]*$
+      responses:
+        '204':
+          description: ''
+components:
+  schemas:
+    Video:
+      required:
+      - encoded_videos
+      - edx_video_id
+      - duration
+      - status
+      type: object
+      properties:
+        encoded_videos:
+          type: array
+          items:
+            $ref: '#/components/schemas/EncodedVideo'
+        courses:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        url:
+          title: Url
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type: string
+          format: date-time
+        edx_video_id:
+          title: Edx video id
+          type: string
+          pattern: ^[a-zA-Z0-9\-_]*$
+          maxLength: 100
+          minLength: 1
+        client_video_id:
+          title: Client video id
+          type: string
+          maxLength: 255
+        duration:
+          title: Duration
+          type: number
+          minimum: 0
+        status:
+          title: Status
+          type: string
+          maxLength: 255
+          minLength: 1
+        error_description:
+          title: Error Description
+          type: string
+          nullable: true
+    EncodedVideo:
+      required:
+      - url
+      - file_size
+      - bitrate
+      - profile
+      type: object
+      properties:
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        url:
+          title: Url
+          type: string
+          maxLength: 200
+          minLength: 1
+        file_size:
+          title: File size
+          type: integer
+          minimum: 0
+        bitrate:
+          title: Bitrate
+          type: integer
+          minimum: 0
+        profile:
+          title: Profile
+          type: string
+          pattern: ^[a-zA-Z0-9\-_]*$
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

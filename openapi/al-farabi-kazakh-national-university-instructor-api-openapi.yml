@@ -1,0 +1,278 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements instructor API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: instructor
+paths:
+  /instructor/v1/reports/{course_id}:
+    get:
+      operationId: instructor_v1_reports_read
+      summary: List report CSV files that are available for download for this course.
+      description: "**Use Cases**\n\nLists reports available for download\n\n**Example Requests**:\n\n    GET /api/instructor/v1/reports/{course_id}\n\n**Response Values**\n```json\n{\n    \"downloads\": [\n        {\n            \"url\": \"https://1.mock.url\",\n            \"link\": \"<a href=\"https://1.mock.url\">mock_file_name_1</a>\",\n            \"name\": \"mock_file_name_1\"\n        }\n    ]\n}\n```\n\nThe report name will depend on the type of report generated. For example a\nproblem responses report for an entire course might be called:\n\n    edX_DemoX_Demo_Course_student_state_from_block-v1_edX+DemoX+Demo_Course+type@course+block@course_2021-04-30-0918.csv"
+      tags:
+      - instructor
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        description: ID for the course whose reports need to be listed.
+        schema:
+          type: string
+      - name: report_name
+        in: query
+        required: false
+        description: Filter results to only return details of for the report with the specified name.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportDownloadsList'
+        '401':
+          description: The requesting user is not authenticated.
+        '403':
+          description: The requesting user lacks access to the course.
+        '404':
+          description: The requested course does not exist.
+  /instructor/v1/reports/{course_id}/generate/problem_responses:
+    post:
+      operationId: instructor_v1_reports_generate_problem_responses_create
+      summary: Initiate generation of a CSV file containing all student answers
+      description: "to a given problem.\n\n**Example requests**\n\n    POST /api/instructor/v1/reports/{course_id}/generate/problem_responses {\n        \"problem_locations\": [\n            \"{usage_key1}\",\n            \"{usage_key2}\",\n            \"{usage_key3}\"\n        ]\n    }\n    POST /api/instructor/v1/reports/{course_id}/generate/problem_responses {\n        \"problem_locations\": [\"{usage_key}\"],\n        \"problem_types_filter\": [\"problem\"]\n    }\n\n**POST Parameters**\n\nA POST request can include the following parameters:\n\n* problem_location: A list of usage keys for the blocks to include in\n  the report. If the location is a block that contains other blocks,\n  (such as the course, section, subsection, or unit blocks) then all\n  blocks under that block will be included in the report.\n* problem_types_filter: Optional. A comma-separated list of block types\n  to include in the report. If set, only blocks of the specified types\n  will be included in the report.\n\nTo get data on all the poll and survey blocks in a course, you could\nPOST the usage key of the course for `problem_location`, and\n\"poll, survey\" as the value for `problem_types_filter`.\n\n\n**Example Response:**\nIf initiation is successful (or generation task is already running):\n```json\n{\n    \"status\": \"The problem responses report is being created. ...\",\n    \"task_id\": \"4e49522f-31d9-431a-9cff-dd2a2bf4c85a\"\n}\n```\n\nResponds with BadRequest if any of the provided problem locations are faulty."
+      tags:
+      - instructor
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        description: ID of the course for which report is to be generate.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProblemResponseReportPostParams'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemResponsesReportStatus'
+        '400':
+          description: The provided parameters were invalid. Make sure you've provided at least one valid usage key for `problem_locations`.
+        '401':
+          description: The requesting user is not authenticated.
+        '403':
+          description: The requesting user lacks access to the course.
+  /instructor/v1/tasks/{course_id}:
+    get:
+      operationId: instructor_v1_tasks_read
+      summary: List instructor tasks filtered by `course_id`.
+      description: "**Use Cases**\n\nLists currently running instructor tasks\n\n**Parameters**\n   - With no arguments, lists running tasks.\n   - `problem_location_str` lists task history for problem\n   - `problem_location_str` and `unique_student_identifier` lists task\n       history for problem AND student (intersection)\n\n**Example Requests**:\n\n    GET /courses/{course_id}/instructor/api/v0/tasks\n\n**Response Values**\n```json\n    {\n      \"tasks\": [\n        {\n          \"status\": \"Incomplete\",\n          \"task_type\": \"grade_problems\",\n          \"task_id\": \"2519ff31-22d9-4a62-91e2-55495895b355\",\n          \"created\": \"2019-01-15T18:00:15.902470+00:00\",\n          \"task_input\": \"{}\",\n          \"duration_sec\": \"unknown\",\n          \"task_message\": \"No status information available\",\n          \"requester\": \"staff\",\n          \"task_state\": \"PROGRESS\"\n        }\n      ]\n    }\n```"
+      tags:
+      - instructor
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        description: ID for the course whose tasks need to be listed.
+        schema:
+          type: string
+      - name: problem_location_str
+        in: query
+        required: false
+        description: Filter instructor tasks to this problem location.
+        schema:
+          type: string
+      - name: unique_student_identifier
+        in: query
+        required: false
+        description: Filter tasks to a singe problem and a single student. Must be used in combination with `problem_location_str`.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InstructorTasksList'
+        '401':
+          description: The requesting user is not authenticated.
+        '403':
+          description: The requesting user lacks access to the course.
+        '404':
+          description: The requested course does not exist.
+components:
+  schemas:
+    ReportDownloadsList:
+      required:
+      - downloads
+      type: object
+      properties:
+        downloads:
+          description: List of report downloads
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportDownload'
+    ReportDownload:
+      description: Report Download
+      required:
+      - url
+      - name
+      - link
+      type: object
+      properties:
+        url:
+          title: Url
+          description: URL from which report can be downloaded.
+          type: string
+          format: uri
+          minLength: 1
+        name:
+          title: Name
+          description: Name of report.
+          type: string
+          minLength: 1
+        link:
+          title: Link
+          description: HTML anchor tag that contains the name and link.
+          type: string
+          minLength: 1
+    InstructorTasksList:
+      required:
+      - tasks
+      type: object
+      properties:
+        tasks:
+          description: List of instructor tasks.
+          type: array
+          items:
+            $ref: '#/components/schemas/InstructorTask'
+    ProblemResponseReportPostParams:
+      required:
+      - problem_locations
+      type: object
+      properties:
+        problem_locations:
+          description: 'A list of usage keys for the blocks to include in the report. '
+          type: array
+          items:
+            description: A usage key location for a section or a problem. If the location is a block that contains other blocks, (such as the course, section, subsection, or unit blocks) then all blocks under that block will be included in the report.
+            type: string
+            minLength: 1
+        problem_types_filter:
+          description: 'A list of problem/block types to generate the report for. This field can be omitted if the report should include details of allblock types. '
+          type: array
+          items:
+            type: string
+            minLength: 1
+    InstructorTask:
+      required:
+      - status
+      - task_type
+      - task_id
+      - created
+      - task_input
+      - requester
+      - task_state
+      - duration_sec
+      - task_message
+      type: object
+      properties:
+        status:
+          title: Status
+          description: Current status of task.
+          type: string
+          minLength: 1
+        task_type:
+          title: Task type
+          description: Identifies the kind of task being performed, e.g. rescoring.
+          type: string
+          minLength: 1
+        task_id:
+          title: Task id
+          description: The celery ID for the task.
+          type: string
+          minLength: 1
+        created:
+          title: Created
+          description: The date and time when the task was created.
+          type: string
+          format: date-time
+        task_input:
+          title: Task input
+          description: The input parameters for the task. The format and content of this data will depend on the kind of task being performed. For instanceit may contain the problem locations for a problem resources task.
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        requester:
+          title: Requester
+          description: The username of the user who initiated this task.
+          type: string
+          minLength: 1
+        task_state:
+          title: Task state
+          description: The last knows state of the celery task.
+          type: string
+          minLength: 1
+        duration_sec:
+          title: Duration sec
+          description: Task duration information, if known
+          type: string
+          minLength: 1
+        task_message:
+          title: Task message
+          description: User-friendly task status information, if available.
+          type: string
+          minLength: 1
+    ProblemResponsesReportStatus:
+      required:
+      - status
+      - task_id
+      type: object
+      properties:
+        status:
+          title: Status
+          description: User-friendly text describing current status of report generation.
+          type: string
+          minLength: 1
+        task_id:
+          title: Task id
+          description: A unique id for the report generation task. It can be used to query the latest report generation status.
+          type: string
+          format: uuid
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

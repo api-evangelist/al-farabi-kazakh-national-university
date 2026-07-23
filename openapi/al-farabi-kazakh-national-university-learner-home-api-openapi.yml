@@ -1,0 +1,69 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements learner_home API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: learner_home
+paths:
+  /learner_home/init/:
+    get:
+      operationId: learner_home_init_list
+      description: Get masquerade user and proxy to init request
+      tags:
+      - learner_home
+      responses:
+        '200':
+          description: ''
+  /learner_home/mock/init/:
+    get:
+      operationId: learner_home_mock_init_read
+      description: Returns static JSON authored in MOCK_DATA_FILE
+      tags:
+      - learner_home
+      responses:
+        '200':
+          description: ''
+  /learner_home/v1/programs/{enterprise_uuid}/:
+    get:
+      operationId: learner_home_v1_programs_read
+      summary: For an enterprise learner, get list of enrolled programs with progress.
+      description: "**Example Request**\n\n    GET /api/dashboard/v1/programs/{enterprise_uuid}/\n\n**Parameters**\n\n* `enterprise_uuid`: UUID of an enterprise customer.\n\n**Example Response**\n\n    [\n        {\n            \"uuid\": \"ff41a5eb-2a73-4933-8e80-a1c66068ed2c\",\n            \"title\": \"Demonstration Program\",\n            \"type\": \"MicroMasters\",\n            \"banner_image\": {\n                \"large\": {\n                    \"url\": \"http://example.com/images/foo.large.jpg\",\n                    \"width\": 1440,\n                    \"height\": 480\n                },\n                \"medium\": {\n                    \"url\": \"http://example.com/images/foo.medium.jpg\",\n                    \"width\": 726,\n                    \"height\": 242\n                },\n                \"small\": {\n                    \"url\": \"http://example.com/images/foo.small.jpg\",\n                    \"width\": 435,\n                    \"height\": 145\n                },\n                \"x-small\": {\n                    \"url\": \"http://example.com/images/foo.x-small.jpg\",\n                    \"width\": 348,\n                    \"height\": 116\n                }\n            },\n            \"authoring_organizations\": [\n                {\n                    \"key\": \"example\"\n                }\n            ],\n            \"progress\": {\n                \"uuid\": \"ff41a5eb-2a73-4933-8e80-a1c66068ed2c\",\n                \"completed\": 0,\n                \"in_progress\": 0,\n                \"not_started\": 2\n            }\n        }\n    ]"
+      tags:
+      - learner_home
+      parameters:
+      - name: enterprise_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /learner_home/v1/programs/{program_uuid}/progress_details/:
+    get:
+      operationId: learner_home_v1_programs_progress_details_list
+      summary: Retrieves progress details of a learner in a specified program.
+      description: "**Example Request**\n\n    GET api/dashboard/v1/programs/{program_uuid}/progress_details/\n\n**Parameters**\n\n* `program_uuid`: A string representation of the uuid of the program.\n\n**Response Values**\n\nIf the request for information about the program is successful, an HTTP 200 \"OK\" response\nis returned.\n\nThe HTTP 200 response has the following values.\n\n* `urls`: Urls to enroll/purchase a course or view program record.\n\n* `program_data`: Holds meta information about the program.\n\n* `course_data`: Learner's progress details for all courses in the program (in-progress/remaining/completed).\n\n* `certificate_data`: Details about learner's certificates status for all courses in the program and the\n    program itself.\n\n* `industry_pathways`: Industry pathways for the program, comes under additional credit opportunities.\n\n* `credit_pathways`: Credit pathways for the program, comes under additional credit opportunities.\n\n**Example Response**\n\n    {\n        \"urls\": {\n            \"program_listing_url\": \"/dashboard/programs/\",\n            \"track_selection_url\": \"/course_modes/choose/\",\n            \"commerce_api_url\": \"/api/commerce/v1/baskets/\",\n            \"buy_button_url\": \"http://example.com/basket/add/?\",\n            \"program_record_url\": \"https://example.com/records/programs/8675309\"\n        },\n        \"program_data\": {\n            \"uuid\": \"a156a6e2-de91-4ce7-947a-888943e6b12a\",\n            \"title\": \"Demonstration Program\",\n            \"subtitle\": \"\",\n            \"type\": \"MicroMasters\",\n            \"status\": \"active\",\n            \"marketing_slug\": \"demo-program\",\n            \"marketing_url\": \"micromasters/demo-program\",\n            \"authoring_organizations\": [],\n            \"card_image_url\": \"http://example.com/asset-v1:DemoX+Demo_Course.jpg\",\n            \"is_program_eligible_for_one_click_purchase\": false,\n            \"pathway_ids\": [\n                1,\n                2\n            ],\n            \"is_learner_eligible_for_one_click_purchase\": false,\n            \"skus\": [\"AUD90210\"],\n        },\n        \"course_data\": {\n            \"uuid\": \"a156a6e2-de91-4ce7-947a-888943e6b12a\",\n            \"completed\": [],\n            \"in_progress\": [],\n            \"not_started\": [\n                {\n                    \"key\": \"example+DemoX\",\n                    \"uuid\": \"fe1a9ad4-a452-45cd-80e5-9babd3d43f96\",\n                    \"title\": \"Demonstration Course\",\n                    \"course_runs\": [],\n                    \"entitlements\": [],\n                    \"owners\": [],\n                    \"image\": \"\",\n                    \"short_description\": \"\",\n                    \"type\": \"457f07ec-a78f-45b4-ba09-5fb176520d8a\",\n                }\n            ],\n        },\n        \"certificate_data\": [{\n            \"type\": \"course\",\n            \"title\": \"Demo Course\",\n            'url': \"/certificates/8675309\",\n        }],\n        \"industry_pathways\": [\n            {\n                \"id\": 2,\n                \"uuid\": \"1b8fadf1-f6aa-4282-94e3-325b922a027f\",\n                \"name\": \"Demo Industry Pathway\",\n                \"org_name\": \"example\",\n                \"email\": \"example@example.com\",\n                \"description\": \"Sample demo industry pathway\",\n                \"destination_url\": \"http://example.edu/online/pathways/example-methods\",\n                \"pathway_type\": \"industry\",\n                \"program_uuids\": [\n                    \"a156a6e2-de91-4ce7-947a-888943e6b12a\"\n                ]\n            }\n        ],\n        \"credit_pathways\": [\n            {\n                \"id\": 1,\n                \"uuid\": \"86b9701a-61e6-48a2-92eb-70a824521c1f\",\n                \"name\": \"Demo Credit Pathway\",\n                \"org_name\": \"example\",\n                \"email\": \"example@example.com\",\n                \"description\": \"Sample demo credit pathway!\",\n                \"destination_url\": \"http://example.edu/online/pathways/example-thinking\",\n                \"pathway_type\": \"credit\",\n                \"program_uuids\": [\n                    \"a156a6e2-de91-4ce7-947a-888943e6b12a\"\n                ]\n            }\n        ]\n    }"
+      tags:
+      - learner_home
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

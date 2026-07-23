@@ -1,0 +1,477 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements experiments API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: experiments
+paths:
+  /experiments/v0/custom/REV-934/:
+    get:
+      operationId: experiments_v0_custom_REV-934_list
+      description: Return the if the course should be upsold in the mobile app, if the user has appropriate permissions.
+      tags:
+      - experiments
+      responses:
+        '200':
+          description: ''
+  /experiments/v0/custom/userMetadata/{username},{course_id}:
+    get:
+      operationId: experiments_v0_custom_userMetadata_read
+      description: Return user-metadata for the given course and user
+      tags:
+      - experiments
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /experiments/v0/data/:
+    get:
+      operationId: experiments_v0_data_list
+      description: ''
+      tags:
+      - experiments
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExperimentData'
+    post:
+      operationId: experiments_v0_data_create
+      description: ''
+      tags:
+      - experiments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExperimentDataCreate'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentDataCreate'
+    put:
+      operationId: experiments_v0_data_update
+      description: ''
+      tags:
+      - experiments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExperimentData'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentData'
+  /experiments/v0/data/{id}/:
+    get:
+      operationId: experiments_v0_data_read
+      description: ''
+      tags:
+      - experiments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Experiment Data.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentData'
+    put:
+      operationId: experiments_v0_data_update
+      description: ''
+      tags:
+      - experiments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Experiment Data.
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExperimentData'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentData'
+    patch:
+      operationId: experiments_v0_data_partial_update
+      description: ''
+      tags:
+      - experiments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Experiment Data.
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExperimentData'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentData'
+    delete:
+      operationId: experiments_v0_data_delete
+      description: ''
+      tags:
+      - experiments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Experiment Data.
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: ''
+  /experiments/v0/key-value/:
+    get:
+      operationId: experiments_v0_key-value_list
+      description: ''
+      tags:
+      - experiments
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ExperimentKeyValue'
+    post:
+      operationId: experiments_v0_key-value_create
+      description: ''
+      tags:
+      - experiments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExperimentKeyValue'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentKeyValue'
+  /experiments/v0/key-value/{id}/:
+    get:
+      operationId: experiments_v0_key-value_read
+      description: ''
+      tags:
+      - experiments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Experiment Key-Value Pair.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentKeyValue'
+    put:
+      operationId: experiments_v0_key-value_update
+      description: ''
+      tags:
+      - experiments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Experiment Key-Value Pair.
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExperimentKeyValue'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentKeyValue'
+    patch:
+      operationId: experiments_v0_key-value_partial_update
+      description: ''
+      tags:
+      - experiments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Experiment Key-Value Pair.
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExperimentKeyValue'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperimentKeyValue'
+    delete:
+      operationId: experiments_v0_key-value_delete
+      description: ''
+      tags:
+      - experiments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Experiment Key-Value Pair.
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: ''
+components:
+  schemas:
+    ExperimentKeyValue:
+      required:
+      - experiment_id
+      - key
+      - value
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        experiment_id:
+          title: Experiment ID
+          type: integer
+          maximum: 65535
+          minimum: 0
+        key:
+          title: Key
+          type: string
+          maxLength: 255
+          minLength: 1
+        value:
+          title: Value
+          type: string
+          minLength: 1
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          title: Изменено
+          type: string
+          format: date-time
+          readOnly: true
+    ExperimentData:
+      required:
+      - experiment_id
+      - key
+      - value
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        experiment_id:
+          title: Experiment ID
+          type: integer
+          maximum: 65535
+          minimum: 0
+        user:
+          title: User
+          type: string
+          pattern: ^[\w.@+-]+$
+          readOnly: true
+          default: ''
+        key:
+          title: Key
+          type: string
+          maxLength: 255
+          minLength: 1
+        value:
+          title: Value
+          type: string
+          minLength: 1
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          title: Изменено
+          type: string
+          format: date-time
+          readOnly: true
+    ExperimentDataCreate:
+      required:
+      - experiment_id
+      - key
+      - value
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        experiment_id:
+          title: Experiment ID
+          type: integer
+          maximum: 65535
+          minimum: 0
+        user:
+          title: User
+          type: string
+          pattern: ^[\w.@+-]+$
+          default: ''
+        key:
+          title: Key
+          type: string
+          maxLength: 255
+          minLength: 1
+        value:
+          title: Value
+          type: string
+          minLength: 1
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          title: Изменено
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

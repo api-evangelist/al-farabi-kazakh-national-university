@@ -1,0 +1,936 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements course_home API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: course_home
+paths:
+  /course_home/course_metadata/{course_key_string}:
+    get:
+      operationId: course_home_course_metadata_read
+      summary: '**Use Cases**'
+      description: "Request Course metadata details for the Course Home MFE that every page needs.\n\n**Example Requests**\n\n    GET api/course_home/v1/course_metadata/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_id: (str) The Course's id (Course Run key)\n    username: (str) The requesting (or masqueraded) user. Returns None for an\n        unauthenticated user.\n    is_enrolled: (bool) Indicates if the user is enrolled in the course\n    is_self_paced: (bool) Indicates if the course is self paced\n    is_staff: (bool) Indicates if the user is staff\n    original_user_is_staff: (bool) Indicates if the original user has staff access\n        Used for when masquerading to distinguish between the original requesting user\n        and the user being masqueraded as.\n    number: (str) The Course's number\n    org: (str) The Course's organization\n    tabs: List of Course Tabs to display. They are serialized as:\n        tab_id: (str) The tab's id\n        title: (str) The title of the tab to display\n        url: (str) The url to view the tab\n    title: (str) The Course's display title\n    celebrations: (dict) a dict of celebration data\n    user_timezone: (str) The timezone of the given user\n    can_view_certificate: Flag to determine whether or not the learner can view their course certificate.\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseHomeMetadata'
+  /course_home/dates/{course_key_string}:
+    get:
+      operationId: course_home_dates_read
+      summary: '**Use Cases**'
+      description: "Request details for the Dates Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/dates/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_date_blocks: List of serialized DateSummary objects. Each serialization has the following fields:\n        complete: (bool) Meant to only be used by assignments. Indicates completeness for an\n            assignment.\n        date: (datetime) The date time corresponding for the event\n        date_type: (str) The type of date (ex. course-start-date, assignment-due-date, etc.)\n        description: (str) The description for the date event\n        learner_has_access: (bool) Indicates if the learner has access to the date event\n        link: (str) An absolute link to content related to the date event\n            (ex. verified link or link to assignment)\n        title: (str) The title of the date event\n    dates_banner_info: (obj)\n        content_type_gating_enabled: (bool) Whether content type gating is enabled for this enrollment.\n        missed_deadlines: (bool) Indicates whether the user missed any graded content deadlines\n        missed_gated_content: (bool) Indicates whether the user missed gated content\n        verified_upgrade_link: (str) The link for upgrading to the Verified track in a course\n    has_ended: (bool) Indicates whether course has ended\n    learner_is_full_access: (bool) Indicates if the user is verified in the course\n    user_timezone: (str) The user's preferred timezone\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatesTab'
+  /course_home/dismiss_welcome_message:
+    post:
+      operationId: course_home_dismiss_welcome_message_create
+      description: ''
+      tags:
+      - course_home
+      responses:
+        '201':
+          description: ''
+  /course_home/navigation/{course_key_string}:
+    get:
+      operationId: course_home_navigation_read
+      description: Get the visible course blocks (from course to vertical types) for the given course.
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseBlock'
+  /course_home/outline/{course_key_string}:
+    get:
+      operationId: course_home_outline_read
+      summary: '**Use Cases**'
+      description: "Request details for the Outline Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/outline/{course_key}\n\n**Response Values**\n\n    Body consists of two possible shapes.\n\n    For a good 200 response, the response will include:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    course_blocks:\n        blocks: List of serialized Course Block objects. Each serialization has the following fields:\n            id: (str) The usage ID of the block.\n            type: (str) The type of block. Possible values the names of any\n                XBlock type in the system, including custom blocks. Examples are\n                course, chapter, sequential, vertical, html, problem, video, and\n                discussion.\n            display_name: (str) The display name of the block.\n            lms_web_url: (str) The URL to the navigational container of the\n                xBlock on the web LMS.\n            children: (list) If the block has child blocks, a list of IDs of\n                the child blocks.\n            resume_block: (bool) Whether the block is the resume block\n            has_scheduled_content: (bool) Whether the block has more content scheduled for the future\n    course_goals:\n        selected_goal:\n            days_per_week: (int) The number of days the learner wants to learn per week\n            subscribed_to_reminders: (bool) Whether the learner wants email reminders about their goal\n        weekly_learning_goal_enabled: Flag indicating if this feature is enabled for this call\n    course_tools: List of serialized Course Tool objects. Each serialization has the following fields:\n        analytics_id: (str) The unique id given to the tool.\n        title: (str) The display title of the tool.\n        url: (str) The link to access the tool.\n    dates_banner_info: (obj)\n        content_type_gating_enabled: (bool) Whether content type gating is enabled for this enrollment.\n        missed_deadlines: (bool) Whether the user has missed any graded content deadlines for the given course.\n        missed_gated_content: (bool) Whether the user has missed any gated content for the given course.\n        verified_upgrade_link: (str) The URL to ecommerce IDA for purchasing the verified upgrade.\n    dates_widget:\n        course_date_blocks: List of serialized Course Dates objects. Each serialization has the following fields:\n            complete: (bool) Meant to only be used by assignments. Indicates completeness for an\n            assignment.\n            date: (datetime) The date time corresponding for the event\n            date_type: (str) The type of date (ex. course-start-date, assignment-due-date, etc.)\n            description: (str) The description for the date event\n            learner_has_access: (bool) Indicates if the learner has access to the date event\n            link: (str) An absolute link to content related to the date event\n                (ex. verified link or link to assignment)\n            title: (str) The title of the date event\n        dates_tab_link: (str) The URL to the Dates Tab\n        user_timezone: (str) The timezone of the given user\n    enroll_alert:\n        can_enroll: (bool) Whether the user can enroll in the given course\n        extra_text: (str)\n    enrollment_mode: (str) Current enrollment mode. Null if the user is not enrolled.\n    handouts_html: (str) Raw HTML for the handouts section of the course info\n    has_ended: (bool) Indicates whether course has ended\n    offer: An object detailing upgrade discount information\n        code: (str) Checkout code\n        expiration_date: (str) Expiration of offer, in ISO 8601 notation\n        original_price: (str) Full upgrade price without checkout code; includes currency symbol\n        discounted_price: (str) Upgrade price with checkout code; includes currency symbol\n        percentage: (int) Amount of discount\n        upgrade_url: (str) Checkout URL\n    resume_course:\n        has_visited_course: (bool) Whether the user has ever visited the course\n        url: (str) The display name of the course block to resume\n    welcome_message_html: (str) Raw HTML for the course updates banner\n    user_has_passing_grade: (bool) Whether the user currently is passing the course\n\n    If the learner does not have access to the course for a specific reason and should be redirected this\n    view will return a 403 and the following data:\n\n    url: (str) The URL to which the user should be redirected\n    error_code: (str) A system identifier for the reason the user is being redirected\n    developer_message: (str) A message explaining why the user is being redirected,\n                             intended for developer debugging.\n    user_message: (str) A message explaining why the user is being redirected, intended to be shown to the user.\n\n**Returns**\n\n    * 200 on success.\n    * 403 if the user does not currently have access to the course and should be redirected.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutlineTab'
+  /course_home/progress/{course_key_string}:
+    get:
+      operationId: course_home_progress_read
+      summary: '**Use Cases**'
+      description: "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    certificate_data: Object containing information about the user's certificate status\n        cert_status: (str) the status of a user's certificate (full list of statuses are defined in\n                     lms/djangoapps/certificates/models.py)\n        cert_web_view_url: (str) the url to view the certificate\n        download_url: (str) the url to download the certificate\n    completion_summary: Object containing unit completion counts with the following fields:\n        complete_count: (float) number of complete units\n        incomplete_count: (float) number of incomplete units\n        locked_count: (float) number of units where contains_gated_content is True\n    course_grade: Object containing the following fields:\n        is_passing: (bool) whether the user's grade is above the passing grade cutoff\n        letter_grade: (str) the user's letter grade based on the set grade range.\n                            If user is passing, value may be 'A', 'B', 'C', 'D', 'Pass', otherwise none\n        percent: (float) the user's total graded percent in the course\n    credit_course_requirements: Object containing credit course requirements with the following fields:\n        eligibility_status: (str) Indicates if the user is eligible to receive credit. Value may be\n            \"eligible\", \"not_eligible\", or \"partial_eligible\"\n        requirements: List of requirements that must be fulfilled to be eligible to receive credit. See\n            `get_credit_requirement_status` for details on the fields\n    end: (date) end date of the course\n    enrollment_mode: (str) a str representing the enrollment the user has ('audit', 'verified', ...)\n    grading_policy:\n        assignment_policies: List of serialized assignment grading policy objects, each has the following fields:\n            num_droppable: (int) the number of lowest scored assignments that will not be counted towards the final\n                           grade\n            short_label: (str) the abbreviated name given to the assignment type\n            type: (str) the assignment type\n            weight: (float) the percent weight the given assigment type has on the overall grade\n        grade_range: an object containing the grade range cutoffs. The exact keys in the object can vary, but they\n                     range from just 'Pass', to a combination of 'A', 'B', 'C', and 'D'. If a letter grade is\n                     present, 'Pass' is not included.\n    has_scheduled_content: (bool) boolean on if the course has content scheduled with a release date in the future\n    section_scores: List of serialized Chapters. Each Chapter has the following fields:\n        display_name: (str) a str of what the name of the Chapter is for displaying on the site\n        subsections: List of serialized Subsections, each has the following fields:\n            assignment_type: (str) the format, if any, of the Subsection (Homework, Exam, etc)\n            block_key: (str) the key of the given subsection block\n            display_name: (str) a str of what the name of the Subsection is for displaying on the site\n            has_graded_assignment: (bool) whether or not the Subsection is a graded assignment\n            learner_has_access: (bool) whether the learner has access to the subsection (could be FBE gated)\n            num_points_earned: (int) the amount of points the user has earned for the given subsection\n            num_points_possible: (int) the total amount of points possible for the given subsection\n            override: Optional object if grade has been overridden by proctor or grading change\n                system: (str) either GRADING or PROCTORING\n                reason: (str) a comment on the grading override\n            percent_graded: (float) the percentage of total points the user has received a grade for in a given\n                            subsection\n            problem_scores: List of objects that represent individual problem scores with the following fields:\n                earned: (float) number of earned points\n                possible: (float) number of possible points\n            show_correctness: (str) a str representing whether to show the problem/practice scores based on due date\n                              ('always', 'never', 'past_due', values defined in\n                               xmodule/modulestore/inheritance.py)\n            show_grades: (bool) a bool for whether to show grades based on the access the user has\n            url: (str or None) the absolute path url to the Subsection or None if the Subsection is no longer\n                 accessible to the learner due to a hide_after_due course team setting\n    studio_url: (str) a str of the link to the grading in studio for the course\n    user_has_passing_grade: (bool) boolean on if the user has a passing grade in the course\n    username: (str) username of the student whose progress information is being displayed.\n    verification_data: an object containing\n        link: (str) the link to either start or retry ID verification\n        status: (str) the status of the ID verification\n        status_date: (str) the date time string of when the ID verification status was set\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated or not enrolled.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgressTab'
+  /course_home/progress/{course_key_string}/{student_id}:
+    get:
+      operationId: course_home_progress_read
+      summary: '**Use Cases**'
+      description: "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    certificate_data: Object containing information about the user's certificate status\n        cert_status: (str) the status of a user's certificate (full list of statuses are defined in\n                     lms/djangoapps/certificates/models.py)\n        cert_web_view_url: (str) the url to view the certificate\n        download_url: (str) the url to download the certificate\n    completion_summary: Object containing unit completion counts with the following fields:\n        complete_count: (float) number of complete units\n        incomplete_count: (float) number of incomplete units\n        locked_count: (float) number of units where contains_gated_content is True\n    course_grade: Object containing the following fields:\n        is_passing: (bool) whether the user's grade is above the passing grade cutoff\n        letter_grade: (str) the user's letter grade based on the set grade range.\n                            If user is passing, value may be 'A', 'B', 'C', 'D', 'Pass', otherwise none\n        percent: (float) the user's total graded percent in the course\n    credit_course_requirements: Object containing credit course requirements with the following fields:\n        eligibility_status: (str) Indicates if the user is eligible to receive credit. Value may be\n            \"eligible\", \"not_eligible\", or \"partial_eligible\"\n        requirements: List of requirements that must be fulfilled to be eligible to receive credit. See\n            `get_credit_requirement_status` for details on the fields\n    end: (date) end date of the course\n    enrollment_mode: (str) a str representing the enrollment the user has ('audit', 'verified', ...)\n    grading_policy:\n        assignment_policies: List of serialized assignment grading policy objects, each has the following fields:\n            num_droppable: (int) the number of lowest scored assignments that will not be counted towards the final\n                           grade\n            short_label: (str) the abbreviated name given to the assignment type\n            type: (str) the assignment type\n            weight: (float) the percent weight the given assigment type has on the overall grade\n        grade_range: an object containing the grade range cutoffs. The exact keys in the object can vary, but they\n                     range from just 'Pass', to a combination of 'A', 'B', 'C', and 'D'. If a letter grade is\n                     present, 'Pass' is not included.\n    has_scheduled_content: (bool) boolean on if the course has content scheduled with a release date in the future\n    section_scores: List of serialized Chapters. Each Chapter has the following fields:\n        display_name: (str) a str of what the name of the Chapter is for displaying on the site\n        subsections: List of serialized Subsections, each has the following fields:\n            assignment_type: (str) the format, if any, of the Subsection (Homework, Exam, etc)\n            block_key: (str) the key of the given subsection block\n            display_name: (str) a str of what the name of the Subsection is for displaying on the site\n            has_graded_assignment: (bool) whether or not the Subsection is a graded assignment\n            learner_has_access: (bool) whether the learner has access to the subsection (could be FBE gated)\n            num_points_earned: (int) the amount of points the user has earned for the given subsection\n            num_points_possible: (int) the total amount of points possible for the given subsection\n            override: Optional object if grade has been overridden by proctor or grading change\n                system: (str) either GRADING or PROCTORING\n                reason: (str) a comment on the grading override\n            percent_graded: (float) the percentage of total points the user has received a grade for in a given\n                            subsection\n            problem_scores: List of objects that represent individual problem scores with the following fields:\n                earned: (float) number of earned points\n                possible: (float) number of possible points\n            show_correctness: (str) a str representing whether to show the problem/practice scores based on due date\n                              ('always', 'never', 'past_due', values defined in\n                               xmodule/modulestore/inheritance.py)\n            show_grades: (bool) a bool for whether to show grades based on the access the user has\n            url: (str or None) the absolute path url to the Subsection or None if the Subsection is no longer\n                 accessible to the learner due to a hide_after_due course team setting\n    studio_url: (str) a str of the link to the grading in studio for the course\n    user_has_passing_grade: (bool) boolean on if the user has a passing grade in the course\n    username: (str) username of the student whose progress information is being displayed.\n    verification_data: an object containing\n        link: (str) the link to either start or retry ID verification\n        status: (str) the status of the ID verification\n        status_date: (str) the date time string of when the ID verification status was set\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated or not enrolled.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: student_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgressTab'
+  /course_home/save_course_goal:
+    post:
+      operationId: course_home_save_course_goal_create
+      description: ''
+      tags:
+      - course_home
+      responses:
+        '201':
+          description: ''
+  /course_home/unsubscribe_from_course_goal/{token}:
+    post:
+      operationId: course_home_unsubscribe_from_course_goal_create
+      summary: API calls to unsubscribe from course goal reminders.
+      description: "Note that this does not require authentication - this view may be hit from an email on a different device than\nnormal or whatever. We should still be able to unsubscribe the user. Instead, we use a token in the email to\nvalidate that they have permission to unsubscribe.\n\nThis endpoint is very tightly scoped (only unsubscribe: no subscribing, no PII) because it is unauthenticated.\n\n**Example Requests**\n    POST api/course_home/v1/unsubscribe_from_course_goal/{token}\n\n**Example Response Data**\n    {'course_title': 'Cats & Dogs In Canadian Media'}\n\nReturns a 404 response if the token was not found. Otherwise, returns some basic course info. But no PII."
+      tags:
+      - course_home
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /course_home/v1/course_metadata/{course_key_string}:
+    get:
+      operationId: course_home_v1_course_metadata_read
+      summary: '**Use Cases**'
+      description: "Request Course metadata details for the Course Home MFE that every page needs.\n\n**Example Requests**\n\n    GET api/course_home/v1/course_metadata/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_id: (str) The Course's id (Course Run key)\n    username: (str) The requesting (or masqueraded) user. Returns None for an\n        unauthenticated user.\n    is_enrolled: (bool) Indicates if the user is enrolled in the course\n    is_self_paced: (bool) Indicates if the course is self paced\n    is_staff: (bool) Indicates if the user is staff\n    original_user_is_staff: (bool) Indicates if the original user has staff access\n        Used for when masquerading to distinguish between the original requesting user\n        and the user being masqueraded as.\n    number: (str) The Course's number\n    org: (str) The Course's organization\n    tabs: List of Course Tabs to display. They are serialized as:\n        tab_id: (str) The tab's id\n        title: (str) The title of the tab to display\n        url: (str) The url to view the tab\n    title: (str) The Course's display title\n    celebrations: (dict) a dict of celebration data\n    user_timezone: (str) The timezone of the given user\n    can_view_certificate: Flag to determine whether or not the learner can view their course certificate.\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseHomeMetadata'
+  /course_home/v1/dates/{course_key_string}:
+    get:
+      operationId: course_home_v1_dates_read
+      summary: '**Use Cases**'
+      description: "Request details for the Dates Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/dates/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_date_blocks: List of serialized DateSummary objects. Each serialization has the following fields:\n        complete: (bool) Meant to only be used by assignments. Indicates completeness for an\n            assignment.\n        date: (datetime) The date time corresponding for the event\n        date_type: (str) The type of date (ex. course-start-date, assignment-due-date, etc.)\n        description: (str) The description for the date event\n        learner_has_access: (bool) Indicates if the learner has access to the date event\n        link: (str) An absolute link to content related to the date event\n            (ex. verified link or link to assignment)\n        title: (str) The title of the date event\n    dates_banner_info: (obj)\n        content_type_gating_enabled: (bool) Whether content type gating is enabled for this enrollment.\n        missed_deadlines: (bool) Indicates whether the user missed any graded content deadlines\n        missed_gated_content: (bool) Indicates whether the user missed gated content\n        verified_upgrade_link: (str) The link for upgrading to the Verified track in a course\n    has_ended: (bool) Indicates whether course has ended\n    learner_is_full_access: (bool) Indicates if the user is verified in the course\n    user_timezone: (str) The user's preferred timezone\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatesTab'
+  /course_home/v1/dismiss_welcome_message:
+    post:
+      operationId: course_home_v1_dismiss_welcome_message_create
+      description: ''
+      tags:
+      - course_home
+      responses:
+        '201':
+          description: ''
+  /course_home/v1/navigation/{course_key_string}:
+    get:
+      operationId: course_home_v1_navigation_read
+      description: Get the visible course blocks (from course to vertical types) for the given course.
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseBlock'
+  /course_home/v1/outline/{course_key_string}:
+    get:
+      operationId: course_home_v1_outline_read
+      summary: '**Use Cases**'
+      description: "Request details for the Outline Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/outline/{course_key}\n\n**Response Values**\n\n    Body consists of two possible shapes.\n\n    For a good 200 response, the response will include:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    course_blocks:\n        blocks: List of serialized Course Block objects. Each serialization has the following fields:\n            id: (str) The usage ID of the block.\n            type: (str) The type of block. Possible values the names of any\n                XBlock type in the system, including custom blocks. Examples are\n                course, chapter, sequential, vertical, html, problem, video, and\n                discussion.\n            display_name: (str) The display name of the block.\n            lms_web_url: (str) The URL to the navigational container of the\n                xBlock on the web LMS.\n            children: (list) If the block has child blocks, a list of IDs of\n                the child blocks.\n            resume_block: (bool) Whether the block is the resume block\n            has_scheduled_content: (bool) Whether the block has more content scheduled for the future\n    course_goals:\n        selected_goal:\n            days_per_week: (int) The number of days the learner wants to learn per week\n            subscribed_to_reminders: (bool) Whether the learner wants email reminders about their goal\n        weekly_learning_goal_enabled: Flag indicating if this feature is enabled for this call\n    course_tools: List of serialized Course Tool objects. Each serialization has the following fields:\n        analytics_id: (str) The unique id given to the tool.\n        title: (str) The display title of the tool.\n        url: (str) The link to access the tool.\n    dates_banner_info: (obj)\n        content_type_gating_enabled: (bool) Whether content type gating is enabled for this enrollment.\n        missed_deadlines: (bool) Whether the user has missed any graded content deadlines for the given course.\n        missed_gated_content: (bool) Whether the user has missed any gated content for the given course.\n        verified_upgrade_link: (str) The URL to ecommerce IDA for purchasing the verified upgrade.\n    dates_widget:\n        course_date_blocks: List of serialized Course Dates objects. Each serialization has the following fields:\n            complete: (bool) Meant to only be used by assignments. Indicates completeness for an\n            assignment.\n            date: (datetime) The date time corresponding for the event\n            date_type: (str) The type of date (ex. course-start-date, assignment-due-date, etc.)\n            description: (str) The description for the date event\n            learner_has_access: (bool) Indicates if the learner has access to the date event\n            link: (str) An absolute link to content related to the date event\n                (ex. verified link or link to assignment)\n            title: (str) The title of the date event\n        dates_tab_link: (str) The URL to the Dates Tab\n        user_timezone: (str) The timezone of the given user\n    enroll_alert:\n        can_enroll: (bool) Whether the user can enroll in the given course\n        extra_text: (str)\n    enrollment_mode: (str) Current enrollment mode. Null if the user is not enrolled.\n    handouts_html: (str) Raw HTML for the handouts section of the course info\n    has_ended: (bool) Indicates whether course has ended\n    offer: An object detailing upgrade discount information\n        code: (str) Checkout code\n        expiration_date: (str) Expiration of offer, in ISO 8601 notation\n        original_price: (str) Full upgrade price without checkout code; includes currency symbol\n        discounted_price: (str) Upgrade price with checkout code; includes currency symbol\n        percentage: (int) Amount of discount\n        upgrade_url: (str) Checkout URL\n    resume_course:\n        has_visited_course: (bool) Whether the user has ever visited the course\n        url: (str) The display name of the course block to resume\n    welcome_message_html: (str) Raw HTML for the course updates banner\n    user_has_passing_grade: (bool) Whether the user currently is passing the course\n\n    If the learner does not have access to the course for a specific reason and should be redirected this\n    view will return a 403 and the following data:\n\n    url: (str) The URL to which the user should be redirected\n    error_code: (str) A system identifier for the reason the user is being redirected\n    developer_message: (str) A message explaining why the user is being redirected,\n                             intended for developer debugging.\n    user_message: (str) A message explaining why the user is being redirected, intended to be shown to the user.\n\n**Returns**\n\n    * 200 on success.\n    * 403 if the user does not currently have access to the course and should be redirected.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutlineTab'
+  /course_home/v1/progress/{course_key_string}:
+    get:
+      operationId: course_home_v1_progress_read
+      summary: '**Use Cases**'
+      description: "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    certificate_data: Object containing information about the user's certificate status\n        cert_status: (str) the status of a user's certificate (full list of statuses are defined in\n                     lms/djangoapps/certificates/models.py)\n        cert_web_view_url: (str) the url to view the certificate\n        download_url: (str) the url to download the certificate\n    completion_summary: Object containing unit completion counts with the following fields:\n        complete_count: (float) number of complete units\n        incomplete_count: (float) number of incomplete units\n        locked_count: (float) number of units where contains_gated_content is True\n    course_grade: Object containing the following fields:\n        is_passing: (bool) whether the user's grade is above the passing grade cutoff\n        letter_grade: (str) the user's letter grade based on the set grade range.\n                            If user is passing, value may be 'A', 'B', 'C', 'D', 'Pass', otherwise none\n        percent: (float) the user's total graded percent in the course\n    credit_course_requirements: Object containing credit course requirements with the following fields:\n        eligibility_status: (str) Indicates if the user is eligible to receive credit. Value may be\n            \"eligible\", \"not_eligible\", or \"partial_eligible\"\n        requirements: List of requirements that must be fulfilled to be eligible to receive credit. See\n            `get_credit_requirement_status` for details on the fields\n    end: (date) end date of the course\n    enrollment_mode: (str) a str representing the enrollment the user has ('audit', 'verified', ...)\n    grading_policy:\n        assignment_policies: List of serialized assignment grading policy objects, each has the following fields:\n            num_droppable: (int) the number of lowest scored assignments that will not be counted towards the final\n                           grade\n            short_label: (str) the abbreviated name given to the assignment type\n            type: (str) the assignment type\n            weight: (float) the percent weight the given assigment type has on the overall grade\n        grade_range: an object containing the grade range cutoffs. The exact keys in the object can vary, but they\n                     range from just 'Pass', to a combination of 'A', 'B', 'C', and 'D'. If a letter grade is\n                     present, 'Pass' is not included.\n    has_scheduled_content: (bool) boolean on if the course has content scheduled with a release date in the future\n    section_scores: List of serialized Chapters. Each Chapter has the following fields:\n        display_name: (str) a str of what the name of the Chapter is for displaying on the site\n        subsections: List of serialized Subsections, each has the following fields:\n            assignment_type: (str) the format, if any, of the Subsection (Homework, Exam, etc)\n            block_key: (str) the key of the given subsection block\n            display_name: (str) a str of what the name of the Subsection is for displaying on the site\n            has_graded_assignment: (bool) whether or not the Subsection is a graded assignment\n            learner_has_access: (bool) whether the learner has access to the subsection (could be FBE gated)\n            num_points_earned: (int) the amount of points the user has earned for the given subsection\n            num_points_possible: (int) the total amount of points possible for the given subsection\n            override: Optional object if grade has been overridden by proctor or grading change\n                system: (str) either GRADING or PROCTORING\n                reason: (str) a comment on the grading override\n            percent_graded: (float) the percentage of total points the user has received a grade for in a given\n                            subsection\n            problem_scores: List of objects that represent individual problem scores with the following fields:\n                earned: (float) number of earned points\n                possible: (float) number of possible points\n            show_correctness: (str) a str representing whether to show the problem/practice scores based on due date\n                              ('always', 'never', 'past_due', values defined in\n                               xmodule/modulestore/inheritance.py)\n            show_grades: (bool) a bool for whether to show grades based on the access the user has\n            url: (str or None) the absolute path url to the Subsection or None if the Subsection is no longer\n                 accessible to the learner due to a hide_after_due course team setting\n    studio_url: (str) a str of the link to the grading in studio for the course\n    user_has_passing_grade: (bool) boolean on if the user has a passing grade in the course\n    username: (str) username of the student whose progress information is being displayed.\n    verification_data: an object containing\n        link: (str) the link to either start or retry ID verification\n        status: (str) the status of the ID verification\n        status_date: (str) the date time string of when the ID verification status was set\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated or not enrolled.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgressTab'
+  /course_home/v1/progress/{course_key_string}/{student_id}:
+    get:
+      operationId: course_home_v1_progress_read
+      summary: '**Use Cases**'
+      description: "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    certificate_data: Object containing information about the user's certificate status\n        cert_status: (str) the status of a user's certificate (full list of statuses are defined in\n                     lms/djangoapps/certificates/models.py)\n        cert_web_view_url: (str) the url to view the certificate\n        download_url: (str) the url to download the certificate\n    completion_summary: Object containing unit completion counts with the following fields:\n        complete_count: (float) number of complete units\n        incomplete_count: (float) number of incomplete units\n        locked_count: (float) number of units where contains_gated_content is True\n    course_grade: Object containing the following fields:\n        is_passing: (bool) whether the user's grade is above the passing grade cutoff\n        letter_grade: (str) the user's letter grade based on the set grade range.\n                            If user is passing, value may be 'A', 'B', 'C', 'D', 'Pass', otherwise none\n        percent: (float) the user's total graded percent in the course\n    credit_course_requirements: Object containing credit course requirements with the following fields:\n        eligibility_status: (str) Indicates if the user is eligible to receive credit. Value may be\n            \"eligible\", \"not_eligible\", or \"partial_eligible\"\n        requirements: List of requirements that must be fulfilled to be eligible to receive credit. See\n            `get_credit_requirement_status` for details on the fields\n    end: (date) end date of the course\n    enrollment_mode: (str) a str representing the enrollment the user has ('audit', 'verified', ...)\n    grading_policy:\n        assignment_policies: List of serialized assignment grading policy objects, each has the following fields:\n            num_droppable: (int) the number of lowest scored assignments that will not be counted towards the final\n                           grade\n            short_label: (str) the abbreviated name given to the assignment type\n            type: (str) the assignment type\n            weight: (float) the percent weight the given assigment type has on the overall grade\n        grade_range: an object containing the grade range cutoffs. The exact keys in the object can vary, but they\n                     range from just 'Pass', to a combination of 'A', 'B', 'C', and 'D'. If a letter grade is\n                     present, 'Pass' is not included.\n    has_scheduled_content: (bool) boolean on if the course has content scheduled with a release date in the future\n    section_scores: List of serialized Chapters. Each Chapter has the following fields:\n        display_name: (str) a str of what the name of the Chapter is for displaying on the site\n        subsections: List of serialized Subsections, each has the following fields:\n            assignment_type: (str) the format, if any, of the Subsection (Homework, Exam, etc)\n            block_key: (str) the key of the given subsection block\n            display_name: (str) a str of what the name of the Subsection is for displaying on the site\n            has_graded_assignment: (bool) whether or not the Subsection is a graded assignment\n            learner_has_access: (bool) whether the learner has access to the subsection (could be FBE gated)\n            num_points_earned: (int) the amount of points the user has earned for the given subsection\n            num_points_possible: (int) the total amount of points possible for the given subsection\n            override: Optional object if grade has been overridden by proctor or grading change\n                system: (str) either GRADING or PROCTORING\n                reason: (str) a comment on the grading override\n            percent_graded: (float) the percentage of total points the user has received a grade for in a given\n                            subsection\n            problem_scores: List of objects that represent individual problem scores with the following fields:\n                earned: (float) number of earned points\n                possible: (float) number of possible points\n            show_correctness: (str) a str representing whether to show the problem/practice scores based on due date\n                              ('always', 'never', 'past_due', values defined in\n                               xmodule/modulestore/inheritance.py)\n            show_grades: (bool) a bool for whether to show grades based on the access the user has\n            url: (str or None) the absolute path url to the Subsection or None if the Subsection is no longer\n                 accessible to the learner due to a hide_after_due course team setting\n    studio_url: (str) a str of the link to the grading in studio for the course\n    user_has_passing_grade: (bool) boolean on if the user has a passing grade in the course\n    username: (str) username of the student whose progress information is being displayed.\n    verification_data: an object containing\n        link: (str) the link to either start or retry ID verification\n        status: (str) the status of the ID verification\n        status_date: (str) the date time string of when the ID verification status was set\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated or not enrolled.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen."
+      tags:
+      - course_home
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: student_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgressTab'
+  /course_home/v1/save_course_goal:
+    post:
+      operationId: course_home_v1_save_course_goal_create
+      description: ''
+      tags:
+      - course_home
+      responses:
+        '201':
+          description: ''
+  /course_home/v1/unsubscribe_from_course_goal/{token}:
+    post:
+      operationId: course_home_v1_unsubscribe_from_course_goal_create
+      summary: API calls to unsubscribe from course goal reminders.
+      description: "Note that this does not require authentication - this view may be hit from an email on a different device than\nnormal or whatever. We should still be able to unsubscribe the user. Instead, we use a token in the email to\nvalidate that they have permission to unsubscribe.\n\nThis endpoint is very tightly scoped (only unsubscribe: no subscribing, no PII) because it is unauthenticated.\n\n**Example Requests**\n    POST api/course_home/v1/unsubscribe_from_course_goal/{token}\n\n**Example Response Data**\n    {'course_title': 'Cats & Dogs In Canadian Media'}\n\nReturns a 404 response if the token was not found. Otherwise, returns some basic course info. But no PII."
+      tags:
+      - course_home
+      parameters:
+      - name: token
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+components:
+  schemas:
+    ResumeCourse:
+      required:
+      - has_visited_course
+      - url
+      type: object
+      properties:
+        has_visited_course:
+          title: Has visited course
+          type: boolean
+        url:
+          title: Url
+          type: string
+          format: uri
+          minLength: 1
+    CourseTab:
+      required:
+      - tab_id
+      type: object
+      properties:
+        tab_id:
+          title: Tab id
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          type: string
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          readOnly: true
+    OutlineTab:
+      required:
+      - access_expiration
+      - cert_data
+      - course_blocks
+      - course_goals
+      - course_tools
+      - dates_widget
+      - enroll_alert
+      - enrollment_mode
+      - enable_proctored_exams
+      - handouts_html
+      - has_ended
+      - offer
+      - resume_course
+      - welcome_message_html
+      - user_has_passing_grade
+      type: object
+      properties:
+        dates_banner_info:
+          title: Dates banner info
+          type: string
+          readOnly: true
+        verified_mode:
+          title: Verified mode
+          type: string
+          readOnly: true
+        access_expiration:
+          title: Access expiration
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        cert_data:
+          $ref: '#/components/schemas/CertificateData'
+        course_blocks:
+          $ref: '#/components/schemas/CourseBlock'
+        course_goals:
+          $ref: '#/components/schemas/CourseGoals'
+        course_tools:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseTool'
+        dates_widget:
+          $ref: '#/components/schemas/DatesWidget'
+        enroll_alert:
+          $ref: '#/components/schemas/EnrollAlert'
+        enrollment_mode:
+          title: Enrollment mode
+          type: string
+          minLength: 1
+        enable_proctored_exams:
+          title: Enable proctored exams
+          type: boolean
+        handouts_html:
+          title: Handouts html
+          type: string
+          minLength: 1
+        has_ended:
+          title: Has ended
+          type: boolean
+        offer:
+          title: Offer
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        resume_course:
+          $ref: '#/components/schemas/ResumeCourse'
+        welcome_message_html:
+          title: Welcome message html
+          type: string
+          minLength: 1
+        user_has_passing_grade:
+          title: User has passing grade
+          type: boolean
+    VerificationData:
+      required:
+      - link
+      - status
+      - status_date
+      type: object
+      properties:
+        link:
+          title: Link
+          type: string
+          format: uri
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          minLength: 1
+        status_date:
+          title: Status date
+          type: string
+          format: date-time
+    DatesWidget:
+      required:
+      - course_date_blocks
+      - dates_tab_link
+      - user_timezone
+      type: object
+      properties:
+        course_date_blocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/DateSummary'
+        dates_tab_link:
+          title: Dates tab link
+          type: string
+          minLength: 1
+        user_timezone:
+          title: User timezone
+          type: string
+          minLength: 1
+    CourseHomeMetadata:
+      required:
+      - celebrations
+      - course_access
+      - studio_access
+      - course_id
+      - is_enrolled
+      - is_self_paced
+      - is_staff
+      - number
+      - org
+      - original_user_is_staff
+      - start
+      - tabs
+      - title
+      - username
+      - user_timezone
+      - can_view_certificate
+      - course_modes
+      - is_new_discussion_sidebar_view_enabled
+      - has_course_author_access
+      type: object
+      properties:
+        verified_mode:
+          title: Verified mode
+          type: string
+          readOnly: true
+        celebrations:
+          title: Celebrations
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        course_access:
+          title: Course access
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        studio_access:
+          title: Studio access
+          type: boolean
+        course_id:
+          title: Course id
+          type: string
+          minLength: 1
+        is_enrolled:
+          title: Is enrolled
+          type: boolean
+        is_self_paced:
+          title: Is self paced
+          type: boolean
+        is_staff:
+          title: Is staff
+          type: boolean
+        number:
+          title: Number
+          type: string
+          minLength: 1
+        org:
+          title: Org
+          type: string
+          minLength: 1
+        original_user_is_staff:
+          title: Original user is staff
+          type: boolean
+        start:
+          title: Start
+          type: string
+          format: date-time
+        tabs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseTab'
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        username:
+          title: Username
+          type: string
+          minLength: 1
+        user_timezone:
+          title: User timezone
+          type: string
+          minLength: 1
+        can_view_certificate:
+          title: Can view certificate
+          type: boolean
+        course_modes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseModeSerrializer'
+        is_new_discussion_sidebar_view_enabled:
+          title: Is new discussion sidebar view enabled
+          type: boolean
+        has_course_author_access:
+          title: Has course author access
+          type: boolean
+    SubsectionScores:
+      required:
+      - assignment_type
+      - display_name
+      - has_graded_assignment
+      - num_points_earned
+      - num_points_possible
+      - percent_graded
+      - show_correctness
+      type: object
+      properties:
+        assignment_type:
+          title: Assignment type
+          type: string
+          minLength: 1
+        block_key:
+          title: Block key
+          type: string
+          readOnly: true
+        display_name:
+          title: Display name
+          type: string
+          minLength: 1
+        has_graded_assignment:
+          title: Has graded assignment
+          type: boolean
+        override:
+          title: Override
+          type: string
+          readOnly: true
+        learner_has_access:
+          title: Learner has access
+          type: string
+          readOnly: true
+        num_points_earned:
+          title: Num points earned
+          type: number
+        num_points_possible:
+          title: Num points possible
+          type: number
+        percent_graded:
+          title: Percent graded
+          type: number
+        problem_scores:
+          title: Problem scores
+          type: string
+          readOnly: true
+        show_correctness:
+          title: Show correctness
+          type: string
+          minLength: 1
+        show_grades:
+          title: Show grades
+          type: string
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          readOnly: true
+    SectionScores:
+      required:
+      - display_name
+      - subsections
+      type: object
+      properties:
+        display_name:
+          title: Display name
+          type: string
+          minLength: 1
+        subsections:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubsectionScores'
+    CourseTool:
+      required:
+      - analytics_id
+      - title
+      type: object
+      properties:
+        analytics_id:
+          title: Analytics id
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          readOnly: true
+    DatesTab:
+      required:
+      - course_date_blocks
+      - has_ended
+      - learner_is_full_access
+      - user_timezone
+      type: object
+      properties:
+        dates_banner_info:
+          title: Dates banner info
+          type: string
+          readOnly: true
+        course_date_blocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/DateSummary'
+        has_ended:
+          title: Has ended
+          type: boolean
+        learner_is_full_access:
+          title: Learner is full access
+          type: boolean
+        user_timezone:
+          title: User timezone
+          type: string
+          minLength: 1
+    CourseBlock:
+      type: object
+      properties:
+        blocks:
+          title: Blocks
+          type: string
+          readOnly: true
+    CourseGrade:
+      required:
+      - letter_grade
+      - percent
+      - is_passing
+      type: object
+      properties:
+        letter_grade:
+          title: Letter grade
+          type: string
+          minLength: 1
+        percent:
+          title: Percent
+          type: number
+        is_passing:
+          title: Is passing
+          type: boolean
+    CertificateData:
+      required:
+      - cert_status
+      - cert_web_view_url
+      - download_url
+      - certificate_available_date
+      type: object
+      properties:
+        cert_status:
+          title: Cert status
+          type: string
+          minLength: 1
+        cert_web_view_url:
+          title: Cert web view url
+          type: string
+          minLength: 1
+        download_url:
+          title: Download url
+          type: string
+          minLength: 1
+        certificate_available_date:
+          title: Certificate available date
+          type: string
+          format: date-time
+    EnrollAlert:
+      required:
+      - can_enroll
+      - extra_text
+      type: object
+      properties:
+        can_enroll:
+          title: Can enroll
+          type: boolean
+        extra_text:
+          title: Extra text
+          type: string
+          minLength: 1
+    DateSummary:
+      required:
+      - complete
+      - date
+      - date_type
+      - description
+      - link_text
+      - title
+      - extra_info
+      type: object
+      properties:
+        assignment_type:
+          title: Assignment type
+          type: string
+          minLength: 1
+        complete:
+          title: Complete
+          type: boolean
+          nullable: true
+        date:
+          title: Date
+          type: string
+          format: date-time
+        date_type:
+          title: Date type
+          type: string
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          minLength: 1
+        learner_has_access:
+          title: Learner has access
+          type: string
+          readOnly: true
+        link:
+          title: Link
+          type: string
+          readOnly: true
+        link_text:
+          title: Link text
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        extra_info:
+          title: Extra info
+          type: string
+          minLength: 1
+        first_component_block_id:
+          title: First component block id
+          type: string
+          readOnly: true
+    CourseGoals:
+      required:
+      - selected_goal
+      type: object
+      properties:
+        selected_goal:
+          title: Selected goal
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        weekly_learning_goal_enabled:
+          title: Weekly learning goal enabled
+          type: boolean
+          default: false
+    ProgressTab:
+      required:
+      - access_expiration
+      - certificate_data
+      - completion_summary
+      - course_grade
+      - credit_course_requirements
+      - end
+      - enrollment_mode
+      - grading_policy
+      - has_scheduled_content
+      - section_scores
+      - studio_url
+      - username
+      - user_has_passing_grade
+      - verification_data
+      - disable_progress_graph
+      type: object
+      properties:
+        verified_mode:
+          title: Verified mode
+          type: string
+          readOnly: true
+        access_expiration:
+          title: Access expiration
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        certificate_data:
+          $ref: '#/components/schemas/CertificateData'
+        completion_summary:
+          title: Completion summary
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        course_grade:
+          $ref: '#/components/schemas/CourseGrade'
+        credit_course_requirements:
+          title: Credit course requirements
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+        end:
+          title: End
+          type: string
+          format: date-time
+        enrollment_mode:
+          title: Enrollment mode
+          type: string
+          minLength: 1
+        grading_policy:
+          $ref: '#/components/schemas/GradingPolicy'
+        has_scheduled_content:
+          title: Has scheduled content
+          type: boolean
+        section_scores:
+          type: array
+          items:
+            $ref: '#/components/schemas/SectionScores'
+        studio_url:
+          title: Studio url
+          type: string
+          minLength: 1
+        username:
+          title: Username
+          type: string
+          minLength: 1
+        user_has_passing_grade:
+          title: User has passing grade
+          type: boolean
+        verification_data:
+          $ref: '#/components/schemas/VerificationData'
+        disable_progress_graph:
+          title: Disable progress graph
+          type: boolean
+    CourseModeSerrializer:
+      required:
+      - slug
+      - name
+      type: object
+      properties:
+        slug:
+          title: Slug
+          type: string
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          minLength: 1
+    GradingPolicy:
+      required:
+      - grade_range
+      type: object
+      properties:
+        assignment_policies:
+          title: Assignment policies
+          type: string
+          readOnly: true
+        grade_range:
+          title: Grade range
+          type: object
+          additionalProperties:
+            type: string
+            nullable: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

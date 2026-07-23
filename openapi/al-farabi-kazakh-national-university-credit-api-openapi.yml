@@ -1,0 +1,283 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements credit API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: credit
+paths:
+  /credit/v1/courses/:
+    get:
+      operationId: credit_v1_courses_list
+      description: CreditCourse endpoints.
+      tags:
+      - credit
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CreditCourse'
+    post:
+      operationId: credit_v1_courses_create
+      description: CreditCourse endpoints.
+      tags:
+      - credit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditCourse'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditCourse'
+  /credit/v1/courses/{course_key}/:
+    get:
+      operationId: credit_v1_courses_read
+      description: CreditCourse endpoints.
+      tags:
+      - credit
+      parameters:
+      - name: course_key
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: (?:[^/+]+(/|\+)[^/+]+(/|\+)[^/?]+)
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditCourse'
+    put:
+      operationId: credit_v1_courses_update
+      description: Create/update course modes for a course.
+      tags:
+      - credit
+      parameters:
+      - name: course_key
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: (?:[^/+]+(/|\+)[^/+]+(/|\+)[^/?]+)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditCourse'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditCourse'
+    patch:
+      operationId: credit_v1_courses_partial_update
+      description: CreditCourse endpoints.
+      tags:
+      - credit
+      parameters:
+      - name: course_key
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: (?:[^/+]+(/|\+)[^/+]+(/|\+)[^/?]+)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreditCourse'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditCourse'
+  /credit/v1/eligibility/:
+    get:
+      operationId: credit_v1_eligibility_list
+      description: Returns eligibility for a user-course combination.
+      tags:
+      - credit
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CreditEligibility'
+  /credit/v1/providers/:
+    get:
+      operationId: credit_v1_providers_list
+      description: Credit provider endpoints.
+      tags:
+      - credit
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CreditProvider'
+  /credit/v1/providers/{provider_id}/:
+    get:
+      operationId: credit_v1_providers_read
+      description: Credit provider endpoints.
+      tags:
+      - credit
+      parameters:
+      - name: provider_id
+        in: path
+        required: true
+        description: Идентификатор кредитора. Может содержать только буквы, цифры и дефисы (-). Регистр учитывается.
+        schema:
+          type: string
+          pattern: '[a-z,A-Z,0-9,\-]+'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreditProvider'
+  /credit/v1/providers/{provider_id}/callback/:
+    post:
+      operationId: credit_v1_providers_callback_create
+      description: POST handler.
+      tags:
+      - credit
+      parameters:
+      - name: provider_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /credit/v1/providers/{provider_id}/request/:
+    post:
+      operationId: credit_v1_providers_request_create
+      description: POST handler.
+      tags:
+      - credit
+      parameters:
+      - name: provider_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+components:
+  schemas:
+    CreditCourse:
+      required:
+      - course_key
+      type: object
+      properties:
+        course_key:
+          title: Course key
+          type: string
+        enabled:
+          title: Enabled
+          type: boolean
+    CreditProvider:
+      required:
+      - id
+      - display_name
+      - url
+      - status_url
+      - description
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          minLength: 1
+        display_name:
+          title: Display name
+          description: Видимое пользователям название организации-кредитора
+          type: string
+          maxLength: 255
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          minLength: 1
+        status_url:
+          title: Status url
+          type: string
+          format: uri
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          minLength: 1
+        enable_integration:
+          title: Enable integration
+          description: При значении «true» кредитор будет получать автоматические оповещения о том, что пользователь запрашивает кредит. Чтобы эта функция работала, в настройках безопасной авторизации необходимо задать секретный ключ для кредитора.
+          type: boolean
+        fulfillment_instructions:
+          title: Fulfillment instructions
+          description: Текст или HTML-код с дальнейшими инструкциями по оформлению зачётных единиц. Он появится на странице с квитанцией только после оплаты.
+          type: string
+          nullable: true
+        thumbnail_url:
+          title: Thumbnail url
+          description: Ссылка на миниатюру образовательной организации, предоставляющей зачётные баллы.
+          type: string
+          format: uri
+          maxLength: 255
+          minLength: 1
+    CreditEligibility:
+      required:
+      - username
+      type: object
+      properties:
+        username:
+          title: Username
+          type: string
+          maxLength: 255
+          minLength: 1
+        course_key:
+          title: Course key
+          type: string
+          readOnly: true
+        deadline:
+          title: Deadline
+          description: Крайний срок подачи заявки и оформления кредита.
+          type: string
+          format: date-time
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

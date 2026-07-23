@@ -1,0 +1,187 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements organizations API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: organizations
+paths:
+  /organizations/v0/organizations/:
+    get:
+      operationId: organizations_v0_organizations_list
+      description: "Organization view to:\n    - list organization data (GET .../)\n    - retrieve single organization (GET .../<short_name>)\n    - create or update an organization via the PUT endpoint (PUT .../<short_name>)"
+      tags:
+      - organizations
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Organization'
+  /organizations/v0/organizations/{short_name}/:
+    get:
+      operationId: organizations_v0_organizations_read
+      description: "Organization view to:\n    - list organization data (GET .../)\n    - retrieve single organization (GET .../<short_name>)\n    - create or update an organization via the PUT endpoint (PUT .../<short_name>)"
+      tags:
+      - organizations
+      parameters:
+      - name: short_name
+        in: path
+        required: true
+        description: Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_).
+        schema:
+          type: string
+          pattern: '[^/+]+'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+    put:
+      operationId: organizations_v0_organizations_update
+      summary: We perform both Update and Create action via the PUT method.
+      description: "The 'active' field may not be specified via the HTTP API, since it\nis always assumed to be True. So:\n    (1) new organizations created through the API are always Active, and\n    (2) existing organizations updated through the API always end up Active,\n        regardless of whether or not they were previously active."
+      tags:
+      - organizations
+      parameters:
+      - name: short_name
+        in: path
+        required: true
+        description: Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_).
+        schema:
+          type: string
+          pattern: '[^/+]+'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Organization'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+    patch:
+      operationId: organizations_v0_organizations_partial_update
+      description: We disable PATCH because all updates and creates should use the PUT action above.
+      tags:
+      - organizations
+      parameters:
+      - name: short_name
+        in: path
+        required: true
+        description: Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_).
+        schema:
+          type: string
+          pattern: '[^/+]+'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Organization'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+components:
+  schemas:
+    Organization:
+      required:
+      - name
+      - short_name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          title: Изменено
+          type: string
+          format: date-time
+          readOnly: true
+        name:
+          title: Name
+          type: string
+          maxLength: 255
+          minLength: 1
+        short_name:
+          title: Short Name
+          description: Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_).
+          type: string
+          maxLength: 255
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          nullable: true
+        logo:
+          title: Logo
+          description: Please add only .PNG files for logo images. This logo will be used on certificates.
+          type: string
+          readOnly: true
+          format: uri
+          nullable: true
+        active:
+          title: Active
+          type: boolean
+        logo_url:
+          title: Logo url
+          type: string
+          minLength: 1
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

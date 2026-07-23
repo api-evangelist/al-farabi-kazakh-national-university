@@ -1,0 +1,365 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements edx_name_affirmation API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: edx_name_affirmation
+paths:
+  /edx_name_affirmation/v1/verified_name:
+    get:
+      operationId: edx_name_affirmation_v1_verified_name_list
+      summary: Get most recent verified name for the request user or for the specified username
+      description: "For example: /edx_name_affirmation/v1/verified_name?username=jdoe\nExample response: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\",\n    \"profile_name\": \"Jon Doe\",\n    \"verification_attempt_id\": 123,\n    \"proctored_exam_attempt_id\": None,\n    \"status\": \"approved\",\n    \"use_verified_name_for_certs\": False,\n}"
+      tags:
+      - edx_name_affirmation
+      parameters:
+      - name: username
+        in: query
+        required: false
+        description: The username of which verified name records might be associated
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The verified_name record associated with the username provided
+        '403':
+          description: User lacks required permission. Only an edX staff user can invoke this API
+        '404':
+          description: The verified_name record associated with the username provided does not exist.
+    post:
+      operationId: edx_name_affirmation_v1_verified_name_create
+      summary: Creates a new VerifiedName.
+      description: "Expected POST data: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\"\n    \"profile_name\": \"Jon Doe\"\n    \"verification_attempt_id\": (Optional)\n    \"proctored_exam_attempt_id\": (Optional)\n    \"platform_verification_attempt_id\": (Optional)\n    \"status\": (Optional)\n}"
+      tags:
+      - edx_name_affirmation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifiedName'
+      responses:
+        '200':
+          description: The verified_name record associated with the username provided is successfully created
+        '403':
+          description: User lacks required permission. Only an edX staff user can invoke this API
+        '400':
+          description: The posted data have conflicts with already stored verified name
+    patch:
+      operationId: edx_name_affirmation_v1_verified_name_partial_update
+      summary: Update verified name status
+      description: "Example PATCH data: {\n        \"username\": \"jdoe\",\n        \"verification_attempt_id\" OR \"proctored_exam_attempt_id\": 123,\n        \"status\": \"approved\",\n    }"
+      tags:
+      - edx_name_affirmation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateVerifiedName'
+      responses:
+        '200':
+          description: The verified_name record associated with the username provided is successfully edited
+        '403':
+          description: User lacks required permission. Only an edX staff user can invoke this API
+        '400':
+          description: The edit action failed validation rules
+    delete:
+      operationId: edx_name_affirmation_v1_verified_name_delete
+      summary: Delete verified name
+      description: /edx_name_affirmation/v1/verified_name/{verified_name_id}
+      tags:
+      - edx_name_affirmation
+      parameters:
+      - name: verified_name_id
+        in: path
+        required: true
+        description: The database id of the verified_name to be deleted
+        schema:
+          type: string
+      responses:
+        '204':
+          description: The verified_name record associated with the id is successfully deleted from data store
+        '403':
+          description: User lacks required permission. Only an edX staff user can invoke this API
+        '404':
+          description: The verified_name record associated with the id provided does not exist.
+  /edx_name_affirmation/v1/verified_name/config:
+    post:
+      operationId: edx_name_affirmation_v1_verified_name_config_create
+      summary: Create VerifiedNameConfig
+      description: Create VerifiedNameConfig
+      tags:
+      - edx_name_affirmation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifiedNameConfig'
+      responses:
+        '201':
+          description: The verified_name configuration record is successfully created
+        '403':
+          description: User lacks required permission. Only an edX staff user can invoke this API
+        '400':
+          description: The POSTed data failed validation rules
+  /edx_name_affirmation/v1/verified_name/history:
+    get:
+      operationId: edx_name_affirmation_v1_verified_name_history_list
+      summary: Get a list of verified name objects for the given user, ordered by most recently created.
+      description: Get a list of verified name objects for the given user, ordered by most recently created.
+      tags:
+      - edx_name_affirmation
+      parameters:
+      - name: username
+        in: query
+        required: false
+        description: The username of which verified name records might be associated
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The verified_name record associated with the username provided is successfully edited
+        '403':
+          description: User lacks required permission. Only an edX staff user can invoke this API
+  /edx_name_affirmation/v1/verified_name/{verified_name_id}:
+    get:
+      operationId: edx_name_affirmation_v1_verified_name_read
+      summary: Get most recent verified name for the request user or for the specified username
+      description: "For example: /edx_name_affirmation/v1/verified_name?username=jdoe\nExample response: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\",\n    \"profile_name\": \"Jon Doe\",\n    \"verification_attempt_id\": 123,\n    \"proctored_exam_attempt_id\": None,\n    \"status\": \"approved\",\n    \"use_verified_name_for_certs\": False,\n}"
+      tags:
+      - edx_name_affirmation
+      parameters:
+      - name: verified_name_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: query
+        required: false
+        description: The username of which verified name records might be associated
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The verified_name record associated with the username provided
+        '403':
+          description: User lacks required permission. Only an edX staff user can invoke this API
+        '404':
+          description: The verified_name record associated with the username provided does not exist.
+    post:
+      operationId: edx_name_affirmation_v1_verified_name_create
+      summary: Creates a new VerifiedName.
+      description: "Expected POST data: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\"\n    \"profile_name\": \"Jon Doe\"\n    \"verification_attempt_id\": (Optional)\n    \"proctored_exam_attempt_id\": (Optional)\n    \"platform_verification_attempt_id\": (Optional)\n    \"status\": (Optional)\n}"
+      tags:
+      - edx_name_affirmation
+      parameters:
+      - name: verified_name_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifiedName'
+      responses:
+        '200':
+          description: The verified_name record associated with the username provided is successfully created
+        '403':
+          description: User lacks required permission. Only an edX staff user can invoke this API
+        '400':
+          description: The posted data have conflicts with already stored verified name
+    patch:
+      operationId: edx_name_affirmation_v1_verified_name_partial_update
+      summary: Update verified name status
+      description: "Example PATCH data: {\n        \"username\": \"jdoe\",\n        \"verification_attempt_id\" OR \"proctored_exam_attempt_id\": 123,\n        \"status\": \"approved\",\n    }"
+      tags:
+      - edx_name_affirmation
+      parameters:
+      - name: verified_name_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateVerifiedName'
+      responses:
+        '200':
+          description: The verified_name record associated with the username provided is successfully edited
+        '403':
+          description: User lacks required permission. Only an edX staff user can invoke this API
+        '400':
+          description: The edit action failed validation rules
+    delete:
+      operationId: edx_name_affirmation_v1_verified_name_delete
+      summary: Delete verified name
+      description: /edx_name_affirmation/v1/verified_name/{verified_name_id}
+      tags:
+      - edx_name_affirmation
+      parameters:
+      - name: verified_name_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: verified_name_id
+        in: path
+        required: true
+        description: The database id of the verified_name to be deleted
+        schema:
+          type: string
+      responses:
+        '204':
+          description: The verified_name record associated with the id is successfully deleted from data store
+        '403':
+          description: User lacks required permission. Only an edX staff user can invoke this API
+        '404':
+          description: The verified_name record associated with the id provided does not exist.
+components:
+  schemas:
+    UpdateVerifiedName:
+      required:
+      - username
+      - status
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+        username:
+          title: Username
+          type: string
+          minLength: 1
+        verified_name:
+          title: Verified name
+          type: string
+          minLength: 1
+        profile_name:
+          title: Profile name
+          type: string
+          minLength: 1
+        verification_attempt_id:
+          title: Verification attempt id
+          type: integer
+          nullable: true
+        verification_attempt_status:
+          title: Verification attempt status
+          type: string
+          minLength: 1
+          nullable: true
+        proctored_exam_attempt_id:
+          title: Proctored exam attempt id
+          type: integer
+          nullable: true
+        platform_verification_attempt_id:
+          title: Platform verification attempt id
+          type: integer
+          nullable: true
+        platform_verification_attempt_status:
+          title: Platform verification attempt status
+          type: string
+          minLength: 1
+          nullable: true
+        status:
+          title: Status
+          type: string
+          minLength: 1
+    VerifiedNameConfig:
+      required:
+      - username
+      type: object
+      properties:
+        change_date:
+          title: Change date
+          type: string
+          format: date-time
+          readOnly: true
+        username:
+          title: Username
+          type: string
+          minLength: 1
+        use_verified_name_for_certs:
+          title: Use verified name for certs
+          type: boolean
+          nullable: true
+    VerifiedName:
+      required:
+      - username
+      - verified_name
+      - profile_name
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+        username:
+          title: Username
+          type: string
+          minLength: 1
+        verified_name:
+          title: Verified name
+          type: string
+          minLength: 1
+        profile_name:
+          title: Profile name
+          type: string
+          minLength: 1
+        verification_attempt_id:
+          title: Verification attempt id
+          type: integer
+          nullable: true
+        verification_attempt_status:
+          title: Verification attempt status
+          type: string
+          minLength: 1
+          nullable: true
+        proctored_exam_attempt_id:
+          title: Proctored exam attempt id
+          type: integer
+          nullable: true
+        platform_verification_attempt_id:
+          title: Platform verification attempt id
+          type: integer
+          nullable: true
+        platform_verification_attempt_status:
+          title: Platform verification attempt status
+          type: string
+          minLength: 1
+          nullable: true
+        status:
+          title: Status
+          type: string
+          minLength: 1
+          nullable: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

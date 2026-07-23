@@ -1,0 +1,28 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements send_account_activation_email API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: send_account_activation_email
+paths:
+  /send_account_activation_email:
+    post:
+      operationId: send_account_activation_email_create
+      description: Returns status code.
+      tags:
+      - send_account_activation_email
+      responses:
+        '201':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

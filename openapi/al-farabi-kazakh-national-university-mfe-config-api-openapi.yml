@@ -1,0 +1,36 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements mfe_config API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: mfe_config
+paths:
+  /mfe_config/v1:
+    get:
+      operationId: mfe_config_v1_list
+      summary: Return the MFE configuration, optionally including MFE-specific overrides.
+      description: "**Usage**\n\n  Get common config:\n  GET /api/mfe_config/v1\n\n  Get app config (common + app-specific overrides):\n  GET /api/mfe_config/v1?mfe=name_of_mfe\n\n**GET Response Values**\n```\n{\n    \"BASE_URL\": \"https://name_of_mfe.example.com\",\n    \"LANGUAGE_PREFERENCE_COOKIE_NAME\": \"example-language-preference\",\n    \"CREDENTIALS_BASE_URL\": \"https://credentials.example.com\",\n    \"DISCOVERY_API_BASE_URL\": \"https://discovery.example.com\",\n    \"LMS_BASE_URL\": \"https://courses.example.com\",\n    \"LOGIN_URL\": \"https://courses.example.com/login\",\n    \"LOGOUT_URL\": \"https://courses.example.com/logout\",\n    \"STUDIO_BASE_URL\": \"https://studio.example.com\",\n    \"LOGO_URL\": \"https://courses.example.com/logo.png\",\n    ... and so on\n}\n```"
+      tags:
+      - mfe_config
+      parameters:
+      - name: mfe
+        in: query
+        required: false
+        description: Name of an MFE (a.k.a. an APP_ID).
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

@@ -1,0 +1,279 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements entitlements API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: entitlements
+paths:
+  /entitlements/v1/entitlements/:
+    get:
+      operationId: entitlements_v1_entitlements_list
+      description: 'Override the list method to expire records that are past the
+
+        policy and requested via the API before returning those records.'
+      tags:
+      - entitlements
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CourseEntitlement'
+    post:
+      operationId: entitlements_v1_entitlements_create
+      description: ViewSet for the Entitlements API.
+      tags:
+      - entitlements
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseEntitlement'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseEntitlement'
+  /entitlements/v1/entitlements/{uuid}/:
+    get:
+      operationId: entitlements_v1_entitlements_read
+      description: 'Override the retrieve method to expire a record that is past the
+
+        policy and is requested via the API before returning that record.'
+      tags:
+      - entitlements
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: '[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseEntitlement'
+    put:
+      operationId: entitlements_v1_entitlements_update
+      description: ViewSet for the Entitlements API.
+      tags:
+      - entitlements
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: '[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseEntitlement'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseEntitlement'
+    patch:
+      operationId: entitlements_v1_entitlements_partial_update
+      description: ViewSet for the Entitlements API.
+      tags:
+      - entitlements
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: '[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseEntitlement'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseEntitlement'
+    delete:
+      operationId: entitlements_v1_entitlements_delete
+      description: ViewSet for the Entitlements API.
+      tags:
+      - entitlements
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: '[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}'
+      responses:
+        '204':
+          description: ''
+  /entitlements/v1/entitlements/{uuid}/enrollments:
+    post:
+      operationId: entitlements_v1_entitlements_enrollments_create
+      description: 'On POST this method will be called and will handle enrolling a user in the
+
+        provided course_run_id from the data. This is called on a specific entitlement
+
+        UUID so the course_run_id has to correspond to the Course that is assigned to
+
+        the Entitlement.
+
+
+        When this API is called for a user who is already enrolled in a run that User
+
+        will be unenrolled from their current run and enrolled in the new run if it is
+
+        available.'
+      tags:
+      - entitlements
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '201':
+          description: ''
+    delete:
+      operationId: entitlements_v1_entitlements_enrollments_delete
+      summary: On DELETE call to this API we will unenroll the course enrollment for the provided uuid
+      description: 'If is_refund parameter is provided then unenroll the user, set Entitlement expiration, and issue
+
+        a refund'
+      tags:
+      - entitlements
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '204':
+          description: ''
+components:
+  schemas:
+    CourseEntitlement:
+      required:
+      - user
+      - course_uuid
+      - mode
+      type: object
+      properties:
+        user:
+          title: User
+          type: string
+          pattern: ^[\w.@+-]+$
+        uuid:
+          title: Uuid
+          type: string
+          format: uuid
+          readOnly: true
+        course_uuid:
+          title: Course uuid
+          description: UUID for the Course, not the Course Run
+          type: string
+          format: uuid
+        enrollment_course_run:
+          title: Enrollment course run
+          type: string
+          readOnly: true
+          minLength: 1
+        expired_at:
+          title: Expired at
+          description: The date that an entitlement expired, if NULL the entitlement has not expired.
+          type: string
+          format: date-time
+          nullable: true
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          title: Изменено
+          type: string
+          format: date-time
+          readOnly: true
+        mode:
+          title: Mode
+          description: The mode of the Course that will be applied on enroll.
+          type: string
+          maxLength: 100
+          minLength: 1
+        refund_locked:
+          title: Refund locked
+          type: boolean
+        order_number:
+          title: Order number
+          type: string
+          maxLength: 128
+          minLength: 1
+          nullable: true
+        support_details:
+          title: Support details
+          type: string
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

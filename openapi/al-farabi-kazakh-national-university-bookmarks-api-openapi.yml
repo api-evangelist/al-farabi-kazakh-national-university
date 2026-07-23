@@ -1,0 +1,208 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements bookmarks API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: bookmarks
+paths:
+  /bookmarks/v1/bookmarks/:
+    get:
+      operationId: bookmarks_v1_bookmarks_list
+      summary: Get a paginated list of bookmarks for a user.
+      description: 'The list can be filtered by passing parameter "course_id=<course_id>"
+
+        to only include bookmarks from a particular course.
+
+
+        The bookmarks are always sorted in descending order by creation date.
+
+
+        Each page in the list contains 10 bookmarks by default. The page
+
+        size can be altered by passing parameter "page_size=<page_size>".
+
+
+        To include the optional fields pass the values in "fields" parameter
+
+        as a comma separated list. Possible values are:
+
+
+        * "display_name"
+
+        * "path"
+
+
+        **Example Requests**
+
+
+        GET /api/bookmarks/v1/bookmarks/?course_id={course_id1}&fields=display_name,path'
+      tags:
+      - bookmarks
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: course_id
+        in: query
+        required: false
+        description: The id of the course to limit the list
+        schema:
+          type: string
+      - name: fields
+        in: query
+        required: false
+        description: 'The fields to return: display_name, path.'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Bookmark'
+    post:
+      operationId: bookmarks_v1_bookmarks_create
+      summary: Create a new bookmark for a user.
+      description: 'The POST request only needs to contain one parameter "usage_id".
+
+
+        Http400 is returned if the format of the request is not correct,
+
+        the usage_id is invalid or a block corresponding to the usage_id
+
+        could not be found.
+
+
+        **Example Requests**
+
+
+        POST /api/bookmarks/v1/bookmarks/
+
+        Request data: {"usage_id": <usage-id>}'
+      tags:
+      - bookmarks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bookmark'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bookmark'
+  /bookmarks/v1/bookmarks/{username},{usage_id}/:
+    get:
+      operationId: bookmarks_v1_bookmarks_read
+      summary: Get a specific bookmark for a user.
+      description: '**Example Requests**
+
+
+        GET /api/bookmarks/v1/bookmarks/{username},{usage_id}?fields=display_name,path'
+      tags:
+      - bookmarks
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: usage_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    delete:
+      operationId: bookmarks_v1_bookmarks_delete
+      description: DELETE /api/bookmarks/v1/bookmarks/{username},{usage_id}
+      tags:
+      - bookmarks
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: usage_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+components:
+  schemas:
+    Bookmark:
+      required:
+      - course_id
+      - usage_id
+      type: object
+      properties:
+        id:
+          title: Id
+          description: 'The identifier string for the bookmark: {user_id},{usage_id}.'
+          type: string
+          readOnly: true
+        course_id:
+          title: Course id
+          description: The identifier string of the bookmark's course.
+          type: string
+        usage_id:
+          title: Usage id
+          description: The identifier string of the bookmark's XBlock.
+          type: string
+        block_type:
+          title: Block type
+          type: string
+          readOnly: true
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

@@ -1,0 +1,28 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements univertest API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: univertest
+paths:
+  /univertest/:
+    get:
+      operationId: univertest_list
+      description: ''
+      tags:
+      - univertest
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

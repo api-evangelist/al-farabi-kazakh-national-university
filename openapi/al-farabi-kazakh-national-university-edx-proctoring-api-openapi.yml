@@ -1,0 +1,649 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements edx_proctoring API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: edx_proctoring
+paths:
+  /edx_proctoring/proctoring_review_callback/:
+    post:
+      operationId: edx_proctoring_proctoring_review_callback_create
+      description: Post callback handler
+      tags:
+      - edx_proctoring
+      responses:
+        '201':
+          description: ''
+  /edx_proctoring/v1/instructor/{course_id}:
+    get:
+      operationId: edx_proctoring_v1_instructor_read
+      description: Redirect to dashboard for a given course and optional exam_id
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/instructor/{course_id}/{exam_id}:
+    get:
+      operationId: edx_proctoring_v1_instructor_read
+      description: Redirect to dashboard for a given course and optional exam_id
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: exam_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/active_attempt:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_active_attempt_list
+      description: HTTP GET handler. Returns active attempt
+      tags:
+      - edx_proctoring
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/active_exams_for_user:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_active_exams_for_user_list
+      description: Returns the get_active_exams_for_user
+      tags:
+      - edx_proctoring
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/allowance:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_allowance_list
+      description: 'HTTP GET handler. Get all allowances for a course.
+
+        Course and Global staff can view both timed and proctored exam allowances.'
+      tags:
+      - edx_proctoring
+      responses:
+        '200':
+          description: ''
+    put:
+      operationId: edx_proctoring_v1_proctored_exam_allowance_update
+      description: HTTP GET handler. Adds or updates Allowance
+      tags:
+      - edx_proctoring
+      responses:
+        '200':
+          description: ''
+    delete:
+      operationId: edx_proctoring_v1_proctored_exam_allowance_delete
+      description: HTTP DELETE handler. Removes Allowance.
+      tags:
+      - edx_proctoring
+      responses:
+        '204':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/attempt:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_list
+      description: HTTP GET Handler. Returns the status of the exam attempt.
+      tags:
+      - edx_proctoring
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_create
+      description: HTTP POST handler. To create an exam attempt.
+      tags:
+      - edx_proctoring
+      responses:
+        '201':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/attempt/course_id/{course_id}:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_course_id_read
+      description: HTTP GET handler. Returns exam with attempt and active attempt
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/attempt/grouped/course_id/{course_id}:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_grouped_course_id_read
+      description: HTTP GET Handler.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/attempt/grouped/course_id/{course_id}/search/{search_by}:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_grouped_course_id_search_read
+      description: HTTP GET Handler.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: search_by
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/attempt/{attempt_id}:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_read
+      description: HTTP GET Handler. Returns the status of the exam attempt.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: attempt_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    put:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_update
+      description: HTTP PUT handler to update exam attempt status based on an action.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: attempt_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    delete:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_delete
+      description: HTTP DELETE handler. Removes an exam attempt.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: attempt_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/attempt/{attempt_id}/review_status:
+    put:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_review_status_update
+      description: Update the is_status_acknowledged flag for the specific attempt
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: attempt_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/attempt/{external_id}/ready:
+    post:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_ready_create
+      description: Post callback handler
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: external_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/attempt/{external_id}/reviewed:
+    post:
+      operationId: edx_proctoring_v1_proctored_exam_attempt_reviewed_create
+      description: 'Called when 3rd party proctoring service has finished its review of
+
+        an attempt.'
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: external_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/bulk_allowance:
+    put:
+      operationId: edx_proctoring_v1_proctored_exam_bulk_allowance_update
+      description: HTTP PUT handler. Adds or updates Allowances for many exams and students
+      tags:
+      - edx_proctoring
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/exam:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_exam_list
+      description: "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+      tags:
+      - edx_proctoring
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: edx_proctoring_v1_proctored_exam_exam_create
+      description: Http POST handler. Creates an exam.
+      tags:
+      - edx_proctoring
+      responses:
+        '201':
+          description: ''
+    put:
+      operationId: edx_proctoring_v1_proctored_exam_exam_update
+      description: 'HTTP PUT handler. To update an exam.
+
+        calls the update_exam'
+      tags:
+      - edx_proctoring
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/exam/course_id/{course_id}:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_exam_course_id_read
+      description: "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: edx_proctoring_v1_proctored_exam_exam_course_id_create
+      description: Http POST handler. Creates an exam.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+    put:
+      operationId: edx_proctoring_v1_proctored_exam_exam_course_id_update
+      description: 'HTTP PUT handler. To update an exam.
+
+        calls the update_exam'
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/exam/course_id/{course_id}/content_id/{content_id}:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_exam_course_id_content_id_read
+      description: "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: content_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: edx_proctoring_v1_proctored_exam_exam_course_id_content_id_create
+      description: Http POST handler. Creates an exam.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: content_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+    put:
+      operationId: edx_proctoring_v1_proctored_exam_exam_course_id_content_id_update
+      description: 'HTTP PUT handler. To update an exam.
+
+        calls the update_exam'
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: content_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/exam/exam_id/{exam_id}:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_exam_exam_id_read
+      description: "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: exam_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: edx_proctoring_v1_proctored_exam_exam_exam_id_create
+      description: Http POST handler. Creates an exam.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: exam_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+    put:
+      operationId: edx_proctoring_v1_proctored_exam_exam_exam_id_update
+      description: 'HTTP PUT handler. To update an exam.
+
+        calls the update_exam'
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: exam_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/exam_id/{exam_id}/user_id/{user_id}/reset_attempts:
+    delete:
+      operationId: edx_proctoring_v1_proctored_exam_exam_id_user_id_reset_attempts_delete
+      description: HTTP DELETE handler, deletes all attempts for a given exam and username
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: exam_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/exam_registration/course_id/{course_id}:
+    patch:
+      operationId: edx_proctoring_v1_proctored_exam_exam_registration_course_id_partial_update
+      description: 'Create or update a list of all active exams.
+
+        Exams not included in the registration payload will be deactivated'
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/review_policy/exam_id/{exam_id}/:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_review_policy_exam_id_read
+      description: HTTP GET handler. Returns review policy for proctored exam.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: exam_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/settings/exam_id/{exam_id}/:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_settings_exam_id_read
+      description: HTTP GET handler. Returns proctoring_settings and exam_proctoring_backend config for proctored exam.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: exam_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/{course_id}/allowance:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_allowance_list
+      description: 'HTTP GET handler. Get all allowances for a course.
+
+        Course and Global staff can view both timed and proctored exam allowances.'
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    put:
+      operationId: edx_proctoring_v1_proctored_exam_allowance_update
+      description: HTTP GET handler. Adds or updates Allowance
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    delete:
+      operationId: edx_proctoring_v1_proctored_exam_allowance_delete
+      description: HTTP DELETE handler. Removes Allowance.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/{course_id}/bulk_allowance:
+    put:
+      operationId: edx_proctoring_v1_proctored_exam_bulk_allowance_update
+      description: HTTP PUT handler. Adds or updates Allowances for many exams and students
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/proctored_exam/{course_id}/grouped/allowance:
+    get:
+      operationId: edx_proctoring_v1_proctored_exam_grouped_allowance_list
+      description: HTTP GET Handler.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/retire_backend_user/{user_id}/:
+    post:
+      operationId: edx_proctoring_v1_retire_backend_user_create
+      description: 'Deletes all user data for the particular user_id
+
+        from all configured backends'
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /edx_proctoring/v1/retire_user/{user_id}/:
+    post:
+      operationId: edx_proctoring_v1_retire_user_create
+      description: Obfuscates all PII for a given user_id
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /edx_proctoring/v1/user_onboarding/status:
+    get:
+      operationId: edx_proctoring_v1_user_onboarding_status_list
+      description: HTTP GET handler. Returns the learner's onboarding status.
+      tags:
+      - edx_proctoring
+      responses:
+        '200':
+          description: ''
+  /edx_proctoring/v1/user_onboarding/status/course_id/{course_id}:
+    get:
+      operationId: edx_proctoring_v1_user_onboarding_status_course_id_read
+      description: HTTP GET handler.
+      tags:
+      - edx_proctoring
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

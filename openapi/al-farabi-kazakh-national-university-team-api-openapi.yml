@@ -1,0 +1,632 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements team API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: team
+paths:
+  /team/v0/bulk_team_membership/{course_id}:
+    get:
+      operationId: team_v0_bulk_team_membership_read
+      description: Download CSV with team membership data for given course run.
+      tags:
+      - team
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: team_v0_bulk_team_membership_create
+      description: Process uploaded CSV to modify team memberships for given course run.
+      tags:
+      - team
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /team/v0/team_membership/:
+    get:
+      operationId: team_v0_team_membership_list
+      description: GET /api/team/v0/team_membership
+      tags:
+      - team
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Membership'
+    post:
+      operationId: team_v0_team_membership_create
+      description: POST /api/team/v0/team_membership
+      tags:
+      - team
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Membership'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+  /team/v0/team_membership/{team_id},{username}:
+    get:
+      operationId: team_v0_team_membership_read
+      description: GET /api/team/v0/team_membership/{team_id},{username}
+      tags:
+      - team
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Membership'
+    delete:
+      operationId: team_v0_team_membership_delete
+      description: DELETE /api/team/v0/team_membership/{team_id},{username}
+      tags:
+      - team
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /team/v0/teams/:
+    get:
+      operationId: team_v0_teams_list
+      description: GET /api/team/v0/teams/
+      tags:
+      - team
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CourseTeam'
+    post:
+      operationId: team_v0_teams_create
+      description: POST /api/team/v0/teams/
+      tags:
+      - team
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CourseTeam'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseTeam'
+  /team/v0/teams/{team_id}:
+    get:
+      operationId: team_v0_teams_read
+      description: Retrieves the specified resource using the RetrieveModelMixin.
+      tags:
+      - team
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseTeam'
+    patch:
+      operationId: team_v0_teams_partial_update
+      description: Checks for validation errors, then updates the model using the UpdateModelMixin.
+      tags:
+      - team
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/CourseTeam'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseTeam'
+    delete:
+      operationId: team_v0_teams_delete
+      description: DELETE /api/team/v0/teams/{team_id}
+      tags:
+      - team
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /team/v0/teams/{team_id}/assignments:
+    get:
+      operationId: team_v0_teams_assignments_list
+      description: GET v0/teams/{team_id_pattern}/assignments
+      tags:
+      - team
+      parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /team/v0/topics/:
+    get:
+      operationId: team_v0_topics_list
+      description: GET /api/team/v0/topics/?course_id={course_id}
+      tags:
+      - team
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /team/v0/topics/{topic_id},{course_id}:
+    get:
+      operationId: team_v0_topics_read
+      description: GET /api/team/v0/topics/{topic_id},{course_id}/
+      tags:
+      - team
+      parameters:
+      - name: topic_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    CourseTeam:
+      required:
+      - name
+      - description
+      - country
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          readOnly: true
+          minLength: 1
+        discussion_topic_id:
+          title: Discussion topic id
+          type: string
+          format: slug
+          pattern: ^[-a-zA-Z0-9_]+$
+          readOnly: true
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          maxLength: 255
+          minLength: 1
+        course_id:
+          title: Course id
+          type: string
+          readOnly: true
+          minLength: 1
+        topic_id:
+          title: Topic id
+          type: string
+          maxLength: 255
+        date_created:
+          title: Date created
+          type: string
+          format: date-time
+          readOnly: true
+        description:
+          title: Description
+          type: string
+          maxLength: 300
+          minLength: 1
+        country:
+          title: Country
+          type: string
+        language:
+          title: Language
+          description: Код альтернативного языка команды по стандарту  ISO 639-1.
+          type: string
+          enum:
+          - aa
+          - ab
+          - af
+          - ak
+          - sq
+          - am
+          - ar
+          - an
+          - hy
+          - as
+          - av
+          - ae
+          - ay
+          - az
+          - ba
+          - bm
+          - eu
+          - be
+          - bn
+          - bh
+          - bi
+          - bs
+          - br
+          - bg
+          - my
+          - ca
+          - ch
+          - ce
+          - zh
+          - zh_HANS
+          - zh_HANT
+          - cu
+          - cv
+          - kw
+          - co
+          - cr
+          - cs
+          - da
+          - dv
+          - nl
+          - dz
+          - en
+          - eo
+          - et
+          - ee
+          - fo
+          - fj
+          - fi
+          - fr
+          - fy
+          - ff
+          - ka
+          - de
+          - gd
+          - ga
+          - gl
+          - gv
+          - el
+          - gn
+          - gu
+          - ht
+          - ha
+          - he
+          - hz
+          - hi
+          - ho
+          - hr
+          - hu
+          - ig
+          - is
+          - io
+          - ii
+          - iu
+          - ie
+          - ia
+          - id
+          - ik
+          - it
+          - jv
+          - ja
+          - kl
+          - kn
+          - ks
+          - kr
+          - kk
+          - km
+          - ki
+          - rw
+          - ky
+          - kv
+          - kg
+          - ko
+          - kj
+          - ku
+          - lo
+          - la
+          - lv
+          - li
+          - ln
+          - lt
+          - lb
+          - lu
+          - lg
+          - mk
+          - mh
+          - ml
+          - mi
+          - mr
+          - ms
+          - mg
+          - mt
+          - mn
+          - na
+          - nv
+          - nr
+          - nd
+          - ng
+          - ne
+          - nn
+          - nb
+          - 'no'
+          - ny
+          - oc
+          - oj
+          - or
+          - om
+          - os
+          - pa
+          - fa
+          - pi
+          - pl
+          - pt
+          - ps
+          - qu
+          - rm
+          - ro
+          - rn
+          - ru
+          - sg
+          - sa
+          - si
+          - sk
+          - sl
+          - se
+          - sm
+          - sn
+          - sd
+          - so
+          - st
+          - es
+          - sc
+          - sr
+          - ss
+          - su
+          - sw
+          - sv
+          - ty
+          - ta
+          - tt
+          - te
+          - tg
+          - tl
+          - th
+          - bo
+          - ti
+          - to
+          - tn
+          - ts
+          - tk
+          - tr
+          - tw
+          - ug
+          - uk
+          - ur
+          - uz
+          - ve
+          - vi
+          - vo
+          - cy
+          - wa
+          - wo
+          - xh
+          - yi
+          - yo
+          - za
+          - zu
+        last_activity_at:
+          title: Last activity at
+          type: string
+          format: date-time
+          readOnly: true
+        membership:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserMembership'
+          readOnly: true
+        organization_protected:
+          title: Organization protected
+          type: boolean
+    UserMembership:
+      required:
+      - user
+      type: object
+      properties:
+        user:
+          title: User
+          type: string
+        date_joined:
+          title: Date joined
+          type: string
+          format: date-time
+          readOnly: true
+        last_activity_at:
+          title: Last activity at
+          type: string
+          format: date-time
+          readOnly: true
+    Membership:
+      required:
+      - user
+      - team
+      type: object
+      properties:
+        user:
+          title: User
+          type: string
+        team:
+          title: Team
+          type: string
+        date_joined:
+          title: Date joined
+          type: string
+          format: date-time
+          readOnly: true
+        last_activity_at:
+          title: Last activity at
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

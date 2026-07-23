@@ -1,0 +1,242 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements ora_staff_grader API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: ora_staff_grader
+paths:
+  /ora_staff_grader/assessments/feedback/from/:
+    get:
+      operationId: ora_staff_grader_assessments_feedback_get_from
+      summary: View for fetching assessment feedback for a submission.
+      description: "**Methods**\n\n* (GET) `api/ora_staff_grader/assessments/feedback/from`\n    List all assessments received by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n* (GET) `api/ora_staff_grader/assessments/feedback/to`\n    List all assessments given by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n**Query Params**:\n\n* `oraLocation` (str): ORA location for XBlock handling\n* `submissionUUID` (str): The ORA submission UUID\n\n**Response**:\n\n    {\n        assessments (List[dict]): [\n            {\n                \"assessment_id: (str) Assessment id\n                \"scorer_name: (str) Scorer name\n                \"scorer_username: (str) Scorer username\n                \"scorer_email: (str) Scorer email\n                \"assessment_date: (str) Assessment date\n                \"assessment_scores (List[dict]) [\n                    {\n                        \"criterion_name: (str) Criterion name\n                        \"score_earned: (int) Score earned\n                        \"score_type: (str) Score type\n                    }\n                ]\n                \"problem_step (str) Problem step (Self, Peer, or Staff)\n                \"feedback: (str) Feedback of the assessment\n            }\n        ]\n    }\n\n**Errors**:\n\n* `MissingParamResponse` (HTTP 400) for missing params\n* `BadOraLocationResponse` (HTTP 400) for bad ORA location\n* `XBlockInternalError` (HTTP 500) for an issue with ORA\n* `UnknownError` (HTTP 500) for other errors"
+      tags:
+      - ora_staff_grader
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /ora_staff_grader/assessments/feedback/to/:
+    get:
+      operationId: ora_staff_grader_assessments_feedback_get_to
+      summary: View for fetching assessment feedback for a submission.
+      description: "**Methods**\n\n* (GET) `api/ora_staff_grader/assessments/feedback/from`\n    List all assessments received by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n* (GET) `api/ora_staff_grader/assessments/feedback/to`\n    List all assessments given by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n**Query Params**:\n\n* `oraLocation` (str): ORA location for XBlock handling\n* `submissionUUID` (str): The ORA submission UUID\n\n**Response**:\n\n    {\n        assessments (List[dict]): [\n            {\n                \"assessment_id: (str) Assessment id\n                \"scorer_name: (str) Scorer name\n                \"scorer_username: (str) Scorer username\n                \"scorer_email: (str) Scorer email\n                \"assessment_date: (str) Assessment date\n                \"assessment_scores (List[dict]) [\n                    {\n                        \"criterion_name: (str) Criterion name\n                        \"score_earned: (int) Score earned\n                        \"score_type: (str) Score type\n                    }\n                ]\n                \"problem_step (str) Problem step (Self, Peer, or Staff)\n                \"feedback: (str) Feedback of the assessment\n            }\n        ]\n    }\n\n**Errors**:\n\n* `MissingParamResponse` (HTTP 400) for missing params\n* `BadOraLocationResponse` (HTTP 400) for bad ORA location\n* `XBlockInternalError` (HTTP 500) for an issue with ORA\n* `UnknownError` (HTTP 500) for other errors"
+      tags:
+      - ora_staff_grader
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /ora_staff_grader/assessments/feedback/{id}/:
+    get:
+      operationId: ora_staff_grader_assessments_feedback_read
+      summary: View for fetching assessment feedback for a submission.
+      description: "**Methods**\n\n* (GET) `api/ora_staff_grader/assessments/feedback/from`\n    List all assessments received by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n* (GET) `api/ora_staff_grader/assessments/feedback/to`\n    List all assessments given by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n**Query Params**:\n\n* `oraLocation` (str): ORA location for XBlock handling\n* `submissionUUID` (str): The ORA submission UUID\n\n**Response**:\n\n    {\n        assessments (List[dict]): [\n            {\n                \"assessment_id: (str) Assessment id\n                \"scorer_name: (str) Scorer name\n                \"scorer_username: (str) Scorer username\n                \"scorer_email: (str) Scorer email\n                \"assessment_date: (str) Assessment date\n                \"assessment_scores (List[dict]) [\n                    {\n                        \"criterion_name: (str) Criterion name\n                        \"score_earned: (int) Score earned\n                        \"score_type: (str) Score type\n                    }\n                ]\n                \"problem_step (str) Problem step (Self, Peer, or Staff)\n                \"feedback: (str) Feedback of the assessment\n            }\n        ]\n    }\n\n**Errors**:\n\n* `MissingParamResponse` (HTTP 400) for missing params\n* `BadOraLocationResponse` (HTTP 400) for bad ORA location\n* `XBlockInternalError` (HTTP 500) for an issue with ORA\n* `UnknownError` (HTTP 500) for other errors"
+      tags:
+      - ora_staff_grader
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /ora_staff_grader/initialize:
+    get:
+      operationId: ora_staff_grader_initialize_read
+      description: GET course metadata
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+  /ora_staff_grader/mock/initialize:
+    get:
+      operationId: ora_staff_grader_mock_initialize_read
+      description: Returns initial app state
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+  /ora_staff_grader/mock/submission:
+    get:
+      operationId: ora_staff_grader_mock_submission_read
+      description: Get a submission
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+  /ora_staff_grader/mock/submission/grade:
+    get:
+      operationId: ora_staff_grader_mock_submission_grade_read
+      description: Submit a grade
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: ora_staff_grader_mock_submission_grade_create
+      description: Save a grade update to the data store
+      tags:
+      - ora_staff_grader
+      responses:
+        '201':
+          description: ''
+  /ora_staff_grader/mock/submission/lock:
+    post:
+      operationId: ora_staff_grader_mock_submission_lock_create
+      description: Claim a submission lock, updating lock status
+      tags:
+      - ora_staff_grader
+      responses:
+        '201':
+          description: ''
+    delete:
+      operationId: ora_staff_grader_mock_submission_lock_delete
+      description: Delete a submission lock, updating lock status
+      tags:
+      - ora_staff_grader
+      responses:
+        '204':
+          description: ''
+  /ora_staff_grader/mock/submission/status:
+    get:
+      operationId: ora_staff_grader_mock_submission_status_read
+      description: Get a submission status, leaving out the response
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+  /ora_staff_grader/submission:
+    get:
+      operationId: ora_staff_grader_submission_read
+      description: GET submission contents and assessment info, if any
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+  /ora_staff_grader/submission/batch/unlock:
+    get:
+      operationId: ora_staff_grader_submission_batch_unlock_read
+      description: POST delete a group of submission locks, limited to just those in the list that the user owns.
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: ora_staff_grader_submission_batch_unlock_create
+      description: Batch delete submission locks
+      tags:
+      - ora_staff_grader
+      responses:
+        '201':
+          description: ''
+  /ora_staff_grader/submission/files:
+    get:
+      operationId: ora_staff_grader_submission_files_read
+      summary: GET file metadata for a submission.
+      description: 'Used to get updated file download links to avoid signed download link expiration
+
+        issues.'
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+  /ora_staff_grader/submission/grade:
+    get:
+      operationId: ora_staff_grader_submission_grade_read
+      description: POST submit a grade for a submission
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: ora_staff_grader_submission_grade_create
+      description: Update a grade
+      tags:
+      - ora_staff_grader
+      responses:
+        '201':
+          description: ''
+  /ora_staff_grader/submission/lock:
+    get:
+      operationId: ora_staff_grader_submission_lock_read
+      description: 'POST claim a submission lock for grading
+
+        DELETE release a submission lock'
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: ora_staff_grader_submission_lock_create
+      description: Claim a submission lock
+      tags:
+      - ora_staff_grader
+      responses:
+        '201':
+          description: ''
+    delete:
+      operationId: ora_staff_grader_submission_lock_delete
+      description: Clear a submission lock
+      tags:
+      - ora_staff_grader
+      responses:
+        '204':
+          description: ''
+  /ora_staff_grader/submission/status:
+    get:
+      operationId: ora_staff_grader_submission_status_read
+      description: GET submission grade status, lock status, and grade data
+      tags:
+      - ora_staff_grader
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

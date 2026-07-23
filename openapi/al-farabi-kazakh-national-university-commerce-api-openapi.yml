@@ -1,0 +1,212 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements commerce API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: commerce
+paths:
+  /commerce/v0/baskets/:
+    post:
+      operationId: commerce_v0_baskets_create
+      description: Attempt to enroll the user.
+      tags:
+      - commerce
+      responses:
+        '201':
+          description: ''
+  /commerce/v0/baskets/{basket_id}/order/:
+    get:
+      operationId: commerce_v0_baskets_order_list
+      description: HTTP handler.
+      tags:
+      - commerce
+      parameters:
+      - name: basket_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /commerce/v1/courses/:
+    get:
+      operationId: commerce_v1_courses_list
+      description: List courses and modes.
+      tags:
+      - commerce
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/commerce.Course'
+  /commerce/v1/courses/{course_id}/:
+    get:
+      operationId: commerce_v1_courses_read
+      description: Retrieve, update, or create courses/modes.
+      tags:
+      - commerce
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/commerce.Course'
+    put:
+      operationId: commerce_v1_courses_update
+      description: Retrieve, update, or create courses/modes.
+      tags:
+      - commerce
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/commerce.Course'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/commerce.Course'
+    patch:
+      operationId: commerce_v1_courses_partial_update
+      description: Retrieve, update, or create courses/modes.
+      tags:
+      - commerce
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/commerce.Course'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/commerce.Course'
+  /commerce/v1/orders/{number}/:
+    get:
+      operationId: commerce_v1_orders_read
+      description: HTTP handler.
+      tags:
+      - commerce
+      parameters:
+      - name: number
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    commerce.CourseMode:
+      required:
+      - name
+      - price
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          minLength: 1
+        currency:
+          title: Currency
+          type: string
+          maxLength: 8
+          minLength: 1
+        price:
+          title: Price
+          type: integer
+        sku:
+          title: SKU
+          description: 'НЕОБЯЗАТЕЛЬНО: поле SKU (единица учёта запасов) для внешнего сервиса электронной коммерции. Оставьте пустым, если курс ещё не был добавлен в сервис электронной коммерции.'
+          type: string
+          maxLength: 255
+          nullable: true
+        bulk_sku:
+          title: Bulk SKU
+          description: Это основная часть SKU (единица учёта запасов) этого режима в службе внешней электронной коммерции.
+          type: string
+          maxLength: 255
+          nullable: true
+        expires:
+          title: Expires
+          type: string
+          format: date-time
+          nullable: true
+        android_sku:
+          title: Android SKU
+          description: 'OPTIONAL: This is the Android SKU registered on play store for this mode of the course. Leave this blank if the course has not yet been migrated to the ecommerce service.'
+          type: string
+          maxLength: 255
+          nullable: true
+        ios_sku:
+          title: IOS SKU
+          description: 'OPTIONAL: This is the iOS SKU registered on app store for this mode of the course.  Leave this blank if the course has not yet been migrated to the ecommerce service.'
+          type: string
+          maxLength: 255
+          nullable: true
+    commerce.Course:
+      required:
+      - id
+      - modes
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          readOnly: true
+          minLength: 1
+        verification_deadline:
+          title: Verification deadline
+          type: string
+          format: date-time
+          nullable: true
+        modes:
+          type: array
+          items:
+            $ref: '#/components/schemas/commerce.CourseMode'
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

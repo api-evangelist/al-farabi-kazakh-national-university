@@ -1,0 +1,38 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements third_party_auth_context API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: third_party_auth_context
+paths:
+  /third_party_auth_context:
+    get:
+      operationId: third_party_auth_context_list
+      description: 'Returns
+
+        - dynamic registration fields
+
+        - dynamic optional fields
+
+        - the context for third party auth providers
+
+        - user country code
+
+        - the currently running pipeline.'
+      tags:
+      - third_party_auth_context
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

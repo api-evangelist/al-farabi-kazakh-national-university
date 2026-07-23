@@ -1,0 +1,168 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements instructor_task API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: instructor_task
+paths:
+  /instructor_task/v1/schedules/{course_id}/bulk_email/:
+    get:
+      operationId: instructor_task_v1_schedules_bulk_email_list
+      description: Read only view to list all scheduled bulk email messages for a course-run.
+      tags:
+      - instructor_task
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ScheduledBulkEmail'
+  /instructor_task/v1/schedules/{course_id}/bulk_email/{schedule_id}:
+    put:
+      operationId: instructor_task_v1_schedules_bulk_email_update
+      description: "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task."
+      tags:
+      - instructor_task
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: schedule_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduledBulkEmail'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduledBulkEmail'
+    patch:
+      operationId: instructor_task_v1_schedules_bulk_email_partial_update
+      description: "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task."
+      tags:
+      - instructor_task
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: schedule_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduledBulkEmail'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduledBulkEmail'
+    delete:
+      operationId: instructor_task_v1_schedules_bulk_email_delete
+      description: "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task."
+      tags:
+      - instructor_task
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: schedule_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+components:
+  schemas:
+    ScheduledBulkEmail:
+      required:
+      - task
+      - task_due
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        course_email:
+          title: Course email
+          type: string
+          readOnly: true
+        task:
+          title: Task
+          type: integer
+        task_due:
+          title: Task due
+          type: string
+          format: date-time
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

@@ -1,0 +1,326 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements notifications API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: notifications
+paths:
+  /notifications/:
+    get:
+      operationId: notifications_list
+      summary: API view for listing notifications for a user.
+      description: "**Permissions**: User must be authenticated.\n**Response Format** (paginated):\n\n    {\n        \"results\" : [\n            {\n                \"id\": (int) notification_id,\n                \"app_name\": (str) app_name,\n                \"notification_type\": (str) notification_type,\n                \"content\": (str) content,\n                \"content_context\": (dict) content_context,\n                \"content_url\": (str) content_url,\n                \"last_read\": (datetime) last_read,\n                \"last_seen\": (datetime) last_seen\n            },\n            ...\n        ],\n        \"count\": (int) total_number_of_notifications,\n        \"next\": (str) url_to_next_page_of_notifications,\n        \"previous\": (str) url_to_previous_page_of_notifications,\n        \"page_size\": (int) number_of_notifications_per_page,\n\n    }\n\nResponse Error Codes:\n- 403: The requester cannot access resource."
+      tags:
+      - notifications
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Notification'
+  /notifications/configurations/:
+    get:
+      operationId: notifications_configurations_list
+      description: API view for getting the aggregate notification preferences for the current user.
+      tags:
+      - notifications
+      responses:
+        '200':
+          description: ''
+  /notifications/configurations/{course_key_string}:
+    get:
+      operationId: notifications_configurations_read
+      summary: Returns notification preference for user for a course.
+      description: "Parameters:\n     request (Request): The request object.\n     course_key_string (int): The ID of the course to retrieve notification preference.\n\n Returns:\n     {\n        'id': 1,\n        'course_name': 'testcourse',\n        'course_id': 'course-v1:testorg+testcourse+testrun',\n        'notification_preference_config': {\n            'discussion': {\n                'enabled': False,\n                'core': {\n                    'info': '',\n                    'web': False,\n                    'push': False,\n                    'email': False,\n                },\n                'notification_types': {\n                    'new_post': {\n                        'info': '',\n                        'web': False,\n                        'push': False,\n                        'email': False,\n                    },\n                },\n                'not_editable': {},\n            },\n        }\n    }"
+      tags:
+      - notifications
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    patch:
+      operationId: notifications_configurations_partial_update
+      description: Update an existing user notification preference with the data in the request body.
+      tags:
+      - notifications
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /notifications/count/:
+    get:
+      operationId: notifications_count_list
+      summary: Get the unseen notifications count and show_notification_tray flag for a user.
+      description: "**Permissions**: User must be authenticated.\n**Response Format**:\n```json\n{\n    \"show_notifications_tray\": (bool) show_notifications_tray,\n    \"count\": (int) total_number_of_unseen_notifications,\n    \"count_by_app_name\": {\n        (str) app_name: (int) number_of_unseen_notifications,\n        ...\n    },\n    \"notification_expiry_days\": 60\n}\n```\n**Response Error Codes**:\n- 403: The requester cannot access resource."
+      tags:
+      - notifications
+      responses:
+        '200':
+          description: ''
+  /notifications/enrollments/:
+    get:
+      operationId: notifications_enrollments_list
+      summary: API endpoint to get active CourseEnrollments for requester.
+      description: "**Permissions**: User must be authenticated.\n**Response Format** (paginated):\n\n    {\n        \"next\": (str) url_to_next_page_of_courses,\n        \"previous\": (str) url_to_previous_page_of_courses,\n        \"count\": (int) total_number_of_courses,\n        \"num_pages\": (int) total_number_of_pages,\n        \"current_page\": (int) current_page_number,\n        \"start\": (int) index_of_first_course_on_page,\n        \"results\" : [\n            {\n                \"course\": {\n                    \"id\": (int) course_id,\n                    \"display_name\": (str) course_display_name\n                },\n            },\n            ...\n        ],\n    }\n\nResponse Error Codes:\n- 403: The requester cannot access resource."
+      tags:
+      - notifications
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/NotificationCourseEnrollment'
+  /notifications/mark-seen/{app_name}/:
+    put:
+      operationId: notifications_mark-seen_update
+      description: API view for marking user's all notifications seen for a provided app_name.
+      tags:
+      - notifications
+      parameters:
+      - name: app_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    patch:
+      operationId: notifications_mark-seen_partial_update
+      description: API view for marking user's all notifications seen for a provided app_name.
+      tags:
+      - notifications
+      parameters:
+      - name: app_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /notifications/preferences/update-all/:
+    post:
+      operationId: notifications_preferences_update-all_create
+      description: Update all notification preferences for the current user.
+      tags:
+      - notifications
+      responses:
+        '201':
+          description: ''
+  /notifications/preferences/update/{username}/{patch}/:
+    get:
+      operationId: notifications_preferences_update_read
+      description: 'View to update user preferences from encrypted username and patch.
+
+        username and patch must be string'
+      tags:
+      - notifications
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: patch
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: notifications_preferences_update_create
+      description: 'View to update user preferences from encrypted username and patch.
+
+        username and patch must be string'
+      tags:
+      - notifications
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: patch
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /notifications/read/:
+    patch:
+      operationId: notifications_read_partial_update
+      description: 'Marks all notifications or single notification read for the given
+
+        app name or notification id for the authenticated user.'
+      tags:
+      - notifications
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    CourseOverview:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          maxLength: 255
+          minLength: 1
+        display_name:
+          title: Display name
+          type: string
+          minLength: 1
+          nullable: true
+    NotificationCourseEnrollment:
+      required:
+      - course
+      type: object
+      properties:
+        course:
+          $ref: '#/components/schemas/CourseOverview'
+    Notification:
+      required:
+      - app_name
+      - notification_type
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        app_name:
+          title: App name
+          type: string
+          maxLength: 64
+          minLength: 1
+        notification_type:
+          title: Notification type
+          type: string
+          maxLength: 64
+          minLength: 1
+        content_context:
+          title: Content context
+          type: object
+        content:
+          title: Content
+          type: string
+          readOnly: true
+        content_url:
+          title: Content url
+          type: string
+          format: uri
+          maxLength: 200
+          nullable: true
+        course_id:
+          title: Course id
+          type: string
+          maxLength: 255
+          nullable: true
+        last_read:
+          title: Last read
+          type: string
+          format: date-time
+          nullable: true
+        last_seen:
+          title: Last seen
+          type: string
+          format: date-time
+          nullable: true
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

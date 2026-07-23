@@ -1,0 +1,255 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements xblock API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: xblock
+paths:
+  /xblock/v2/xblocks/{usage_key}/:
+    get:
+      operationId: xblock_v2_xblocks_read
+      summary: Get metadata about the specified block.
+      description: "Accepts the following query parameters:\n\n* \"include\": a comma-separated list of keys to include.\n  Valid keys are \"index_dictionary\" and \"student_view_data\"."
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /xblock/v2/xblocks/{usage_key}/fields/:
+    get:
+      operationId: xblock_v2_xblocks_fields_list
+      description: retrieves the xblock, returning display_name, data, and metadata
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: xblock_v2_xblocks_fields_create
+      description: edits the xblock, saving changes to data and metadata only (display_name included in metadata)
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /xblock/v2/xblocks/{usage_key}/handler_url/{handler_name}/:
+    get:
+      operationId: xblock_v2_xblocks_handler_url_read
+      summary: 'Get an absolute URL which can be used (without any authentication) to call
+
+        the given XBlock handler.'
+      description: The URL will expire but is guaranteed to be valid for a minimum of 2 days.
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: handler_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /xblock/v2/xblocks/{usage_key}/olx/:
+    get:
+      operationId: xblock_v2_xblocks_olx_list
+      description: Get the OLX (XML serialization) of the specified XBlock
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /xblock/v2/xblocks/{usage_key}/view/{view_name}/:
+    get:
+      operationId: xblock_v2_xblocks_view_read
+      description: Get the HTML, JS, and CSS needed to render the given XBlock.
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: view_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /xblock/v2/xblocks/{usage_key}@{version}/:
+    get:
+      operationId: xblock_v2_xblocks_read
+      summary: Get metadata about the specified block.
+      description: "Accepts the following query parameters:\n\n* \"include\": a comma-separated list of keys to include.\n  Valid keys are \"index_dictionary\" and \"student_view_data\"."
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /xblock/v2/xblocks/{usage_key}@{version}/fields/:
+    get:
+      operationId: xblock_v2_xblocks_fields_list
+      description: retrieves the xblock, returning display_name, data, and metadata
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: xblock_v2_xblocks_fields_create
+      description: edits the xblock, saving changes to data and metadata only (display_name included in metadata)
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /xblock/v2/xblocks/{usage_key}@{version}/handler_url/{handler_name}/:
+    get:
+      operationId: xblock_v2_xblocks_handler_url_read
+      summary: 'Get an absolute URL which can be used (without any authentication) to call
+
+        the given XBlock handler.'
+      description: The URL will expire but is guaranteed to be valid for a minimum of 2 days.
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: handler_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /xblock/v2/xblocks/{usage_key}@{version}/olx/:
+    get:
+      operationId: xblock_v2_xblocks_olx_list
+      description: Get the OLX (XML serialization) of the specified XBlock
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /xblock/v2/xblocks/{usage_key}@{version}/view/{view_name}/:
+    get:
+      operationId: xblock_v2_xblocks_view_read
+      description: Get the HTML, JS, and CSS needed to render the given XBlock.
+      tags:
+      - xblock
+      parameters:
+      - name: usage_key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: view_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

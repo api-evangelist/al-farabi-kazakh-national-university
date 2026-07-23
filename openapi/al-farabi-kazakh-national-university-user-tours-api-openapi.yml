@@ -1,0 +1,131 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements user_tours API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: user_tours
+paths:
+  /user_tours/discussion_tours/{tour_id}/:
+    get:
+      operationId: user_tours_discussion_tours_read
+      description: Return a list of all tours in the database.
+      tags:
+      - user_tours
+      parameters:
+      - name: tour_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    put:
+      operationId: user_tours_discussion_tours_update
+      description: Update an existing tour with the data in the request body.
+      tags:
+      - user_tours
+      parameters:
+      - name: tour_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /user_tours/v1/{username}:
+    get:
+      operationId: user_tours_v1_read
+      summary: Retrieve the User Tour for the given username.
+      description: "Allows staff users to retrieve any user's User Tour.\n\nReturns\n    200 with the following fields:\n        course_home_tour_status (str): one of UserTour.CourseHomeChoices\n        show_courseware_tour (bool): indicates if courseware tour should be shown.\n\n    400 if there is a not allowed request (requesting a user you don't have access to)\n    401 if unauthorized request\n    403 if tours are disabled\n    404 if the UserTour does not exist (shouldn't happen, but safety first)"
+      tags:
+      - user_tours
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserTour'
+    put:
+      operationId: user_tours_v1_update
+      description: Unsupported method.
+      tags:
+      - user_tours
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserTour'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserTour'
+    patch:
+      operationId: user_tours_v1_partial_update
+      summary: Patch the User Tour for the request.user.
+      description: Supports updating the `course_home_tour_status` and `show_courseware_tour` fields.
+      tags:
+      - user_tours
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserTour'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserTour'
+components:
+  schemas:
+    UserTour:
+      type: object
+      properties:
+        course_home_tour_status:
+          title: Course home tour status
+          type: string
+          enum:
+          - show-existing-user-tour
+          - show-new-user-tour
+          - no-tour
+        show_courseware_tour:
+          title: Show courseware tour
+          type: boolean
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

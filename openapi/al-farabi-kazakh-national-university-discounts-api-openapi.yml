@@ -1,0 +1,54 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements discounts API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: discounts
+paths:
+  /discounts/course/{course_key_string}:
+    get:
+      operationId: discounts_course_read
+      description: Return the discount percent, if the user has appropriate permissions.
+      tags:
+      - discounts
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /discounts/user/{user_id}/course/{course_key_string}:
+    get:
+      operationId: discounts_user_course_read
+      description: Return the discount percent, if the user has appropriate permissions.
+      tags:
+      - discounts
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

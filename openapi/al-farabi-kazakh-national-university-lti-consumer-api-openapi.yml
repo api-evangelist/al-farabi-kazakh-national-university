@@ -1,0 +1,337 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements lti_consumer API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: lti_consumer
+paths:
+  /lti_consumer/v1/lti/{lti_config_id}/lti-ags:
+    get:
+      operationId: lti_consumer_v1_lti_lti-ags_list
+      summary: LineItem endpoint implementation from LTI Advantage.
+      description: 'See full documentation at:'
+      tags:
+      - lti_consumer
+      parameters:
+      - name: lti_config_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/vnd.ims.lis.v2.lineitemcontainer+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LtiAgsLineItem'
+            application/vnd.ims.lis.v2.lineitem+json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LtiAgsLineItem'
+    post:
+      operationId: lti_consumer_v1_lti_lti-ags_create
+      summary: LineItem endpoint implementation from LTI Advantage.
+      description: 'See full documentation at:'
+      tags:
+      - lti_consumer
+      parameters:
+      - name: lti_config_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.ims.lis.v2.lineitem+json:
+            schema:
+              $ref: '#/components/schemas/LtiAgsLineItem'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/vnd.ims.lis.v2.lineitemcontainer+json:
+              schema:
+                $ref: '#/components/schemas/LtiAgsLineItem'
+            application/vnd.ims.lis.v2.lineitem+json:
+              schema:
+                $ref: '#/components/schemas/LtiAgsLineItem'
+  /lti_consumer/v1/lti/{lti_config_id}/lti-ags/{id}:
+    get:
+      operationId: lti_consumer_v1_lti_lti-ags_read
+      summary: LineItem endpoint implementation from LTI Advantage.
+      description: 'See full documentation at:'
+      tags:
+      - lti_consumer
+      parameters:
+      - name: lti_config_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/vnd.ims.lis.v2.lineitemcontainer+json:
+              schema:
+                $ref: '#/components/schemas/LtiAgsLineItem'
+            application/vnd.ims.lis.v2.lineitem+json:
+              schema:
+                $ref: '#/components/schemas/LtiAgsLineItem'
+    put:
+      operationId: lti_consumer_v1_lti_lti-ags_update
+      summary: LineItem endpoint implementation from LTI Advantage.
+      description: 'See full documentation at:'
+      tags:
+      - lti_consumer
+      parameters:
+      - name: lti_config_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.ims.lis.v2.lineitem+json:
+            schema:
+              $ref: '#/components/schemas/LtiAgsLineItem'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/vnd.ims.lis.v2.lineitemcontainer+json:
+              schema:
+                $ref: '#/components/schemas/LtiAgsLineItem'
+            application/vnd.ims.lis.v2.lineitem+json:
+              schema:
+                $ref: '#/components/schemas/LtiAgsLineItem'
+    patch:
+      operationId: lti_consumer_v1_lti_lti-ags_partial_update
+      summary: LineItem endpoint implementation from LTI Advantage.
+      description: 'See full documentation at:'
+      tags:
+      - lti_consumer
+      parameters:
+      - name: lti_config_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.ims.lis.v2.lineitem+json:
+            schema:
+              $ref: '#/components/schemas/LtiAgsLineItem'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/vnd.ims.lis.v2.lineitemcontainer+json:
+              schema:
+                $ref: '#/components/schemas/LtiAgsLineItem'
+            application/vnd.ims.lis.v2.lineitem+json:
+              schema:
+                $ref: '#/components/schemas/LtiAgsLineItem'
+    delete:
+      operationId: lti_consumer_v1_lti_lti-ags_delete
+      summary: LineItem endpoint implementation from LTI Advantage.
+      description: 'See full documentation at:'
+      tags:
+      - lti_consumer
+      parameters:
+      - name: lti_config_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /lti_consumer/v1/lti/{lti_config_id}/lti-ags/{id}/results/{user_id}:
+    get:
+      operationId: lti_consumer_v1_lti_lti-ags_results
+      summary: Return a Result list for an LtiAgsLineItem
+      description: "URL Parameters:\n  * user_id (string): String external user id representation.\n\nQuery Parameters:\n  * limit (integer): The maximum number of records to return. Records are\n        sorted with most recent timestamp first"
+      tags:
+      - lti_consumer
+      parameters:
+      - name: lti_config_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/vnd.ims.lis.v2.resultcontainer+json:
+              schema:
+                $ref: '#/components/schemas/LtiAgsLineItem'
+  /lti_consumer/v1/lti/{lti_config_id}/lti-ags/{id}/scores:
+    post:
+      operationId: lti_consumer_v1_lti_lti-ags_scores
+      description: Create a Score record for an LtiAgsLineItem
+      tags:
+      - lti_consumer
+      parameters:
+      - name: lti_config_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/vnd.ims.lis.v1.score+json:
+            schema:
+              $ref: '#/components/schemas/LtiAgsLineItem'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/vnd.ims.lis.v1.score+json:
+              schema:
+                $ref: '#/components/schemas/LtiAgsLineItem'
+  /lti_consumer/v1/lti/{lti_config_id}/memberships:
+    get:
+      operationId: lti_consumer_v1_lti_memberships_list
+      description: 'Overrides default list method of ModelViewSet. Calls LMS `get_course_members`
+
+        API and returns result.'
+      tags:
+      - lti_consumer
+      parameters:
+      - name: lti_config_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /lti_consumer/v1/lti/{lti_config_id}/memberships/{id}:
+    get:
+      operationId: lti_consumer_v1_lti_memberships_read
+      summary: LTI NRPS Context Membership Service endpoint.
+      description: 'See full documentation at:'
+      tags:
+      - lti_consumer
+      parameters:
+      - name: lti_config_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    LtiAgsLineItem:
+      required:
+      - resourceId
+      - scoreMaximum
+      - label
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          readOnly: true
+        resourceId:
+          title: Resourceid
+          type: string
+          minLength: 1
+        scoreMaximum:
+          title: Scoremaximum
+          type: integer
+        label:
+          title: Label
+          type: string
+          maxLength: 100
+          minLength: 1
+        tag:
+          title: Tag
+          type: string
+          maxLength: 50
+        resourceLinkId:
+          title: Resourcelinkid
+          type: string
+        startDateTime:
+          title: Startdatetime
+          type: string
+          format: date-time
+        endDateTime:
+          title: Enddatetime
+          type: string
+          format: date-time
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

@@ -1,0 +1,117 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements third_party_auth API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: third_party_auth
+paths:
+  /third_party_auth/v0/providers/user_status:
+    get:
+      operationId: third_party_auth_v0_providers_user_status_list
+      summary: GET /api/third_party_auth/v0/providers/user_status/
+      description: "**GET Response Values**\n```\n{\n    \"accepts_logins\": true,\n    \"name\": \"Google\",\n    \"disconnect_url\": \"/auth/disconnect/google-oauth2/?\",\n    \"connect_url\": \"/auth/login/google-oauth2/?auth_entry=account_settings&next=%2Faccount%2Fsettings\",\n    \"connected\": false,\n    \"id\": \"oa2-google-oauth2\"\n}\n```"
+      tags:
+      - third_party_auth
+      responses:
+        '200':
+          description: ''
+  /third_party_auth/v0/providers/{provider_id}/users:
+    get:
+      operationId: third_party_auth_v0_providers_users_list
+      summary: Map between the third party auth account IDs (remote_id) and EdX username.
+      description: "This API is intended to be a server-to-server endpoint. An on-campus middleware or system should consume this.\n\n**Use Case**\n\n    Get a paginated list of mappings between edX users and remote user IDs for all users currently\n    linked to the given backend.\n\n    The list can be filtered by edx username or third party ids. The filter is limited by the max length of URL.\n    It is suggested to query no more than 50 usernames or remote_ids in each request to stay within above\n    limitation\n\n    The page size can be changed by specifying `page_size` parameter in the request.\n\n**Example Requests**\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users?username={username1},{username2}\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users?username={username1}&usernames={username2}\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users?remote_id={remote_id1},{remote_id2}\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users?remote_id={remote_id1}&remote_id={remote_id2}\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users?username={username1}&remote_id={remote_id1}\n\n**URL Parameters**\n\n    * provider_id: The unique identifier of third_party_auth provider (e.g. \"saml-ubc\", \"oa2-google\", etc.\n      This is not the same thing as the backend_name.). (Optional/future: We may also want to allow\n      this to be an 'external domain' like 'ssl:MIT' so that this API can also search the legacy\n      ExternalAuthMap table used by Standford/MIT)\n\n**Query Parameters**\n\n    * remote_ids: Optional. List of comma separated remote (third party) user IDs to filter the result set.\n      e.g. ?remote_ids=8721384623\n\n    * usernames: Optional. List of comma separated edX usernames to filter the result set.\n      e.g. ?usernames=bob123,jane456\n\n    * page, page_size: Optional. Used for paging the result set, especially when getting\n      an unfiltered list.\n\n**Response Values**\n\n    If the request for information about the user is successful, an HTTP 200 \"OK\" response\n    is returned.\n\n    The HTTP 200 response has the following values:\n\n    * count: The number of mappings for the backend.\n\n    * next: The URI to the next page of the mappings.\n\n    * previous: The URI to the previous page of the mappings.\n\n    * num_pages: The number of pages listing the mappings.\n\n    * results:  A list of mappings returned. Each collection in the list\n      contains these fields.\n\n        * username: The edx username\n\n        * remote_id: The Id from third party auth provider"
+      tags:
+      - third_party_auth
+      parameters:
+      - name: provider_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/UserMapping'
+  /third_party_auth/v0/users/:
+    get:
+      operationId: third_party_auth_v0_users_list
+      summary: Read provider information for a user.
+      description: Allows reading the list of providers for a specified user.
+      tags:
+      - third_party_auth
+      responses:
+        '200':
+          description: ''
+  /third_party_auth/v0/users/{username}:
+    get:
+      operationId: third_party_auth_v0_users_read
+      summary: Read provider information for a user.
+      description: Allows reading the list of providers for a specified user.
+      tags:
+      - third_party_auth
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    UserMapping:
+      type: object
+      properties:
+        username:
+          title: Username
+          type: string
+          readOnly: true
+        remote_id:
+          title: Remote id
+          type: string
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

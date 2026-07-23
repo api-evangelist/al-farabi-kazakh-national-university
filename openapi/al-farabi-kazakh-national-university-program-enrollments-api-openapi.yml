@@ -1,0 +1,431 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements program_enrollments API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: program_enrollments
+paths:
+  /program_enrollments/v1/integration-reset:
+    post:
+      operationId: program_enrollments_v1_integration-reset_create
+      description: Reset enrollment and user data for organization
+      tags:
+      - program_enrollments
+      responses:
+        '201':
+          description: ''
+  /program_enrollments/v1/programs/enrollments/:
+    get:
+      operationId: program_enrollments_v1_programs_enrollments_list
+      description: How to respond to a GET request to this endpoint
+      tags:
+      - program_enrollments
+      responses:
+        '200':
+          description: ''
+  /program_enrollments/v1/programs/readonly_access/:
+    get:
+      operationId: program_enrollments_v1_programs_readonly_access_list
+      description: How to respond to a GET request to this endpoint
+      tags:
+      - program_enrollments
+      responses:
+        '200':
+          description: ''
+  /program_enrollments/v1/programs/{program_uuid}/courses/{course_id}/enrollments/:
+    get:
+      operationId: program_enrollments_v1_programs_courses_enrollments_list
+      description: Get a list of students enrolled in a course within a program.
+      tags:
+      - program_enrollments
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        required: false
+        description: The pagination cursor value.
+        schema:
+          type: string
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: program_enrollments_v1_programs_courses_enrollments_create
+      description: Enroll a list of students in a course in a program
+      tags:
+      - program_enrollments
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+    put:
+      operationId: program_enrollments_v1_programs_courses_enrollments_update
+      description: Create or Update the program course enrollments of a list of learners
+      tags:
+      - program_enrollments
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    patch:
+      operationId: program_enrollments_v1_programs_courses_enrollments_partial_update
+      description: Modify the program course enrollments of a list of learners
+      tags:
+      - program_enrollments
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /program_enrollments/v1/programs/{program_uuid}/courses/{course_id}/grades/:
+    get:
+      operationId: program_enrollments_v1_programs_courses_grades_list
+      description: Defines the GET list endpoint for ProgramCourseGrade objects.
+      tags:
+      - program_enrollments
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        required: false
+        description: The pagination cursor value.
+        schema:
+          type: string
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /program_enrollments/v1/programs/{program_uuid}/enrollments/:
+    get:
+      operationId: program_enrollments_v1_programs_enrollments_list
+      description: Defines the GET list endpoint for ProgramEnrollment objects.
+      tags:
+      - program_enrollments
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        required: false
+        description: The pagination cursor value.
+        schema:
+          type: string
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: program_enrollments_v1_programs_enrollments_create
+      description: Create program enrollments for a list of learners
+      tags:
+      - program_enrollments
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+    put:
+      operationId: program_enrollments_v1_programs_enrollments_update
+      description: Create/update program enrollments for a list of learners
+      tags:
+      - program_enrollments
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    patch:
+      operationId: program_enrollments_v1_programs_enrollments_partial_update
+      description: Update program enrollments for a list of learners
+      tags:
+      - program_enrollments
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /program_enrollments/v1/programs/{program_uuid}/overview/:
+    get:
+      operationId: program_enrollments_v1_programs_overview_read
+      description: 'A view for getting data associated with a user''s course enrollments
+
+        as part of a program enrollment.'
+      tags:
+      - program_enrollments
+      parameters:
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseRunOverviewList'
+  /program_enrollments/v1/users/{username}/programs/{program_uuid}/courses:
+    get:
+      operationId: program_enrollments_v1_users_programs_courses_list
+      summary: Get an overview of each of a user's course enrollments associated with a program.
+      description: "This endpoint exists to get an overview of each course-run enrollment\nthat a user has for course-runs within a given program.\nFields included are the title, upcoming due dates, etc.\nThis API endpoint is intended for use with the\n[Program Learner Portal MFE](https://github.com/openedx/frontend-app-learner-portal-programs).\n\nIt is important to note that the set of enrollments that this endpoint returns\nis different than a user's set of *program-course-run enrollments*.\nSpecifically, this endpoint may include course runs that are *within*\nthe specified program but were not *enrolled in* via the specified program.\n\n**Example Response:**\n```json\n{\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"course_run_id\": \"edX+AnimalsX+Aardvarks\",\n            \"display_name\": \"Astonishing Aardvarks\",\n            \"course_run_url\": \"https://courses.edx.org/courses/course-v1:edX+AnimalsX+Aardvarks/course/\",\n            \"start_date\": \"2017-02-05T05:00:00Z\",\n            \"end_date\": \"2018-02-05T05:00:00Z\",\n            \"course_run_status\": \"completed\"\n            \"emails_enabled\": true,\n            \"due_dates\": [\n                {\n                    \"name\": \"Introduction: What even is an aardvark?\",\n                    \"url\": \"https://courses.edx.org/courses/course-v1:edX+AnimalsX+Aardvarks/jump_to/\n                          block-v1:edX+AnimalsX+Aardvarks+type@chapter+block@1414ffd5143b4b508f739b563ab468b7\",\n                    \"date\": \"2017-05-01T05:00:00Z\"\n                },\n                {\n                    \"name\": \"Quiz: Aardvark or Anteater?\",\n                    \"url\": \"https://courses.edx.org/courses/course-v1:edX+AnimalsX+Aardvarks/jump_to/\n                            block-v1:edX+AnimalsX+Aardvarks+type@sequential+block@edx_introduction\",\n                    \"date\": \"2017-03-05T00:00:00Z\"\n                }\n            ],\n            \"micromasters_title\": \"Animals\",\n            \"certificate_download_url\": \"https://courses.edx.org/certificates/123\"\n        },\n        {\n            \"course_run_id\": \"edX+AnimalsX+Baboons\",\n            \"display_name\": \"Breathtaking Baboons\",\n            \"course_run_url\": \"https://courses.edx.org/courses/course-v1:edX+AnimalsX+Baboons/course/\",\n            \"start_date\": \"2018-02-05T05:00:00Z\",\n            \"end_date\": null,\n            \"course_run_status\": \"in_progress\"\n            \"emails_enabled\": false,\n            \"due_dates\": [],\n            \"micromasters_title\": \"Animals\",\n            \"certificate_download_url\": \"https://courses.edx.org/certificates/123\",\n            \"resume_course_run_url\": \"https://courses.edx.org/courses/course-v1:edX+AnimalsX+Baboons/jump_to/\n                                       block-v1:edX+AnimalsX+Baboons+type@sequential+block@edx_introduction\"\n        }\n    ]\n}\n```"
+      tags:
+      - program_enrollments
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: program_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: cursor
+        in: query
+        required: false
+        description: The pagination cursor value.
+        schema:
+          type: string
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page. Defaults to 10. Maximum is 25.
+        schema:
+          type: integer
+      - name: username
+        in: path
+        required: true
+        description: The username of the user for which enrollment overviews will be fetched. For now, this must be the requesting user; otherwise, 403 will be returned. In the future, global staff users may be able to supply other usernames.
+        schema:
+          type: string
+      - name: program_uuid
+        in: path
+        required: true
+        description: UUID of a program. Enrollments will be returned for course runs in this program.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageOfCourseRunOverview'
+        '401':
+          description: The requester is not authenticated.
+        '403':
+          description: The requester cannot access the specified program and/or the requester may not retrieve this data for the specified user.
+        '404':
+          description: The requested program does not exist.
+components:
+  schemas:
+    PageOfCourseRunOverview:
+      required:
+      - results
+      type: object
+      properties:
+        previous:
+          title: Previous
+          description: Link to the previous page or results, or null if this is the first.
+          type: string
+          format: uri
+          minLength: 1
+        next:
+          title: Next
+          description: Link to the next page of results, or null if this is the last.
+          type: string
+          format: uri
+          minLength: 1
+        results:
+          description: The list of result objects on this page.
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseRunOverview'
+    CourseRunOverview:
+      required:
+      - course_run_id
+      - display_name
+      - course_run_url
+      - start_date
+      - end_date
+      - course_run_status
+      - due_dates
+      type: object
+      properties:
+        course_run_id:
+          title: Course run id
+          description: ID for the course run.
+          type: string
+          minLength: 1
+        display_name:
+          title: Display name
+          description: Display name of the course run.
+          type: string
+          minLength: 1
+        resume_course_run_url:
+          title: Resume course run url
+          description: The absolute url that takes the user back to their position in the course run; if absent, user has not made progress in the course.
+          type: string
+          minLength: 1
+        course_run_url:
+          title: Course run url
+          description: The absolute url for the course run.
+          type: string
+          minLength: 1
+        start_date:
+          title: Start date
+          description: Start date for the course run; null if no start date.
+          type: string
+          format: date-time
+        end_date:
+          title: End date
+          description: End date for the course run; null if no end date.
+          type: string
+          format: date-time
+        course_run_status:
+          title: Course run status
+          description: The user's status of the course run.
+          type: string
+          enum:
+          - in_progress
+          - upcoming
+          - completed
+        emails_enabled:
+          title: Emails enabled
+          description: Boolean representing whether emails are enabled for the course;if absent, the bulk email feature is either not enable at the platformlevel or is not enabled for the course; if True or False, bulk emailfeature is enabled, and value represents whether or not user wantsto receive emails.
+          type: boolean
+        due_dates:
+          description: List of subsection due dates for the course run. Due dates are only returned if the course run is in progress.
+          type: array
+          items:
+            $ref: '#/components/schemas/DueDate'
+        micromasters_title:
+          title: Micromasters title
+          description: Title of the MicroMasters program that the course run is a part of; if absent, the course run is not a part of a MicroMasters program.
+          type: string
+          minLength: 1
+        certificate_download_url:
+          title: Certificate download url
+          description: URL to download a certificate, if available; if absent, certificate is not downloadable.
+          type: string
+          minLength: 1
+    DueDate:
+      required:
+      - name
+      - url
+      - date
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          minLength: 1
+        date:
+          title: Date
+          type: string
+          format: date-time
+    CourseRunOverviewList:
+      required:
+      - course_runs
+      type: object
+      properties:
+        course_runs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseRunOverview'
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

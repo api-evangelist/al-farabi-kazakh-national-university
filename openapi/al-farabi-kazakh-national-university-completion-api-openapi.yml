@@ -1,0 +1,54 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements completion API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: completion
+paths:
+  /completion/v1/completion-batch:
+    post:
+      operationId: completion_v1_completion-batch_create
+      summary: Inserts a batch of completions.
+      description: "REST Endpoint Format:\n```\n{\n  \"username\": \"username\",\n  \"course_key\": \"course-key\",\n  \"blocks\": {\n    \"block_key1\": 0.0,\n    \"block_key2\": 1.0,\n    \"block_key3\": 1.0,\n  }\n}\n```\n\n**Returns**\n\nA Response object, with an appropriate status code.\n\nIf successful, status code is 200.\n```\n{\n   \"detail\" : _(\"ok\")\n}\n```\n\nOtherwise, a 400 or 404 may be returned, and the \"detail\" content will explain the error."
+      tags:
+      - completion
+      responses:
+        '201':
+          description: ''
+  /completion/v1/subsection-completion/{username}/{course_key}/{subsection_id}:
+    get:
+      operationId: completion_v1_subsection-completion_read
+      description: Returns completion for a (user, subsection, course).
+      tags:
+      - completion
+      parameters:
+      - name: username
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: subsection_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

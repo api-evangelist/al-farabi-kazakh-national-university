@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: agreements
+paths:
+  /agreements/v1/integrity_signature/{course_id}:
+    get:
+      operationId: agreements_v1_integrity_signature_read
+      summary: In order to check whether the user has signed the integrity agreement for a given course.
+      description: "Should return the following:\n    username (str)\n    course_id (str)\n    created_at (str)\n\nIf a username is not given, it should default to the requesting user (or masqueraded user).\nOnly staff should be able to access this endpoint for other users."
+      tags:
+      - agreements
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: agreements_v1_integrity_signature_create
+      description: "Create an integrity signature for the requesting user and course. If a signature\nalready exists, returns the existing signature instead of creating a new one.\n\n/api/agreements/v1/integrity_signature/{course_id}\n\nExample response:\n    {\n        username: \"janedoe\",\n        course_id: \"org.2/course_2/Run_2\",\n        created_at: \"2021-04-23T18:25:43.511Z\"\n    }"
+      tags:
+      - agreements
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /agreements/v1/lti_pii_signature/{course_id}:
+    post:
+      operationId: agreements_v1_lti_pii_signature_create
+      description: "Create an LTI PII signature for the requesting user and course. If a signature\nalready exists, returns the existing signature instead of creating a new one.\n\n/api/agreements/v1/lti_pii_signature/{course_id}\n\nExample response:\n    {\n        username: \"janedoe\",\n        course_id: \"org.2/course_2/Run_2\",\n        created_at: \"2021-04-23T18:25:43.511Z\"\n    }"
+      tags:
+      - agreements
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+components:
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

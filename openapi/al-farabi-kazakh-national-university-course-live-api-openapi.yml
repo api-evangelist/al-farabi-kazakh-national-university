@@ -1,0 +1,204 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements course_live API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: course_live
+paths:
+  /course_live/course/{course_id}/:
+    get:
+      operationId: course_live_course_read
+      summary: Handle HTTP/GET requests
+      description: Handle HTTP/GET requests
+      tags:
+      - course_live
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        description: The course for which to get provider list
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseLiveConfiguration'
+        '401':
+          description: The requester is not authenticated.
+        '403':
+          description: The requester cannot access the specified course.
+        '404':
+          description: The requested course does not exist.
+    post:
+      operationId: course_live_course_create
+      summary: Handle HTTP/POST requests
+      description: Handle HTTP/POST requests
+      tags:
+      - course_live
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        description: The course for which to get provider list
+        schema:
+          type: string
+      - name: lti_1p1_client_key
+        in: path
+        required: true
+        description: The LTI provider's client key
+        schema:
+          type: string
+      - name: lti_1p1_client_secret
+        in: path
+        required: true
+        description: The LTI provider's client secretL
+        schema:
+          type: string
+      - name: lti_1p1_launch_url
+        in: path
+        required: true
+        description: The LTI provider's launch URL
+        schema:
+          type: string
+      - name: provider_type
+        in: path
+        required: true
+        description: The LTI provider's launch URL
+        schema:
+          type: string
+      - name: lti_config
+        in: query
+        required: false
+        description: 'The lti_config object with required additional parameters '
+        schema:
+          type: object
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseLiveConfiguration'
+        '400':
+          description: Required parameters are missing.
+        '401':
+          description: The requester is not authenticated.
+        '403':
+          description: The requester cannot access the specified course.
+        '404':
+          description: The requested course does not exist.
+  /course_live/iframe/{course_id}/:
+    get:
+      operationId: course_live_iframe_read
+      description: Handle HTTP/GET requests
+      tags:
+      - course_live
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /course_live/providers/{course_id}/:
+    get:
+      operationId: course_live_providers_read
+      description: A view for retrieving Program live IFrame .
+      tags:
+      - course_live
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    Lti:
+      required:
+      - lti_config
+      type: object
+      properties:
+        lti_1p1_client_key:
+          title: Lti 1p1 client key
+          description: Client key provided by the LTI tool provider.
+          type: string
+          maxLength: 255
+        lti_1p1_client_secret:
+          title: Lti 1p1 client secret
+          description: Client secret provided by the LTI tool provider.
+          type: string
+          maxLength: 255
+        lti_1p1_launch_url:
+          title: Lti 1p1 launch url
+          description: The URL of the external tool that initiates the launch.
+          type: string
+          maxLength: 255
+        version:
+          title: Version
+          type: string
+          enum:
+          - lti_1p1
+          - lti_1p3
+        lti_config:
+          title: Lti config
+          type: object
+    CourseLiveConfiguration:
+      required:
+      - provider_type
+      type: object
+      properties:
+        course_key:
+          title: Course key
+          type: string
+          readOnly: true
+          minLength: 1
+        provider_type:
+          title: LTI provider
+          description: The LTI provider's id
+          type: string
+          maxLength: 50
+          minLength: 1
+        enabled:
+          title: Enabled
+          description: If disabled, the LTI in the associated course will be disabled.
+          type: boolean
+        lti_configuration:
+          $ref: '#/components/schemas/Lti'
+        pii_sharing_allowed:
+          title: Pii sharing allowed
+          type: string
+          readOnly: true
+        free_tier:
+          title: Free tier
+          description: True, if LTI credential are provided by Org globally
+          type: boolean
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

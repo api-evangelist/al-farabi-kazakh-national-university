@@ -1,0 +1,534 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements courses API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: courses
+paths:
+  /courses/v1/block_metadata/{usage_key_string}:
+    get:
+      operationId: courses_v1_block_metadata_read
+      summary: '**Use Case**'
+      description: "Returns the block metadata. Data like index_dictionary related to a\n    block should be fetched using this API, because they are too large for\n    the cache used by the course blocks/transformers API.\n\n**Example requests**:\n\n    GET /api/courses/v1/block_metadata/<usage_id>/?\n        &include=index_dictionary\n\n**Parameters**:\n\n    * \"include\": a comma-separated list of keys to include.\n      Valid keys are \"index_dictionary\".\n\n**Response Values**\n\n    A dictionary containing:\n    * id (string): Block usage_key_str.\n    * type (string) Block type.\n    * index_dictionary: (dict) The index_dictionary JSON data\n      (usually this is the text content of the block, for search\n      indexing or other purposes) for this block. Returned only if\n      the \"index_dictionary\" is included in the \"include\"\n      parameter."
+      tags:
+      - courses
+      parameters:
+      - name: usage_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /courses/v1/blocks/:
+    get:
+      operationId: courses_v1_blocks_list
+      summary: '**Use Case**'
+      description: "Returns the blocks in the course according to the requesting user's\n    access level.\n\n**Example requests**:\n\n    GET /api/courses/v1/blocks/?course_id=<course_id>\n    GET /api/courses/v1/blocks/?course_id=<course_id>\n        &username=anjali\n        &depth=all\n        &requested_fields=graded,format,student_view_multi_device,lti_url\n        &block_counts=video\n        &student_view_data=video\n        &block_types_filter=problem,html\n\n**Parameters**:\n\n    This view redirects to /api/courses/v1/blocks/<root_usage_key>/ for the\n    root usage key of the course specified by course_id.  The view accepts\n    all parameters accepted by :class:`BlocksView`, plus the following\n    required parameter\n\n    * course_id: (string, required) The ID of the course whose block data\n      we want to return\n\n**Response Values**\n\n    Responses are identical to those returned by :class:`BlocksView` when\n    passed the root_usage_key of the requested course.\n\n    If the course_id is not supplied, a 400: Bad Request is returned, with\n    a message indicating that course_id is required.\n\n    If an invalid course_id is supplied, a 400: Bad Request is returned,\n    with a message indicating that the course_id is not valid."
+      tags:
+      - courses
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /courses/v1/blocks/{usage_key_string}:
+    get:
+      operationId: courses_v1_blocks_read
+      summary: '**Use Case**'
+      description: "Returns the blocks within the requested block tree according to the\n    requesting user's access level.\n\n**Example requests**:\n\n    GET /api/courses/v1/blocks/<root_block_usage_id>/?depth=all\n    GET /api/courses/v1/blocks/<usage_id>/?\n        username=anjali\n        &depth=all\n        &requested_fields=graded,format,student_view_multi_device,lti_url,due\n        &block_counts=video\n        &student_view_data=video\n        &block_types_filter=problem,html\n\n**Parameters**:\n\n    * all_blocks: (boolean) Provide a value of \"true\" to return all\n      blocks. Returns all blocks only if the requesting user has course\n      staff permissions. Blocks that are visible only to specific learners\n      (for example, based on group membership or randomized content) are\n      all included. If all_blocks is not specified, you must specify the\n      username for the user whose course blocks are requested.\n\n    * username: (string) Required, unless ``all_blocks`` is specified.\n      Specify the username for the user whose course blocks are requested.\n      A blank/empty username can be used to request the blocks accessible\n      to anonymous users (for public courses). Only users with course staff\n      permissions can specify other users' usernames. If a username is\n      specified, results include blocks that are visible to that user,\n      including those based on group or cohort membership or randomized\n      content assigned to that user.\n\n      Example: username=anjali\n               username=''\n               username\n\n    * student_view_data: (list) Indicates for which block types to return\n      student_view_data.\n\n      Example: student_view_data=video\n\n    * block_counts: (list) Indicates for which block types to return the\n      aggregate count of the blocks.\n\n      Example: block_counts=video,problem\n\n    * requested_fields: (list) Indicates which additional fields to return\n      for each block.  For a list of available fields see under `Response\n      Values -> blocks`, below.\n\n      The following fields are always returned: id, type, display_name\n\n      Example: requested_fields=graded,format,student_view_multi_device\n\n    * depth: (integer or all) Indicates how deep to traverse into the blocks\n      hierarchy.  A value of all means the entire hierarchy.\n\n      Default is 0\n\n      Example: depth=all\n\n    * nav_depth: (integer)\n\n      WARNING: nav_depth is not supported, and may be removed at any time.\n\n      Indicates how far deep to traverse into the\n      course hierarchy before bundling all the descendants.\n\n      Default is 3 since typical navigational views of the course show a\n      maximum of chapter->sequential->vertical.\n\n      Example: nav_depth=3\n\n    * return_type (string) Indicates in what data type to return the\n      blocks.\n\n      Default is dict. Supported values are: dict, list\n\n      Example: return_type=dict\n\n    * block_types_filter: (list) Requested types of blocks used to filter the final result\n      of returned blocks. Possible values include sequential, vertical, html, problem,\n      video, and discussion.\n\n      Example: block_types_filter=vertical,html\n\n**Response Values**\n\n    The following fields are returned with a successful response.\n\n    * root: The ID of the root node of the requested course block\n      structure.\n\n    * blocks: A dictionary or list, based on the value of the\n      \"return_type\" parameter. Maps block usage IDs to a collection of\n      information about each block. Each block contains the following\n      fields.\n\n      * id: (string) The usage ID of the block.\n\n      * type: (string) The type of block. Possible values the names of any\n        XBlock type in the system, including custom blocks. Examples are\n        course, chapter, sequential, vertical, html, problem, video, and\n        discussion.\n\n      * display_name: (string) The display name of the block.\n\n      * children: (list) If the block has child blocks, a list of IDs of\n        the child blocks.  Returned only if \"children\" is included in the\n        \"requested_fields\" parameter.\n\n      * completion: (float or None) The level of completion of the block.\n        Its value can vary between 0.0 and 1.0 or be equal to None\n        if block is not completable. Returned only if \"completion\"\n        is included in the \"requested_fields\" parameter.\n\n      * block_counts: (dict) For each block type specified in the\n        block_counts parameter to the endpoint, the aggregate number of\n        blocks of that type for this block and all of its descendants.\n\n      * graded (boolean) Whether or not the block or any of its descendants\n        is graded.  Returned only if \"graded\" is included in the\n        \"requested_fields\" parameter.\n\n      * format: (string) The assignment type of the block.  Possible values\n        can be \"Homework\", \"Lab\", \"Midterm Exam\", and \"Final Exam\".\n        Returned only if \"format\" is included in the \"requested_fields\"\n        parameter.\n\n      * student_view_data: (dict) The JSON data for this block.\n        Returned only if the \"student_view_data\" input parameter contains\n        this block's type.\n\n      * student_view_url: (string) The URL to retrieve the HTML rendering\n        of this block's student view.  The HTML could include CSS and\n        Javascript code. This field can be used in combination with the\n        student_view_multi_device field to decide whether to display this\n        content to the user.\n\n        This URL can be used as a fallback if the student_view_data for\n        this block type is not supported by the client or the block.\n\n      * student_view_multi_device: (boolean) Whether or not the HTML of\n        the student view that is rendered at \"student_view_url\" supports\n        responsive web layouts, touch-based inputs, and interactive state\n        management for a variety of device sizes and types, including\n        mobile and touch devices. Returned only if\n        \"student_view_multi_device\" is included in the \"requested_fields\"\n        parameter.\n\n      * lms_web_url: (string) The URL to the navigational container of the\n        xBlock on the web. This URL can be used as a further fallback\n        if the student_view_url and the student_view_data fields are not\n        supported. Will direct to either the \"New\" (micro-frontend) or\n        \"Legacy\" (Django-template-rendered) frontend experience depending\n        on which experience is active.\n\n      * legacy_web_url: (string) Like `lms_web_url`, but always directs to\n        the \"Legacy\" frontend experience. Should only be used for\n        transitional purposes; will be removed as part of DEPR-109.\n\n      * lti_url: The block URL for an LTI consumer. Returned only if the\n        \"ENABLE_LTI_PROVIDER\" Django settign is set to \"True\".\n\n      * due: The due date of the block. Returned only if \"due\" is included\n        in the \"requested_fields\" parameter.\n\n      * show_correctness: Whether to show scores/correctness to learners for the current sequence or problem.\n        Returned only if \"show_correctness\" is included in the \"requested_fields\" parameter.\n\n      * Additional XBlock fields can be included in the response if they are\n        configured via the COURSE_BLOCKS_API_EXTRA_FIELDS Django setting and\n        requested via the \"requested_fields\" parameter."
+      tags:
+      - courses
+      parameters:
+      - name: usage_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /courses/v1/course_ids/:
+    get:
+      operationId: courses_v1_course_ids_list
+      summary: '**Use Cases**'
+      description: "Request a list of course IDs for all courses the specified user can\n    access based on the provided parameters.\n\n**Example Requests**\n\n    GET /api/courses/v1/courses_ids/\n\n**Response Values**\n\n    Body comprises a list of course ids and pagination details.\n\n**Parameters**\n\n    username (optional):\n        The username of the specified user whose visible courses we\n        want to see.\n\n    role (required):\n        Course ids are filtered such that only those for which the\n        user has the specified role are returned. Role can be \"staff\"\n        or \"instructor\".\n        Case-insensitive.\n\n**Returns**\n\n    * 200 on success, with a list of course ids and pagination details\n    * 400 if an invalid parameter was sent or the username was not provided\n      for an authenticated request.\n    * 403 if a user who does not have permission to masquerade as\n      another user who specifies a username other than their own.\n    * 404 if the specified user does not exist, or the requesting user does\n      not have permission to view their courses.\n\n    Example response:\n\n        {\n            \"results\":\n                [\n                    \"course-v1:edX+DemoX+Demo_Course\"\n                ],\n            \"pagination\": {\n                \"previous\": null,\n                \"num_pages\": 1,\n                \"next\": null,\n                \"count\": 1\n            }\n        }"
+      tags:
+      - courses
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      type: string
+  /courses/v1/courses/:
+    get:
+      operationId: courses_v1_courses_list
+      summary: '**Use Cases**'
+      description: "Request information on all courses visible to the specified user.\n\n**Example Requests**\n\n    GET /api/courses/v1/courses/\n\n**Response Values**\n\n    Body comprises a list of objects as returned by `CourseDetailView`.\n\n**Parameters**\n\n    search_term (optional):\n        Search term to filter courses (used by ElasticSearch).\n\n    username (optional):\n        The username of the specified user whose visible courses we\n        want to see. The username is not required only if the API is\n        requested by an Anonymous user.\n\n    org (optional):\n        If specified, visible `CourseOverview` objects are filtered\n        such that only those belonging to the organization with the\n        provided org code (e.g., \"HarvardX\") are returned.\n        Case-insensitive.\n\n    permissions (optional):\n        If specified, it filters visible `CourseOverview` objects by\n        checking if each permission specified is granted for the username.\n        Notice that Staff users are always granted permission to list any\n        course.\n\n    active_only (optional):\n        If this boolean is specified, only the courses that have not ended or do not have any end\n        date are returned. This is different from search_term because this filtering is done on\n        CourseOverview and not ElasticSearch.\n\n    course_keys (optional):\n        If specified, it fetches the `CourseOverview` objects for the\n        the specified course keys\n\n    mobile_search (bool):\n        Optional parameter that limits the number of returned courses\n        to MOBILE_SEARCH_COURSE_LIMIT.\n\n**Returns**\n\n    * 200 on success, with a list of course discovery objects as returned\n      by `CourseDetailView`.\n    * 400 if an invalid parameter was sent or the username was not provided\n      for an authenticated request.\n    * 403 if a user who does not have permission to masquerade as\n      another user specifies a username other than their own.\n    * 404 if the specified user does not exist, or the requesting user does\n      not have permission to view their courses.\n\n    Example response:\n\n        [\n          {\n            \"blocks_url\": \"/api/courses/v1/blocks/?course_id=edX%2Fexample%2F2012_Fall\",\n            \"media\": {\n              \"course_image\": {\n                \"uri\": \"/c4x/edX/example/asset/just_a_test.jpg\",\n                \"name\": \"Course Image\"\n              }\n            },\n            \"description\": \"An example course.\",\n            \"end\": \"2015-09-19T18:00:00Z\",\n            \"enrollment_end\": \"2015-07-15T00:00:00Z\",\n            \"enrollment_start\": \"2015-06-15T00:00:00Z\",\n            \"course_id\": \"edX/example/2012_Fall\",\n            \"name\": \"Example Course\",\n            \"number\": \"example\",\n            \"org\": \"edX\",\n            \"start\": \"2015-07-17T12:00:00Z\",\n            \"start_display\": \"July 17, 2015\",\n            \"start_type\": \"timestamp\"\n          }\n        ]"
+      tags:
+      - courses
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                required:
+                - count
+                - results
+                type: object
+                properties:
+                  count:
+                    type: integer
+                  next:
+                    type: string
+                    format: uri
+                    nullable: true
+                  previous:
+                    type: string
+                    format: uri
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Course'
+  /courses/v1/courses/{course_key_string}:
+    get:
+      operationId: courses_v1_courses_read
+      summary: '**Use Cases**'
+      description: "Request details for a course\n\n**Example Requests**\n\n    GET /api/courses/v1/courses/{course_key}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    * effort: A textual description of the weekly hours of effort expected\n        in the course.\n    * end: Date the course ends, in ISO 8601 notation\n    * enrollment_end: Date enrollment ends, in ISO 8601 notation\n    * enrollment_start: Date enrollment begins, in ISO 8601 notation\n    * id: A unique identifier of the course; a serialized representation\n        of the opaque key identifying the course.\n    * media: An object that contains named media items.  Included here:\n        * course_image: An image to show for the course.  Represented\n          as an object with the following fields:\n            * uri: The location of the image\n    * name: Name of the course\n    * number: Catalog number of the course\n    * org: Name of the organization that owns the course\n    * overview: A possibly verbose HTML textual description of the course.\n        Note: this field is only included in the Course Detail view, not\n        the Course List view.\n    * short_description: A textual description of the course\n    * start: Date the course begins, in ISO 8601 notation\n    * start_display: Readably formatted start of the course\n    * start_type: Hint describing how `start_display` is set. One of:\n        * `\"string\"`: manually set by the course author\n        * `\"timestamp\"`: generated from the `start` timestamp\n        * `\"empty\"`: no start date is specified\n    * pacing: Course pacing. Possible values: instructor, self\n    * certificate_available_date (optional): Date the certificate will be available,\n        in ISO 8601 notation if the `certificates.auto_certificate_generation`\n        waffle switch is enabled\n\n    Deprecated fields:\n\n    * blocks_url: Used to fetch the course blocks\n    * course_id: Course key (use 'id' instead)\n\n**Parameters:**\n\n    username (optional):\n        The username of the specified user for whom the course data\n        is being accessed. The username is not only required if the API is\n        requested by an Anonymous user.\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 400 if an invalid parameter was sent or the username was not provided\n      for an authenticated request.\n    * 403 if a user who does not have permission to masquerade as\n      another user specifies a username other than their own.\n    * 404 if the course is not available or cannot be seen.\n\n    Example response:\n\n        {\n            \"blocks_url\": \"/api/courses/v1/blocks/?course_id=edX%2Fexample%2F2012_Fall\",\n            \"media\": {\n                \"course_image\": {\n                    \"uri\": \"/c4x/edX/example/asset/just_a_test.jpg\",\n                    \"name\": \"Course Image\"\n                }\n            },\n            \"description\": \"An example course.\",\n            \"end\": \"2015-09-19T18:00:00Z\",\n            \"enrollment_end\": \"2015-07-15T00:00:00Z\",\n            \"enrollment_start\": \"2015-06-15T00:00:00Z\",\n            \"course_id\": \"edX/example/2012_Fall\",\n            \"name\": \"Example Course\",\n            \"number\": \"example\",\n            \"org\": \"edX\",\n            \"overview: \"<p>A verbose description of the course.</p>\"\n            \"start\": \"2015-07-17T12:00:00Z\",\n            \"start_display\": \"July 17, 2015\",\n            \"start_type\": \"timestamp\",\n            \"pacing\": \"instructor\",\n            \"certificate_available_date\": \"2015-08-14T00:00:00Z\"\n        }"
+      tags:
+      - courses
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseDetail'
+  /courses/v2/block_metadata/{usage_key_string}:
+    get:
+      operationId: courses_v2_block_metadata_read
+      summary: '**Use Case**'
+      description: "Returns the block metadata. Data like index_dictionary related to a\n    block should be fetched using this API, because they are too large for\n    the cache used by the course blocks/transformers API.\n\n**Example requests**:\n\n    GET /api/courses/v1/block_metadata/<usage_id>/?\n        &include=index_dictionary\n\n**Parameters**:\n\n    * \"include\": a comma-separated list of keys to include.\n      Valid keys are \"index_dictionary\".\n\n**Response Values**\n\n    A dictionary containing:\n    * id (string): Block usage_key_str.\n    * type (string) Block type.\n    * index_dictionary: (dict) The index_dictionary JSON data\n      (usually this is the text content of the block, for search\n      indexing or other purposes) for this block. Returned only if\n      the \"index_dictionary\" is included in the \"include\"\n      parameter."
+      tags:
+      - courses
+      parameters:
+      - name: usage_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /courses/v2/blocks/:
+    get:
+      operationId: courses_v2_blocks_list
+      summary: '**Use Case**'
+      description: "Returns the blocks in the course according to the requesting user's\n    access level.\n\n**Example requests**:\n\n    GET /api/courses/v1/blocks/?course_id=<course_id>\n    GET /api/courses/v1/blocks/?course_id=<course_id>\n        &username=anjali\n        &depth=all\n        &requested_fields=graded,format,student_view_multi_device,lti_url\n        &block_counts=video\n        &student_view_data=video\n        &block_types_filter=problem,html\n\n**Parameters**:\n\n    This view redirects to /api/courses/v1/blocks/<root_usage_key>/ for the\n    root usage key of the course specified by course_id.  The view accepts\n    all parameters accepted by :class:`BlocksView`, plus the following\n    required parameter\n\n    * course_id: (string, required) The ID of the course whose block data\n      we want to return\n\n**Response Values**\n\n    Responses are identical to those returned by :class:`BlocksView` when\n    passed the root_usage_key of the requested course.\n\n    If the course_id is not supplied, a 400: Bad Request is returned, with\n    a message indicating that course_id is required.\n\n    If an invalid course_id is supplied, a 400: Bad Request is returned,\n    with a message indicating that the course_id is not valid."
+      tags:
+      - courses
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+  /courses/v2/blocks/{usage_key_string}:
+    get:
+      operationId: courses_v2_blocks_read
+      summary: '**Use Case**'
+      description: "Returns the blocks within the requested block tree according to the\n    requesting user's access level.\n\n**Example requests**:\n\n    GET /api/courses/v1/blocks/<root_block_usage_id>/?depth=all\n    GET /api/courses/v1/blocks/<usage_id>/?\n        username=anjali\n        &depth=all\n        &requested_fields=graded,format,student_view_multi_device,lti_url,due\n        &block_counts=video\n        &student_view_data=video\n        &block_types_filter=problem,html\n\n**Parameters**:\n\n    * all_blocks: (boolean) Provide a value of \"true\" to return all\n      blocks. Returns all blocks only if the requesting user has course\n      staff permissions. Blocks that are visible only to specific learners\n      (for example, based on group membership or randomized content) are\n      all included. If all_blocks is not specified, you must specify the\n      username for the user whose course blocks are requested.\n\n    * username: (string) Required, unless ``all_blocks`` is specified.\n      Specify the username for the user whose course blocks are requested.\n      A blank/empty username can be used to request the blocks accessible\n      to anonymous users (for public courses). Only users with course staff\n      permissions can specify other users' usernames. If a username is\n      specified, results include blocks that are visible to that user,\n      including those based on group or cohort membership or randomized\n      content assigned to that user.\n\n      Example: username=anjali\n               username=''\n               username\n\n    * student_view_data: (list) Indicates for which block types to return\n      student_view_data.\n\n      Example: student_view_data=video\n\n    * block_counts: (list) Indicates for which block types to return the\n      aggregate count of the blocks.\n\n      Example: block_counts=video,problem\n\n    * requested_fields: (list) Indicates which additional fields to return\n      for each block.  For a list of available fields see under `Response\n      Values -> blocks`, below.\n\n      The following fields are always returned: id, type, display_name\n\n      Example: requested_fields=graded,format,student_view_multi_device\n\n    * depth: (integer or all) Indicates how deep to traverse into the blocks\n      hierarchy.  A value of all means the entire hierarchy.\n\n      Default is 0\n\n      Example: depth=all\n\n    * nav_depth: (integer)\n\n      WARNING: nav_depth is not supported, and may be removed at any time.\n\n      Indicates how far deep to traverse into the\n      course hierarchy before bundling all the descendants.\n\n      Default is 3 since typical navigational views of the course show a\n      maximum of chapter->sequential->vertical.\n\n      Example: nav_depth=3\n\n    * return_type (string) Indicates in what data type to return the\n      blocks.\n\n      Default is dict. Supported values are: dict, list\n\n      Example: return_type=dict\n\n    * block_types_filter: (list) Requested types of blocks used to filter the final result\n      of returned blocks. Possible values include sequential, vertical, html, problem,\n      video, and discussion.\n\n      Example: block_types_filter=vertical,html\n\n**Response Values**\n\n    The following fields are returned with a successful response.\n\n    * root: The ID of the root node of the requested course block\n      structure.\n\n    * blocks: A dictionary or list, based on the value of the\n      \"return_type\" parameter. Maps block usage IDs to a collection of\n      information about each block. Each block contains the following\n      fields.\n\n      * id: (string) The usage ID of the block.\n\n      * type: (string) The type of block. Possible values the names of any\n        XBlock type in the system, including custom blocks. Examples are\n        course, chapter, sequential, vertical, html, problem, video, and\n        discussion.\n\n      * display_name: (string) The display name of the block.\n\n      * children: (list) If the block has child blocks, a list of IDs of\n        the child blocks.  Returned only if \"children\" is included in the\n        \"requested_fields\" parameter.\n\n      * completion: (float or None) The level of completion of the block.\n        Its value can vary between 0.0 and 1.0 or be equal to None\n        if block is not completable. Returned only if \"completion\"\n        is included in the \"requested_fields\" parameter.\n\n      * block_counts: (dict) For each block type specified in the\n        block_counts parameter to the endpoint, the aggregate number of\n        blocks of that type for this block and all of its descendants.\n\n      * graded (boolean) Whether or not the block or any of its descendants\n        is graded.  Returned only if \"graded\" is included in the\n        \"requested_fields\" parameter.\n\n      * format: (string) The assignment type of the block.  Possible values\n        can be \"Homework\", \"Lab\", \"Midterm Exam\", and \"Final Exam\".\n        Returned only if \"format\" is included in the \"requested_fields\"\n        parameter.\n\n      * student_view_data: (dict) The JSON data for this block.\n        Returned only if the \"student_view_data\" input parameter contains\n        this block's type.\n\n      * student_view_url: (string) The URL to retrieve the HTML rendering\n        of this block's student view.  The HTML could include CSS and\n        Javascript code. This field can be used in combination with the\n        student_view_multi_device field to decide whether to display this\n        content to the user.\n\n        This URL can be used as a fallback if the student_view_data for\n        this block type is not supported by the client or the block.\n\n      * student_view_multi_device: (boolean) Whether or not the HTML of\n        the student view that is rendered at \"student_view_url\" supports\n        responsive web layouts, touch-based inputs, and interactive state\n        management for a variety of device sizes and types, including\n        mobile and touch devices. Returned only if\n        \"student_view_multi_device\" is included in the \"requested_fields\"\n        parameter.\n\n      * lms_web_url: (string) The URL to the navigational container of the\n        xBlock on the web. This URL can be used as a further fallback\n        if the student_view_url and the student_view_data fields are not\n        supported. Will direct to either the \"New\" (micro-frontend) or\n        \"Legacy\" (Django-template-rendered) frontend experience depending\n        on which experience is active.\n\n      * legacy_web_url: (string) Like `lms_web_url`, but always directs to\n        the \"Legacy\" frontend experience. Should only be used for\n        transitional purposes; will be removed as part of DEPR-109.\n\n      * lti_url: The block URL for an LTI consumer. Returned only if the\n        \"ENABLE_LTI_PROVIDER\" Django settign is set to \"True\".\n\n      * due: The due date of the block. Returned only if \"due\" is included\n        in the \"requested_fields\" parameter.\n\n      * show_correctness: Whether to show scores/correctness to learners for the current sequence or problem.\n        Returned only if \"show_correctness\" is included in the \"requested_fields\" parameter.\n\n      * Additional XBlock fields can be included in the response if they are\n        configured via the COURSE_BLOCKS_API_EXTRA_FIELDS Django setting and\n        requested via the \"requested_fields\" parameter."
+      tags:
+      - courses
+      parameters:
+      - name: usage_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        required: false
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    _AbsolutMedia:
+      type: object
+      properties:
+        uri:
+          title: Uri
+          type: string
+          readOnly: true
+        uri_absolute:
+          title: Uri absolute
+          type: string
+          readOnly: true
+    Course:
+      required:
+      - effort
+      - end
+      - enrollment_start
+      - enrollment_end
+      - id
+      - media
+      - name
+      - number
+      - org
+      - short_description
+      - start
+      - start_display
+      - start_type
+      - pacing
+      - mobile_available
+      - invitation_only
+      type: object
+      properties:
+        blocks_url:
+          title: Blocks url
+          type: string
+          readOnly: true
+        effort:
+          title: Effort
+          type: string
+          minLength: 1
+        end:
+          title: End
+          type: string
+          format: date-time
+        enrollment_start:
+          title: Enrollment start
+          type: string
+          format: date-time
+        enrollment_end:
+          title: Enrollment end
+          type: string
+          format: date-time
+        id:
+          title: Id
+          type: string
+          minLength: 1
+        media:
+          $ref: '#/components/schemas/_CourseApiMediaCollection'
+        name:
+          title: Name
+          type: string
+          minLength: 1
+        number:
+          title: Number
+          type: string
+          minLength: 1
+        org:
+          title: Org
+          type: string
+          minLength: 1
+        short_description:
+          title: Short description
+          type: string
+          minLength: 1
+        start:
+          title: Start
+          type: string
+          format: date-time
+        start_display:
+          title: Start display
+          type: string
+          minLength: 1
+        start_type:
+          title: Start type
+          type: string
+          minLength: 1
+        pacing:
+          title: Pacing
+          type: string
+          minLength: 1
+        mobile_available:
+          title: Mobile available
+          type: boolean
+        hidden:
+          title: Hidden
+          type: string
+          readOnly: true
+        invitation_only:
+          title: Invitation only
+          type: boolean
+        course_id:
+          title: Course id
+          type: string
+          readOnly: true
+          minLength: 1
+    Image:
+      required:
+      - raw
+      - small
+      - large
+      type: object
+      properties:
+        raw:
+          title: Raw
+          type: string
+          format: uri
+          minLength: 1
+        small:
+          title: Small
+          type: string
+          format: uri
+          minLength: 1
+        large:
+          title: Large
+          type: string
+          format: uri
+          minLength: 1
+    CourseDetail:
+      required:
+      - effort
+      - end
+      - enrollment_start
+      - enrollment_end
+      - id
+      - media
+      - name
+      - number
+      - org
+      - short_description
+      - start
+      - start_display
+      - start_type
+      - pacing
+      - mobile_available
+      - invitation_only
+      type: object
+      properties:
+        blocks_url:
+          title: Blocks url
+          type: string
+          readOnly: true
+        effort:
+          title: Effort
+          type: string
+          minLength: 1
+        end:
+          title: End
+          type: string
+          format: date-time
+        enrollment_start:
+          title: Enrollment start
+          type: string
+          format: date-time
+        enrollment_end:
+          title: Enrollment end
+          type: string
+          format: date-time
+        id:
+          title: Id
+          type: string
+          minLength: 1
+        media:
+          $ref: '#/components/schemas/_CourseApiMediaCollection'
+        name:
+          title: Name
+          type: string
+          minLength: 1
+        number:
+          title: Number
+          type: string
+          minLength: 1
+        org:
+          title: Org
+          type: string
+          minLength: 1
+        short_description:
+          title: Short description
+          type: string
+          minLength: 1
+        start:
+          title: Start
+          type: string
+          format: date-time
+        start_display:
+          title: Start display
+          type: string
+          minLength: 1
+        start_type:
+          title: Start type
+          type: string
+          minLength: 1
+        pacing:
+          title: Pacing
+          type: string
+          minLength: 1
+        mobile_available:
+          title: Mobile available
+          type: boolean
+        hidden:
+          title: Hidden
+          type: string
+          readOnly: true
+        invitation_only:
+          title: Invitation only
+          type: boolean
+        course_id:
+          title: Course id
+          type: string
+          readOnly: true
+          minLength: 1
+        overview:
+          title: Overview
+          type: string
+          readOnly: true
+    _CourseApiMediaCollection:
+      required:
+      - banner_image
+      - course_image
+      - course_video
+      - image
+      type: object
+      properties:
+        banner_image:
+          $ref: '#/components/schemas/_AbsolutMedia'
+        course_image:
+          $ref: '#/components/schemas/_Media'
+        course_video:
+          $ref: '#/components/schemas/_Media'
+        image:
+          $ref: '#/components/schemas/Image'
+    _Media:
+      type: object
+      properties:
+        uri:
+          title: Uri
+          type: string
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

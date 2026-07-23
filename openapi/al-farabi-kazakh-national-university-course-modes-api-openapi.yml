@@ -1,0 +1,187 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements course_modes API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: course_modes
+paths:
+  /course_modes/v1/courses/{course_id}/:
+    get:
+      operationId: course_modes_v1_courses_read
+      summary: View to list or create course modes for a course.
+      description: "**Use Case**\n\n    List all course modes for a course, or create a new\n    course mode.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/\n\n        Returns a list of all existing course modes for a course.\n\n    POST /api/course_modes/v1/courses/{course_id}/\n\n        Creates a new course mode in a course.\n\n**Response Values**\n\n    For each HTTP verb below, an HTTP 404 \"Not Found\" response is returned if the\n    requested course id does not exist.\n\n    GET: If the request is successful, an HTTP 200 \"OK\" response is returned\n    along with a list of course mode dictionaries within a course.\n    The details are contained in a JSON dictionary as follows:\n\n      * course_id: The course identifier.\n      * mode_slug: The short name for the course mode.\n      * mode_display_name: The verbose name for the course mode.\n      * min_price: The minimum price for which a user can\n        enroll in this mode.\n      * currency: The currency of the listed prices.\n      * expiration_datetime: The date and time after which\n        users cannot enroll in the course in this mode (not required for POST).\n      * expiration_datetime_is_explicit: Whether the expiration_datetime field was\n        explicitly set (not required for POST).\n      * description: A description of this mode (not required for POST).\n      * sku: The SKU for this mode (for ecommerce purposes, not required for POST).\n      * bulk_sku: The bulk SKU for this mode (for ecommerce purposes, not required for POST).\n\n    POST: If the request is successful, an HTTP 201 \"Created\" response is returned."
+      tags:
+      - course_modes
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/course_modes.CourseMode'
+    post:
+      operationId: course_modes_v1_courses_create
+      summary: View to list or create course modes for a course.
+      description: "**Use Case**\n\n    List all course modes for a course, or create a new\n    course mode.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/\n\n        Returns a list of all existing course modes for a course.\n\n    POST /api/course_modes/v1/courses/{course_id}/\n\n        Creates a new course mode in a course.\n\n**Response Values**\n\n    For each HTTP verb below, an HTTP 404 \"Not Found\" response is returned if the\n    requested course id does not exist.\n\n    GET: If the request is successful, an HTTP 200 \"OK\" response is returned\n    along with a list of course mode dictionaries within a course.\n    The details are contained in a JSON dictionary as follows:\n\n      * course_id: The course identifier.\n      * mode_slug: The short name for the course mode.\n      * mode_display_name: The verbose name for the course mode.\n      * min_price: The minimum price for which a user can\n        enroll in this mode.\n      * currency: The currency of the listed prices.\n      * expiration_datetime: The date and time after which\n        users cannot enroll in the course in this mode (not required for POST).\n      * expiration_datetime_is_explicit: Whether the expiration_datetime field was\n        explicitly set (not required for POST).\n      * description: A description of this mode (not required for POST).\n      * sku: The SKU for this mode (for ecommerce purposes, not required for POST).\n      * bulk_sku: The bulk SKU for this mode (for ecommerce purposes, not required for POST).\n\n    POST: If the request is successful, an HTTP 201 \"Created\" response is returned."
+      tags:
+      - course_modes
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/course_modes.CourseMode'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/course_modes.CourseMode'
+  /course_modes/v1/courses/{course_id}/{mode_slug}:
+    get:
+      operationId: course_modes_v1_courses_read
+      summary: View to retrieve, update, or delete a specific course mode for a course.
+      description: "**Use Case**\n\n    Get or update course mode details for a specific course mode on a course.\n    Or you may delete a specific course mode from a course.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Returns details on an existing course mode for a course.\n\n    PATCH /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Updates (via merge) details of an existing course mode for a course.\n\n    DELETE /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Deletes an existing course mode for a course.\n\n**Response Values**\n\n    For each HTTP verb below, an HTTP 404 \"Not Found\" response is returned if the\n    requested course id does not exist, or the mode slug does not exist within the course.\n\n    GET: If the request is successful, an HTTP 200 \"OK\" response is returned\n    along with a details for a single course mode within a course.  The details are contained\n    in a JSON dictionary as follows:\n\n      * course_id: The course identifier.\n      * mode_slug: The short name for the course mode.\n      * mode_display_name: The verbose name for the course mode.\n      * min_price: The minimum price for which a user can\n        enroll in this mode.\n      * currency: The currency of the listed prices.\n      * expiration_datetime: The date and time after which\n        users cannot enroll in the course in this mode (not required for PATCH).\n      * expiration_datetime_is_explicit: Whether the expiration_datetime field was\n        explicitly set (not required for PATCH).\n      * description: A description of this mode (not required for PATCH).\n      * sku: The SKU for this mode (for ecommerce purposes, not required for PATCH).\n      * bulk_sku: The bulk SKU for this mode (for ecommerce purposes, not required for PATCH).\n\n    PATCH: If the request is successful, an HTTP 204 \"No Content\" response is returned.\n    If \"application/merge-patch+json\" is not the specified content type,\n    a 415 \"Unsupported Media Type\" response is returned.\n\n    DELETE: If the request is successful, an HTTP 204 \"No Content\" response is returned."
+      tags:
+      - course_modes
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: mode_slug
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/course_modes.CourseMode'
+    patch:
+      operationId: course_modes_v1_courses_partial_update
+      description: Performs a partial update of a CourseMode instance.
+      tags:
+      - course_modes
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: mode_slug
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/course_modes.CourseMode'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/course_modes.CourseMode'
+    delete:
+      operationId: course_modes_v1_courses_delete
+      summary: View to retrieve, update, or delete a specific course mode for a course.
+      description: "**Use Case**\n\n    Get or update course mode details for a specific course mode on a course.\n    Or you may delete a specific course mode from a course.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Returns details on an existing course mode for a course.\n\n    PATCH /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Updates (via merge) details of an existing course mode for a course.\n\n    DELETE /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Deletes an existing course mode for a course.\n\n**Response Values**\n\n    For each HTTP verb below, an HTTP 404 \"Not Found\" response is returned if the\n    requested course id does not exist, or the mode slug does not exist within the course.\n\n    GET: If the request is successful, an HTTP 200 \"OK\" response is returned\n    along with a details for a single course mode within a course.  The details are contained\n    in a JSON dictionary as follows:\n\n      * course_id: The course identifier.\n      * mode_slug: The short name for the course mode.\n      * mode_display_name: The verbose name for the course mode.\n      * min_price: The minimum price for which a user can\n        enroll in this mode.\n      * currency: The currency of the listed prices.\n      * expiration_datetime: The date and time after which\n        users cannot enroll in the course in this mode (not required for PATCH).\n      * expiration_datetime_is_explicit: Whether the expiration_datetime field was\n        explicitly set (not required for PATCH).\n      * description: A description of this mode (not required for PATCH).\n      * sku: The SKU for this mode (for ecommerce purposes, not required for PATCH).\n      * bulk_sku: The bulk SKU for this mode (for ecommerce purposes, not required for PATCH).\n\n    PATCH: If the request is successful, an HTTP 204 \"No Content\" response is returned.\n    If \"application/merge-patch+json\" is not the specified content type,\n    a 415 \"Unsupported Media Type\" response is returned.\n\n    DELETE: If the request is successful, an HTTP 204 \"No Content\" response is returned."
+      tags:
+      - course_modes
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: mode_slug
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+components:
+  schemas:
+    course_modes.CourseMode:
+      required:
+      - course_id
+      - mode_slug
+      - mode_display_name
+      - currency
+      type: object
+      properties:
+        course_id:
+          title: Course id
+          type: string
+          minLength: 1
+        mode_slug:
+          title: Mode slug
+          type: string
+          minLength: 1
+        mode_display_name:
+          title: Mode display name
+          type: string
+          minLength: 1
+        min_price:
+          title: Min price
+          type: integer
+        currency:
+          title: Currency
+          type: string
+          minLength: 1
+        expiration_datetime:
+          title: Expiration datetime
+          type: string
+          format: date-time
+        expiration_datetime_is_explicit:
+          title: Expiration datetime is explicit
+          type: boolean
+        description:
+          title: Description
+          type: string
+          minLength: 1
+        sku:
+          title: Sku
+          type: string
+          minLength: 1
+        bulk_sku:
+          title: Bulk sku
+          type: string
+          minLength: 1
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic

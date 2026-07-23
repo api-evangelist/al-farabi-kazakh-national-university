@@ -1,0 +1,602 @@
+openapi: 3.0.3
+info:
+  title: Open edX agreements discussion API
+  description: APIs for access to Open edX information
+  contact:
+    email: dl@kaznu.kz
+  version: v1
+servers:
+- url: https://open.kaznu.kz/api
+security:
+- Basic: []
+tags:
+- name: discussion
+paths:
+  /discussion/v1/accounts/replace_username:
+    post:
+      operationId: discussion_v1_accounts_replace_username_create
+      description: Implements the username replacement endpoint
+      tags:
+      - discussion
+      responses:
+        '201':
+          description: ''
+  /discussion/v1/accounts/retire_forum/:
+    post:
+      operationId: discussion_v1_accounts_retire_forum_create
+      description: Implements the retirement endpoint.
+      tags:
+      - discussion
+      responses:
+        '201':
+          description: ''
+  /discussion/v1/comments/:
+    get:
+      operationId: discussion_v1_comments_list
+      summary: 'Implements the GET method for the list endpoint as described in
+
+        the class docstring.'
+      description: 'This endpoint implements two distinct usage contexts.
+
+
+        When `username` is provided, the `course_id` parameter is
+
+        required, and `thread_id` is ignored.
+
+        The behavior is to retrieve all of the user''s non-anonymous
+
+        comments from the specified course, outside of the context of a
+
+        forum thread. In this context, endorsement information is
+
+        unavailable.
+
+
+        When `username` is not provided, `thread_id` is required, and
+
+        `course_id` is ignored, since the thread already belongs to a course.
+
+        In this context, all information relevant to usage in the
+
+        discussions forum is available.'
+      tags:
+      - discussion
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: discussion_v1_comments_create
+      description: 'Implements the POST method for the list endpoint as described in the
+
+        class docstring.'
+      tags:
+      - discussion
+      responses:
+        '201':
+          description: ''
+  /discussion/v1/comments/{comment_id}/:
+    get:
+      operationId: discussion_v1_comments_read
+      description: Implements the GET method for comments against response ID
+      tags:
+      - discussion
+      parameters:
+      - name: comment_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    patch:
+      operationId: discussion_v1_comments_partial_update
+      description: 'Implements the PATCH method for the instance endpoint as described in
+
+        the class docstring.'
+      tags:
+      - discussion
+      parameters:
+      - name: comment_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    delete:
+      operationId: discussion_v1_comments_delete
+      description: 'Implements the DELETE method for the instance endpoint as described in
+
+        the class docstring'
+      tags:
+      - discussion
+      parameters:
+      - name: comment_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /discussion/v1/course_topics/{course_id}:
+    get:
+      operationId: discussion_v1_course_topics_read
+      description: Implements the GET method as described in the class docstring.
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /discussion/v1/courses/{course_id}:
+    get:
+      operationId: discussion_v1_courses_read
+      summary: Retrieve general discussion metadata for a course.
+      description: "**Example Requests**:\n\n    GET /api/discussion/v1/courses/course-v1:ExampleX+Subject101+2015"
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        description: Course ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseMetadataSerailizer'
+        '401':
+          description: The requester is not authenticated.
+        '403':
+          description: The requester cannot access the specified course.
+        '404':
+          description: The requested course does not exist.
+  /discussion/v1/courses/{course_id}/learner/:
+    get:
+      operationId: discussion_v1_courses_learner_list
+      description: Implements the GET method as described in the class docstring.
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /discussion/v1/courses/{course_id}/roles/{rolename}/:
+    get:
+      operationId: discussion_v1_courses_roles_read
+      description: Implement a handler for the GET method.
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rolename
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: discussion_v1_courses_roles_create
+      description: Implement a handler for the POST method.
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: rolename
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /discussion/v1/courses/{course_id}/settings:
+    get:
+      operationId: discussion_v1_courses_settings_list
+      description: Implement a handler for the GET method.
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    patch:
+      operationId: discussion_v1_courses_settings_partial_update
+      description: Implement a handler for the PATCH method.
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /discussion/v1/courses/{course_id}/upload:
+    post:
+      operationId: discussion_v1_courses_upload_create
+      description: Handles a file upload.
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+  /discussion/v1/courses/{course_key_string}/activity_stats:
+    get:
+      operationId: discussion_v1_courses_activity_stats_list
+      description: Implements the GET method as described in the class docstring.
+      tags:
+      - discussion
+      parameters:
+      - name: course_key_string
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+  /discussion/v1/threads/:
+    get:
+      operationId: discussion_v1_threads_list
+      description: 'Implements the GET method for the list endpoint as described in the
+
+        class docstring.'
+      tags:
+      - discussion
+      responses:
+        '200':
+          description: ''
+    post:
+      operationId: discussion_v1_threads_create
+      description: 'Implements the POST method for the list endpoint as described in the
+
+        class docstring.'
+      tags:
+      - discussion
+      responses:
+        '201':
+          description: ''
+  /discussion/v1/threads/{thread_id}/:
+    get:
+      operationId: discussion_v1_threads_read
+      description: Implements the GET method for thread ID
+      tags:
+      - discussion
+      parameters:
+      - name: thread_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    patch:
+      operationId: discussion_v1_threads_partial_update
+      description: 'Implements the PATCH method for the instance endpoint as described in
+
+        the class docstring.'
+      tags:
+      - discussion
+      parameters:
+      - name: thread_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+    delete:
+      operationId: discussion_v1_threads_delete
+      description: 'Implements the DELETE method for the instance endpoint as described in
+
+        the class docstring'
+      tags:
+      - discussion
+      parameters:
+      - name: thread_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+  /discussion/v2/course_topics/{course_id}:
+    get:
+      operationId: discussion_v2_course_topics_read
+      summary: '**Use Cases**'
+      description: "    Retrieve the topic listing for a course.\n\n**Example Requests**:\n\n    GET /api/discussion/v2/course_topics/course-v1:ExampleX+Subject101+2015\n        ?topic_id={topic_id_1, topid_id_2}&order_by=course_structure"
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        description: Course ID
+        schema:
+          type: string
+      - name: topic_id
+        in: query
+        required: false
+        description: Comma-separated list of topic ids to filter
+        schema:
+          type: string
+      - name: order_by
+        in: query
+        required: false
+        description: Sort ordering for topics
+        schema:
+          type: string
+          enum:
+          - course_structure
+          - activity
+          - name
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiscussionTopicSerializerV2'
+        '401':
+          description: The requester is not authenticated.
+        '403':
+          description: The requester cannot access the specified course.
+        '404':
+          description: The requested course does not exist.
+  /discussion/v2/courses/{course_id}:
+    get:
+      operationId: discussion_v2_courses_read
+      summary: Retrieve general discussion metadata for a course.
+      description: "**Example Requests**:\n    GET /api/discussion/v2/courses/course-v1:ExampleX+Subject101+2015"
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: course_id
+        in: path
+        required: true
+        description: Course ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseMetadataSerailizer'
+        '401':
+          description: The requester is not authenticated.
+        '403':
+          description: The requester cannot access the specified course.
+        '404':
+          description: The requested course does not exist.
+  /discussion/v3/course_topics/{course_id}:
+    get:
+      operationId: discussion_v3_course_topics_read
+      summary: '**Use Cases**'
+      description: "Retrieve the topic listing for a course.\n\n**Example Requests**:\n\n    GET /api/discussion/v3/course_topics/course-v1:ExampleX+Subject101+2015"
+      tags:
+      - discussion
+      parameters:
+      - name: course_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+components:
+  schemas:
+    ReasonCodeSeralizer:
+      required:
+      - code
+      - label
+      type: object
+      properties:
+        code:
+          title: Code
+          description: A code for the an edit or close reason
+          type: string
+          minLength: 1
+        label:
+          title: Label
+          description: A user-friendly name text for the close or edit reason
+          type: string
+          minLength: 1
+    BlackoutDate:
+      required:
+      - start
+      - end
+      type: object
+      properties:
+        start:
+          title: Start
+          description: The ISO 8601 timestamp for the start of the blackout period
+          type: string
+          format: date-time
+        end:
+          title: End
+          description: The ISO 8601 timestamp for the end of the blackout period
+          type: string
+          format: date-time
+    CourseMetadataSerailizer:
+      required:
+      - id
+      - blackouts
+      - thread_list_url
+      - following_thread_list_url
+      - topics_url
+      - allow_anonymous
+      - allow_anonymous_to_peers
+      - user_roles
+      - user_is_privileged
+      - provider
+      - enable_in_context
+      - group_at_subsection
+      - post_close_reasons
+      - edit_reasons
+      type: object
+      properties:
+        id:
+          title: Id
+          description: The identifier of the course
+          type: string
+        blackouts:
+          description: A list of objects representing blackout periods (during which discussions are read-only except for privileged users).
+          type: array
+          items:
+            $ref: '#/components/schemas/BlackoutDate'
+        thread_list_url:
+          title: Thread list url
+          description: The URL of the list of all threads in the course.
+          type: string
+          format: uri
+          minLength: 1
+        following_thread_list_url:
+          title: Following thread list url
+          description: thread_list_url with parameter following=True
+          type: string
+          format: uri
+          minLength: 1
+        topics_url:
+          title: Topics url
+          description: The URL of the topic listing for the course.
+          type: string
+          format: uri
+          minLength: 1
+        allow_anonymous:
+          title: Allow anonymous
+          description: A boolean indicating whether anonymous posts are allowed or not.
+          type: boolean
+        allow_anonymous_to_peers:
+          title: Allow anonymous to peers
+          description: A boolean indicating whether posts anonymous to peers are allowed or not.
+          type: boolean
+        user_roles:
+          description: A list of all the roles the requesting user has for this course.
+          type: array
+          items:
+            type: string
+            minLength: 1
+        user_is_privileged:
+          title: User is privileged
+          description: A boolean indicating if the current user has a privileged role
+          type: boolean
+        provider:
+          title: Provider
+          description: The discussion provider used by this course
+          type: string
+          minLength: 1
+        enable_in_context:
+          title: Enable in context
+          description: A boolean indicating whether in-context discussion is enabled for the course
+          type: boolean
+        group_at_subsection:
+          title: Group at subsection
+          description: A boolean indicating whether discussions should be grouped at subsection
+          type: boolean
+        post_close_reasons:
+          description: A list of reasons that can be specified by moderators for closing a post
+          type: array
+          items:
+            $ref: '#/components/schemas/ReasonCodeSeralizer'
+        edit_reasons:
+          description: A list of reasons that can be specified by moderators for editing a post, response, or comment
+          type: array
+          items:
+            $ref: '#/components/schemas/ReasonCodeSeralizer'
+    DiscussionTopicSerializerV2:
+      type: object
+      properties:
+        id:
+          title: Id
+          description: Provider-specific unique id for the topic
+          type: string
+          readOnly: true
+          minLength: 1
+        usage_key:
+          title: Usage key
+          description: Usage context for the topic
+          type: string
+          readOnly: true
+          minLength: 1
+        name:
+          title: Name
+          description: Topic name
+          type: string
+          readOnly: true
+          minLength: 1
+        thread_counts:
+          title: Thread counts
+          description: Mapping of thread counts by type of thread
+          type: object
+          readOnly: true
+        enabled_in_context:
+          title: Enabled in context
+          description: Whether this topic is enabled in its context
+          type: boolean
+          readOnly: true
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: basic
