@@ -12,9 +12,22 @@ description: >-
   internal information systems, so this profile catalogs the verified public
   properties rather than any open developer endpoints.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/al-farabi-kazakh-national-university.png
 url: https://raw.githubusercontent.com/api-evangelist/al-farabi-kazakh-national-university/refs/heads/main/apis.yml
 tags:
   - Education
@@ -29,37 +42,1196 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - name: KazNU Open edX API
-    description: >-
-      Open edX REST API powering the KazNU open courseware / MOOC platform at
-      open.kaznu.kz, providing access to courses, enrollments, bookmarks,
-      grades, certificates and related learner information. A public Swagger 2.0
-      description is served at https://open.kaznu.kz/swagger.json; it has been
-      converted to OpenAPI 3.0 below.
-    humanURL: https://open.kaznu.kz/
-    baseURL: https://open.kaznu.kz/api
-    properties:
-      - type: Swagger
-        url: https://open.kaznu.kz/swagger.json
-      - type: OpenAPI
-        url: openapi/al-farabi-kazakh-national-university-open-edx.yaml
-      - type: x-json-schema
-        url: json-schema/al-farabi-kazakh-national-university-course-schema.json
-      - type: x-json-structure
-        url: json-structure/al-farabi-kazakh-national-university-course-structure.json
-      - type: x-examples
-        url: examples/al-farabi-kazakh-national-university-list-courses-example.json
-      - type: x-spectral-rules
-        url: rules/al-farabi-kazakh-national-university-rules.yml
-      - type: x-vocabulary
-        url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
-      - type: x-json-ld
-        url: json-ld/al-farabi-kazakh-national-university-context.jsonld
-    tags:
-      - Education
-      - Open Education
-      - MOOC
-      - Open edX
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-agreements-api
+  name: Al-Farabi Kazakh National University agreements API
+  description: >-
+    The agreements API from Al-Farabi Kazakh National University — 2 operation(s) for agreements.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - agreements
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-agreements-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-bookmarks-api
+  name: Al-Farabi Kazakh National University bookmarks API
+  description: >-
+    The bookmarks API from Al-Farabi Kazakh National University — 2 operation(s) for bookmarks.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - bookmarks
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-bookmarks-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-certificates-api
+  name: Al-Farabi Kazakh National University certificates API
+  description: >-
+    The certificates API from Al-Farabi Kazakh National University — 2 operation(s) for certificates.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - certificates
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-certificates-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-change-email-settings-api
+  name: Al-Farabi Kazakh National University change_email_settings API
+  description: >-
+    The change_email_settings API from Al-Farabi Kazakh National University — 1 operation(s) for change_email_settings.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - change_email_settings
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-change-email-settings-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-cohorts-api
+  name: Al-Farabi Kazakh National University cohorts API
+  description: The cohorts API from Al-Farabi Kazakh National University — 4 operation(s) for cohorts.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - cohorts
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-cohorts-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-commerce-api
+  name: Al-Farabi Kazakh National University commerce API
+  description: >-
+    The commerce API from Al-Farabi Kazakh National University — 5 operation(s) for commerce.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - commerce
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-commerce-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-completion-api
+  name: Al-Farabi Kazakh National University completion API
+  description: >-
+    The completion API from Al-Farabi Kazakh National University — 2 operation(s) for completion.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - completion
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-completion-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-course-experience-api
+  name: Al-Farabi Kazakh National University course_experience API
+  description: >-
+    The course_experience API from Al-Farabi Kazakh National University — 2 operation(s) for course_experience.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - course_experience
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-course-experience-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-course-home-api
+  name: Al-Farabi Kazakh National University course_home API
+  description: >-
+    The course_home API from Al-Farabi Kazakh National University — 18 operation(s) for course_home.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - course_home
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-course-home-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-course-live-api
+  name: Al-Farabi Kazakh National University course_live API
+  description: >-
+    The course_live API from Al-Farabi Kazakh National University — 3 operation(s) for course_live.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - course_live
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-course-live-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-course-modes-api
+  name: Al-Farabi Kazakh National University course_modes API
+  description: >-
+    The course_modes API from Al-Farabi Kazakh National University — 2 operation(s) for course_modes.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - course_modes
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-course-modes-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-courses-api
+  name: Al-Farabi Kazakh National University courses API
+  description: The courses API from Al-Farabi Kazakh National University — 9 operation(s) for courses.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - courses
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-courses-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-courseware-api
+  name: Al-Farabi Kazakh National University courseware API
+  description: >-
+    The courseware API from Al-Farabi Kazakh National University — 4 operation(s) for courseware.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - courseware
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-courseware-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-credit-api
+  name: Al-Farabi Kazakh National University credit API
+  description: The credit API from Al-Farabi Kazakh National University — 7 operation(s) for credit.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - credit
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-credit-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-dashboard-api
+  name: Al-Farabi Kazakh National University dashboard API
+  description: >-
+    The dashboard API from Al-Farabi Kazakh National University — 2 operation(s) for dashboard.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - dashboard
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-dashboard-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-discounts-api
+  name: Al-Farabi Kazakh National University discounts API
+  description: >-
+    The discounts API from Al-Farabi Kazakh National University — 2 operation(s) for discounts.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - discounts
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-discounts-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-discussion-api
+  name: Al-Farabi Kazakh National University discussion API
+  description: >-
+    The discussion API from Al-Farabi Kazakh National University — 16 operation(s) for discussion.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - discussion
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-discussion-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-edx-name-affirmation-api
+  name: Al-Farabi Kazakh National University edx_name_affirmation API
+  description: >-
+    The edx_name_affirmation API from Al-Farabi Kazakh National University — 4 operation(s) for edx_name_affirmation.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - edx_name_affirmation
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-edx-name-affirmation-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-edx-proctoring-api
+  name: Al-Farabi Kazakh National University edx_proctoring API
+  description: >-
+    The edx_proctoring API from Al-Farabi Kazakh National University — 30 operation(s) for edx_proctoring.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - edx_proctoring
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-edx-proctoring-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-edxnotes-api
+  name: Al-Farabi Kazakh National University edxnotes API
+  description: >-
+    The edxnotes API from Al-Farabi Kazakh National University — 1 operation(s) for edxnotes.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - edxnotes
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-edxnotes-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-enrollment-api
+  name: Al-Farabi Kazakh National University enrollment API
+  description: >-
+    The enrollment API from Al-Farabi Kazakh National University — 8 operation(s) for enrollment.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - enrollment
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-enrollment-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-entitlements-api
+  name: Al-Farabi Kazakh National University entitlements API
+  description: >-
+    The entitlements API from Al-Farabi Kazakh National University — 3 operation(s) for entitlements.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - entitlements
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-entitlements-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-experiments-api
+  name: Al-Farabi Kazakh National University experiments API
+  description: >-
+    The experiments API from Al-Farabi Kazakh National University — 6 operation(s) for experiments.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - experiments
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-experiments-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-grades-api
+  name: Al-Farabi Kazakh National University grades API
+  description: The grades API from Al-Farabi Kazakh National University — 9 operation(s) for grades.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - grades
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-grades-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-instructor-api
+  name: Al-Farabi Kazakh National University instructor API
+  description: >-
+    The instructor API from Al-Farabi Kazakh National University — 3 operation(s) for instructor.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - instructor
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-instructor-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-instructor-task-api
+  name: Al-Farabi Kazakh National University instructor_task API
+  description: >-
+    The instructor_task API from Al-Farabi Kazakh National University — 2 operation(s) for instructor_task.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - instructor_task
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-instructor-task-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-learner-home-api
+  name: Al-Farabi Kazakh National University learner_home API
+  description: >-
+    The learner_home API from Al-Farabi Kazakh National University — 4 operation(s) for learner_home.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - learner_home
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-learner-home-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-learning-sequences-api
+  name: Al-Farabi Kazakh National University learning_sequences API
+  description: >-
+    The learning_sequences API from Al-Farabi Kazakh National University — 1 operation(s) for learning_sequences.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - learning_sequences
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-learning-sequences-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-lti-consumer-api
+  name: Al-Farabi Kazakh National University lti_consumer API
+  description: >-
+    The lti_consumer API from Al-Farabi Kazakh National University — 6 operation(s) for lti_consumer.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - lti_consumer
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-lti-consumer-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-mfe-config-api
+  name: Al-Farabi Kazakh National University mfe_config API
+  description: >-
+    The mfe_config API from Al-Farabi Kazakh National University — 1 operation(s) for mfe_config.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - mfe_config
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-mfe-config-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-mfe-context-api
+  name: Al-Farabi Kazakh National University mfe_context API
+  description: >-
+    The mfe_context API from Al-Farabi Kazakh National University — 1 operation(s) for mfe_context.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - mfe_context
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-mfe-context-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-mobile-api
+  name: Al-Farabi Kazakh National University mobile API
+  description: The mobile API from Al-Farabi Kazakh National University — 11 operation(s) for mobile.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - mobile
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-mobile-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-notifications-api
+  name: Al-Farabi Kazakh National University notifications API
+  description: >-
+    The notifications API from Al-Farabi Kazakh National University — 9 operation(s) for notifications.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-notifications-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-ora-staff-grader-api
+  name: Al-Farabi Kazakh National University ora_staff_grader API
+  description: >-
+    The ora_staff_grader API from Al-Farabi Kazakh National University — 15 operation(s) for ora_staff_grader.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - ora_staff_grader
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-ora-staff-grader-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-organizations-api
+  name: Al-Farabi Kazakh National University organizations API
+  description: >-
+    The organizations API from Al-Farabi Kazakh National University — 2 operation(s) for organizations.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-organizations-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-profile-images-api
+  name: Al-Farabi Kazakh National University profile_images API
+  description: >-
+    The profile_images API from Al-Farabi Kazakh National University — 2 operation(s) for profile_images.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - profile_images
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-profile-images-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-program-enrollments-api
+  name: Al-Farabi Kazakh National University program_enrollments API
+  description: >-
+    The program_enrollments API from Al-Farabi Kazakh National University — 8 operation(s) for program_enrollments.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - program_enrollments
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-program-enrollments-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-send-account-activation-email-api
+  name: Al-Farabi Kazakh National University send_account_activation_email API
+  description: >-
+    The send_account_activation_email API from Al-Farabi Kazakh National University — 1 operation(s) for
+    send_account_activation_email.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - send_account_activation_email
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/al-farabi-kazakh-national-university-send-account-activation-email-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-team-api
+  name: Al-Farabi Kazakh National University team API
+  description: The team API from Al-Farabi Kazakh National University — 8 operation(s) for team.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - team
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-team-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-third-party-auth-api
+  name: Al-Farabi Kazakh National University third_party_auth API
+  description: >-
+    The third_party_auth API from Al-Farabi Kazakh National University — 4 operation(s) for third_party_auth.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - third_party_auth
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-third-party-auth-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: >-
+    al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-third-party-auth-context-api
+  name: Al-Farabi Kazakh National University third_party_auth_context API
+  description: >-
+    The third_party_auth_context API from Al-Farabi Kazakh National University — 1 operation(s) for third_party_auth_context.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - third_party_auth_context
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-third-party-auth-context-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-toggles-api
+  name: Al-Farabi Kazakh National University toggles API
+  description: The toggles API from Al-Farabi Kazakh National University — 1 operation(s) for toggles.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - toggles
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-toggles-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-univertest-api
+  name: Al-Farabi Kazakh National University univertest API
+  description: >-
+    The univertest API from Al-Farabi Kazakh National University — 1 operation(s) for univertest.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - univertest
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-univertest-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-user-api
+  name: Al-Farabi Kazakh National University user API
+  description: The user API from Al-Farabi Kazakh National University — 38 operation(s) for user.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - user
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-user-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-user-tours-api
+  name: Al-Farabi Kazakh National University user_tours API
+  description: >-
+    The user_tours API from Al-Farabi Kazakh National University — 2 operation(s) for user_tours.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - user_tours
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-user-tours-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-val-api
+  name: Al-Farabi Kazakh National University val API
+  description: The val API from Al-Farabi Kazakh National University — 9 operation(s) for val.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - val
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-val-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-xblock-api
+  name: Al-Farabi Kazakh National University xblock API
+  description: The xblock API from Al-Farabi Kazakh National University — 10 operation(s) for xblock.
+  humanURL: https://open.kaznu.kz/
+  baseURL: https://open.kaznu.kz/api
+  tags:
+  - xblock
+  properties:
+  - type: OpenAPI
+    url: openapi/al-farabi-kazakh-national-university-xblock-api-openapi.yml
+  - type: Swagger
+    url: https://open.kaznu.kz/swagger.json
+  - type: x-json-schema
+    url: json-schema/al-farabi-kazakh-national-university-course-schema.json
+  - type: x-json-structure
+    url: json-structure/al-farabi-kazakh-national-university-course-structure.json
+  - type: x-examples
+    url: examples/al-farabi-kazakh-national-university-list-courses-example.json
+  - type: x-spectral-rules
+    url: rules/al-farabi-kazakh-national-university-rules.yml
+  - type: x-vocabulary
+    url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
+  - type: x-json-ld
+    url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/al-farabi-kazakh-national-university-agentic-access.yml
