@@ -40,7 +40,7 @@ tags:
   - Central Asia
 created: '2026-06-03'
 modified: '2026-06-03'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-agreements-api
   name: Al-Farabi Kazakh National University agreements API
