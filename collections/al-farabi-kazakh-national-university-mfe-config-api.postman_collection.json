@@ -1,0 +1,126 @@
+{
+  "item": [
+    {
+      "id": "b19fb93f-1011-4c4a-a9e2-63bfa5b4a79b",
+      "name": "mfe_config",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a2a39f8b-686a-4289-9b0a-9ee6939dcf28",
+          "name": "Return the MFE configuration, optionally including MFE-specific overrides.",
+          "request": {
+            "name": "Return the MFE configuration, optionally including MFE-specific overrides.",
+            "description": {
+              "content": "**Usage**\n\n  Get common config:\n  GET /api/mfe_config/v1\n\n  Get app config (common + app-specific overrides):\n  GET /api/mfe_config/v1?mfe=name_of_mfe\n\n**GET Response Values**\n```\n{\n    \"BASE_URL\": \"https://name_of_mfe.example.com\",\n    \"LANGUAGE_PREFERENCE_COOKIE_NAME\": \"example-language-preference\",\n    \"CREDENTIALS_BASE_URL\": \"https://credentials.example.com\",\n    \"DISCOVERY_API_BASE_URL\": \"https://discovery.example.com\",\n    \"LMS_BASE_URL\": \"https://courses.example.com\",\n    \"LOGIN_URL\": \"https://courses.example.com/login\",\n    \"LOGOUT_URL\": \"https://courses.example.com/logout\",\n    \"STUDIO_BASE_URL\": \"https://studio.example.com\",\n    \"LOGO_URL\": \"https://courses.example.com/logo.png\",\n    ... and so on\n}\n```",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mfe_config",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "mfe",
+                  "value": "<string>",
+                  "description": "Name of an MFE (a.k.a. an APP_ID)."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41727cf8-c308-483c-9b31-b38bd4c26ede",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mfe_config",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mfe",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f03d7c1d-c20c-4051-999c-5dc30b0c9503",
+    "name": "Open edX agreements mfe_config API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

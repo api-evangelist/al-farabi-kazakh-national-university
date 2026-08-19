@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements profile_images API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "profile_images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "profile_images_v1_remove_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/profile_images/v1/:username/remove",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST /api/profile_images/v1/{username}/remove"
+        },
+        {
+          "info": {
+            "name": "profile_images_v1_upload_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/profile_images/v1/:username/upload",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST /api/profile_images/v1/{username}/upload"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

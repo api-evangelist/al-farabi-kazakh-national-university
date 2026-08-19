@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements courseware API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "courseware",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "courseware_celebration_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/courseware/celebration/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Handle a POST request."
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courseware/course/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request details for a course\n\n**Example Requests**\n\n    GET /api/courseware/course/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    * access_expiration: An object detailing when access to this course will expire\n        * expiration_date: (str) When the access expires, in ISO 8601 notation\n        * masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        * upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 not"
+        },
+        {
+          "info": {
+            "name": "courseware_resume_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courseware/resume/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return response to a GET request."
+        },
+        {
+          "info": {
+            "name": "courseware_sequence_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courseware/sequence/:usage_key_string",
+            "params": [
+              {
+                "name": "usage_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return response to a GET request."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

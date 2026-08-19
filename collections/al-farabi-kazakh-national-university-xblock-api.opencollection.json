@@ -1,0 +1,291 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements xblock API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "xblock",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get metadata about the specified block.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Accepts the following query parameters:\n\n* \"include\": a comma-separated list of keys to include.\n  Valid keys are \"index_dictionary\" and \"student_view_data\"."
+        },
+        {
+          "info": {
+            "name": "xblock_v2_xblocks_fields_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key/fields/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "retrieves the xblock, returning display_name, data, and metadata"
+        },
+        {
+          "info": {
+            "name": "xblock_v2_xblocks_fields_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key/fields/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "edits the xblock, saving changes to data and metadata only (display_name included in metadata)"
+        },
+        {
+          "info": {
+            "name": "Get an absolute URL which can be used (without any authentication) to call\nthe given XBlock handler.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key/handler_url/:handler_name/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "handler_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "The URL will expire but is guaranteed to be valid for a minimum of 2 days."
+        },
+        {
+          "info": {
+            "name": "xblock_v2_xblocks_olx_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key/olx/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the OLX (XML serialization) of the specified XBlock"
+        },
+        {
+          "info": {
+            "name": "xblock_v2_xblocks_view_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key/view/:view_name/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "view_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the HTML, JS, and CSS needed to render the given XBlock."
+        },
+        {
+          "info": {
+            "name": "Get metadata about the specified block.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key@:version/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Accepts the following query parameters:\n\n* \"include\": a comma-separated list of keys to include.\n  Valid keys are \"index_dictionary\" and \"student_view_data\"."
+        },
+        {
+          "info": {
+            "name": "xblock_v2_xblocks_fields_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key@:version/fields/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "retrieves the xblock, returning display_name, data, and metadata"
+        },
+        {
+          "info": {
+            "name": "xblock_v2_xblocks_fields_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key@:version/fields/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "edits the xblock, saving changes to data and metadata only (display_name included in metadata)"
+        },
+        {
+          "info": {
+            "name": "Get an absolute URL which can be used (without any authentication) to call\nthe given XBlock handler.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key@:version/handler_url/:handler_name/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "handler_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "The URL will expire but is guaranteed to be valid for a minimum of 2 days."
+        },
+        {
+          "info": {
+            "name": "xblock_v2_xblocks_olx_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key@:version/olx/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the OLX (XML serialization) of the specified XBlock"
+        },
+        {
+          "info": {
+            "name": "xblock_v2_xblocks_view_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/xblock/v2/xblocks/:usage_key@:version/view/:view_name/",
+            "params": [
+              {
+                "name": "usage_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "view_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the HTML, JS, and CSS needed to render the given XBlock."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

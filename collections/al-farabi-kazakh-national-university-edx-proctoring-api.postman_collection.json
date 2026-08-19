@@ -1,0 +1,4056 @@
+{
+  "item": [
+    {
+      "id": "9fe92e32-3dfd-4afd-83f9-cf789a99aa80",
+      "name": "edx_proctoring",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3137080b-eb1a-409a-9e3e-99c835fd9059",
+          "name": "edx proctoring proctoring review callback create",
+          "request": {
+            "name": "edx proctoring proctoring review callback create",
+            "description": {
+              "content": "Post callback handler",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "proctoring_review_callback",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d7ad064-69ee-4b27-a33e-a307faf0aefa",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "proctoring_review_callback",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb3d2596-95fb-42d6-8c4f-3a868b62616a",
+          "name": "edx proctoring v1 instructor read",
+          "request": {
+            "name": "edx proctoring v1 instructor read",
+            "description": {
+              "content": "Redirect to dashboard for a given course and optional exam_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "instructor",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c004e53-e990-4605-a1cd-0999d8eff849",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "instructor",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6d0ab7a-3e65-4553-a743-7c13b076357b",
+          "name": "edx proctoring v1 instructor read",
+          "request": {
+            "name": "edx proctoring v1 instructor read",
+            "description": {
+              "content": "Redirect to dashboard for a given course and optional exam_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "instructor",
+                ":course_id",
+                ":exam_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "exam_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50f88428-b779-4849-a92b-7471cdbc1568",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "instructor",
+                    ":course_id",
+                    ":exam_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "exam_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a21cffaa-cf50-4b45-9314-9232707e9ca8",
+          "name": "edx proctoring v1 proctored exam active attempt list",
+          "request": {
+            "name": "edx proctoring v1 proctored exam active attempt list",
+            "description": {
+              "content": "HTTP GET handler. Returns active attempt",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "active_attempt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "921278a6-f05a-4dc0-bbee-3765062488c4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "active_attempt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49d80977-9b9c-441e-8002-1af7c870875e",
+          "name": "edx proctoring v1 proctored exam active exams for user list",
+          "request": {
+            "name": "edx proctoring v1 proctored exam active exams for user list",
+            "description": {
+              "content": "Returns the get_active_exams_for_user",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "active_exams_for_user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5ae92b1-6c85-42d7-a345-ef0218e1ddf6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "active_exams_for_user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5d324dc-af4f-4d6d-a285-1dd11eeb522c",
+          "name": "edx proctoring v1 proctored exam allowance list",
+          "request": {
+            "name": "edx proctoring v1 proctored exam allowance list",
+            "description": {
+              "content": "HTTP GET handler. Get all allowances for a course.\nCourse and Global staff can view both timed and proctored exam allowances.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "allowance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae056e8e-08d1-4862-9d2f-8945477e2d7f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "allowance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "783e8326-0140-439d-951e-3f0f9cf7617b",
+          "name": "edx proctoring v1 proctored exam allowance update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam allowance update",
+            "description": {
+              "content": "HTTP GET handler. Adds or updates Allowance",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "allowance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c08d206f-27aa-4ce2-a86a-26ba72c125f3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "allowance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "605e01d9-a48d-494e-8a28-d1035d61fed4",
+          "name": "edx proctoring v1 proctored exam allowance delete",
+          "request": {
+            "name": "edx proctoring v1 proctored exam allowance delete",
+            "description": {
+              "content": "HTTP DELETE handler. Removes Allowance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "allowance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4111935-1ee8-4712-832d-ced52fd13c6f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "allowance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fccdb6b3-a9f0-44f1-98d6-ff4193b65d1f",
+          "name": "edx proctoring v1 proctored exam attempt list",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt list",
+            "description": {
+              "content": "HTTP GET Handler. Returns the status of the exam attempt.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "378d90b4-a62d-48dd-87b7-3234b7d4c2c4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "144dbe49-5e86-4874-aea9-2aaf32191887",
+          "name": "edx proctoring v1 proctored exam attempt create",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt create",
+            "description": {
+              "content": "HTTP POST handler. To create an exam attempt.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b89b380e-b1f0-4b53-b1c9-fd2e1f2d6cc2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9bd6059f-8e93-4e35-9987-ac6d02dfab65",
+          "name": "edx proctoring v1 proctored exam attempt course id read",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt course id read",
+            "description": {
+              "content": "HTTP GET handler. Returns exam with attempt and active attempt",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt",
+                "course_id",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2210afa2-d1ef-4fe9-92be-29cf57f8c5ef",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt",
+                    "course_id",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b73bd8d-2c42-4b28-8fa9-3492107ab5e0",
+          "name": "edx proctoring v1 proctored exam attempt grouped course id read",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt grouped course id read",
+            "description": {
+              "content": "HTTP GET Handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt",
+                "grouped",
+                "course_id",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f978c751-47a7-4e48-a9e4-894d3b9cc4e0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt",
+                    "grouped",
+                    "course_id",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a65b0b38-4b8b-44e6-9083-092aa9d0037a",
+          "name": "edx proctoring v1 proctored exam attempt grouped course id search read",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt grouped course id search read",
+            "description": {
+              "content": "HTTP GET Handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt",
+                "grouped",
+                "course_id",
+                ":course_id",
+                "search",
+                ":search_by"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "search_by",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "432f995e-4b71-4b90-80c4-ec0c3d728c65",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt",
+                    "grouped",
+                    "course_id",
+                    ":course_id",
+                    "search",
+                    ":search_by"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "search_by",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13c767da-a3ec-4b3c-be30-9e700cac601f",
+          "name": "edx proctoring v1 proctored exam attempt read",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt read",
+            "description": {
+              "content": "HTTP GET Handler. Returns the status of the exam attempt.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt",
+                ":attempt_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attempt_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5fe1487-9e1f-450e-9397-ed568b13a165",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt",
+                    ":attempt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attempt_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9c011bb-fc4e-45f0-a0b8-6b1885c1e26d",
+          "name": "edx proctoring v1 proctored exam attempt update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt update",
+            "description": {
+              "content": "HTTP PUT handler to update exam attempt status based on an action.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt",
+                ":attempt_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attempt_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0896629-7f04-4734-b94d-a3fbe3955bc0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt",
+                    ":attempt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attempt_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87e65608-cdcc-425b-8da0-7d738e8b6ea5",
+          "name": "edx proctoring v1 proctored exam attempt delete",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt delete",
+            "description": {
+              "content": "HTTP DELETE handler. Removes an exam attempt.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt",
+                ":attempt_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attempt_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a2419a4-4791-4435-bd5b-372c905b37dd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt",
+                    ":attempt_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attempt_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed6e04eb-ffee-4f4c-a527-5f457f6853ec",
+          "name": "edx proctoring v1 proctored exam attempt review status update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt review status update",
+            "description": {
+              "content": "Update the is_status_acknowledged flag for the specific attempt",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt",
+                ":attempt_id",
+                "review_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "attempt_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b421143-43d5-4993-8315-70101d980cee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt",
+                    ":attempt_id",
+                    "review_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "attempt_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58a54a2b-33cd-4c8e-a8fa-ab6db9e9cdc0",
+          "name": "edx proctoring v1 proctored exam attempt ready create",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt ready create",
+            "description": {
+              "content": "Post callback handler",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt",
+                ":external_id",
+                "ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "external_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a2946f1-374c-4007-94cf-d5ddd5f9718a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt",
+                    ":external_id",
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4a8bc17-7c40-42de-b7e8-f51d6349cc86",
+          "name": "edx proctoring v1 proctored exam attempt reviewed create",
+          "request": {
+            "name": "edx proctoring v1 proctored exam attempt reviewed create",
+            "description": {
+              "content": "Called when 3rd party proctoring service has finished its review of\nan attempt.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "attempt",
+                ":external_id",
+                "reviewed"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "external_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63e05b5a-3126-4cd5-b7de-1817f67a14bf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "attempt",
+                    ":external_id",
+                    "reviewed"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "external_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5dadf02-2ebc-4e56-a19e-6fe26cfd8dd5",
+          "name": "edx proctoring v1 proctored exam bulk allowance update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam bulk allowance update",
+            "description": {
+              "content": "HTTP PUT handler. Adds or updates Allowances for many exams and students",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "bulk_allowance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f4d9432f-5d62-47f9-bbf9-d163d8c99239",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "bulk_allowance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa4e5daa-e9f4-4b48-bbab-36042b7a7cba",
+          "name": "edx proctoring v1 proctored exam exam list",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam list",
+            "description": {
+              "content": "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "565ddee7-5dcb-466b-8d40-68af9fe103da",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91da3c01-cfbe-49be-b2f8-c3c700dd7d9f",
+          "name": "edx proctoring v1 proctored exam exam create",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam create",
+            "description": {
+              "content": "Http POST handler. Creates an exam.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0ff5b20-9734-40ac-98e5-462b6cbf7a98",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dc98f9a-e66f-48f3-82b4-6b260813a578",
+          "name": "edx proctoring v1 proctored exam exam update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam update",
+            "description": {
+              "content": "HTTP PUT handler. To update an exam.\ncalls the update_exam",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "afaf8e1a-e91f-4b0e-a5ae-f28b36e37713",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf5dd03c-084f-4b7d-ae34-fee526568f10",
+          "name": "edx proctoring v1 proctored exam exam course id read",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam course id read",
+            "description": {
+              "content": "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam",
+                "course_id",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "401e2a0c-f32c-4cfb-b631-3e3f34734514",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam",
+                    "course_id",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a54c166-31ab-4aff-a6c5-b4489bceb140",
+          "name": "edx proctoring v1 proctored exam exam course id create",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam course id create",
+            "description": {
+              "content": "Http POST handler. Creates an exam.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam",
+                "course_id",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a721026-aa15-4c06-ad6f-1b759ba3f7b4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam",
+                    "course_id",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a76030aa-48c8-4f8e-9354-c695b2f1caaf",
+          "name": "edx proctoring v1 proctored exam exam course id update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam course id update",
+            "description": {
+              "content": "HTTP PUT handler. To update an exam.\ncalls the update_exam",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam",
+                "course_id",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67fffe9e-9db0-41c2-9348-d38a580d184b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam",
+                    "course_id",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ef55bfd-49ef-495f-bad3-73a1c011d3ee",
+          "name": "edx proctoring v1 proctored exam exam course id content id read",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam course id content id read",
+            "description": {
+              "content": "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam",
+                "course_id",
+                ":course_id",
+                "content_id",
+                ":content_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "content_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d5e2c6f-f6e3-4fed-ab55-68a72e3ce95f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam",
+                    "course_id",
+                    ":course_id",
+                    "content_id",
+                    ":content_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "content_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cf3bb3b-1d14-40f8-a176-09f6179d209f",
+          "name": "edx proctoring v1 proctored exam exam course id content id create",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam course id content id create",
+            "description": {
+              "content": "Http POST handler. Creates an exam.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam",
+                "course_id",
+                ":course_id",
+                "content_id",
+                ":content_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "content_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "438abdbd-c006-4d5d-b62d-55872d4f3dba",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam",
+                    "course_id",
+                    ":course_id",
+                    "content_id",
+                    ":content_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "content_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8966785c-d37c-48eb-af39-b24ae8fa65c6",
+          "name": "edx proctoring v1 proctored exam exam course id content id update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam course id content id update",
+            "description": {
+              "content": "HTTP PUT handler. To update an exam.\ncalls the update_exam",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam",
+                "course_id",
+                ":course_id",
+                "content_id",
+                ":content_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "content_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7ffeb1b-3759-4665-95f3-3d98137a7ca3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam",
+                    "course_id",
+                    ":course_id",
+                    "content_id",
+                    ":content_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "content_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e397b0a-8de2-49dc-ad55-ab51a212c8bc",
+          "name": "edx proctoring v1 proctored exam exam exam id read",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam exam id read",
+            "description": {
+              "content": "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam",
+                "exam_id",
+                ":exam_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "exam_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53359922-330f-4669-b334-c87e8f79df95",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam",
+                    "exam_id",
+                    ":exam_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "exam_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81d8325e-5593-4cb4-ad71-4f9a62bf5dca",
+          "name": "edx proctoring v1 proctored exam exam exam id create",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam exam id create",
+            "description": {
+              "content": "Http POST handler. Creates an exam.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam",
+                "exam_id",
+                ":exam_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "exam_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f775b825-1b63-4134-92aa-787b956c78f9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam",
+                    "exam_id",
+                    ":exam_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "exam_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93614f3b-387f-4199-9301-110ca1c85508",
+          "name": "edx proctoring v1 proctored exam exam exam id update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam exam id update",
+            "description": {
+              "content": "HTTP PUT handler. To update an exam.\ncalls the update_exam",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam",
+                "exam_id",
+                ":exam_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "exam_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6c858f8-bbcb-46d5-8d01-1036ab6a9c9a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam",
+                    "exam_id",
+                    ":exam_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "exam_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06aff95a-f4b4-43a2-83ec-e53c8d0f6582",
+          "name": "edx proctoring v1 proctored exam exam id user id reset attempts delete",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam id user id reset attempts delete",
+            "description": {
+              "content": "HTTP DELETE handler, deletes all attempts for a given exam and username",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam_id",
+                ":exam_id",
+                "user_id",
+                ":user_id",
+                "reset_attempts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "exam_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "347cf01f-e338-4465-a9bb-6faec11f4c3c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam_id",
+                    ":exam_id",
+                    "user_id",
+                    ":user_id",
+                    "reset_attempts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "exam_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e159236-fe4a-4c6d-afa7-575300909a99",
+          "name": "edx proctoring v1 proctored exam exam registration course id partial update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam exam registration course id partial update",
+            "description": {
+              "content": "Create or update a list of all active exams.\nExams not included in the registration payload will be deactivated",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "exam_registration",
+                "course_id",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04c478c0-abc6-4e61-ab94-6c76c22f6cce",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "exam_registration",
+                    "course_id",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20f8e99f-0450-4486-b808-3afbb7a80a1e",
+          "name": "edx proctoring v1 proctored exam review policy exam id read",
+          "request": {
+            "name": "edx proctoring v1 proctored exam review policy exam id read",
+            "description": {
+              "content": "HTTP GET handler. Returns review policy for proctored exam.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "review_policy",
+                "exam_id",
+                ":exam_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "exam_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc00c6a5-0f15-4daf-96c9-ec7882352276",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "review_policy",
+                    "exam_id",
+                    ":exam_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "exam_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f0ba02c-a5b4-4e70-8c39-50112a0ccfd4",
+          "name": "edx proctoring v1 proctored exam settings exam id read",
+          "request": {
+            "name": "edx proctoring v1 proctored exam settings exam id read",
+            "description": {
+              "content": "HTTP GET handler. Returns proctoring_settings and exam_proctoring_backend config for proctored exam.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                "settings",
+                "exam_id",
+                ":exam_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "exam_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f5faf48-fdf7-48da-9f3e-f80319ffcf66",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    "settings",
+                    "exam_id",
+                    ":exam_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "exam_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82db27ff-3539-4dfc-bbf2-24b4ecca06a9",
+          "name": "edx proctoring v1 proctored exam allowance list",
+          "request": {
+            "name": "edx proctoring v1 proctored exam allowance list",
+            "description": {
+              "content": "HTTP GET handler. Get all allowances for a course.\nCourse and Global staff can view both timed and proctored exam allowances.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                ":course_id",
+                "allowance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d26f005-7458-49c5-8a62-149115f208e5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    ":course_id",
+                    "allowance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5b801a3-0325-4c9a-b79f-561716039618",
+          "name": "edx proctoring v1 proctored exam allowance update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam allowance update",
+            "description": {
+              "content": "HTTP GET handler. Adds or updates Allowance",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                ":course_id",
+                "allowance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc0faed0-1e8a-4328-8311-81ebf3c51a0c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    ":course_id",
+                    "allowance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8651501f-4681-4ae8-ad5d-5815a34ead05",
+          "name": "edx proctoring v1 proctored exam allowance delete",
+          "request": {
+            "name": "edx proctoring v1 proctored exam allowance delete",
+            "description": {
+              "content": "HTTP DELETE handler. Removes Allowance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                ":course_id",
+                "allowance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bacaec47-d2e0-4a62-91c5-7216cb71a125",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    ":course_id",
+                    "allowance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cae1ecc0-26a9-4ec5-9b1d-b56ef9483ba2",
+          "name": "edx proctoring v1 proctored exam bulk allowance update",
+          "request": {
+            "name": "edx proctoring v1 proctored exam bulk allowance update",
+            "description": {
+              "content": "HTTP PUT handler. Adds or updates Allowances for many exams and students",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                ":course_id",
+                "bulk_allowance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba2e6a84-32ff-4184-906e-fc0bc08b112b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    ":course_id",
+                    "bulk_allowance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27489432-6ae5-428a-ad43-11144e082efd",
+          "name": "edx proctoring v1 proctored exam grouped allowance list",
+          "request": {
+            "name": "edx proctoring v1 proctored exam grouped allowance list",
+            "description": {
+              "content": "HTTP GET Handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "proctored_exam",
+                ":course_id",
+                "grouped",
+                "allowance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6235a224-a739-466c-888c-5531add1c4be",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "proctored_exam",
+                    ":course_id",
+                    "grouped",
+                    "allowance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc5f0d3a-6477-4731-aff1-a283e709ab13",
+          "name": "edx proctoring v1 retire backend user create",
+          "request": {
+            "name": "edx proctoring v1 retire backend user create",
+            "description": {
+              "content": "Deletes all user data for the particular user_id\nfrom all configured backends",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "retire_backend_user",
+                ":user_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9819d6e9-8793-4c85-884b-4f2f83c8766c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "retire_backend_user",
+                    ":user_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a66818db-1058-40ef-9626-f61f896f060b",
+          "name": "edx proctoring v1 retire user create",
+          "request": {
+            "name": "edx proctoring v1 retire user create",
+            "description": {
+              "content": "Obfuscates all PII for a given user_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "retire_user",
+                ":user_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8938239-61dc-4b39-9e3c-c1e8c06ae07b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "retire_user",
+                    ":user_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0816823f-72b0-4214-b900-4e383f6391d2",
+          "name": "edx proctoring v1 user onboarding status list",
+          "request": {
+            "name": "edx proctoring v1 user onboarding status list",
+            "description": {
+              "content": "HTTP GET handler. Returns the learner's onboarding status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "user_onboarding",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a09d042a-32dd-4284-aa02-2731e6e19be5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "user_onboarding",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51ae2248-e87c-4f79-89d9-831f7902b730",
+          "name": "edx proctoring v1 user onboarding status course id read",
+          "request": {
+            "name": "edx proctoring v1 user onboarding status course id read",
+            "description": {
+              "content": "HTTP GET handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_proctoring",
+                "v1",
+                "user_onboarding",
+                "status",
+                "course_id",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5df0155c-3d1c-45aa-9842-4fd6c4af602d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_proctoring",
+                    "v1",
+                    "user_onboarding",
+                    "status",
+                    "course_id",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "683004a0-6170-4877-81bd-45cc41691fc9",
+    "name": "Open edX agreements edx_proctoring API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

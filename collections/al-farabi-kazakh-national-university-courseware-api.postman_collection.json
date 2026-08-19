@@ -1,0 +1,403 @@
+{
+  "item": [
+    {
+      "id": "6748ae70-a4cb-4807-b300-ff93236840ca",
+      "name": "courseware",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd6ec771-53c8-4502-aa16-6b00f44c46d6",
+          "name": "courseware celebration create",
+          "request": {
+            "name": "courseware celebration create",
+            "description": {
+              "content": "Handle a POST request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "courseware",
+                "celebration",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5d0b081-edf2-401d-a719-8ff3afccadd3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courseware",
+                    "celebration",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "125d0fab-801e-4c67-b77b-830372f04f72",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request details for a course\n\n**Example Requests**\n\n    GET /api/courseware/course/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    * access_expiration: An object detailing when access to this course will expire\n        * expiration_date: (str) When the access expires, in ISO 8601 notation\n        * masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        * upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        * upgrade_url: (str) Upgrade linke (or None if can't upgrade anymore)\n    * celebrations: An object detailing which celebrations to render\n        * first_section: (bool) If the first section celebration should render\n            Note: Also uses information from frontend so this value is not final\n        * streak_length_to_celebrate: (int) The streak length to celebrate for the learner\n        * streak_discount_enabled: (bool) If the frontend should render an upgrade discount for hitting the streak\n        * weekly_goal: (bool) If the weekly goal celebration should render\n    * course_goals:\n        * selected_goal:\n            * days_per_week: (int) The number of days the learner wants to learn per week\n            * subscribed_to_reminders: (bool) Whether the learner wants email reminders about their goal\n        * weekly_learning_goal_enabled: Flag indicating if this feature is enabled for this call\n    * effort: A textual description of the weekly hours of effort expected\n        in the course.\n    * end: Date the course ends, in ISO 8601 notation\n    * enrollment: Enrollment status of authenticated user\n        * mode: `audit`, `verified`, etc\n        * is_active: boolean\n    * enrollment_end: Date enrollment ends, in ISO 8601 notation\n    * enrollment_start: Date enrollment begins, in ISO 8601 notation\n    * entrance_exam_data: An object containing information about the course's entrance exam\n        * entrance_exam_current_score: (float) The users current score on the entrance exam\n        * entrance_exam_enabled: (bool) If the course has an entrance exam\n        * entrance_exam_id: (str) The block id for the entrance exam if enabled. Will be a section (chapter)\n        * entrance_exam_minimum_score_pct: (float) The minimum score a user must receive on the entrance exam\n            to unlock the remainder of the course. Returned as a float (i.e. 0.7 for 70%)\n        * entrance_exam_passed: (bool) Indicates if the entrance exam has been passed\n    * id: A unique identifier of the course; a serialized representation\n        of the opaque key identifying the course.\n    * language: The language code for the course\n    * media: An object that contains named media items.  Included here:\n        * course_image: An image to show for the course.  Represented\n          as an object with the following fields:\n            * uri: The location of the image\n    * name: Name of the course\n    * offer: An object detailing upgrade discount information\n        * code: (str) Checkout code\n        * expiration_date: (str) Expiration of offer, in ISO 8601 notation\n        * original_price: (str) Full upgrade price without checkout code; includes currency symbol\n        * discounted_price: (str) Upgrade price with checkout code; includes currency symbol\n        * percentage: (int) Amount of discount\n        * upgrade_url: (str) Checkout URL\n    * org: Name of the organization that owns the course\n    * related_programs: A list of objects that contains program data related to the given course including:\n        * progress: An object containing program progress:\n            * complete: (int) Number of complete courses in the program (a course is completed if the user has\n                earned a certificate for any of the nested course runs)\n            * in_progress: (int) Number of courses in the program that are in progress (a course is in progress if\n                the user has enrolled in any of the nested course runs)\n            * not_started: (int) Number of courses in the program that have not been started\n        * slug: (str) The program type\n        * title: (str) The title of the program\n        * url: (str) The link to the program's landing page\n        * uuid: (str) A unique identifier of the program\n    * short_description: A textual description of the course\n    * start: Date the course begins, in ISO 8601 notation\n    * start_display: Readably formatted start of the course\n    * start_type: Hint describing how `start_display` is set. One of:\n        * `\"string\"`: manually set by the course author\n        * `\"timestamp\"`: generated from the `start` timestamp\n        * `\"empty\"`: no start date is specified\n    * pacing: Course pacing. Possible values: instructor, self\n    * user_timezone: User's chosen timezone setting (or null for browser default)\n    * user_has_passing_grade: Whether or not the effective user's grade is equal to or above the courses minimum\n        passing grade\n    * course_exit_page_is_active: Flag for the learning mfe on whether or not the course exit page should display\n    * certificate_data: data regarding the effective user's certificate for the given course\n    * verify_identity_url: URL for a learner to verify their identity. Only returned for learners enrolled in a\n        verified mode. Will update to reverify URL if necessary.\n    * linkedin_add_to_profile_url: URL to add the effective user's certificate to a LinkedIn Profile.\n    * user_needs_integrity_signature: Whether the user needs to sign the integrity agreement for the course\n    * learning_assistant_enabled: Whether the Xpert Learning Assistant is enabled for the requesting user\n\n**Parameters:**\n\n    requested_fields (optional) comma separated list:\n        If set, then only those fields will be returned.\n    username (optional) username to masquerade as (if requesting user is staff)\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 400 if an invalid parameter was sent or the username was not provided\n      for an authenticated request.\n    * 403 if a user who does not have permission to masquerade as\n      another user specifies a username other than their own.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "courseware",
+                "course",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f994b1fa-e8b6-482f-889e-cbfc5570bdb7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courseware",
+                    "course",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_expiration\": {\n    \"key_0\": \"string\"\n  },\n  \"content_type_gating_enabled\": true,\n  \"course_goals\": {\n    \"selected_goal\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    },\n    \"weekly_learning_goal_enabled\": false\n  },\n  \"effort\": \"string\",\n  \"end\": \"1956-10-10T12:32:05.794Z\",\n  \"enrollment\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"enrollment_start\": \"1958-02-26T20:06:06.387Z\",\n  \"enrollment_end\": \"2013-09-08T11:45:48.874Z\",\n  \"entrance_exam_data\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"id\": \"string\",\n  \"license\": \"string\",\n  \"language\": \"string\",\n  \"media\": {\n    \"uri\": \"string\"\n  },\n  \"name\": \"string\",\n  \"offer\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"related_programs\": [\n    {\n      \"slug\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"http://jxBTDA.qsirZGgL\",\n      \"uuid\": \"8cc97910-94a7-99c2-c055-1b520e8b7692\",\n      \"progress\": \"string\"\n    },\n    {\n      \"slug\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"http://RzfhWTePGZXLGQFztdHWXkgjhAqoK.xeWhxuqaIGGqOT8Wml5-8-HMhCgOdsme-RZjYhA-GYB7SkpLE\",\n      \"uuid\": \"3f8ae8d3-63e4-4eb7-2429-2d2cdc384879\",\n      \"progress\": \"string\"\n    }\n  ],\n  \"short_description\": \"string\",\n  \"start\": \"2020-03-15T01:08:31.472Z\",\n  \"start_display\": \"string\",\n  \"start_type\": \"string\",\n  \"pacing\": \"string\",\n  \"user_timezone\": \"string\",\n  \"show_calculator\": false,\n  \"can_access_proctored_exams\": true,\n  \"notes\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"marketing_url\": \"string\",\n  \"celebrations\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"user_has_passing_grade\": false,\n  \"course_exit_page_is_active\": false,\n  \"certificate_data\": {\n    \"cert_status\": \"stri\",\n    \"cert_web_view_url\": \"string\",\n    \"download_url\": \"string\",\n    \"certificate_available_date\": \"2025-11-20T12:31:52.651Z\"\n  },\n  \"verify_identity_url\": \"https://uxzzafTRfKrOwflZwAo.hihjdnqesYgESHt1V1ng0qh,7w4ryAX0On7b.HsdBHAu7PISUHiM6nB\",\n  \"verification_status\": \"string\",\n  \"linkedin_add_to_profile_url\": \"http://TGYeOcAfBvfkkKjMTZvroLFtgjZpajdVN.djejv5I6LT\",\n  \"is_integrity_signature_enabled\": true,\n  \"user_needs_integrity_signature\": true,\n  \"learning_assistant_enabled\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65893896-a791-44cd-921e-cba4248324f6",
+          "name": "courseware resume read",
+          "request": {
+            "name": "courseware resume read",
+            "description": {
+              "content": "Return response to a GET request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "courseware",
+                "resume",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "607c61e5-a37e-4420-bbc1-c477a7200916",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courseware",
+                    "resume",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e705b6f-9bf4-4538-bc0b-b1e258bcbfa6",
+          "name": "courseware sequence read",
+          "request": {
+            "name": "courseware sequence read",
+            "description": {
+              "content": "Return response to a GET request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "courseware",
+                "sequence",
+                ":usage_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "usage_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "951838cb-f1e0-4b90-bd46-18e4ad458f6a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "courseware",
+                    "sequence",
+                    ":usage_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "usage_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "547c4898-407f-4264-a8e4-9f3c95498ae0",
+    "name": "Open edX agreements courseware API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

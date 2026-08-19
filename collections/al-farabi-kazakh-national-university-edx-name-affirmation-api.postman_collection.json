@@ -1,0 +1,1983 @@
+{
+  "item": [
+    {
+      "id": "943b3fa7-50dd-4518-9a6f-5814386a5492",
+      "name": "edx_name_affirmation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "73ccfb0d-45d7-46c6-9b9f-e915d1bbd8da",
+          "name": "Get most recent verified name for the request user or for the specified username",
+          "request": {
+            "name": "Get most recent verified name for the request user or for the specified username",
+            "description": {
+              "content": "For example: /edx_name_affirmation/v1/verified_name?username=jdoe\nExample response: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\",\n    \"profile_name\": \"Jon Doe\",\n    \"verification_attempt_id\": 123,\n    \"proctored_exam_attempt_id\": None,\n    \"status\": \"approved\",\n    \"use_verified_name_for_certs\": False,\n}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_name_affirmation",
+                "v1",
+                "verified_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "The username of which verified name records might be associated"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ccea607d-c0c8-4df7-a950-6f1356b1fa58",
+              "name": "The verified_name record associated with the username provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1e0638b5-6d43-4571-a99e-50f737378e42",
+              "name": "User lacks required permission. Only an edX staff user can invoke this API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fcc6bc6a-f77d-4f82-a074-124677312eaa",
+              "name": "The verified_name record associated with the username provided does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "091950bf-0c04-43a8-9a07-45c029d1bc3c",
+          "name": "Creates a new VerifiedName.",
+          "request": {
+            "name": "Creates a new VerifiedName.",
+            "description": {
+              "content": "Expected POST data: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\"\n    \"profile_name\": \"Jon Doe\"\n    \"verification_attempt_id\": (Optional)\n    \"proctored_exam_attempt_id\": (Optional)\n    \"platform_verification_attempt_id\": (Optional)\n    \"status\": (Optional)\n}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_name_affirmation",
+                "v1",
+                "verified_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d43a7df2-15c5-4928-adfc-e47616ff7ec8",
+              "name": "The verified_name record associated with the username provided is successfully created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c5352ba9-1768-4715-abc1-45d6eff968a8",
+              "name": "The posted data have conflicts with already stored verified name",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "34359159-57e6-415d-b2fe-4c16c33cbbdb",
+              "name": "User lacks required permission. Only an edX staff user can invoke this API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61560325-424f-413f-bff9-f76eb746c1a9",
+          "name": "Update verified name status",
+          "request": {
+            "name": "Update verified name status",
+            "description": {
+              "content": "Example PATCH data: {\n        \"username\": \"jdoe\",\n        \"verification_attempt_id\" OR \"proctored_exam_attempt_id\": 123,\n        \"status\": \"approved\",\n    }",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_name_affirmation",
+                "v1",
+                "verified_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"status\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5ba97203-3f20-4958-9565-407fd84abb18",
+              "name": "The verified_name record associated with the username provided is successfully edited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"status\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b25728a8-93b0-4bb1-bb5d-f032fbf98575",
+              "name": "The edit action failed validation rules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"status\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab7fe532-6e6a-4556-b31c-7093fd55a68b",
+              "name": "User lacks required permission. Only an edX staff user can invoke this API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"status\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47447ccf-105d-402c-9d8a-f560e442e17f",
+          "name": "Delete verified name",
+          "request": {
+            "name": "Delete verified name",
+            "description": {
+              "content": "/edx_name_affirmation/v1/verified_name/{verified_name_id}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_name_affirmation",
+                "v1",
+                "verified_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "verified_name_id",
+                  "description": "(Required) The database id of the verified_name to be deleted"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b294cb44-df9d-43c8-aaab-6bf564544bfb",
+              "name": "The verified_name record associated with the id is successfully deleted from data store",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) The database id of the verified_name to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "37dbb296-364a-499a-9377-763174c7c3aa",
+              "name": "User lacks required permission. Only an edX staff user can invoke this API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) The database id of the verified_name to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "253ce1f8-5ce4-4e8c-9181-4ecfffad94a1",
+              "name": "The verified_name record associated with the id provided does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) The database id of the verified_name to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81947a72-d520-41fa-98b9-3dcdeb1059cd",
+          "name": "Create VerifiedNameConfig",
+          "request": {
+            "name": "Create VerifiedNameConfig",
+            "description": {
+              "content": "Create VerifiedNameConfig",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_name_affirmation",
+                "v1",
+                "verified_name",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"use_verified_name_for_certs\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8aeccf7c-810b-4a7b-b25d-d615fab3edae",
+              "name": "The verified_name configuration record is successfully created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"use_verified_name_for_certs\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d1a94f8-ef30-442a-9656-1be213418995",
+              "name": "The POSTed data failed validation rules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"use_verified_name_for_certs\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c5d92bd-a022-4d39-97fc-d7d182b3b2df",
+              "name": "User lacks required permission. Only an edX staff user can invoke this API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"use_verified_name_for_certs\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6aa8521-3792-4134-8e2a-dd3c81ebb553",
+          "name": "Get a list of verified name objects for the given user, ordered by most recently created.",
+          "request": {
+            "name": "Get a list of verified name objects for the given user, ordered by most recently created.",
+            "description": {
+              "content": "Get a list of verified name objects for the given user, ordered by most recently created.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_name_affirmation",
+                "v1",
+                "verified_name",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "The username of which verified name records might be associated"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5c74941-176d-4822-8f78-2a8c8aee9808",
+              "name": "The verified_name record associated with the username provided is successfully edited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fa716f47-c298-4f10-8d79-4822bc798a51",
+              "name": "User lacks required permission. Only an edX staff user can invoke this API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51ca5028-61a3-425f-85a9-a0a910451134",
+          "name": "Get most recent verified name for the request user or for the specified username",
+          "request": {
+            "name": "Get most recent verified name for the request user or for the specified username",
+            "description": {
+              "content": "For example: /edx_name_affirmation/v1/verified_name?username=jdoe\nExample response: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\",\n    \"profile_name\": \"Jon Doe\",\n    \"verification_attempt_id\": 123,\n    \"proctored_exam_attempt_id\": None,\n    \"status\": \"approved\",\n    \"use_verified_name_for_certs\": False,\n}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_name_affirmation",
+                "v1",
+                "verified_name",
+                ":verified_name_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "The username of which verified name records might be associated"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "verified_name_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7da093ac-2bb9-4156-9f4b-54363f755883",
+              "name": "The verified_name record associated with the username provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f2ab47f9-bf1d-47bf-9640-8d2a52c7bce9",
+              "name": "User lacks required permission. Only an edX staff user can invoke this API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "14966af7-8e41-4ce3-a180-b0e399b2db92",
+              "name": "The verified_name record associated with the username provided does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e09d33fa-25da-4ed7-84de-9209c630a7bc",
+          "name": "Creates a new VerifiedName.",
+          "request": {
+            "name": "Creates a new VerifiedName.",
+            "description": {
+              "content": "Expected POST data: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\"\n    \"profile_name\": \"Jon Doe\"\n    \"verification_attempt_id\": (Optional)\n    \"proctored_exam_attempt_id\": (Optional)\n    \"platform_verification_attempt_id\": (Optional)\n    \"status\": (Optional)\n}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_name_affirmation",
+                "v1",
+                "verified_name",
+                ":verified_name_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "verified_name_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab3bcefe-bc7d-4528-b46e-e77b082dea31",
+              "name": "The verified_name record associated with the username provided is successfully created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f2327595-f50f-4ccd-91d2-0a79599667cd",
+              "name": "The posted data have conflicts with already stored verified name",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d425aec6-03a0-44b4-97ae-5019a675af93",
+              "name": "User lacks required permission. Only an edX staff user can invoke this API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\",\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b703bce3-75fd-4e47-882f-21fc9d5333f4",
+          "name": "Update verified name status",
+          "request": {
+            "name": "Update verified name status",
+            "description": {
+              "content": "Example PATCH data: {\n        \"username\": \"jdoe\",\n        \"verification_attempt_id\" OR \"proctored_exam_attempt_id\": 123,\n        \"status\": \"approved\",\n    }",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_name_affirmation",
+                "v1",
+                "verified_name",
+                ":verified_name_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "verified_name_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"status\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "edf4b002-46ca-4791-901b-fa3bcd84150e",
+              "name": "The verified_name record associated with the username provided is successfully edited",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"status\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89e38225-2f27-4fd0-a521-47a22d1ddfbd",
+              "name": "The edit action failed validation rules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"status\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dac43f6c-3dd8-4c59-8437-1b564bddc321",
+              "name": "User lacks required permission. Only an edX staff user can invoke this API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"status\": \"<string>\",\n  \"verified_name\": \"<string>\",\n  \"profile_name\": \"<string>\",\n  \"verification_attempt_id\": \"<integer>\",\n  \"verification_attempt_status\": \"<string>\",\n  \"proctored_exam_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_id\": \"<integer>\",\n  \"platform_verification_attempt_status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a4d81d5-c6c0-4e06-8948-d2b1802e6f59",
+          "name": "Delete verified name",
+          "request": {
+            "name": "Delete verified name",
+            "description": {
+              "content": "/edx_name_affirmation/v1/verified_name/{verified_name_id}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "edx_name_affirmation",
+                "v1",
+                "verified_name",
+                ":verified_name_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "verified_name_id",
+                  "description": "(Required) The database id of the verified_name to be deleted"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "785bea50-a5b9-4a92-b223-2ddd01c9d249",
+              "name": "The verified_name record associated with the id is successfully deleted from data store",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) The database id of the verified_name to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "628f4d3c-e03b-4cfd-ab90-c06fccc39179",
+              "name": "User lacks required permission. Only an edX staff user can invoke this API",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) The database id of the verified_name to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0edd4f6-6592-4346-b6c0-ca55d80854e5",
+              "name": "The verified_name record associated with the id provided does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "edx_name_affirmation",
+                    "v1",
+                    "verified_name",
+                    ":verified_name_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "verified_name_id",
+                      "description": "(Required) The database id of the verified_name to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a8fd53a9-aa17-4164-acfb-b4484ff41eeb",
+    "name": "Open edX agreements edx_name_affirmation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

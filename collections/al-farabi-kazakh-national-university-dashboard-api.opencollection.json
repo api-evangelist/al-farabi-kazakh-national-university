@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements dashboard API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "dashboard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "For an enterprise learner, get list of enrolled programs with progress.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/dashboard/v0/programs/:enterprise_uuid/",
+            "params": [
+              {
+                "name": "enterprise_uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "**Example Request**\n\n    GET /api/dashboard/v1/programs/{enterprise_uuid}/\n\n**Parameters**\n\n* `enterprise_uuid`: UUID of an enterprise customer.\n\n**Example Response**\n\n    [\n        {\n            \"uuid\": \"ff41a5eb-2a73-4933-8e80-a1c66068ed2c\",\n            \"title\": \"Demonstration Program\",\n            \"type\": \"MicroMasters\",\n            \"banner_image\": {\n                \"large\": {\n                    \"url\": \"http://example.com/images/foo.large.jpg\",\n                    \"width\": 1440,\n            "
+        },
+        {
+          "info": {
+            "name": "Retrieves progress details of a learner in a specified program.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/dashboard/v0/programs/:program_uuid/progress_details/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "**Example Request**\n\n    GET api/dashboard/v1/programs/{program_uuid}/progress_details/\n\n**Parameters**\n\n* `program_uuid`: A string representation of the uuid of the program.\n\n**Response Values**\n\nIf the request for information about the program is successful, an HTTP 200 \"OK\" response\nis returned.\n\nThe HTTP 200 response has the following values.\n\n* `urls`: Urls to enroll/purchase a course or view program record.\n\n* `program_data`: Holds meta information about the program.\n\n* `course_data`: Lear"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements mfe_context API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "mfe_context",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "mfe_context_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mfe_context"
+          },
+          "docs": "Returns\n- dynamic registration fields\n- dynamic optional fields\n- the context for third party auth providers\n- user country code\n- the currently running pipeline."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

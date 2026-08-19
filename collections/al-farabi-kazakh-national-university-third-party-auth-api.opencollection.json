@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements third_party_auth API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "third_party_auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /api/third_party_auth/v0/providers/user_status/",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/third_party_auth/v0/providers/user_status"
+          },
+          "docs": "**GET Response Values**\n```\n{\n    \"accepts_logins\": true,\n    \"name\": \"Google\",\n    \"disconnect_url\": \"/auth/disconnect/google-oauth2/?\",\n    \"connect_url\": \"/auth/login/google-oauth2/?auth_entry=account_settings&next=%2Faccount%2Fsettings\",\n    \"connected\": false,\n    \"id\": \"oa2-google-oauth2\"\n}\n```"
+        },
+        {
+          "info": {
+            "name": "Map between the third party auth account IDs (remote_id) and EdX username.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/third_party_auth/v0/providers/:provider_id/users",
+            "params": [
+              {
+                "name": "provider_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "This API is intended to be a server-to-server endpoint. An on-campus middleware or system should consume this.\n\n**Use Case**\n\n    Get a paginated list of mappings between edX users and remote user IDs for all users currently\n    linked to the given backend.\n\n    The list can be filtered by edx username or third party ids. The filter is limited by the max length of URL.\n    It is suggested to query no more than 50 usernames or remote_ids in each request to stay within above\n    limitation\n\n    Th"
+        },
+        {
+          "info": {
+            "name": "Read provider information for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/third_party_auth/v0/users/"
+          },
+          "docs": "Allows reading the list of providers for a specified user."
+        },
+        {
+          "info": {
+            "name": "Read provider information for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/third_party_auth/v0/users/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allows reading the list of providers for a specified user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,112 @@
+{
+  "item": [
+    {
+      "id": "8f9c03a3-e5d6-48d7-925a-49d203576f12",
+      "name": "third_party_auth_context",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3cead07d-7003-4ca4-90d5-f8a475d10674",
+          "name": "third party auth context list",
+          "request": {
+            "name": "third party auth context list",
+            "description": {
+              "content": "Returns\n- dynamic registration fields\n- dynamic optional fields\n- the context for third party auth providers\n- user country code\n- the currently running pipeline.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "third_party_auth_context"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "133a8905-96e3-4d14-945d-63aec1ee2365",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "third_party_auth_context"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ce7b2019-a88b-47a8-af75-6cf6e599fc0d",
+    "name": "Open edX agreements third_party_auth_context API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

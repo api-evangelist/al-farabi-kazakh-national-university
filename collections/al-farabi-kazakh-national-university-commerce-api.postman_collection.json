@@ -1,0 +1,730 @@
+{
+  "item": [
+    {
+      "id": "155fbd4c-c375-4adf-a6f1-d58ee95fda7a",
+      "name": "commerce",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "243732e4-c879-47bc-bdb5-4e78f10a0c2a",
+          "name": "commerce v0 baskets create",
+          "request": {
+            "name": "commerce v0 baskets create",
+            "description": {
+              "content": "Attempt to enroll the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                "v0",
+                "baskets",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c88a9359-d69e-44ae-96b2-bd627adaa9d8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    "v0",
+                    "baskets",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5158709b-f8aa-42fb-9032-457d72076c71",
+          "name": "commerce v0 baskets order list",
+          "request": {
+            "name": "commerce v0 baskets order list",
+            "description": {
+              "content": "HTTP handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                "v0",
+                "baskets",
+                ":basket_id",
+                "order",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "basket_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ee39c68-45ef-42bc-b1b6-6932286314a4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    "v0",
+                    "baskets",
+                    ":basket_id",
+                    "order",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "basket_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c98d88bb-b41b-406e-a460-4667a42412e0",
+          "name": "commerce v1 courses list",
+          "request": {
+            "name": "commerce v1 courses list",
+            "description": {
+              "content": "List courses and modes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                "v1",
+                "courses",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57049ba1-a905-401b-8d70-26a8fd70bce8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    "v1",
+                    "courses",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"modes\": [\n      {\n        \"name\": \"string\",\n        \"price\": 6549,\n        \"currency\": \"string\",\n        \"sku\": \"string\",\n        \"bulk_sku\": \"string\",\n        \"expires\": \"1993-04-20T14:58:40.714Z\",\n        \"android_sku\": \"string\",\n        \"ios_sku\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"price\": 1966,\n        \"currency\": \"string\",\n        \"sku\": \"string\",\n        \"bulk_sku\": \"string\",\n        \"expires\": \"2001-06-23T18:45:14.993Z\",\n        \"android_sku\": \"string\",\n        \"ios_sku\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"verification_deadline\": \"2016-08-17T22:04:40.667Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"modes\": [\n      {\n        \"name\": \"string\",\n        \"price\": 395,\n        \"currency\": \"stri\",\n        \"sku\": \"string\",\n        \"bulk_sku\": \"string\",\n        \"expires\": \"1988-04-15T14:44:08.564Z\",\n        \"android_sku\": \"string\",\n        \"ios_sku\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"price\": 8429,\n        \"currency\": \"st\",\n        \"sku\": \"string\",\n        \"bulk_sku\": \"string\",\n        \"expires\": \"2000-07-22T05:45:47.605Z\",\n        \"android_sku\": \"string\",\n        \"ios_sku\": \"string\"\n      }\n    ],\n    \"name\": \"string\",\n    \"verification_deadline\": \"1949-01-11T01:22:20.441Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d413818-da31-4da3-9547-53585be54192",
+          "name": "commerce v1 courses read",
+          "request": {
+            "name": "commerce v1 courses read",
+            "description": {
+              "content": "Retrieve, update, or create courses/modes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                "v1",
+                "courses",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0790d00-4c8b-4272-b6bc-7dc1b7ee73fc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"modes\": [\n    {\n      \"name\": \"string\",\n      \"price\": 9964,\n      \"currency\": \"str\",\n      \"sku\": \"string\",\n      \"bulk_sku\": \"string\",\n      \"expires\": \"1949-04-26T04:08:14.443Z\",\n      \"android_sku\": \"string\",\n      \"ios_sku\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"price\": 9348,\n      \"currency\": \"string\",\n      \"sku\": \"string\",\n      \"bulk_sku\": \"string\",\n      \"expires\": \"1949-04-21T18:22:31.016Z\",\n      \"android_sku\": \"string\",\n      \"ios_sku\": \"string\"\n    }\n  ],\n  \"name\": \"string\",\n  \"verification_deadline\": \"1957-08-04T15:39:35.764Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3364038-6f04-4dde-86ad-06a4aa0ec64c",
+          "name": "commerce v1 courses update",
+          "request": {
+            "name": "commerce v1 courses update",
+            "description": {
+              "content": "Retrieve, update, or create courses/modes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                "v1",
+                "courses",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"modes\": [\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    }\n  ],\n  \"verification_deadline\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e698b7c5-cf26-4a67-8569-1252055a8bd1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"modes\": [\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    }\n  ],\n  \"verification_deadline\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"modes\": [\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    }\n  ],\n  \"name\": \"string\",\n  \"verification_deadline\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9a69552-9d1a-4f4a-85e5-d4228593b086",
+          "name": "commerce v1 courses partial update",
+          "request": {
+            "name": "commerce v1 courses partial update",
+            "description": {
+              "content": "Retrieve, update, or create courses/modes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                "v1",
+                "courses",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"modes\": [\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    }\n  ],\n  \"verification_deadline\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "59eae2c1-696a-4b49-866e-0b65a22eeb0f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"modes\": [\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    }\n  ],\n  \"verification_deadline\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<string>\",\n  \"modes\": [\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"currency\": \"<string>\",\n      \"sku\": \"<string>\",\n      \"bulk_sku\": \"<string>\",\n      \"expires\": \"<dateTime>\",\n      \"android_sku\": \"<string>\",\n      \"ios_sku\": \"<string>\"\n    }\n  ],\n  \"name\": \"string\",\n  \"verification_deadline\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32d97ab9-0701-4dda-a293-ccd98bb643ea",
+          "name": "commerce v1 orders read",
+          "request": {
+            "name": "commerce v1 orders read",
+            "description": {
+              "content": "HTTP handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                "v1",
+                "orders",
+                ":number",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b388794f-8ec3-48d1-bf3e-d719e98862b3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    "v1",
+                    "orders",
+                    ":number",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0d4ed2f8-6ef4-4208-b0a4-ce652ef9bf79",
+    "name": "Open edX agreements commerce API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

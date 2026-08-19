@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements organizations API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "organizations_v0_organizations_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/organizations/v0/organizations/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Organization view to:\n    - list organization data (GET .../)\n    - retrieve single organization (GET .../<short_name>)\n    - create or update an organization via the PUT endpoint (PUT .../<short_name>)"
+        },
+        {
+          "info": {
+            "name": "organizations_v0_organizations_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/organizations/v0/organizations/:short_name/",
+            "params": [
+              {
+                "name": "short_name",
+                "value": "",
+                "type": "path",
+                "description": "Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_)."
+              }
+            ]
+          },
+          "docs": "Organization view to:\n    - list organization data (GET .../)\n    - retrieve single organization (GET .../<short_name>)\n    - create or update an organization via the PUT endpoint (PUT .../<short_name>)"
+        },
+        {
+          "info": {
+            "name": "We perform both Update and Create action via the PUT method.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/organizations/v0/organizations/:short_name/",
+            "params": [
+              {
+                "name": "short_name",
+                "value": "",
+                "type": "path",
+                "description": "Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The 'active' field may not be specified via the HTTP API, since it\nis always assumed to be True. So:\n    (1) new organizations created through the API are always Active, and\n    (2) existing organizations updated through the API always end up Active,\n        regardless of whether or not they were previously active."
+        },
+        {
+          "info": {
+            "name": "organizations_v0_organizations_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/organizations/v0/organizations/:short_name/",
+            "params": [
+              {
+                "name": "short_name",
+                "value": "",
+                "type": "path",
+                "description": "Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "We disable PATCH because all updates and creates should use the PUT action above."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1626 @@
+{
+  "item": [
+    {
+      "id": "a950a21d-9388-43df-ab5a-626d9b5c50f0",
+      "name": "val",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d9fae54f-575f-46cd-a000-6c9511fcd919",
+          "name": "val v0 videos list",
+          "request": {
+            "name": "val v0 videos list",
+            "description": {
+              "content": "GETs or POST video objects",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09311246-2961-480f-b237-906fc11b68ca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3403,\n  \"results\": [\n    {\n      \"encoded_videos\": [\n        {\n          \"url\": \"string\",\n          \"file_size\": 4078,\n          \"bitrate\": 6857,\n          \"profile\": \"JmO_q\",\n          \"created\": \"2012-10-23T00:57:50.468Z\",\n          \"modified\": \"1991-04-07T07:27:57.447Z\"\n        },\n        {\n          \"url\": \"string\",\n          \"file_size\": 2178,\n          \"bitrate\": 5844,\n          \"profile\": \"JPUUSy5WC0\",\n          \"created\": \"1949-11-16T15:55:13.487Z\",\n          \"modified\": \"1995-05-08T23:22:19.636Z\"\n        }\n      ],\n      \"edx_video_id\": \"-0V8\",\n      \"duration\": 6446.816520206175,\n      \"status\": \"string\",\n      \"courses\": [\n        \"string\"\n      ],\n      \"url\": \"string\",\n      \"created\": \"2007-03-19T22:01:23.458Z\",\n      \"client_video_id\": \"string\",\n      \"error_description\": \"string\"\n    },\n    {\n      \"encoded_videos\": [\n        {\n          \"url\": \"string\",\n          \"file_size\": 7352,\n          \"bitrate\": 7206,\n          \"profile\": \"qEU6lGWGH\",\n          \"created\": \"2024-07-24T11:46:35.907Z\",\n          \"modified\": \"2015-12-08T02:47:49.644Z\"\n        },\n        {\n          \"url\": \"string\",\n          \"file_size\": 5979,\n          \"bitrate\": 8879,\n          \"profile\": \"\",\n          \"created\": \"2013-01-02T12:42:12.214Z\",\n          \"modified\": \"2016-10-07T05:49:15.917Z\"\n        }\n      ],\n      \"edx_video_id\": \"fAGLPdF\",\n      \"duration\": 7386.526476394512,\n      \"status\": \"string\",\n      \"courses\": [\n        \"string\"\n      ],\n      \"url\": \"string\",\n      \"created\": \"1990-10-10T08:47:23.977Z\",\n      \"client_video_id\": \"string\",\n      \"error_description\": \"string\"\n    }\n  ],\n  \"next\": \"http://Bx.xksob4L6cZaluWEdVQxrM54i\",\n  \"previous\": \"https://SkcwTuUeCZgBxtUWuGXeCax.rhEcnExCMyiCmN\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3db03764-1fbf-4aef-b397-2f62ddd26568",
+          "name": "val v0 videos create",
+          "request": {
+            "name": "val v0 videos create",
+            "description": {
+              "content": "GETs or POST video objects",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"encoded_videos\": [\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    }\n  ],\n  \"edx_video_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"status\": \"<string>\",\n  \"courses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<dateTime>\",\n  \"client_video_id\": \"<string>\",\n  \"error_description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ed216d8b-e471-40e3-8b54-3f2c07eb0d02",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"encoded_videos\": [\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    }\n  ],\n  \"edx_video_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"status\": \"<string>\",\n  \"courses\": [\n    \"<string>\"\n  ],\n  \"created\": \"<dateTime>\",\n  \"client_video_id\": \"<string>\",\n  \"error_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"encoded_videos\": [\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    }\n  ],\n  \"edx_video_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"status\": \"<string>\",\n  \"courses\": [\n    \"<string>\"\n  ],\n  \"url\": \"string\",\n  \"created\": \"<dateTime>\",\n  \"client_video_id\": \"<string>\",\n  \"error_description\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9afc8a60-c005-439e-8855-cf9a4ed7e3c9",
+          "name": "val v0 videos course-transcripts read",
+          "request": {
+            "name": "val v0 videos course-transcripts read",
+            "description": {
+              "content": "Returns all transcript data for a course when given a course_id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "course-transcripts",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46af16a0-8467-47db-9054-c14fde88898e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "course-transcripts",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96873e3f-b584-45de-ae88-6911d56a71b5",
+          "name": "val v0 videos courses video-ids list",
+          "request": {
+            "name": "val v0 videos courses video-ids list",
+            "description": {
+              "content": "Returns all video_ids for a course when given a course_id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "courses",
+                ":course_id",
+                "video-ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "352117ed-4b10-404a-bd9d-c57a314e540f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "courses",
+                    ":course_id",
+                    "video-ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fa29383-4d92-42ec-a00b-3a90e6803a0c",
+          "name": "Retrieve video IDs that are missing HLS profiles. This endpoint supports 2 types of input data:",
+          "request": {
+            "name": "Retrieve video IDs that are missing HLS profiles. This endpoint supports 2 types of input data:",
+            "description": {
+              "content": "1. If we want a batch of video ids which are missing HLS profile irrespective of their courses, the request\n   data should be in following format:\n        {\n            'batch_size': 50,\n            'offset': 0\n        }\n   And response will be in following format:\n        {\n            'videos': ['video_id1', 'video_id2', 'video_id3', ... , video_id50],\n            'total': 300,\n            'offset': 50,\n            'batch_size': 50\n        }\n\n2. If we want all the videos which are missing HLS profiles in a set of specific courses, the request data\n   should be in following format:\n        {\n            'courses': [\n                'course_id1',\n                'course_id2',\n                ...\n            ]\n        }\n   And response will be in following format:\n        {\n            'videos': ['video_id1', 'video_id2', 'video_id3', ...]\n        }",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "missing-hls",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58607518-a7b8-4106-84b5-464fbb2255f2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "missing-hls",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8463d7e1-c252-4ee9-8eb3-61a594943e1e",
+          "name": "Update a single profile for a given video.",
+          "request": {
+            "name": "Update a single profile for a given video.",
+            "description": {
+              "content": "Example request data:\n    ```\n    {\n        'edx_video_id': '1234'\n        'profile': 'hls',\n        'encode_data': {\n            'url': 'foo.com/qwe.m3u8'\n            'file_size': 34\n            'bitrate': 12\n        }\n    }\n    ```",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "missing-hls",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f51e5ee2-2f76-40bd-82f1-c0a9a5108066",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "missing-hls",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3af7909c-6c77-493a-8c00-af03ddbd28f4",
+          "name": "val v0 videos status partial update",
+          "request": {
+            "name": "val v0 videos status partial update",
+            "description": {
+              "content": "Update the status of a video.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "status",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7d3d20e-aaa1-4adc-a663-9fd2b89f3d72",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "status",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "155b0cd4-e255-46be-a91c-5c9332d4b0c7",
+          "name": "val v0 videos video-images update create",
+          "request": {
+            "name": "val v0 videos video-images update create",
+            "description": {
+              "content": "Update a course video image instance with auto generated image names.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "video-images",
+                "update",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a9bda69-be37-4bf2-a72c-b6fd25495d04",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "video-images",
+                    "update",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "943a8152-d200-4550-9f83-7ca02f1378ea",
+          "name": "val v0 videos video-transcripts create",
+          "request": {
+            "name": "val v0 videos video-transcripts create",
+            "description": {
+              "content": "Creates a video transcript instance with the given information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "video-transcripts",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "798cfb4a-8000-49c6-8952-fcdd93e7489e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "video-transcripts",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33d98ea0-6305-4ab6-9e83-4415098c1fac",
+          "name": "val v0 videos video-transcripts partial update",
+          "request": {
+            "name": "val v0 videos video-transcripts partial update",
+            "description": {
+              "content": "Partially update a video transcript, only supporting updating the `provider` field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "video-transcripts",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a1eea19-d5e9-4b75-ad77-ebf937a49acc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "video-transcripts",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "063b35a8-3fe8-46ca-90a8-f99bdb8f7bb0",
+          "name": "val v0 videos video-transcripts delete",
+          "request": {
+            "name": "val v0 videos video-transcripts delete",
+            "description": {
+              "content": "Delete a video transcript instance with the given information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "video-transcripts",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dbd7b513-297b-4b6c-9a9d-39bac6746e14",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "video-transcripts",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35a57285-45f0-444f-ae68-b3ffdad66f2e",
+          "name": "val v0 videos video-transcripts create create",
+          "request": {
+            "name": "val v0 videos video-transcripts create create",
+            "description": {
+              "content": "Creates a video transcript instance with the given information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "video-transcripts",
+                "create",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3ade090-58d9-4eb0-b9ec-8ed5fad72947",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "video-transcripts",
+                    "create",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62cb7c21-5791-4d9a-be87-4c05743c0c45",
+          "name": "val v0 videos video-transcripts create partial update",
+          "request": {
+            "name": "val v0 videos video-transcripts create partial update",
+            "description": {
+              "content": "Partially update a video transcript, only supporting updating the `provider` field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "video-transcripts",
+                "create",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a543b4a9-5798-453b-9b99-2f1773921fbe",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "video-transcripts",
+                    "create",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28a57d44-204a-47ce-b255-1ff6b1ee53a8",
+          "name": "val v0 videos video-transcripts create delete",
+          "request": {
+            "name": "val v0 videos video-transcripts create delete",
+            "description": {
+              "content": "Delete a video transcript instance with the given information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                "video-transcripts",
+                "create",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c0864f6-ed7e-48e7-8ef0-12257a365e57",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    "video-transcripts",
+                    "create",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6216a54c-45b0-4d6d-a9d0-2b3b125e6658",
+          "name": "val v0 videos read",
+          "request": {
+            "name": "val v0 videos read",
+            "description": {
+              "content": "Gets a video instance given its edx_video_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                ":edx_video_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "edx_video_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "133aa718-fda8-4033-8571-ee04746e32f2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    ":edx_video_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "edx_video_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"encoded_videos\": [\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    }\n  ],\n  \"edx_video_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"status\": \"<string>\",\n  \"courses\": [\n    \"<string>\"\n  ],\n  \"url\": \"string\",\n  \"created\": \"<dateTime>\",\n  \"client_video_id\": \"<string>\",\n  \"error_description\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "082f3e47-fdf9-4beb-b81c-131692528c2a",
+          "name": "val v0 videos update",
+          "request": {
+            "name": "val v0 videos update",
+            "description": {
+              "content": "Gets a video instance given its edx_video_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                ":edx_video_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "edx_video_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"encoded_videos\": [\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    }\n  ],\n  \"edx_video_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"status\": \"<string>\",\n  \"courses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<dateTime>\",\n  \"client_video_id\": \"<string>\",\n  \"error_description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "372c1674-4816-4e58-9445-f7dfa63ff405",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    ":edx_video_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "edx_video_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"encoded_videos\": [\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    }\n  ],\n  \"edx_video_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"status\": \"<string>\",\n  \"courses\": [\n    \"<string>\"\n  ],\n  \"created\": \"<dateTime>\",\n  \"client_video_id\": \"<string>\",\n  \"error_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"encoded_videos\": [\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    }\n  ],\n  \"edx_video_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"status\": \"<string>\",\n  \"courses\": [\n    \"<string>\"\n  ],\n  \"url\": \"string\",\n  \"created\": \"<dateTime>\",\n  \"client_video_id\": \"<string>\",\n  \"error_description\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "910197f2-9035-4c1f-8eb7-14707d6d87e6",
+          "name": "val v0 videos partial update",
+          "request": {
+            "name": "val v0 videos partial update",
+            "description": {
+              "content": "Gets a video instance given its edx_video_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                ":edx_video_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "edx_video_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"encoded_videos\": [\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    }\n  ],\n  \"edx_video_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"status\": \"<string>\",\n  \"courses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"created\": \"<dateTime>\",\n  \"client_video_id\": \"<string>\",\n  \"error_description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fccaf893-830c-4475-b67c-4a4d20d30ea1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    ":edx_video_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "edx_video_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"encoded_videos\": [\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    }\n  ],\n  \"edx_video_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"status\": \"<string>\",\n  \"courses\": [\n    \"<string>\"\n  ],\n  \"created\": \"<dateTime>\",\n  \"client_video_id\": \"<string>\",\n  \"error_description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"encoded_videos\": [\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"file_size\": \"<integer>\",\n      \"bitrate\": \"<integer>\",\n      \"profile\": \"<string>\",\n      \"created\": \"<dateTime>\",\n      \"modified\": \"<dateTime>\"\n    }\n  ],\n  \"edx_video_id\": \"<string>\",\n  \"duration\": \"<number>\",\n  \"status\": \"<string>\",\n  \"courses\": [\n    \"<string>\"\n  ],\n  \"url\": \"string\",\n  \"created\": \"<dateTime>\",\n  \"client_video_id\": \"<string>\",\n  \"error_description\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4f79229-c02e-4152-a38b-5001edcfaab1",
+          "name": "val v0 videos delete",
+          "request": {
+            "name": "val v0 videos delete",
+            "description": {
+              "content": "Gets a video instance given its edx_video_id",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "val",
+                "v0",
+                "videos",
+                ":edx_video_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "edx_video_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6935a27c-7588-4ec7-a71b-dcde4f92fc80",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "val",
+                    "v0",
+                    "videos",
+                    ":edx_video_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "edx_video_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1db58bd1-d5c1-4503-9a24-cb643f0e0c11",
+    "name": "Open edX agreements val API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

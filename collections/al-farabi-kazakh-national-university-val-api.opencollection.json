@@ -1,0 +1,291 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements val API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "val",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "val_v0_videos_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "GETs or POST video objects"
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "GETs or POST video objects"
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_course-transcripts_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/course-transcripts/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns all transcript data for a course when given a course_id."
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_courses_video-ids_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/courses/:course_id/video-ids",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns all video_ids for a course when given a course_id."
+        },
+        {
+          "info": {
+            "name": "Retrieve video IDs that are missing HLS profiles. This endpoint supports 2 types of input data:",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/missing-hls/"
+          },
+          "docs": "1. If we want a batch of video ids which are missing HLS profile irrespective of their courses, the request\n   data should be in following format:\n        {\n            'batch_size': 50,\n            'offset': 0\n        }\n   And response will be in following format:\n        {\n            'videos': ['video_id1', 'video_id2', 'video_id3', ... , video_id50],\n            'total': 300,\n            'offset': 50,\n            'batch_size': 50\n        }\n\n2. If we want all the videos which are missing HLS "
+        },
+        {
+          "info": {
+            "name": "Update a single profile for a given video.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/missing-hls/"
+          },
+          "docs": "Example request data:\n    ```\n    {\n        'edx_video_id': '1234'\n        'profile': 'hls',\n        'encode_data': {\n            'url': 'foo.com/qwe.m3u8'\n            'file_size': 34\n            'bitrate': 12\n        }\n    }\n    ```"
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_status_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/status/"
+          },
+          "docs": "Update the status of a video."
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_video-images_update_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/video-images/update/"
+          },
+          "docs": "Update a course video image instance with auto generated image names."
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_video-transcripts_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/video-transcripts/"
+          },
+          "docs": "Creates a video transcript instance with the given information."
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_video-transcripts_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/video-transcripts/"
+          },
+          "docs": "Partially update a video transcript, only supporting updating the `provider` field."
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_video-transcripts_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/video-transcripts/"
+          },
+          "docs": "Delete a video transcript instance with the given information."
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_video-transcripts_create_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/video-transcripts/create/"
+          },
+          "docs": "Creates a video transcript instance with the given information."
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_video-transcripts_create_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/video-transcripts/create/"
+          },
+          "docs": "Partially update a video transcript, only supporting updating the `provider` field."
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_video-transcripts_create_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/video-transcripts/create/"
+          },
+          "docs": "Delete a video transcript instance with the given information."
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/:edx_video_id",
+            "params": [
+              {
+                "name": "edx_video_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets a video instance given its edx_video_id"
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/:edx_video_id",
+            "params": [
+              {
+                "name": "edx_video_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Gets a video instance given its edx_video_id"
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/:edx_video_id",
+            "params": [
+              {
+                "name": "edx_video_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Gets a video instance given its edx_video_id"
+        },
+        {
+          "info": {
+            "name": "val_v0_videos_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/val/v0/videos/:edx_video_id",
+            "params": [
+              {
+                "name": "edx_video_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets a video instance given its edx_video_id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

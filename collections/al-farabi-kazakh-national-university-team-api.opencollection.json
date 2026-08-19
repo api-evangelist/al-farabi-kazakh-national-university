@@ -1,0 +1,323 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements team API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "team",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "team_v0_bulk_team_membership_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/team/v0/bulk_team_membership/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download CSV with team membership data for given course run."
+        },
+        {
+          "info": {
+            "name": "team_v0_bulk_team_membership_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/team/v0/bulk_team_membership/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Process uploaded CSV to modify team memberships for given course run."
+        },
+        {
+          "info": {
+            "name": "team_v0_team_membership_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/team/v0/team_membership/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "GET /api/team/v0/team_membership"
+        },
+        {
+          "info": {
+            "name": "team_v0_team_membership_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/team/v0/team_membership/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "POST /api/team/v0/team_membership"
+        },
+        {
+          "info": {
+            "name": "team_v0_team_membership_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/team/v0/team_membership/:team_id,:username",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET /api/team/v0/team_membership/{team_id},{username}"
+        },
+        {
+          "info": {
+            "name": "team_v0_team_membership_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/team/v0/team_membership/:team_id,:username",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DELETE /api/team/v0/team_membership/{team_id},{username}"
+        },
+        {
+          "info": {
+            "name": "team_v0_teams_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/team/v0/teams/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "GET /api/team/v0/teams/"
+        },
+        {
+          "info": {
+            "name": "team_v0_teams_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/team/v0/teams/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "POST /api/team/v0/teams/"
+        },
+        {
+          "info": {
+            "name": "team_v0_teams_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/team/v0/teams/:team_id",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves the specified resource using the RetrieveModelMixin."
+        },
+        {
+          "info": {
+            "name": "team_v0_teams_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/team/v0/teams/:team_id",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Checks for validation errors, then updates the model using the UpdateModelMixin."
+        },
+        {
+          "info": {
+            "name": "team_v0_teams_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/team/v0/teams/:team_id",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DELETE /api/team/v0/teams/{team_id}"
+        },
+        {
+          "info": {
+            "name": "team_v0_teams_assignments_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/team/v0/teams/:team_id/assignments",
+            "params": [
+              {
+                "name": "team_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "GET v0/teams/{team_id_pattern}/assignments"
+        },
+        {
+          "info": {
+            "name": "team_v0_topics_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/team/v0/topics/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "GET /api/team/v0/topics/?course_id={course_id}"
+        },
+        {
+          "info": {
+            "name": "team_v0_topics_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/team/v0/topics/:topic_id,:course_id",
+            "params": [
+              {
+                "name": "topic_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET /api/team/v0/topics/{topic_id},{course_id}/"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

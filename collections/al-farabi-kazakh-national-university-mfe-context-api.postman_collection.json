@@ -1,0 +1,112 @@
+{
+  "item": [
+    {
+      "id": "42477771-d2e4-4ea9-b013-bbd6b59f14cb",
+      "name": "mfe_context",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53e2fe4c-a4ec-4e1a-9920-c8250b66a6dc",
+          "name": "mfe context list",
+          "request": {
+            "name": "mfe context list",
+            "description": {
+              "content": "Returns\n- dynamic registration fields\n- dynamic optional fields\n- the context for third party auth providers\n- user country code\n- the currently running pipeline.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mfe_context"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9350fc1c-7ed9-4672-9879-46bb6bf7614f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mfe_context"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c0cd20d5-fb9b-4852-a94f-2f5141c7fdcf",
+    "name": "Open edX agreements mfe_context API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

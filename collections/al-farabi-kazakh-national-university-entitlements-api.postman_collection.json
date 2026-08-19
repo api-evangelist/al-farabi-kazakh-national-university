@@ -1,0 +1,872 @@
+{
+  "item": [
+    {
+      "id": "4299cf14-514b-4e4f-aaca-5392ad73aea9",
+      "name": "entitlements",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "28dafc25-f32b-4211-a87b-94d8263b9214",
+          "name": "entitlements v1 entitlements list",
+          "request": {
+            "name": "entitlements v1 entitlements list",
+            "description": {
+              "content": "Override the list method to expire records that are past the\npolicy and requested via the API before returning those records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entitlements",
+                "v1",
+                "entitlements",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "595b7289-9496-48b1-8bad-3231df929acf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entitlements",
+                    "v1",
+                    "entitlements",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7026,\n  \"results\": [\n    {\n      \"user\": \"uO7.AirB\",\n      \"course_uuid\": \"2cc80138-f60b-ee6e-e1dc-2aeca9742b4e\",\n      \"mode\": \"string\",\n      \"uuid\": \"7b404b7c-57b7-1a5d-3512-571abe01f909\",\n      \"enrollment_course_run\": \"string\",\n      \"expired_at\": \"2023-09-17T12:49:41.711Z\",\n      \"created\": \"1965-04-18T15:39:37.237Z\",\n      \"modified\": \"1955-06-17T13:35:04.891Z\",\n      \"refund_locked\": true,\n      \"order_number\": \"string\",\n      \"support_details\": \"string\"\n    },\n    {\n      \"user\": \"M3.-D64k1\",\n      \"course_uuid\": \"b88130e1-b399-f9fe-ac0a-82f962076639\",\n      \"mode\": \"string\",\n      \"uuid\": \"a72bd04a-9250-4e5a-af0e-60f035d486d5\",\n      \"enrollment_course_run\": \"string\",\n      \"expired_at\": \"1962-01-12T13:35:16.415Z\",\n      \"created\": \"2016-01-01T10:42:31.597Z\",\n      \"modified\": \"2025-04-30T00:36:07.742Z\",\n      \"refund_locked\": false,\n      \"order_number\": \"string\",\n      \"support_details\": \"string\"\n    }\n  ],\n  \"next\": \"https://rQgZneFFzqNftbXwrQC.qbgJVvek-Y9Iq5PYgCooA8eX+JXVyn-BCekTg+Je..wUADUImX3EKheepYGrqYcdk93Di\",\n  \"previous\": \"https://dVy.ecrtbXYcLeHBepNmBozNnyVeu1I8az\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8dd575e4-b56d-4275-8381-8821ad899e82",
+          "name": "entitlements v1 entitlements create",
+          "request": {
+            "name": "entitlements v1 entitlements create",
+            "description": {
+              "content": "ViewSet for the Entitlements API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entitlements",
+                "v1",
+                "entitlements",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"<string>\",\n  \"course_uuid\": \"<uuid>\",\n  \"mode\": \"<string>\",\n  \"expired_at\": \"<dateTime>\",\n  \"refund_locked\": \"<boolean>\",\n  \"order_number\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ca2602a1-98a0-4427-aa38-48fee798074d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entitlements",
+                    "v1",
+                    "entitlements",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<string>\",\n  \"course_uuid\": \"<uuid>\",\n  \"mode\": \"<string>\",\n  \"expired_at\": \"<dateTime>\",\n  \"refund_locked\": \"<boolean>\",\n  \"order_number\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": \"<string>\",\n  \"course_uuid\": \"<uuid>\",\n  \"mode\": \"<string>\",\n  \"uuid\": \"21083bd1-fc10-24b1-fa65-550b4267269e\",\n  \"enrollment_course_run\": \"string\",\n  \"expired_at\": \"<dateTime>\",\n  \"created\": \"2002-06-06T13:15:37.793Z\",\n  \"modified\": \"1969-10-19T19:47:36.087Z\",\n  \"refund_locked\": \"<boolean>\",\n  \"order_number\": \"<string>\",\n  \"support_details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39cf217b-2c15-4b23-8f33-e2febc5e8a52",
+          "name": "entitlements v1 entitlements read",
+          "request": {
+            "name": "entitlements v1 entitlements read",
+            "description": {
+              "content": "Override the retrieve method to expire a record that is past the\npolicy and is requested via the API before returning that record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entitlements",
+                "v1",
+                "entitlements",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7583cc3e-7933-4beb-87c1-c77db71c11f6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entitlements",
+                    "v1",
+                    "entitlements",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": \"<string>\",\n  \"course_uuid\": \"<uuid>\",\n  \"mode\": \"<string>\",\n  \"uuid\": \"21083bd1-fc10-24b1-fa65-550b4267269e\",\n  \"enrollment_course_run\": \"string\",\n  \"expired_at\": \"<dateTime>\",\n  \"created\": \"2002-06-06T13:15:37.793Z\",\n  \"modified\": \"1969-10-19T19:47:36.087Z\",\n  \"refund_locked\": \"<boolean>\",\n  \"order_number\": \"<string>\",\n  \"support_details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6192f35c-cbeb-45ab-bc93-39e0037149b5",
+          "name": "entitlements v1 entitlements update",
+          "request": {
+            "name": "entitlements v1 entitlements update",
+            "description": {
+              "content": "ViewSet for the Entitlements API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entitlements",
+                "v1",
+                "entitlements",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"<string>\",\n  \"course_uuid\": \"<uuid>\",\n  \"mode\": \"<string>\",\n  \"expired_at\": \"<dateTime>\",\n  \"refund_locked\": \"<boolean>\",\n  \"order_number\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18fcb983-c4b9-4c41-bc12-a628fad01426",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entitlements",
+                    "v1",
+                    "entitlements",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<string>\",\n  \"course_uuid\": \"<uuid>\",\n  \"mode\": \"<string>\",\n  \"expired_at\": \"<dateTime>\",\n  \"refund_locked\": \"<boolean>\",\n  \"order_number\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": \"<string>\",\n  \"course_uuid\": \"<uuid>\",\n  \"mode\": \"<string>\",\n  \"uuid\": \"21083bd1-fc10-24b1-fa65-550b4267269e\",\n  \"enrollment_course_run\": \"string\",\n  \"expired_at\": \"<dateTime>\",\n  \"created\": \"2002-06-06T13:15:37.793Z\",\n  \"modified\": \"1969-10-19T19:47:36.087Z\",\n  \"refund_locked\": \"<boolean>\",\n  \"order_number\": \"<string>\",\n  \"support_details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2069dafb-0b3c-442c-8ffb-61b86f80e8bd",
+          "name": "entitlements v1 entitlements partial update",
+          "request": {
+            "name": "entitlements v1 entitlements partial update",
+            "description": {
+              "content": "ViewSet for the Entitlements API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entitlements",
+                "v1",
+                "entitlements",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"<string>\",\n  \"course_uuid\": \"<uuid>\",\n  \"mode\": \"<string>\",\n  \"expired_at\": \"<dateTime>\",\n  \"refund_locked\": \"<boolean>\",\n  \"order_number\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "70ecd3d4-c8fc-4718-bb68-32ce8e2ace4d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entitlements",
+                    "v1",
+                    "entitlements",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<string>\",\n  \"course_uuid\": \"<uuid>\",\n  \"mode\": \"<string>\",\n  \"expired_at\": \"<dateTime>\",\n  \"refund_locked\": \"<boolean>\",\n  \"order_number\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": \"<string>\",\n  \"course_uuid\": \"<uuid>\",\n  \"mode\": \"<string>\",\n  \"uuid\": \"21083bd1-fc10-24b1-fa65-550b4267269e\",\n  \"enrollment_course_run\": \"string\",\n  \"expired_at\": \"<dateTime>\",\n  \"created\": \"2002-06-06T13:15:37.793Z\",\n  \"modified\": \"1969-10-19T19:47:36.087Z\",\n  \"refund_locked\": \"<boolean>\",\n  \"order_number\": \"<string>\",\n  \"support_details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0f9588e-8488-41a1-a97e-fe5e8b0dc88f",
+          "name": "entitlements v1 entitlements delete",
+          "request": {
+            "name": "entitlements v1 entitlements delete",
+            "description": {
+              "content": "ViewSet for the Entitlements API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entitlements",
+                "v1",
+                "entitlements",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67f44895-94dc-40f3-a17e-615022feb3f7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entitlements",
+                    "v1",
+                    "entitlements",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1275c920-b6ed-4187-b568-4ceb3c77c4e2",
+          "name": "entitlements v1 entitlements enrollments create",
+          "request": {
+            "name": "entitlements v1 entitlements enrollments create",
+            "description": {
+              "content": "On POST this method will be called and will handle enrolling a user in the\nprovided course_run_id from the data. This is called on a specific entitlement\nUUID so the course_run_id has to correspond to the Course that is assigned to\nthe Entitlement.\n\nWhen this API is called for a user who is already enrolled in a run that User\nwill be unenrolled from their current run and enrolled in the new run if it is\navailable.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entitlements",
+                "v1",
+                "entitlements",
+                ":uuid",
+                "enrollments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a0c92d5-71ba-4429-a998-92f891ef0448",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entitlements",
+                    "v1",
+                    "entitlements",
+                    ":uuid",
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcf9aafa-b2db-490b-902f-c9e884e22d66",
+          "name": "On DELETE call to this API we will unenroll the course enrollment for the provided uuid",
+          "request": {
+            "name": "On DELETE call to this API we will unenroll the course enrollment for the provided uuid",
+            "description": {
+              "content": "If is_refund parameter is provided then unenroll the user, set Entitlement expiration, and issue\na refund",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entitlements",
+                "v1",
+                "entitlements",
+                ":uuid",
+                "enrollments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0915fd49-9763-474a-9b37-c3d9658ca366",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entitlements",
+                    "v1",
+                    "entitlements",
+                    ":uuid",
+                    "enrollments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8d55e824-6dff-47c1-a624-f65744775b9d",
+    "name": "Open edX agreements entitlements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

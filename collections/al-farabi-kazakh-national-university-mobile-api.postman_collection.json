@@ -1,0 +1,1394 @@
+{
+  "item": [
+    {
+      "id": "a2058896-bc16-4704-8e74-6a8db110c774",
+      "name": "mobile",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1328f128-e60b-4f9e-b924-96bf3b6ae4dc",
+          "name": "**Use Case**",
+          "request": {
+            "name": "**Use Case**",
+            "description": {
+              "content": "This API endpoint is specifically optimized for the course homepage on Mobile Apps.\n    The endpoint returns the blocks in the course according to the requesting user's access level.\n    Additionally, response encompasses info fields with information about the course,\n    including certificate URL, media dictionary with course image URLs, start and end dates for the course.\n\n**Example requests**:\n\n    This api works with all versions {api_version}, you can use: v0.5, v1, v2 or v3\n\n    GET /api/mobile/{api_version}/course_info/blocks/?course_id=<course_id>\n    GET /api/mobile/{api_version}/course_info/blocks/?course_id=<course_id>\n        &username=anjali\n        &depth=all\n        &requested_fields=graded,format,student_view_multi_device,lti_url\n        &block_counts=video\n        &student_view_data=video\n        &block_types_filter=problem,html\n\n**Parameters:**\n\n        username (str): The username of the specified user for whom the course data\n            is being accessed.\n        depth (integer, str, None): Optional number of blocks you receive in response\n            course nesting depth, you can get only sections, sections and subsections,\n            or provide string 'all' to receive all blocks of the course.\n        requested_field (list): Optional list of names of additional fields to return for each block.\n            Supported fields can be found in transformers.SUPPORTED_FIELDS.\n        block_counts (list): Optional list of names of block types for which an aggregated count\n            of blocks is returned.\n        student_view_data (list): Optional list of names of block types for\n            which student_view_data is returned.\n        block_types_filter (list): Filter by block types:\n            'video', 'discussion', 'html', 'chapter', 'sequential', 'vertical'.\n        return_type (list, dict): Optional list or dictionary of block's fields based on 'return_type'.\n\n**Response example**\n\n    Body consists of the following fields, you received this response if you use\n    'return_type=dict' in query params:\n\n    root: (str) The ID of the root node of the requested course block structure.        blocks: (dict) A dictionary or list, based on the value of the\n        \"return_type\" parameter. Maps block usage IDs to a collection of\n        information about each block. Each block contains the following\n        fields.\n\n    id: (str) The Course's id (Course Run key)\n    name: (str) The course's name\n    number: (str) The course's number\n    org: (str) The course's organisation\n    start: (str) Date the course begins, in ISO 8601 notation\n    start_display: (str) Readably formatted start of the course\n    start_type: (str) Hint describing how `start_display` is set. One of:\n        * `\"string\"`: manually set by the course author\n        * `\"timestamp\"`: generated from the `start` timestamp\n        * `\"empty\"`: no start date is specified\n    end: (str) Date the course ends, in ISO 8601 notation\n    media: (dict) An object that contains named media items. Included here:\n        * course_image: An image to show for the course.  Represented\n          as an object with the following fields:\n            * uri: The location of the image\n    certificate: (dict) Information about the user's earned certificate in the course.\n        Included here:\n            * uri: The location of the user's certificate\n    is_self_paced: (bool) Indicates if the course is self paced\n\n    Body consists of the following fields, you received this response if you use\n    'return_type=list' in query params:\n\n    id: (str) The Course's id (Course Run key)\n    block_id: (str) The unique identifier for the block_id\n    lms_web_url: (str) The URL to the navigational container of the xBlock on the web.\n    legacy_web_url: (str) Like `lms_web_url`, but always directs to\n        the \"Legacy\" frontend experience.\n    student_view_url: (str) The URL to retrieve the HTML rendering\n        of this block's student view\n    type: (str): The type of block. Possible values the names of any\n        XBlock type in the system, including custom blocks. Examples are\n        course, chapter, sequential, vertical, html, problem, video, and\n        discussion.\n    display_name: (str) The display name of the block.\n    course_progress: (dict) Contains information about how many assignments are in the course\n        and how many assignments the student has completed.\n        Included here:\n            * total_assignments_count: (int) Total course's assignments count.\n            * assignments_completed: (int) Assignments witch the student has completed.\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 400 if an invalid parameter was sent or the username was not provided\n    * 401 unauthorized, the provided access token has expired and is no longer valid\n      for an authenticated request.\n    * 403 if a user who does not have permission to masquerade as\n      another user specifies a username other than their own.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "course_info",
+                "blocks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f446c166-0d6c-4620-bdb8-7acff9383d00",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "course_info",
+                    "blocks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38ff5fef-8b65-4c0f-b406-8c2e4d31efee",
+          "name": "Handle the POST request",
+          "request": {
+            "name": "Handle the POST request",
+            "description": {
+              "content": "Populate the user activity table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "course_info",
+                "record_user_activity"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "777fd6cb-37cb-4d93-b271-dcaadd83e8dc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "course_info",
+                    "record_user_activity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3696830-a09a-4e54-825b-049ae7320c04",
+          "name": "Handle the GET request",
+          "request": {
+            "name": "Handle the GET request",
+            "description": {
+              "content": "Returns user enrollment and course details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "course_info",
+                ":course_id",
+                "enrollment_details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "630878dd-2555-4f9e-a1ef-5d8857681da1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "course_info",
+                    ":course_id",
+                    "enrollment_details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bed81bc-bffc-4eb6-9952-d5523f7ca929",
+          "name": "**Use Case**",
+          "request": {
+            "name": "**Use Case**",
+            "description": {
+              "content": "Get the HTML for course handouts.\n\n**Example Request**\n\n    GET /api/mobile/v0.5/course_info/{course_id}/handouts\n\n**Response Values**\n\n    If the request is successful, the request returns an HTTP 200 \"OK\"\n    response along with the following value.\n\n    * handouts_html: The HTML for course handouts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "course_info",
+                ":course_id",
+                "handouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb5ef73b-dfb5-45c8-84fd-6702d6d7b168",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "course_info",
+                    ":course_id",
+                    "handouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22a1dbe0-6697-4449-bce2-782d47eef720",
+          "name": "**Use Case**",
+          "request": {
+            "name": "**Use Case**",
+            "description": {
+              "content": "Get the content for course updates.\n\n**Example Request**\n\n    GET /api/mobile/v0.5/course_info/{course_id}/updates\n\n**Response Values**\n\n    If the request is successful, the request returns an HTTP 200 \"OK\"\n    response along with an array of course updates. Each course update\n    contains the following values.\n\n        * content: The content, as an HTML string, of the course update.\n        * date: The date of the course update.\n        * id: The unique identifier of the update.\n        * status: Whether the update is visible or not.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "course_info",
+                ":course_id",
+                "updates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c8e38f2-700d-452a-83f6-6992e879fa04",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "course_info",
+                    ":course_id",
+                    "updates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa604111-754e-4516-9e6d-9c26fd0f6a4b",
+          "name": "mobile my user info list",
+          "request": {
+            "name": "mobile my user info list",
+            "description": {
+              "content": "Redirect to the currently-logged-in user's info page",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "my_user_info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6324fd1-ac5c-4739-bda5-c0985895d35c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "my_user_info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31612750-7695-4c85-bc8f-2692d29bb12d",
+          "name": "**Use Case**\n    This endpoint allows clients to register a device for push notifications.",
+          "request": {
+            "name": "**Use Case**\n    This endpoint allows clients to register a device for push notifications.",
+            "description": {
+              "content": "If the device is already registered, the existing registration will be updated.\n    If setting PUSH_NOTIFICATIONS_SETTINGS is not configured, the endpoint will return a 501 error.\n\n**Example Request**\n    POST /api/mobile/{version}/notifications/create-token/\n    **POST Parameters**\n      The body of the POST request can include the following parameters.\n      * name (optional) - A name of the device.\n      * registration_id (required) - The device token of the device.\n      * device_id (optional) - ANDROID_ID / TelephonyManager.getDeviceId() (always as hex)\n      * active (optional) - Whether the device is active, default is True.\n        If False, the device will not receive notifications.\n      * cloud_message_type (required) - You should choose FCM or GCM. Currently, only FCM is supported.\n      * application_id (optional) - Opaque application identity, should be filled in for multiple\n        key/certificate access. Should be equal settings.FCM_APP_NAME.\n**Example Response**\n    ```json\n    {\n        \"id\": 1,\n        \"name\": \"My Device\",\n        \"registration_id\": \"fj3j4\",\n        \"device_id\": 1234,\n        \"active\": true,\n        \"date_created\": \"2024-04-18T07:39:37.132787Z\",\n        \"cloud_message_type\": \"FCM\",\n        \"application_id\": \"my_app_id\"\n    }\n    ```",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "notifications",
+                "create-token",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"registration_id\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"device_id\": \"<integer>\",\n  \"active\": \"<boolean>\",\n  \"cloud_message_type\": \"<string>\",\n  \"application_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7ea018a-8b50-4297-aa0d-143f446d9417",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "notifications",
+                    "create-token",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"registration_id\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"device_id\": \"<integer>\",\n  \"active\": \"<boolean>\",\n  \"cloud_message_type\": \"<string>\",\n  \"application_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"registration_id\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"device_id\": \"<integer>\",\n  \"active\": \"<boolean>\",\n  \"date_created\": \"1980-06-21T18:19:15.455Z\",\n  \"cloud_message_type\": \"<string>\",\n  \"application_id\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10a6b4f8-33f1-4855-b492-2107a3fdb36c",
+          "name": "**Use Case**",
+          "request": {
+            "name": "**Use Case**",
+            "description": {
+              "content": "Get information about the specified user and access other resources\n    the user has permissions for.\n\n    Users are redirected to this endpoint after they sign in.\n\n    You can use the **course_enrollments** value in the response to get a\n    list of courses the user is enrolled in.\n\n**Example Request**\n\n    GET /api/mobile/{version}/users/{username}\n\n**Response Values**\n\n    If the request is successful, the request returns an HTTP 200 \"OK\" response.\n\n    The HTTP 200 response has the following values.\n\n    * course_enrollments: The URI to list the courses the currently signed\n      in user is enrolled in.\n    * email: The email address of the currently signed in user.\n    * id: The ID of the user.\n    * name: The full name of the currently signed in user.\n    * username: The username of the currently signed in user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "users",
+                ":username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a7a0de1f-fb35-4495-a13f-42ff1d8a7acc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "users",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"username\": \"J+R-W2liMV\",\n  \"id\": 2275,\n  \"email\": \"lWBz@DSkBieVDZxBSEQqoUunwZf.ib\",\n  \"name\": \"string\",\n  \"course_enrollments\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bffc9e90-1da6-436c-8572-a9bc51da8f3e",
+          "name": "**Use Case**",
+          "request": {
+            "name": "**Use Case**",
+            "description": {
+              "content": "Get information about the courses that the currently signed in user is\n    enrolled in.\n\n    v1 differs from v0.5 version by returning ALL enrollments for\n    a user rather than only the enrollments the user has access to (that haven't expired).\n    An additional attribute \"expiration\" has been added to the response, which lists the date\n    when access to the course will expire or null if it doesn't expire.\n\n    In v4 we added to the response primary object. Primary object contains the latest user's enrollment\n    or course where user has the latest progress. Primary object has been cut from user's\n    enrolments array and inserted into separated section with key `primary`.\n\n**Example Request**\n\n    GET /api/mobile/v1/users/{username}/course_enrollments/\n\n**Response Values**\n\n    If the request for information about the user is successful, the\n    request returns an HTTP 200 \"OK\" response.\n\n    The HTTP 200 response has the following values.\n\n    * expiration: The course expiration date for given user course pair\n      or null if the course does not expire.\n    * certificate: Information about the user's earned certificate in the\n      course.\n    * course: A collection of the following data about the course.\n\n    * courseware_access: A JSON representation with access information for the course,\n      including any access errors.\n\n      * course_about: The URL to the course about page.\n      * course_sharing_utm_parameters: Encoded UTM parameters to be included in course sharing url\n      * course_handouts: The URI to get data for course handouts.\n      * course_image: The path to the course image.\n      * course_updates: The URI to get data for course updates.\n      * discussion_url: The URI to access data for course discussions if\n        it is enabled, otherwise null.\n      * end: The end date of the course.\n      * id: The unique ID of the course.\n      * name: The name of the course.\n      * number: The course number.\n      * org: The organization that created the course.\n      * start: The date and time when the course starts.\n      * start_display:\n        If start_type is a string, then the advertised_start date for the course.\n        If start_type is a timestamp, then a formatted date for the start of the course.\n        If start_type is empty, then the value is None and it indicates that the course has not yet started.\n      * start_type: One of either \"string\", \"timestamp\", or \"empty\"\n      * subscription_id: A unique \"clean\" (alphanumeric with '_') ID of\n        the course.\n      * video_outline: The URI to get the list of all videos that the user\n        can access in the course.\n\n    * created: The date the course was created.\n    * is_active: Whether the course is currently active. Possible values\n      are true or false.\n    * mode: The type of certificate registration for this course (honor or\n      certified).\n    * url: URL to the downloadable version of the certificate, if exists.\n    * course_progress: Contains information about how many assignments are in the course\n      and how many assignments the student has completed.\n    * total_assignments_count: Total course's assignments count.\n    * assignments_completed: Assignments witch the student has completed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "users",
+                ":username",
+                "course_enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac3d8b8b-d87b-4fef-873f-5d593c7becc6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "users",
+                    ":username",
+                    "course_enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"audit_access_expires\": \"string\",\n    \"created\": \"1950-03-14T16:09:42.797Z\",\n    \"mode\": \"string\",\n    \"is_active\": false,\n    \"course\": \"string\",\n    \"certificate\": \"string\",\n    \"course_modes\": \"string\"\n  },\n  {\n    \"audit_access_expires\": \"string\",\n    \"created\": \"2019-10-25T05:39:02.795Z\",\n    \"mode\": \"string\",\n    \"is_active\": true,\n    \"course\": \"string\",\n    \"certificate\": \"string\",\n    \"course_modes\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab71cd80-890b-4342-8130-fcf308a160a7",
+          "name": "mobile users course status info read",
+          "request": {
+            "name": "mobile users course status info read",
+            "description": {
+              "content": "Get the ID of the module that the specified user last visited in the specified course.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "users",
+                ":username",
+                "course_status_info",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "766e4d03-1680-4dc8-9b43-2bb5908e46b4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "users",
+                    ":username",
+                    "course_status_info",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d29fb7e5-4527-4bbc-a175-e1c9e60f4596",
+          "name": "mobile users course status info partial update",
+          "request": {
+            "name": "mobile users course status info partial update",
+            "description": {
+              "content": "Update the ID of the module that the specified user last visited in the specified course.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "users",
+                ":username",
+                "course_status_info",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29d62510-e0cf-4159-8f0e-de2cb63eb741",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "users",
+                    ":username",
+                    "course_status_info",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d5c4aed-24d4-4016-a555-bb43994a1b8c",
+          "name": "mobile users enrollments status list",
+          "request": {
+            "name": "mobile users enrollments status list",
+            "description": {
+              "content": "Gets user's enrollments status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobile",
+                ":api_version",
+                "users",
+                ":username",
+                "enrollments_status",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2fa0f88-fd5a-4c65-9316-ab3938b37b22",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobile",
+                    ":api_version",
+                    "users",
+                    ":username",
+                    "enrollments_status",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ee7ea729-a30c-4f93-9aed-363ccd6d4657",
+    "name": "Open edX agreements mobile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements instructor_task API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "instructor_task",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "instructor_task_v1_schedules_bulk_email_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/instructor_task/v1/schedules/:course_id/bulk_email/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Read only view to list all scheduled bulk email messages for a course-run."
+        },
+        {
+          "info": {
+            "name": "instructor_task_v1_schedules_bulk_email_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/instructor_task/v1/schedules/:course_id/bulk_email/:schedule_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task."
+        },
+        {
+          "info": {
+            "name": "instructor_task_v1_schedules_bulk_email_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/instructor_task/v1/schedules/:course_id/bulk_email/:schedule_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task."
+        },
+        {
+          "info": {
+            "name": "instructor_task_v1_schedules_bulk_email_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/instructor_task/v1/schedules/:course_id/bulk_email/:schedule_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "schedule_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,263 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements courses API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "courses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courses/v1/block_metadata/:usage_key_string",
+            "params": [
+              {
+                "name": "usage_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Returns the block metadata. Data like index_dictionary related to a\n    block should be fetched using this API, because they are too large for\n    the cache used by the course blocks/transformers API.\n\n**Example requests**:\n\n    GET /api/courses/v1/block_metadata/<usage_id>/?\n        &include=index_dictionary\n\n**Parameters**:\n\n    * \"include\": a comma-separated list of keys to include.\n      Valid keys are \"index_dictionary\".\n\n**Response Values**\n\n    A dictionary containing:\n    * id (string): "
+        },
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courses/v1/blocks/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Returns the blocks in the course according to the requesting user's\n    access level.\n\n**Example requests**:\n\n    GET /api/courses/v1/blocks/?course_id=<course_id>\n    GET /api/courses/v1/blocks/?course_id=<course_id>\n        &username=anjali\n        &depth=all\n        &requested_fields=graded,format,student_view_multi_device,lti_url\n        &block_counts=video\n        &student_view_data=video\n        &block_types_filter=problem,html\n\n**Parameters**:\n\n    This view redirects to /api/courses/v1/b"
+        },
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courses/v1/blocks/:usage_key_string",
+            "params": [
+              {
+                "name": "usage_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Returns the blocks within the requested block tree according to the\n    requesting user's access level.\n\n**Example requests**:\n\n    GET /api/courses/v1/blocks/<root_block_usage_id>/?depth=all\n    GET /api/courses/v1/blocks/<usage_id>/?\n        username=anjali\n        &depth=all\n        &requested_fields=graded,format,student_view_multi_device,lti_url,due\n        &block_counts=video\n        &student_view_data=video\n        &block_types_filter=problem,html\n\n**Parameters**:\n\n    * all_blocks: (bool"
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courses/v1/course_ids/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Request a list of course IDs for all courses the specified user can\n    access based on the provided parameters.\n\n**Example Requests**\n\n    GET /api/courses/v1/courses_ids/\n\n**Response Values**\n\n    Body comprises a list of course ids and pagination details.\n\n**Parameters**\n\n    username (optional):\n        The username of the specified user whose visible courses we\n        want to see.\n\n    role (required):\n        Course ids are filtered such that only those for which the\n        user has the "
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courses/v1/courses/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Request information on all courses visible to the specified user.\n\n**Example Requests**\n\n    GET /api/courses/v1/courses/\n\n**Response Values**\n\n    Body comprises a list of objects as returned by `CourseDetailView`.\n\n**Parameters**\n\n    search_term (optional):\n        Search term to filter courses (used by ElasticSearch).\n\n    username (optional):\n        The username of the specified user whose visible courses we\n        want to see. The username is not required only if the API is\n        reque"
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courses/v1/courses/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request details for a course\n\n**Example Requests**\n\n    GET /api/courses/v1/courses/{course_key}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    * effort: A textual description of the weekly hours of effort expected\n        in the course.\n    * end: Date the course ends, in ISO 8601 notation\n    * enrollment_end: Date enrollment ends, in ISO 8601 notation\n    * enrollment_start: Date enrollment begins, in ISO 8601 notation\n    * id: A unique identifier of the course; a ser"
+        },
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courses/v2/block_metadata/:usage_key_string",
+            "params": [
+              {
+                "name": "usage_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Returns the block metadata. Data like index_dictionary related to a\n    block should be fetched using this API, because they are too large for\n    the cache used by the course blocks/transformers API.\n\n**Example requests**:\n\n    GET /api/courses/v1/block_metadata/<usage_id>/?\n        &include=index_dictionary\n\n**Parameters**:\n\n    * \"include\": a comma-separated list of keys to include.\n      Valid keys are \"index_dictionary\".\n\n**Response Values**\n\n    A dictionary containing:\n    * id (string): "
+        },
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courses/v2/blocks/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Returns the blocks in the course according to the requesting user's\n    access level.\n\n**Example requests**:\n\n    GET /api/courses/v1/blocks/?course_id=<course_id>\n    GET /api/courses/v1/blocks/?course_id=<course_id>\n        &username=anjali\n        &depth=all\n        &requested_fields=graded,format,student_view_multi_device,lti_url\n        &block_counts=video\n        &student_view_data=video\n        &block_types_filter=problem,html\n\n**Parameters**:\n\n    This view redirects to /api/courses/v1/b"
+        },
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/courses/v2/blocks/:usage_key_string",
+            "params": [
+              {
+                "name": "usage_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Returns the blocks within the requested block tree according to the\n    requesting user's access level.\n\n**Example requests**:\n\n    GET /api/courses/v1/blocks/<root_block_usage_id>/?depth=all\n    GET /api/courses/v1/blocks/<usage_id>/?\n        username=anjali\n        &depth=all\n        &requested_fields=graded,format,student_view_multi_device,lti_url,due\n        &block_counts=video\n        &student_view_data=video\n        &block_types_filter=problem,html\n\n**Parameters**:\n\n    * all_blocks: (bool"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

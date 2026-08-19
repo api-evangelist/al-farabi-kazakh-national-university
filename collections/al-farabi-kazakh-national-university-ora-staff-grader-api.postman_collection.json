@@ -1,0 +1,1618 @@
+{
+  "item": [
+    {
+      "id": "f956de3d-4a75-4563-acc8-81d7b4e3a342",
+      "name": "ora_staff_grader",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "04e774f5-9421-4682-ae33-1e8e89df83ba",
+          "name": "View for fetching assessment feedback for a submission.",
+          "request": {
+            "name": "View for fetching assessment feedback for a submission.",
+            "description": {
+              "content": "**Methods**\n\n* (GET) `api/ora_staff_grader/assessments/feedback/from`\n    List all assessments received by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n* (GET) `api/ora_staff_grader/assessments/feedback/to`\n    List all assessments given by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n**Query Params**:\n\n* `oraLocation` (str): ORA location for XBlock handling\n* `submissionUUID` (str): The ORA submission UUID\n\n**Response**:\n\n    {\n        assessments (List[dict]): [\n            {\n                \"assessment_id: (str) Assessment id\n                \"scorer_name: (str) Scorer name\n                \"scorer_username: (str) Scorer username\n                \"scorer_email: (str) Scorer email\n                \"assessment_date: (str) Assessment date\n                \"assessment_scores (List[dict]) [\n                    {\n                        \"criterion_name: (str) Criterion name\n                        \"score_earned: (int) Score earned\n                        \"score_type: (str) Score type\n                    }\n                ]\n                \"problem_step (str) Problem step (Self, Peer, or Staff)\n                \"feedback: (str) Feedback of the assessment\n            }\n        ]\n    }\n\n**Errors**:\n\n* `MissingParamResponse` (HTTP 400) for missing params\n* `BadOraLocationResponse` (HTTP 400) for bad ORA location\n* `XBlockInternalError` (HTTP 500) for an issue with ORA\n* `UnknownError` (HTTP 500) for other errors",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "assessments",
+                "feedback",
+                "from",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47f9bc70-5a57-4429-9271-76e34571bfe7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "assessments",
+                    "feedback",
+                    "from",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d5c894a-d197-42b2-8e1f-2f000e2ae3b1",
+          "name": "View for fetching assessment feedback for a submission.",
+          "request": {
+            "name": "View for fetching assessment feedback for a submission.",
+            "description": {
+              "content": "**Methods**\n\n* (GET) `api/ora_staff_grader/assessments/feedback/from`\n    List all assessments received by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n* (GET) `api/ora_staff_grader/assessments/feedback/to`\n    List all assessments given by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n**Query Params**:\n\n* `oraLocation` (str): ORA location for XBlock handling\n* `submissionUUID` (str): The ORA submission UUID\n\n**Response**:\n\n    {\n        assessments (List[dict]): [\n            {\n                \"assessment_id: (str) Assessment id\n                \"scorer_name: (str) Scorer name\n                \"scorer_username: (str) Scorer username\n                \"scorer_email: (str) Scorer email\n                \"assessment_date: (str) Assessment date\n                \"assessment_scores (List[dict]) [\n                    {\n                        \"criterion_name: (str) Criterion name\n                        \"score_earned: (int) Score earned\n                        \"score_type: (str) Score type\n                    }\n                ]\n                \"problem_step (str) Problem step (Self, Peer, or Staff)\n                \"feedback: (str) Feedback of the assessment\n            }\n        ]\n    }\n\n**Errors**:\n\n* `MissingParamResponse` (HTTP 400) for missing params\n* `BadOraLocationResponse` (HTTP 400) for bad ORA location\n* `XBlockInternalError` (HTTP 500) for an issue with ORA\n* `UnknownError` (HTTP 500) for other errors",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "assessments",
+                "feedback",
+                "to",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c112c67-83df-4e41-860e-b787a69f337d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "assessments",
+                    "feedback",
+                    "to",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c2e86f6-8964-4c68-be2d-bd14e1a853d3",
+          "name": "View for fetching assessment feedback for a submission.",
+          "request": {
+            "name": "View for fetching assessment feedback for a submission.",
+            "description": {
+              "content": "**Methods**\n\n* (GET) `api/ora_staff_grader/assessments/feedback/from`\n    List all assessments received by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n* (GET) `api/ora_staff_grader/assessments/feedback/to`\n    List all assessments given by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n**Query Params**:\n\n* `oraLocation` (str): ORA location for XBlock handling\n* `submissionUUID` (str): The ORA submission UUID\n\n**Response**:\n\n    {\n        assessments (List[dict]): [\n            {\n                \"assessment_id: (str) Assessment id\n                \"scorer_name: (str) Scorer name\n                \"scorer_username: (str) Scorer username\n                \"scorer_email: (str) Scorer email\n                \"assessment_date: (str) Assessment date\n                \"assessment_scores (List[dict]) [\n                    {\n                        \"criterion_name: (str) Criterion name\n                        \"score_earned: (int) Score earned\n                        \"score_type: (str) Score type\n                    }\n                ]\n                \"problem_step (str) Problem step (Self, Peer, or Staff)\n                \"feedback: (str) Feedback of the assessment\n            }\n        ]\n    }\n\n**Errors**:\n\n* `MissingParamResponse` (HTTP 400) for missing params\n* `BadOraLocationResponse` (HTTP 400) for bad ORA location\n* `XBlockInternalError` (HTTP 500) for an issue with ORA\n* `UnknownError` (HTTP 500) for other errors",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "assessments",
+                "feedback",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae2ecf27-2539-4a95-855d-575a757e586c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "assessments",
+                    "feedback",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de60889f-a284-434b-9c74-d600958d471f",
+          "name": "ora staff grader initialize read",
+          "request": {
+            "name": "ora staff grader initialize read",
+            "description": {
+              "content": "GET course metadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "initialize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e0a7cee-50e8-4bba-849d-5042745dc5a1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "initialize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "211d90cb-f50f-42df-955b-592380217561",
+          "name": "ora staff grader mock initialize read",
+          "request": {
+            "name": "ora staff grader mock initialize read",
+            "description": {
+              "content": "Returns initial app state",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "mock",
+                "initialize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c238fc06-2097-48aa-8dba-9d07fc0ea332",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "mock",
+                    "initialize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cfc35c49-07f9-462b-871b-0f35f408304c",
+          "name": "ora staff grader mock submission read",
+          "request": {
+            "name": "ora staff grader mock submission read",
+            "description": {
+              "content": "Get a submission",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "mock",
+                "submission"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "649e22c9-cb50-41f9-9b33-21127967dc24",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "mock",
+                    "submission"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "834a77e9-66a7-4560-ae48-1aedd74d75fb",
+          "name": "ora staff grader mock submission grade read",
+          "request": {
+            "name": "ora staff grader mock submission grade read",
+            "description": {
+              "content": "Submit a grade",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "mock",
+                "submission",
+                "grade"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48887dca-cbf8-4bab-be83-4454df702af0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "mock",
+                    "submission",
+                    "grade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "298f630b-ea49-4003-bdc3-40da2eb6085d",
+          "name": "ora staff grader mock submission grade create",
+          "request": {
+            "name": "ora staff grader mock submission grade create",
+            "description": {
+              "content": "Save a grade update to the data store",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "mock",
+                "submission",
+                "grade"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0bd02ff-6cdc-4859-9996-227a72230cb6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "mock",
+                    "submission",
+                    "grade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa1409ef-3992-4d41-af49-492c8c882751",
+          "name": "ora staff grader mock submission lock create",
+          "request": {
+            "name": "ora staff grader mock submission lock create",
+            "description": {
+              "content": "Claim a submission lock, updating lock status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "mock",
+                "submission",
+                "lock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f462dbd-b62e-4fa3-9f1a-121f0e60389b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "mock",
+                    "submission",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e80c7a1-a8a2-4eda-929d-cdf62d35d873",
+          "name": "ora staff grader mock submission lock delete",
+          "request": {
+            "name": "ora staff grader mock submission lock delete",
+            "description": {
+              "content": "Delete a submission lock, updating lock status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "mock",
+                "submission",
+                "lock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89c1a8ad-ccb2-48a4-ac37-e818040b0c85",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "mock",
+                    "submission",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3eeaca8-34a1-447d-8c99-e76f901b3839",
+          "name": "ora staff grader mock submission status read",
+          "request": {
+            "name": "ora staff grader mock submission status read",
+            "description": {
+              "content": "Get a submission status, leaving out the response",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "mock",
+                "submission",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9ab92d9-0a02-44e7-8998-f0113cf06849",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "mock",
+                    "submission",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ce0e9f7-6be4-470b-ad39-1aa4bf0db027",
+          "name": "ora staff grader submission read",
+          "request": {
+            "name": "ora staff grader submission read",
+            "description": {
+              "content": "GET submission contents and assessment info, if any",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "submission"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e206786-5f9c-4c20-8174-7463298b93d8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "submission"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2ab9de2-df7d-489c-b435-8ed6da47d87e",
+          "name": "ora staff grader submission batch unlock read",
+          "request": {
+            "name": "ora staff grader submission batch unlock read",
+            "description": {
+              "content": "POST delete a group of submission locks, limited to just those in the list that the user owns.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "submission",
+                "batch",
+                "unlock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50448a27-6bad-4fc0-b259-2d25610ea71b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "submission",
+                    "batch",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ea58f29-e2af-4160-8c67-9115785ccc79",
+          "name": "ora staff grader submission batch unlock create",
+          "request": {
+            "name": "ora staff grader submission batch unlock create",
+            "description": {
+              "content": "Batch delete submission locks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "submission",
+                "batch",
+                "unlock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "003b6844-5b49-41a7-855c-dafb81360f4a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "submission",
+                    "batch",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85b6fb25-859c-4919-bae7-6ee1576888b4",
+          "name": "GET file metadata for a submission.",
+          "request": {
+            "name": "GET file metadata for a submission.",
+            "description": {
+              "content": "Used to get updated file download links to avoid signed download link expiration\nissues.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "submission",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ee5d164-bdee-463c-a791-78ec99db7452",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "submission",
+                    "files"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63f0cccf-927a-479a-9cf3-cc0333ec09cb",
+          "name": "ora staff grader submission grade read",
+          "request": {
+            "name": "ora staff grader submission grade read",
+            "description": {
+              "content": "POST submit a grade for a submission",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "submission",
+                "grade"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "624aa049-3689-4109-a562-0bd5e147fd60",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "submission",
+                    "grade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "675a4765-9104-4069-8b6c-3aaa4774be8c",
+          "name": "ora staff grader submission grade create",
+          "request": {
+            "name": "ora staff grader submission grade create",
+            "description": {
+              "content": "Update a grade",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "submission",
+                "grade"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "222db11f-d832-4626-b073-ddcca7fb3a8d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "submission",
+                    "grade"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d992eeef-8ecb-4731-a1d8-027abbc037e1",
+          "name": "ora staff grader submission lock read",
+          "request": {
+            "name": "ora staff grader submission lock read",
+            "description": {
+              "content": "POST claim a submission lock for grading\nDELETE release a submission lock",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "submission",
+                "lock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d42784c-1d13-4b21-9cd4-5760d3553a54",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "submission",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "068fee67-5697-442b-91af-953c890e3d13",
+          "name": "ora staff grader submission lock create",
+          "request": {
+            "name": "ora staff grader submission lock create",
+            "description": {
+              "content": "Claim a submission lock",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "submission",
+                "lock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c3a725f-4b13-45d4-b181-8c0ed2f339ba",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "submission",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e5c9dfe-c7a2-4c9f-9f63-fc9b77e3e612",
+          "name": "ora staff grader submission lock delete",
+          "request": {
+            "name": "ora staff grader submission lock delete",
+            "description": {
+              "content": "Clear a submission lock",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "submission",
+                "lock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e6efe40-5aea-4644-8129-c0866746d778",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "submission",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdd99b9a-d807-46ec-9906-8433e04347b1",
+          "name": "ora staff grader submission status read",
+          "request": {
+            "name": "ora staff grader submission status read",
+            "description": {
+              "content": "GET submission grade status, lock status, and grade data",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ora_staff_grader",
+                "submission",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d746d2d0-de89-4b00-b0bb-1697e1297043",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ora_staff_grader",
+                    "submission",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "257ef476-7388-44cb-823a-691c394ede3e",
+    "name": "Open edX agreements ora_staff_grader API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

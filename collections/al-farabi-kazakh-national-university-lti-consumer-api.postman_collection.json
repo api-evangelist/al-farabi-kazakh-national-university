@@ -1,0 +1,1263 @@
+{
+  "item": [
+    {
+      "id": "91e9699a-eb7b-4820-ab2b-aafe36f292be",
+      "name": "lti_consumer",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "edc6be79-fac5-4353-8ec7-7abd6766b499",
+          "name": "LineItem endpoint implementation from LTI Advantage.",
+          "request": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "description": {
+              "content": "See full documentation at:",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lti_consumer",
+                "v1",
+                "lti",
+                ":lti_config_id",
+                "lti-ags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lti_config_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15f98fa0-94f1-452e-9591-9153bd702971",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lti_consumer",
+                    "v1",
+                    "lti",
+                    ":lti_config_id",
+                    "lti-ags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lti_config_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+                }
+              ],
+              "body": "[\n  {\n    \"resourceId\": \"string\",\n    \"scoreMaximum\": 8064,\n    \"label\": \"string\",\n    \"id\": \"string\",\n    \"tag\": \"string\",\n    \"resourceLinkId\": \"string\",\n    \"startDateTime\": \"1954-05-22T12:51:30.811Z\",\n    \"endDateTime\": \"1969-04-15T23:35:52.597Z\"\n  },\n  {\n    \"resourceId\": \"string\",\n    \"scoreMaximum\": 7312,\n    \"label\": \"string\",\n    \"id\": \"string\",\n    \"tag\": \"string\",\n    \"resourceLinkId\": \"string\",\n    \"startDateTime\": \"1962-09-06T13:08:30.299Z\",\n    \"endDateTime\": \"2011-02-14T16:47:48.628Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24c5c203-b193-469b-b01d-1679193c7d12",
+          "name": "LineItem endpoint implementation from LTI Advantage.",
+          "request": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "description": {
+              "content": "See full documentation at:",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lti_consumer",
+                "v1",
+                "lti",
+                ":lti_config_id",
+                "lti-ags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lti_config_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.ims.lis.v2.lineitem+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9ec1dc54-6168-4e23-84ce-841a27ec44be",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lti_consumer",
+                    "v1",
+                    "lti",
+                    ":lti_config_id",
+                    "lti-ags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lti_config_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+                }
+              ],
+              "body": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"id\": \"string\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b53757b-a4b6-45e8-b09a-c44cd00a4ea4",
+          "name": "LineItem endpoint implementation from LTI Advantage.",
+          "request": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "description": {
+              "content": "See full documentation at:",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lti_consumer",
+                "v1",
+                "lti",
+                ":lti_config_id",
+                "lti-ags",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lti_config_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b52dba33-7550-4561-84d5-9780a33efc93",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lti_consumer",
+                    "v1",
+                    "lti",
+                    ":lti_config_id",
+                    "lti-ags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lti_config_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+                }
+              ],
+              "body": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"id\": \"string\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20d5cb36-8be2-4d42-b278-de6c64a14321",
+          "name": "LineItem endpoint implementation from LTI Advantage.",
+          "request": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "description": {
+              "content": "See full documentation at:",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lti_consumer",
+                "v1",
+                "lti",
+                ":lti_config_id",
+                "lti-ags",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lti_config_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.ims.lis.v2.lineitem+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17aa61cd-23e4-4e2a-883d-34090ceb7a45",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lti_consumer",
+                    "v1",
+                    "lti",
+                    ":lti_config_id",
+                    "lti-ags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lti_config_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+                }
+              ],
+              "body": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"id\": \"string\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2240e931-6fe6-4d56-b41e-0727f0d1df13",
+          "name": "LineItem endpoint implementation from LTI Advantage.",
+          "request": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "description": {
+              "content": "See full documentation at:",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lti_consumer",
+                "v1",
+                "lti",
+                ":lti_config_id",
+                "lti-ags",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lti_config_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.ims.lis.v2.lineitem+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "509fd628-0346-4662-a625-cff42240e710",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lti_consumer",
+                    "v1",
+                    "lti",
+                    ":lti_config_id",
+                    "lti-ags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lti_config_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ims.lis.v2.lineitemcontainer+json"
+                }
+              ],
+              "body": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"id\": \"string\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc696fcd-2d76-40a6-ac77-a5ba22a35f4d",
+          "name": "LineItem endpoint implementation from LTI Advantage.",
+          "request": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "description": {
+              "content": "See full documentation at:",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lti_consumer",
+                "v1",
+                "lti",
+                ":lti_config_id",
+                "lti-ags",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lti_config_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9677d13-39db-4757-bf02-4762d2593c4d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lti_consumer",
+                    "v1",
+                    "lti",
+                    ":lti_config_id",
+                    "lti-ags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lti_config_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a16d910b-a518-4051-add9-a3a2ae0c3a7f",
+          "name": "Return a Result list for an LtiAgsLineItem",
+          "request": {
+            "name": "Return a Result list for an LtiAgsLineItem",
+            "description": {
+              "content": "URL Parameters:\n  * user_id (string): String external user id representation.\n\nQuery Parameters:\n  * limit (integer): The maximum number of records to return. Records are\n        sorted with most recent timestamp first",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lti_consumer",
+                "v1",
+                "lti",
+                ":lti_config_id",
+                "lti-ags",
+                ":id",
+                "results",
+                ":user_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lti_config_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.ims.lis.v2.resultcontainer+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "203de40a-ac49-4cca-ad00-6b28c98367f8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lti_consumer",
+                    "v1",
+                    "lti",
+                    ":lti_config_id",
+                    "lti-ags",
+                    ":id",
+                    "results",
+                    ":user_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lti_config_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ims.lis.v2.resultcontainer+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ims.lis.v2.resultcontainer+json"
+                }
+              ],
+              "body": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"id\": \"string\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6456715d-4b06-4f19-ba66-996e2dff267b",
+          "name": "lti consumer v1 lti lti-ags scores",
+          "request": {
+            "name": "lti consumer v1 lti lti-ags scores",
+            "description": {
+              "content": "Create a Score record for an LtiAgsLineItem",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lti_consumer",
+                "v1",
+                "lti",
+                ":lti_config_id",
+                "lti-ags",
+                ":id",
+                "scores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lti_config_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.ims.lis.v1.score+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.ims.lis.v1.score+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "719d06c7-c543-4e99-b6e5-05ecab6447f4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lti_consumer",
+                    "v1",
+                    "lti",
+                    ":lti_config_id",
+                    "lti-ags",
+                    ":id",
+                    "scores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lti_config_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.ims.lis.v1.score+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.ims.lis.v1.score+json"
+                }
+              ],
+              "body": "{\n  \"resourceId\": \"<string>\",\n  \"scoreMaximum\": \"<integer>\",\n  \"label\": \"<string>\",\n  \"id\": \"string\",\n  \"tag\": \"<string>\",\n  \"resourceLinkId\": \"<string>\",\n  \"startDateTime\": \"<dateTime>\",\n  \"endDateTime\": \"<dateTime>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd54c6e3-2069-4ae4-bf6c-eca3d30009a9",
+          "name": "lti consumer v1 lti memberships list",
+          "request": {
+            "name": "lti consumer v1 lti memberships list",
+            "description": {
+              "content": "Overrides default list method of ModelViewSet. Calls LMS `get_course_members`\nAPI and returns result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lti_consumer",
+                "v1",
+                "lti",
+                ":lti_config_id",
+                "memberships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lti_config_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37803cdb-419e-4ca2-9e93-8cd86b507414",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lti_consumer",
+                    "v1",
+                    "lti",
+                    ":lti_config_id",
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lti_config_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f742ad4b-acc3-45e9-a8e2-0867d3654caf",
+          "name": "LTI NRPS Context Membership Service endpoint.",
+          "request": {
+            "name": "LTI NRPS Context Membership Service endpoint.",
+            "description": {
+              "content": "See full documentation at:",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lti_consumer",
+                "v1",
+                "lti",
+                ":lti_config_id",
+                "memberships",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "lti_config_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa8d1d3b-a55a-4d8b-ac3e-64ad97591265",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lti_consumer",
+                    "v1",
+                    "lti",
+                    ":lti_config_id",
+                    "memberships",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "lti_config_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a67e6385-49d8-4e13-b2c2-377c51be2847",
+    "name": "Open edX agreements lti_consumer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

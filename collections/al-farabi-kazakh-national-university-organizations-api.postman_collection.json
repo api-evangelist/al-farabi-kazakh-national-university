@@ -1,0 +1,495 @@
+{
+  "item": [
+    {
+      "id": "96eda186-30f9-45cd-b257-7a8518648db0",
+      "name": "organizations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a3acc60b-7fd2-40aa-94dc-4f6dada131dd",
+          "name": "organizations v0 organizations list",
+          "request": {
+            "name": "organizations v0 organizations list",
+            "description": {
+              "content": "Organization view to:\n    - list organization data (GET .../)\n    - retrieve single organization (GET .../<short_name>)\n    - create or update an organization via the PUT endpoint (PUT .../<short_name>)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                "v0",
+                "organizations",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dfcdcbaf-3f26-45cf-9995-313885c24457",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    "v0",
+                    "organizations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6407,\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"short_name\": \"string\",\n      \"id\": 41,\n      \"created\": \"1961-10-14T22:05:11.841Z\",\n      \"modified\": \"2016-06-22T08:03:22.598Z\",\n      \"description\": \"string\",\n      \"logo\": \"https://XQxmJplJVuVzODIdrXEPhrGLznXKnr.ebnubeHlidU83gdOLQgOMTdBMbHYU50CtkNdRFUYUqa-Qm\",\n      \"active\": false,\n      \"logo_url\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"short_name\": \"string\",\n      \"id\": 7293,\n      \"created\": \"1949-05-14T22:40:29.694Z\",\n      \"modified\": \"2016-05-29T08:22:43.060Z\",\n      \"description\": \"string\",\n      \"logo\": \"https://EWtiUuMeQhtgmjNRRmBrrOJxK.shqET6w4CsjbdsjuRbyt3Ubp62d1hIW\",\n      \"active\": false,\n      \"logo_url\": \"string\"\n    }\n  ],\n  \"next\": \"https://IhdzlwLFvDHfgcPOdreaDOeBBIbsWT.dhhD9YQ2yvjCWME3+EASmkOC5KCgHhE\",\n  \"previous\": \"https://SHrBuBBzpZeZfptwJsUxXAEAmSgmfF.djiqhb5+0c4dX2UpwWq5ueBYlQ1\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b43dc53f-5785-48f0-98e0-0740b3753dee",
+          "name": "organizations v0 organizations read",
+          "request": {
+            "name": "organizations v0 organizations read",
+            "description": {
+              "content": "Organization view to:\n    - list organization data (GET .../)\n    - retrieve single organization (GET .../<short_name>)\n    - create or update an organization via the PUT endpoint (PUT .../<short_name>)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                "v0",
+                "organizations",
+                ":short_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "short_name",
+                  "description": "(Required) Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa4a9be9-aff2-4156-af7e-3082ec7707c5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    "v0",
+                    "organizations",
+                    ":short_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "short_name",
+                      "description": "(Required) Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"short_name\": \"string\",\n  \"id\": 655,\n  \"created\": \"2026-05-18T10:56:44.365Z\",\n  \"modified\": \"2019-05-06T07:01:54.517Z\",\n  \"description\": \"string\",\n  \"logo\": \"http://euPYH.xkzdaG7yl8RCee+-G9sqOe-Rr.Q-ru.k+VB-sAh2\",\n  \"active\": true,\n  \"logo_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63bb043a-06e3-4b98-b0b6-008134d6a072",
+          "name": "We perform both Update and Create action via the PUT method.",
+          "request": {
+            "name": "We perform both Update and Create action via the PUT method.",
+            "description": {
+              "content": "The 'active' field may not be specified via the HTTP API, since it\nis always assumed to be True. So:\n    (1) new organizations created through the API are always Active, and\n    (2) existing organizations updated through the API always end up Active,\n        regardless of whether or not they were previously active.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                "v0",
+                "organizations",
+                ":short_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "short_name",
+                  "description": "(Required) Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"short_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"logo_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "af27229d-6952-4bbc-ac16-3109d4749b6d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    "v0",
+                    "organizations",
+                    ":short_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "short_name",
+                      "description": "(Required) Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"short_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"logo_url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"short_name\": \"<string>\",\n  \"id\": 1490,\n  \"created\": \"1978-03-13T17:16:42.745Z\",\n  \"modified\": \"1953-04-21T21:35:05.066Z\",\n  \"description\": \"<string>\",\n  \"logo\": \"http://AvuSfqNneusjsjUc.eeZfzI+bnxY8P4Vqz8m\",\n  \"active\": \"<boolean>\",\n  \"logo_url\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64cb38fe-aea4-4cdf-840e-a1b2a66dd6ec",
+          "name": "organizations v0 organizations partial update",
+          "request": {
+            "name": "organizations v0 organizations partial update",
+            "description": {
+              "content": "We disable PATCH because all updates and creates should use the PUT action above.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "organizations",
+                "v0",
+                "organizations",
+                ":short_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "short_name",
+                  "description": "(Required) Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"short_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"logo_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1cd88c4e-42d6-408b-bde7-5e242d82b733",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    "v0",
+                    "organizations",
+                    ":short_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "short_name",
+                      "description": "(Required) Unique, short string identifier for organization. Please do not use spaces or special characters. Only allowed special characters are period (.), hyphen (-) and underscore (_)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"short_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"active\": \"<boolean>\",\n  \"logo_url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"short_name\": \"<string>\",\n  \"id\": 1490,\n  \"created\": \"1978-03-13T17:16:42.745Z\",\n  \"modified\": \"1953-04-21T21:35:05.066Z\",\n  \"description\": \"<string>\",\n  \"logo\": \"http://AvuSfqNneusjsjUc.eeZfzI+bnxY8P4Vqz8m\",\n  \"active\": \"<boolean>\",\n  \"logo_url\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3a8c9e7c-0496-4d5e-a4af-2f9f3a82916d",
+    "name": "Open edX agreements organizations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

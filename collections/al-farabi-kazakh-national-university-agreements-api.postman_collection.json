@@ -1,0 +1,312 @@
+{
+  "item": [
+    {
+      "id": "eb8e151c-ebf8-4479-9ca5-af0ef0664813",
+      "name": "agreements",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9c5cf381-0454-4adf-8120-32a614f123c7",
+          "name": "In order to check whether the user has signed the integrity agreement for a given course.",
+          "request": {
+            "name": "In order to check whether the user has signed the integrity agreement for a given course.",
+            "description": {
+              "content": "Should return the following:\n    username (str)\n    course_id (str)\n    created_at (str)\n\nIf a username is not given, it should default to the requesting user (or masqueraded user).\nOnly staff should be able to access this endpoint for other users.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "agreements",
+                "v1",
+                "integrity_signature",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11933658-368c-4743-81dc-eab577161430",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agreements",
+                    "v1",
+                    "integrity_signature",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ccaa05b4-ca95-4094-8eaf-9222bc9b5668",
+          "name": "agreements v1 integrity signature create",
+          "request": {
+            "name": "agreements v1 integrity signature create",
+            "description": {
+              "content": "Create an integrity signature for the requesting user and course. If a signature\nalready exists, returns the existing signature instead of creating a new one.\n\n/api/agreements/v1/integrity_signature/{course_id}\n\nExample response:\n    {\n        username: \"janedoe\",\n        course_id: \"org.2/course_2/Run_2\",\n        created_at: \"2021-04-23T18:25:43.511Z\"\n    }",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "agreements",
+                "v1",
+                "integrity_signature",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7db56618-3cf9-431e-9c84-bb82eae91803",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agreements",
+                    "v1",
+                    "integrity_signature",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20da84db-0091-4788-8cd1-7ca3f27451e7",
+          "name": "agreements v1 lti pii signature create",
+          "request": {
+            "name": "agreements v1 lti pii signature create",
+            "description": {
+              "content": "Create an LTI PII signature for the requesting user and course. If a signature\nalready exists, returns the existing signature instead of creating a new one.\n\n/api/agreements/v1/lti_pii_signature/{course_id}\n\nExample response:\n    {\n        username: \"janedoe\",\n        course_id: \"org.2/course_2/Run_2\",\n        created_at: \"2021-04-23T18:25:43.511Z\"\n    }",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "agreements",
+                "v1",
+                "lti_pii_signature",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "905e14a9-1e04-46e4-9e14-55932fce91c1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agreements",
+                    "v1",
+                    "lti_pii_signature",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3a6eaf75-9f62-4914-8e3a-d971ea6e98f8",
+    "name": "Open edX agreements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

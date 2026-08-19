@@ -1,0 +1,334 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements program_enrollments API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "program_enrollments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "program_enrollments_v1_integration-reset_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/integration-reset"
+          },
+          "docs": "Reset enrollment and user data for organization"
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_enrollments_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/enrollments/"
+          },
+          "docs": "How to respond to a GET request to this endpoint"
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_readonly_access_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/readonly_access/"
+          },
+          "docs": "How to respond to a GET request to this endpoint"
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_courses_enrollments_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/:program_uuid/courses/:course_id/enrollments/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The pagination cursor value."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Get a list of students enrolled in a course within a program."
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_courses_enrollments_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/:program_uuid/courses/:course_id/enrollments/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Enroll a list of students in a course in a program"
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_courses_enrollments_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/:program_uuid/courses/:course_id/enrollments/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create or Update the program course enrollments of a list of learners"
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_courses_enrollments_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/:program_uuid/courses/:course_id/enrollments/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Modify the program course enrollments of a list of learners"
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_courses_grades_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/:program_uuid/courses/:course_id/grades/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The pagination cursor value."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Defines the GET list endpoint for ProgramCourseGrade objects."
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_enrollments_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/:program_uuid/enrollments/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The pagination cursor value."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Defines the GET list endpoint for ProgramEnrollment objects."
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_enrollments_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/:program_uuid/enrollments/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create program enrollments for a list of learners"
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_enrollments_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/:program_uuid/enrollments/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create/update program enrollments for a list of learners"
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_enrollments_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/:program_uuid/enrollments/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update program enrollments for a list of learners"
+        },
+        {
+          "info": {
+            "name": "program_enrollments_v1_programs_overview_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/programs/:program_uuid/overview/",
+            "params": [
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "A view for getting data associated with a user's course enrollments\nas part of a program enrollment."
+        },
+        {
+          "info": {
+            "name": "Get an overview of each of a user's course enrollments associated with a program.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/program_enrollments/v1/users/:username/programs/:program_uuid/courses",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "program_uuid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The pagination cursor value."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page. Defaults to 10. Maximum is 25."
+              }
+            ]
+          },
+          "docs": "This endpoint exists to get an overview of each course-run enrollment\nthat a user has for course-runs within a given program.\nFields included are the title, upcoming due dates, etc.\nThis API endpoint is intended for use with the\n[Program Learner Portal MFE](https://github.com/openedx/frontend-app-learner-portal-programs).\n\nIt is important to note that the set of enrollments that this endpoint returns\nis different than a user's set of *program-course-run enrollments*.\nSpecifically, this endpoint "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

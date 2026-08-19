@@ -1,0 +1,332 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements mobile API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "mobile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/course_info/blocks/",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "This API endpoint is specifically optimized for the course homepage on Mobile Apps.\n    The endpoint returns the blocks in the course according to the requesting user's access level.\n    Additionally, response encompasses info fields with information about the course,\n    including certificate URL, media dictionary with course image URLs, start and end dates for the course.\n\n**Example requests**:\n\n    This api works with all versions {api_version}, you can use: v0.5, v1, v2 or v3\n\n    GET /api/m"
+        },
+        {
+          "info": {
+            "name": "Handle the POST request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/course_info/record_user_activity",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Populate the user activity table."
+        },
+        {
+          "info": {
+            "name": "Handle the GET request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/course_info/:course_id/enrollment_details",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns user enrollment and course details."
+        },
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/course_info/:course_id/handouts",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Get the HTML for course handouts.\n\n**Example Request**\n\n    GET /api/mobile/v0.5/course_info/{course_id}/handouts\n\n**Response Values**\n\n    If the request is successful, the request returns an HTTP 200 \"OK\"\n    response along with the following value.\n\n    * handouts_html: The HTML for course handouts."
+        },
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/course_info/:course_id/updates",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Get the content for course updates.\n\n**Example Request**\n\n    GET /api/mobile/v0.5/course_info/{course_id}/updates\n\n**Response Values**\n\n    If the request is successful, the request returns an HTTP 200 \"OK\"\n    response along with an array of course updates. Each course update\n    contains the following values.\n\n        * content: The content, as an HTML string, of the course update.\n        * date: The date of the course update.\n        * id: The unique identifier of the update.\n        * stat"
+        },
+        {
+          "info": {
+            "name": "mobile_my_user_info_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/my_user_info",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Redirect to the currently-logged-in user's info page"
+        },
+        {
+          "info": {
+            "name": "**Use Case**\n    This endpoint allows clients to register a device for push notifications.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/notifications/create-token/",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "If the device is already registered, the existing registration will be updated.\n    If setting PUSH_NOTIFICATIONS_SETTINGS is not configured, the endpoint will return a 501 error.\n\n**Example Request**\n    POST /api/mobile/{version}/notifications/create-token/\n    **POST Parameters**\n      The body of the POST request can include the following parameters.\n      * name (optional) - A name of the device.\n      * registration_id (required) - The device token of the device.\n      * device_id (optiona"
+        },
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/users/:username",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+              }
+            ]
+          },
+          "docs": "Get information about the specified user and access other resources\n    the user has permissions for.\n\n    Users are redirected to this endpoint after they sign in.\n\n    You can use the **course_enrollments** value in the response to get a\n    list of courses the user is enrolled in.\n\n**Example Request**\n\n    GET /api/mobile/{version}/users/{username}\n\n**Response Values**\n\n    If the request is successful, the request returns an HTTP 200 \"OK\" response.\n\n    The HTTP 200 response has the followin"
+        },
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/users/:username/course_enrollments/",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get information about the courses that the currently signed in user is\n    enrolled in.\n\n    v1 differs from v0.5 version by returning ALL enrollments for\n    a user rather than only the enrollments the user has access to (that haven't expired).\n    An additional attribute \"expiration\" has been added to the response, which lists the date\n    when access to the course will expire or null if it doesn't expire.\n\n    In v4 we added to the response primary object. Primary object contains the latest u"
+        },
+        {
+          "info": {
+            "name": "mobile_users_course_status_info_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/users/:username/course_status_info/:course_id",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the ID of the module that the specified user last visited in the specified course."
+        },
+        {
+          "info": {
+            "name": "mobile_users_course_status_info_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/users/:username/course_status_info/:course_id",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update the ID of the module that the specified user last visited in the specified course."
+        },
+        {
+          "info": {
+            "name": "mobile_users_enrollments_status_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mobile/:api_version/users/:username/enrollments_status/",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets user's enrollments status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

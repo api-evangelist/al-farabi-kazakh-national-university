@@ -1,0 +1,190 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements credit API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "credit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "credit_v1_courses_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/credit/v1/courses/"
+          },
+          "docs": "CreditCourse endpoints."
+        },
+        {
+          "info": {
+            "name": "credit_v1_courses_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/credit/v1/courses/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "CreditCourse endpoints."
+        },
+        {
+          "info": {
+            "name": "credit_v1_courses_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/credit/v1/courses/:course_key/",
+            "params": [
+              {
+                "name": "course_key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "CreditCourse endpoints."
+        },
+        {
+          "info": {
+            "name": "credit_v1_courses_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/credit/v1/courses/:course_key/",
+            "params": [
+              {
+                "name": "course_key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create/update course modes for a course."
+        },
+        {
+          "info": {
+            "name": "credit_v1_courses_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/credit/v1/courses/:course_key/",
+            "params": [
+              {
+                "name": "course_key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "CreditCourse endpoints."
+        },
+        {
+          "info": {
+            "name": "credit_v1_eligibility_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/credit/v1/eligibility/"
+          },
+          "docs": "Returns eligibility for a user-course combination."
+        },
+        {
+          "info": {
+            "name": "credit_v1_providers_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/credit/v1/providers/"
+          },
+          "docs": "Credit provider endpoints."
+        },
+        {
+          "info": {
+            "name": "credit_v1_providers_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/credit/v1/providers/:provider_id/",
+            "params": [
+              {
+                "name": "provider_id",
+                "value": "",
+                "type": "path",
+                "description": "Идентификатор кредитора. Может содержать только буквы, цифры и дефисы (-). Регистр учитывается."
+              }
+            ]
+          },
+          "docs": "Credit provider endpoints."
+        },
+        {
+          "info": {
+            "name": "credit_v1_providers_callback_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/credit/v1/providers/:provider_id/callback/",
+            "params": [
+              {
+                "name": "provider_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST handler."
+        },
+        {
+          "info": {
+            "name": "credit_v1_providers_request_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/credit/v1/providers/:provider_id/request/",
+            "params": [
+              {
+                "name": "provider_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST handler."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

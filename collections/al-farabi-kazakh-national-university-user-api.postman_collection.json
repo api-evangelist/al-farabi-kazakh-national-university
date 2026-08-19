@@ -1,0 +1,4251 @@
+{
+  "item": [
+    {
+      "id": "d11a2d7f-c717-4ed9-bea2-798553569583",
+      "name": "user",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "477f7ca5-b6c3-4a75-9429-25d757314c20",
+          "name": "user v1 account password reset list",
+          "request": {
+            "name": "user v1 account password reset list",
+            "description": {
+              "content": "HTTP end-point for GETting a description of the password reset form.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "account",
+                "password_reset",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72d0a223-3bc5-4fbb-ab75-f0727cb56e8c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "account",
+                    "password_reset",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43990936-936a-4313-b811-0d536cc65985",
+          "name": "user v1 account password reset token validate create",
+          "request": {
+            "name": "user v1 account password reset token validate create",
+            "description": {
+              "content": "HTTP end-point to validate password reset token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "account",
+                "password_reset",
+                "token",
+                "validate",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2be88a5-1e59-41ea-969e-963e6d1d3348",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "account",
+                    "password_reset",
+                    "token",
+                    "validate",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58c96604-0e97-451c-9aa9-a4e608e84b8a",
+          "name": "user v1 account registration list",
+          "request": {
+            "name": "user v1 account registration list",
+            "description": {
+              "content": "HTTP end-points for creating a new user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "account",
+                "registration",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3acac173-3d6b-4092-902d-e82e3759aeaa",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "account",
+                    "registration",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "033bb397-949b-427e-b246-127396abf6e2",
+          "name": "Create the user's account.",
+          "request": {
+            "name": "Create the user's account.",
+            "description": {
+              "content": "You must send all required form fields with the request.\n\nYou can optionally send a \"course_id\" param to indicate in analytics\nevents that the user registered while enrolling in a particular course.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "account",
+                "registration",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5b03f75-72b6-4656-9683-9fd04cc9f060",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "account",
+                    "registration",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57996d0c-3430-4476-a3dd-abb2fc2597c3",
+          "name": "user v1 accounts list",
+          "request": {
+            "name": "user v1 accounts list",
+            "description": {
+              "content": "GET /api/user/v1/accounts?username={username1,username2}\nGET /api/user/v1/accounts?email={user_email} (Staff Only)\nGET /api/user/v1/accounts?lms_user_id={lms_user_id} (Staff Only)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f74fb7eb-5946-46af-be06-31e7b2a2bb0d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3519cac7-5a74-46b8-be19-f4b00f9be4af",
+          "name": "POST /api/user/v1/accounts/cancel_retirement/",
+          "request": {
+            "name": "POST /api/user/v1/accounts/cancel_retirement/",
+            "description": {
+              "content": "Cancels the retirement for a user's account.\nThis also handles the top level error handling, and permissions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "cancel_retirement",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2749aa20-06c6-4b48-a471-79a471f4e9d8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "cancel_retirement",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bba525b9-8469-459f-9657-0124878a663a",
+          "name": "POST /api/user/v1/accounts/deactivate_logout/",
+          "request": {
+            "name": "POST /api/user/v1/accounts/deactivate_logout/",
+            "description": {
+              "content": "Marks the user as having no password set for deactivation purposes,\nand logs the user out.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "deactivate_logout",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "baece1e0-0b45-4cfc-a6be-f110156e83dc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "deactivate_logout",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8df9031a-7506-4be0-93ce-7185dc0a7211",
+          "name": "POST /api/user/v1/accounts/name_change/",
+          "request": {
+            "name": "POST /api/user/v1/accounts/name_change/",
+            "description": {
+              "content": "Request a profile name change. This creates a PendingNameChange to be verified later,\nrather than updating the user's profile name directly.\n\nExample request:\n    {\n        \"name\": \"Jon Doe\"\n    }",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "name_change",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3aaa7452-a19a-4d5c-a633-8e27171d82f6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "name_change",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b4f7914-3c2c-47fe-b903-78ccd1957f0d",
+          "name": "POST /api/user/v1/account/name_change/{username}/confirm",
+          "request": {
+            "name": "POST /api/user/v1/account/name_change/{username}/confirm",
+            "description": {
+              "content": "Confirm a name change request for the specified user, and update their profile name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "name_change",
+                ":username",
+                "confirm",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0ade08d3-22bc-47dc-a805-9eac26a01462",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "name_change",
+                    ":username",
+                    "confirm",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be85f3ac-769b-4a1d-ba7b-319c5fa21ea7",
+          "name": "user v1 accounts replace usernames create",
+          "request": {
+            "name": "user v1 accounts replace usernames create",
+            "description": {
+              "content": "POST /api/user/v1/accounts/replace_usernames/\n```\n{\n    \"username_mappings\": [\n        {\"current_username_1\": \"desired_username_1\"},\n        {\"current_username_2\": \"desired_username_2\"}\n    ]\n}\n```\n\n**POST Parameters**\n\nA POST request must include the following parameter.\n\n* username_mappings: Required. A list of objects that map the current username (key)\n  to the desired username (value)\n\n**POST Response Values**\n\nAs long as data validation passes, the request will return a 200 with a new mapping\nof old usernames (key) to new username (value)\n\n```\n{\n    \"successful_replacements\": [\n        {\"old_username_1\": \"new_username_1\"}\n    ],\n    \"failed_replacements\": [\n        {\"old_username_2\": \"new_username_2\"}\n    ]\n}\n```",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "replace_usernames",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d7abc0a-702e-4701-8504-6f4c3653498f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "replace_usernames",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55f41016-5cb2-4f7c-8eee-7d07602d2378",
+          "name": "POST /api/user/v1/accounts/retire/",
+          "request": {
+            "name": "POST /api/user/v1/accounts/retire/",
+            "description": {
+              "content": "```\n{\n    'username': 'user_to_retire'\n}\n```\n\nRetires the user with the given username.  This includes retiring this username, the associated email address,\nand any other PII associated with this user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "retire",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a40bb941-b6f8-4604-a9ae-0daf5f328f33",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "retire",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c619a97-579b-453a-94ce-4d5c6993b5e3",
+          "name": "POST /api/user/v1/accounts/retire_misc/",
+          "request": {
+            "name": "POST /api/user/v1/accounts/retire_misc/",
+            "description": {
+              "content": "```\n{\n    'username': 'user_to_retire'\n}\n```\n\nRetires the user with the given username in the LMS.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "retire_misc",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "935a97cd-9356-42cb-8d50-ee2003ed3b14",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "retire_misc",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa16cbaa-897c-40a3-92cd-2fe2a060dbfd",
+          "name": "POST /api/user/v1/accounts/retirement_cleanup/",
+          "request": {
+            "name": "POST /api/user/v1/accounts/retirement_cleanup/",
+            "description": {
+              "content": "```\n{\n    'usernames': ['user1', 'user2', ...]\n}\n```\n\nDeletes a batch of retirement requests by username.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "retirement_cleanup",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01251d62-7cc3-41d4-9071-232106822a2f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "retirement_cleanup",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7066b8b0-4f98-41c8-8f8c-b27da42dcbd1",
+          "name": "POST /api/user/v1/accounts/retirement_partner_report/",
+          "request": {
+            "name": "POST /api/user/v1/accounts/retirement_partner_report/",
+            "description": {
+              "content": "Returns the list of UserRetirementPartnerReportingStatus users\nthat are not already being processed and updates their status\nto indicate they are currently being processed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "retirement_partner_report",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6cd5c02c-25c4-48b1-b3a9-98cf03d61650",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "retirement_partner_report",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d0bc74f-3e03-4006-9561-d3d3003e342c",
+          "name": "PUT /api/user/v1/accounts/retirement_partner_report/",
+          "request": {
+            "name": "PUT /api/user/v1/accounts/retirement_partner_report/",
+            "description": {
+              "content": "```\n{\n    'username': 'user_to_retire'\n}\n```\n\nCreates a UserRetirementPartnerReportingStatus object for the given user\nas part of the retirement pipeline.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "retirement_partner_report",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c0b65b7-7f60-444e-922e-c3c3317de34e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "retirement_partner_report",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1629a793-becd-4b2b-b7cd-ea62672a5ce5",
+          "name": "POST /api/user/v1/accounts/retirement_partner_report_cleanup/",
+          "request": {
+            "name": "POST /api/user/v1/accounts/retirement_partner_report_cleanup/",
+            "description": {
+              "content": "[{'original_username': 'user1'}, {'original_username': 'user2'}, ...]\n\nDeletes UserRetirementPartnerReportingStatus objects for a list of users\nthat have been reported on.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "retirement_partner_report_cleanup",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "953f3509-3d24-430e-a731-cf65c48d4ad5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "retirement_partner_report_cleanup",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aab9b4f0-b70f-4ca2-94e6-381ac11dad37",
+          "name": "GET /api/user/v1/accounts/retirement_queue/\n{'cool_off_days': 7, 'states': ['PENDING', 'COMPLETE'], 'limit': 500}",
+          "request": {
+            "name": "GET /api/user/v1/accounts/retirement_queue/\n{'cool_off_days': 7, 'states': ['PENDING', 'COMPLETE'], 'limit': 500}",
+            "description": {
+              "content": "Returns the list of RetirementStatus users in the given states that were\ncreated in the retirement queue at least `cool_off_days` ago.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "retirement_queue",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "902c19c7-0183-4f84-975d-c2499bba898e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "retirement_queue",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76d6de82-0d28-456a-8a5d-db317f71672a",
+          "name": "GET /api/user/v1/accounts/retirements_by_status_and_date/\n?start_date=2018-09-05&end_date=2018-09-07&state=COMPLETE",
+          "request": {
+            "name": "GET /api/user/v1/accounts/retirements_by_status_and_date/\n?start_date=2018-09-05&end_date=2018-09-07&state=COMPLETE",
+            "description": {
+              "content": "Returns a list of UserRetirementStatusSerializer serialized\nRetirementStatus rows in the given state that were created in the\nretirement queue between the dates given. Date range is inclusive,\nso to get one day you would set both dates to that day.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "retirements_by_status_and_date",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a478d882-96e3-4cc5-8a88-1b0df9f0074a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "retirements_by_status_and_date",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd97ce45-699a-4665-96a8-1900d03df99e",
+          "name": "user v1 accounts search emails",
+          "request": {
+            "name": "user v1 accounts search emails",
+            "description": {
+              "content": "POST /api/user/v1/accounts/search_emails\nContent Type: \"application/json\"\n{\n    \"emails\": [\"edx@example.com\", \"staff@example.com\"]\n}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "search_emails"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2c85e7b-7adb-457d-9eab-a4581ab20730",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "search_emails"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82ffee6b-3643-44b0-9713-19c4bdf4a6c4",
+          "name": "PATCH /api/user/v1/accounts/update_retirement_status/",
+          "request": {
+            "name": "PATCH /api/user/v1/accounts/update_retirement_status/",
+            "description": {
+              "content": "```\n{\n    'username': 'user_to_retire',\n    'new_state': 'LOCKING_COMPLETE',\n    'response': 'User account locked and logged out.'\n}\n```\n\nUpdates the RetirementStatus row for the given user to the new\nstatus, and append any messages to the message log.\n\nNote that this implementation DOES NOT use the \"merge patch\" implementation seen in AccountViewSet.\nThe content type for this request is 'application/json'.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                "update_retirement_status",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f3f21fd-765b-4707-b7c6-e4227c285c93",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    "update_retirement_status",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04c07e42-8966-4c58-baf9-0aacd3d66412",
+          "name": "user v1 accounts read",
+          "request": {
+            "name": "user v1 accounts read",
+            "description": {
+              "content": "GET /api/user/v1/accounts/{username}/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                ":username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36d4eadb-7569-4d82-8ad6-0dfac81ad111",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "204a793b-cde5-4ec8-a3ef-5baa05b4ad43",
+          "name": "PATCH /api/user/v1/accounts/{username}/",
+          "request": {
+            "name": "PATCH /api/user/v1/accounts/{username}/",
+            "description": {
+              "content": "Note that this implementation is the \"merge patch\" implementation proposed in",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                ":username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d86abaf0-b794-4cc6-8c32-efb3501fdc50",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68f7365f-bc2f-4234-9fdc-286ac1fbf090",
+          "name": "POST /api/user/v1/accounts/{username}/deactivate/",
+          "request": {
+            "name": "POST /api/user/v1/accounts/{username}/deactivate/",
+            "description": {
+              "content": "Marks the user as having no password set for deactivation purposes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                ":username",
+                "deactivate",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b919af4f-a611-4300-ae2d-72dfa2955b07",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    ":username",
+                    "deactivate",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2125803-efc0-4436-bb67-1585ef24d68c",
+          "name": "user v1 accounts image create",
+          "request": {
+            "name": "user v1 accounts image create",
+            "description": {
+              "content": "POST /api/user/v1/accounts/{username}/image",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                ":username",
+                "image"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a611723d-3414-402a-af0e-ed55e626260e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    ":username",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5a25522-261a-43b3-bdfe-0fb3ecbbabcc",
+          "name": "user v1 accounts image delete",
+          "request": {
+            "name": "user v1 accounts image delete",
+            "description": {
+              "content": "DELETE /api/user/v1/accounts/{username}/image",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                ":username",
+                "image"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89db58ac-bc27-45ca-b2cd-ed11c4fc2209",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    ":username",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f65b301b-6e39-4d02-9c77-8c30acf67422",
+          "name": "user v1 accounts retirement status read",
+          "request": {
+            "name": "user v1 accounts retirement status read",
+            "description": {
+              "content": "GET /api/user/v1/accounts/{username}/retirement_status/\nReturns the RetirementStatus of a given user, or 404 if that row\ndoesn't exist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                ":username",
+                "retirement_status",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3cbab30f-cd8b-4879-a68b-ebbfa842dac5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    ":username",
+                    "retirement_status",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5d9e2b9-bd8b-44ac-8dc1-47a09d76b3fc",
+          "name": "user v1 accounts verification status list",
+          "request": {
+            "name": "user v1 accounts verification status list",
+            "description": {
+              "content": "IDVerification Status endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                ":username",
+                "verification_status",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4eb36146-9b27-4a01-95b7-4f153ebf5f1a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    ":username",
+                    "verification_status",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "addce4eb-f402-4d9a-aeb1-dab0e67c1fee",
+          "name": "user v1 accounts verifications list",
+          "request": {
+            "name": "user v1 accounts verifications list",
+            "description": {
+              "content": "IDVerificationStatusDeetails endpoint to retrieve more details about ID Verification status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "accounts",
+                ":username",
+                "verifications",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4014298e-4553-418e-82c7-2446186261bb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "accounts",
+                    ":username",
+                    "verifications",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"status\": \"string\",\n    \"expiration_datetime\": \"2026-01-04T23:44:06.550Z\",\n    \"updated_at\": \"1963-10-14T05:40:16.913Z\",\n    \"type\": \"string\",\n    \"message\": \"string\",\n    \"receipt_id\": \"string\"\n  },\n  {\n    \"status\": \"string\",\n    \"expiration_datetime\": \"1976-04-25T16:07:28.985Z\",\n    \"updated_at\": \"1975-10-01T08:00:56.091Z\",\n    \"type\": \"string\",\n    \"message\": \"string\",\n    \"receipt_id\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8eb5c44e-147a-49a8-ac54-d260944d1a04",
+          "name": "user v1 forum roles users list",
+          "request": {
+            "name": "user v1 forum roles users list",
+            "description": {
+              "content": "Forum roles are represented by a list of user dicts",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "forum_roles",
+                ":name",
+                "users",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26924257-ddb5-4933-9ea6-8dccb401d92f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "forum_roles",
+                    ":name",
+                    "users",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9594,\n  \"results\": [\n    {\n      \"id\": 7370,\n      \"url\": \"http://yhNqjlhYXdEauWQlBpcnsUskhKekDfzj.qonKIhCags6nwH,CpFc73pcvmG.5voNdiUaeuNc4nQwaPi7t9.QDxV\",\n      \"email\": \"J5kjC@dHGUzYvMyIjGI.vm\",\n      \"name\": \"string\",\n      \"username\": \"string\",\n      \"preferences\": \"string\"\n    },\n    {\n      \"id\": 3109,\n      \"url\": \"https://letVLhdXEyikLvICPLCeoM.ziv-GAhU6RhcpPsDgSnCUoq3pg5k\",\n      \"email\": \"Gu--33Vd@fiGUJLNLGUqhRmqPhgxxiURqAT.mtn\",\n      \"name\": \"string\",\n      \"username\": \"string\",\n      \"preferences\": \"string\"\n    }\n  ],\n  \"next\": \"http://bLnFLzVYOTPjaTbu.kjfeeiTVQY2JivFOMJLcWOt2pUuBdWiTTi6vMtmDAry.A\",\n  \"previous\": \"http://HjjzyliepgrB.nfEZNBpSonk9OTLZJ+dvahZc\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4620972-afad-461f-b2f3-14659e1e22f5",
+          "name": "user v1 get",
+          "request": {
+            "name": "user v1 get",
+            "description": {
+              "content": "GET /api/user/v1/me",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf989ff7-0781-46d2-ab58-8cfae77c13be",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59eeb25e-7035-474b-b0f2-c2236b01b707",
+          "name": "Post function for updating the email opt in preference.",
+          "request": {
+            "name": "Post function for updating the email opt in preference.",
+            "description": {
+              "content": "Allows the modification or creation of the email opt in preference at an\norganizational level.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "preferences",
+                "email_opt_in",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc9d41e9-7a1a-462c-b4f2-d806cc151781",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "preferences",
+                    "email_opt_in",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7c42561-fb94-4b63-a0c9-97fcdb36a07b",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Retrieves a list of all time zones, by default, or common time zones for country, if given\n\n    The country is passed in as its ISO 3166-1 Alpha-2 country code as an\n    optional 'country_code' argument. The country code is also case-insensitive.\n\n**Example Requests**\n\n    GET /api/user/v1/preferences/time_zones/\n\n    GET /api/user/v1/preferences/time_zones/?country_code=FR\n\n**Example GET Response**\n\n    If the request is successful, an HTTP 200 \"OK\" response is returned along with a\n    list of time zone dictionaries for all time zones or just for time zones commonly\n    used in a country, if given.\n\n    Each time zone dictionary contains the following values.\n\n        * time_zone: The name of the time zone.\n        * description: The display version of the time zone",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "preferences",
+                "time_zones",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "214b8c00-5b45-4739-8938-890823326f21",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "preferences",
+                    "time_zones",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"time_zone\": \"string\",\n    \"description\": \"str\"\n  },\n  {\n    \"time_zone\": \"string\",\n    \"description\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c681e22-6fb4-4fff-9dde-e4871576d5fd",
+          "name": "user v1 preferences users list",
+          "request": {
+            "name": "user v1 preferences users list",
+            "description": {
+              "content": "DRF class for listing a user's preferences",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "preferences",
+                ":pref_key",
+                "users",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "pref_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67f2bfa5-0c46-4a61-a603-4a29b8b9c207",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "preferences",
+                    ":pref_key",
+                    "users",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "pref_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9594,\n  \"results\": [\n    {\n      \"id\": 7370,\n      \"url\": \"http://yhNqjlhYXdEauWQlBpcnsUskhKekDfzj.qonKIhCags6nwH,CpFc73pcvmG.5voNdiUaeuNc4nQwaPi7t9.QDxV\",\n      \"email\": \"J5kjC@dHGUzYvMyIjGI.vm\",\n      \"name\": \"string\",\n      \"username\": \"string\",\n      \"preferences\": \"string\"\n    },\n    {\n      \"id\": 3109,\n      \"url\": \"https://letVLhdXEyikLvICPLCeoM.ziv-GAhU6RhcpPsDgSnCUoq3pg5k\",\n      \"email\": \"Gu--33Vd@fiGUJLNLGUqhRmqPhgxxiURqAT.mtn\",\n      \"name\": \"string\",\n      \"username\": \"string\",\n      \"preferences\": \"string\"\n    }\n  ],\n  \"next\": \"http://bLnFLzVYOTPjaTbu.kjfeeiTVQY2JivFOMJLcWOt2pUuBdWiTTi6vMtmDAry.A\",\n  \"previous\": \"http://HjjzyliepgrB.nfEZNBpSonk9OTLZJ+dvahZc\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aadd4b4f-284f-4295-b4df-15b4eeca45c9",
+          "name": "user v1 preferences read",
+          "request": {
+            "name": "user v1 preferences read",
+            "description": {
+              "content": "GET /api/user/v1/preferences/{username}/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "preferences",
+                ":username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c503c123-9508-4f2e-9782-ad59321fed0b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "preferences",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5cd54ce-ffee-424d-b23f-acab6763756b",
+          "name": "user v1 preferences partial update",
+          "request": {
+            "name": "user v1 preferences partial update",
+            "description": {
+              "content": "PATCH /api/user/v1/preferences/{username}/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "preferences",
+                ":username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2933ba57-4c1c-4a4a-b3bc-b6eb1aab872a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "preferences",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bc13f13-9705-41f3-954b-691fe4f24adc",
+          "name": "user v1 preferences read",
+          "request": {
+            "name": "user v1 preferences read",
+            "description": {
+              "content": "GET /api/user/v1/preferences/{username}/{preference_key}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "preferences",
+                ":username",
+                ":preference_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "preference_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9740e75c-84d9-4507-a32f-6049c7f4915d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "preferences",
+                    ":username",
+                    ":preference_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "preference_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96726b66-9e03-498d-849a-a2de0b0ae4cd",
+          "name": "user v1 preferences update",
+          "request": {
+            "name": "user v1 preferences update",
+            "description": {
+              "content": "PUT /api/user/v1/preferences/{username}/{preference_key}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "preferences",
+                ":username",
+                ":preference_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "preference_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9558109-ca23-477d-913b-140b6cf5f66e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "preferences",
+                    ":username",
+                    ":preference_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "preference_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8810c82-b12e-4c2b-9f4f-3b0e6a73f488",
+          "name": "user v1 preferences delete",
+          "request": {
+            "name": "user v1 preferences delete",
+            "description": {
+              "content": "DELETE /api/user/v1/preferences/{username}/{preference_key}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "preferences",
+                ":username",
+                ":preference_key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "preference_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0038a34-24c8-4fd3-84f7-8bb36e7745ed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "preferences",
+                    ":username",
+                    ":preference_key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "preference_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ccb16c11-9676-4d1d-a530-295a49c3aed6",
+          "name": "user v1 user prefs list",
+          "request": {
+            "name": "user v1 user prefs list",
+            "description": {
+              "content": "DRF class for interacting with the UserPreference ORM",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "user_prefs",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc160e7a-9350-418b-9d61-e239c30a1dc9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "user_prefs",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1779,\n  \"results\": [\n    {\n      \"user\": {\n        \"id\": 4879,\n        \"url\": \"http://mDpBc.otdmO,YdxeHpYvj,K,eJQNVH6tE2hvwQlf6OI\",\n        \"email\": \"x89ltsfaD4gyK9S@ExXnjcIXHG.gvgz\",\n        \"name\": \"string\",\n        \"username\": \"string\",\n        \"preferences\": \"string\"\n      },\n      \"key\": \"sfh1E9k9cN\",\n      \"value\": \"string\",\n      \"url\": \"http://XOfznArwzKAkrbJneV.llzjyB2.Cr5KO\"\n    },\n    {\n      \"user\": {\n        \"id\": 4949,\n        \"url\": \"https://TuA.jgl0gVgefXLX.+dzXKdoWqtCin+4kWjoX57X\",\n        \"email\": \"V6Ec0@iTTdmVncVukqWC.nu\",\n        \"name\": \"string\",\n        \"username\": \"string\",\n        \"preferences\": \"string\"\n      },\n      \"key\": \"wAQCE4Rt6\",\n      \"value\": \"string\",\n      \"url\": \"http://TvsMioPldlOoUhowAWKKgGxjH.hpswVUNHnwrswc6ReB\"\n    }\n  ],\n  \"next\": \"https://vrzrztItNQ.peucwJwEREnryj\",\n  \"previous\": \"http://yHzXuwHTUJNkxwmphqWCcZMbGscJq.mtrAUqB4IuefccT9YaW7dECClcCC2Y+R6n81.L\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eaa1fb6f-b3ee-4f16-802a-71f2ce3c2c13",
+          "name": "user v1 user prefs read",
+          "request": {
+            "name": "user v1 user prefs read",
+            "description": {
+              "content": "DRF class for interacting with the UserPreference ORM",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "user_prefs",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this user preference."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b899f98e-0ba2-4528-bd0e-7ee99e3622f0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "user_prefs",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this user preference."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": {\n    \"id\": 2354,\n    \"url\": \"https://ZIHwDjRckShzLQm.wsFqf3b21\",\n    \"email\": \"rNHqAVIemJ3oph@OER.ja\",\n    \"name\": \"string\",\n    \"username\": \"string\",\n    \"preferences\": \"string\"\n  },\n  \"key\": \"zr7Cwkj\",\n  \"value\": \"string\",\n  \"url\": \"http://fhnPT.scsu29BWwbss7dWkOIWI5\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b66df69-193e-4d0f-af3e-82eead089933",
+          "name": "user v1 users list",
+          "request": {
+            "name": "user v1 users list",
+            "description": {
+              "content": "DRF class for interacting with the User ORM object",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "users",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1580b18e-08f7-419b-9af6-f194540307bb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "users",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9594,\n  \"results\": [\n    {\n      \"id\": 7370,\n      \"url\": \"http://yhNqjlhYXdEauWQlBpcnsUskhKekDfzj.qonKIhCags6nwH,CpFc73pcvmG.5voNdiUaeuNc4nQwaPi7t9.QDxV\",\n      \"email\": \"J5kjC@dHGUzYvMyIjGI.vm\",\n      \"name\": \"string\",\n      \"username\": \"string\",\n      \"preferences\": \"string\"\n    },\n    {\n      \"id\": 3109,\n      \"url\": \"https://letVLhdXEyikLvICPLCeoM.ziv-GAhU6RhcpPsDgSnCUoq3pg5k\",\n      \"email\": \"Gu--33Vd@fiGUJLNLGUqhRmqPhgxxiURqAT.mtn\",\n      \"name\": \"string\",\n      \"username\": \"string\",\n      \"preferences\": \"string\"\n    }\n  ],\n  \"next\": \"http://bLnFLzVYOTPjaTbu.kjfeeiTVQY2JivFOMJLcWOt2pUuBdWiTTi6vMtmDAry.A\",\n  \"previous\": \"http://HjjzyliepgrB.nfEZNBpSonk9OTLZJ+dvahZc\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c88188a5-81d4-4562-a132-93adaa79b4e7",
+          "name": "user v1 users read",
+          "request": {
+            "name": "user v1 users read",
+            "description": {
+              "content": "DRF class for interacting with the User ORM object",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "users",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this пользователь."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e54f5b17-bd34-4048-95dc-aea0f7246ca9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "users",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this пользователь."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8235,\n  \"url\": \"http://JqPAqUG.efglM9I29.lz6Eydo2saW1K2TgsBLA-oti0ULJ0f6iAie\",\n  \"email\": \"7T3EmsbvXU6RPo@zhDaIllQfWCZvFFTDOjFPwALlSXAWwika.bn\",\n  \"name\": \"string\",\n  \"username\": \"string\",\n  \"preferences\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "098870dc-b347-4405-898e-98ed0ef481a8",
+          "name": "POST /api/user/v1/validation/registration/",
+          "request": {
+            "name": "POST /api/user/v1/validation/registration/",
+            "description": {
+              "content": "Expects request of the form\n```\n{\n    \"name\": \"Dan the Validator\",\n    \"username\": \"mslm\",\n    \"email\": \"mslm@gmail.com\",\n    \"confirm_email\": \"mslm@gmail.com\",\n    \"password\": \"password123\",\n    \"country\": \"PK\"\n}\n```\nwhere each key is the appropriate form field name and the value is\nuser input. One may enter individual inputs if needed. Some inputs\ncan get extra verification checks if entered along with others,\nlike when the password may not equal the username.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v1",
+                "validation",
+                "registration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf358b41-962e-460d-a8e3-c8948d615063",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v1",
+                    "validation",
+                    "registration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86a0c7b3-3b53-4c80-8958-94cd3e608b1f",
+          "name": "user v2 account registration list",
+          "request": {
+            "name": "user v2 account registration list",
+            "description": {
+              "content": "HTTP end-points for creating a new user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v2",
+                "account",
+                "registration",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb8468ae-53b3-42aa-bbdc-c6d65f3b49b4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2",
+                    "account",
+                    "registration",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fd591cd-3bf2-49b3-9967-7e460ac50a3b",
+          "name": "Create the user's account.",
+          "request": {
+            "name": "Create the user's account.",
+            "description": {
+              "content": "You must send all required form fields with the request.\n\nYou can optionally send a \"course_id\" param to indicate in analytics\nevents that the user registered while enrolling in a particular course.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "v2",
+                "account",
+                "registration",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8323c568-1321-4dc5-876f-fe94f4af621a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "v2",
+                    "account",
+                    "registration",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8951b497-3e3e-4e4a-9a43-bf6e4de6c09c",
+          "name": "user account login session list",
+          "request": {
+            "name": "user account login session list",
+            "description": {
+              "content": "HTTP end-points for logging in users.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                ":api_version",
+                "account",
+                "login_session",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "860d3060-0d75-406c-a3b5-7ddf0ac6c0e4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":api_version",
+                    "account",
+                    "login_session",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "412c0259-54e8-436b-b2f6-c346b3dc56fe",
+          "name": "POST /user/{api_version}/account/login_session/",
+          "request": {
+            "name": "POST /user/{api_version}/account/login_session/",
+            "description": {
+              "content": "Returns 200 on success, and a detailed error message otherwise.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                ":api_version",
+                "account",
+                "login_session",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api_version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e9cadb42-c98c-47af-9260-7aa453539099",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":api_version",
+                    "account",
+                    "login_session",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"value\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9d166b2-7d60-4497-beac-c7ef4d02260f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":api_version",
+                    "account",
+                    "login_session",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"value\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbe9db13-d4ec-4f2d-a5db-4b9fe8b56b42",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":api_version",
+                    "account",
+                    "login_session",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"value\": \"string\",\n  \"error_code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bc025af6-75e6-468e-8bba-480f5ca2662c",
+    "name": "Open edX agreements user API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

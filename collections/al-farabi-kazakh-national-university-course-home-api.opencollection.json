@@ -1,0 +1,327 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements course_home API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "course_home",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/course_metadata/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request Course metadata details for the Course Home MFE that every page needs.\n\n**Example Requests**\n\n    GET api/course_home/v1/course_metadata/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_id: (str) The Course's id (Course Run key)\n    username: (str) The requesting (or masqueraded) user. Returns None for an\n        unauthenticated user.\n    is_enrolled: (bool) Indicates if the user is enrolled in the course\n    is_self_paced: (bool) Indicates if the"
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/dates/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request details for the Dates Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/dates/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_date_blocks: List of serialized DateSummary objects. Each serialization has the following fields:\n        complete: (bool) Meant to only be used by assignments. Indicates completeness for an\n            assignment.\n        date: (datetime) The date time corresponding for the event\n        date_type: (str) The type of d"
+        },
+        {
+          "info": {
+            "name": "course_home_dismiss_welcome_message_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/course_home/dismiss_welcome_message"
+          }
+        },
+        {
+          "info": {
+            "name": "course_home_navigation_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/navigation/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the visible course blocks (from course to vertical types) for the given course."
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/outline/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request details for the Outline Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/outline/{course_key}\n\n**Response Values**\n\n    Body consists of two possible shapes.\n\n    For a good 200 response, the response will include:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgr"
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/progress/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n   "
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/progress/:course_key_string/:student_id",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "student_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n   "
+        },
+        {
+          "info": {
+            "name": "course_home_save_course_goal_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/course_home/save_course_goal"
+          }
+        },
+        {
+          "info": {
+            "name": "API calls to unsubscribe from course goal reminders.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/course_home/unsubscribe_from_course_goal/:token",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Note that this does not require authentication - this view may be hit from an email on a different device than\nnormal or whatever. We should still be able to unsubscribe the user. Instead, we use a token in the email to\nvalidate that they have permission to unsubscribe.\n\nThis endpoint is very tightly scoped (only unsubscribe: no subscribing, no PII) because it is unauthenticated.\n\n**Example Requests**\n    POST api/course_home/v1/unsubscribe_from_course_goal/{token}\n\n**Example Response Data**\n   "
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/v1/course_metadata/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request Course metadata details for the Course Home MFE that every page needs.\n\n**Example Requests**\n\n    GET api/course_home/v1/course_metadata/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_id: (str) The Course's id (Course Run key)\n    username: (str) The requesting (or masqueraded) user. Returns None for an\n        unauthenticated user.\n    is_enrolled: (bool) Indicates if the user is enrolled in the course\n    is_self_paced: (bool) Indicates if the"
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/v1/dates/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request details for the Dates Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/dates/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_date_blocks: List of serialized DateSummary objects. Each serialization has the following fields:\n        complete: (bool) Meant to only be used by assignments. Indicates completeness for an\n            assignment.\n        date: (datetime) The date time corresponding for the event\n        date_type: (str) The type of d"
+        },
+        {
+          "info": {
+            "name": "course_home_v1_dismiss_welcome_message_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/course_home/v1/dismiss_welcome_message"
+          }
+        },
+        {
+          "info": {
+            "name": "course_home_v1_navigation_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/v1/navigation/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the visible course blocks (from course to vertical types) for the given course."
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/v1/outline/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request details for the Outline Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/outline/{course_key}\n\n**Response Values**\n\n    Body consists of two possible shapes.\n\n    For a good 200 response, the response will include:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgr"
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/v1/progress/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n   "
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_home/v1/progress/:course_key_string/:student_id",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "student_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n   "
+        },
+        {
+          "info": {
+            "name": "course_home_v1_save_course_goal_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/course_home/v1/save_course_goal"
+          }
+        },
+        {
+          "info": {
+            "name": "API calls to unsubscribe from course goal reminders.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/course_home/v1/unsubscribe_from_course_goal/:token",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Note that this does not require authentication - this view may be hit from an email on a different device than\nnormal or whatever. We should still be able to unsubscribe the user. Instead, we use a token in the email to\nvalidate that they have permission to unsubscribe.\n\nThis endpoint is very tightly scoped (only unsubscribe: no subscribing, no PII) because it is unauthenticated.\n\n**Example Requests**\n    POST api/course_home/v1/unsubscribe_from_course_goal/{token}\n\n**Example Response Data**\n   "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

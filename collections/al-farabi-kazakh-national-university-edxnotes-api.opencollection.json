@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements edxnotes API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "edxnotes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "edxnotes_v1_retire_user_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edxnotes/v1/retire_user/"
+          },
+          "docs": "Implements the retirement endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

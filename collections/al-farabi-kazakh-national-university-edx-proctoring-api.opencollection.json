@@ -1,0 +1,774 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements edx_proctoring API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "edx_proctoring",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "edx_proctoring_proctoring_review_callback_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/proctoring_review_callback/"
+          },
+          "docs": "Post callback handler"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_instructor_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/instructor/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Redirect to dashboard for a given course and optional exam_id"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_instructor_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/instructor/:course_id/:exam_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "exam_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Redirect to dashboard for a given course and optional exam_id"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_active_attempt_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/active_attempt"
+          },
+          "docs": "HTTP GET handler. Returns active attempt"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_active_exams_for_user_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/active_exams_for_user"
+          },
+          "docs": "Returns the get_active_exams_for_user"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_allowance_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/allowance"
+          },
+          "docs": "HTTP GET handler. Get all allowances for a course.\nCourse and Global staff can view both timed and proctored exam allowances."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_allowance_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/allowance"
+          },
+          "docs": "HTTP GET handler. Adds or updates Allowance"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_allowance_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/allowance"
+          },
+          "docs": "HTTP DELETE handler. Removes Allowance."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt"
+          },
+          "docs": "HTTP GET Handler. Returns the status of the exam attempt."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt"
+          },
+          "docs": "HTTP POST handler. To create an exam attempt."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_course_id_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt/course_id/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET handler. Returns exam with attempt and active attempt"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_grouped_course_id_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt/grouped/course_id/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET Handler."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_grouped_course_id_search_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt/grouped/course_id/:course_id/search/:search_by",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "search_by",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET Handler."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt/:attempt_id",
+            "params": [
+              {
+                "name": "attempt_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET Handler. Returns the status of the exam attempt."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt/:attempt_id",
+            "params": [
+              {
+                "name": "attempt_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP PUT handler to update exam attempt status based on an action."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt/:attempt_id",
+            "params": [
+              {
+                "name": "attempt_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP DELETE handler. Removes an exam attempt."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_review_status_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt/:attempt_id/review_status",
+            "params": [
+              {
+                "name": "attempt_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update the is_status_acknowledged flag for the specific attempt"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_ready_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt/:external_id/ready",
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Post callback handler"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_attempt_reviewed_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/attempt/:external_id/reviewed",
+            "params": [
+              {
+                "name": "external_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Called when 3rd party proctoring service has finished its review of\nan attempt."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_bulk_allowance_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/bulk_allowance"
+          },
+          "docs": "HTTP PUT handler. Adds or updates Allowances for many exams and students"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam"
+          },
+          "docs": "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam"
+          },
+          "docs": "Http POST handler. Creates an exam."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam"
+          },
+          "docs": "HTTP PUT handler. To update an exam.\ncalls the update_exam"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_course_id_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam/course_id/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_course_id_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam/course_id/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Http POST handler. Creates an exam."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_course_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam/course_id/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP PUT handler. To update an exam.\ncalls the update_exam"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_course_id_content_id_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam/course_id/:course_id/content_id/:content_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "content_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_course_id_content_id_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam/course_id/:course_id/content_id/:content_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "content_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Http POST handler. Creates an exam."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_course_id_content_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam/course_id/:course_id/content_id/:content_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "content_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP PUT handler. To update an exam.\ncalls the update_exam"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_exam_id_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam/exam_id/:exam_id",
+            "params": [
+              {
+                "name": "exam_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_exam_id_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam/exam_id/:exam_id",
+            "params": [
+              {
+                "name": "exam_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Http POST handler. Creates an exam."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_exam_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam/exam_id/:exam_id",
+            "params": [
+              {
+                "name": "exam_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP PUT handler. To update an exam.\ncalls the update_exam"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_id_user_id_reset_attempts_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam_id/:exam_id/user_id/:user_id/reset_attempts",
+            "params": [
+              {
+                "name": "exam_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP DELETE handler, deletes all attempts for a given exam and username"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_exam_registration_course_id_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/exam_registration/course_id/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create or update a list of all active exams.\nExams not included in the registration payload will be deactivated"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_review_policy_exam_id_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/review_policy/exam_id/:exam_id/",
+            "params": [
+              {
+                "name": "exam_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET handler. Returns review policy for proctored exam."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_settings_exam_id_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/settings/exam_id/:exam_id/",
+            "params": [
+              {
+                "name": "exam_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET handler. Returns proctoring_settings and exam_proctoring_backend config for proctored exam."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_allowance_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/:course_id/allowance",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET handler. Get all allowances for a course.\nCourse and Global staff can view both timed and proctored exam allowances."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_allowance_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/:course_id/allowance",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET handler. Adds or updates Allowance"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_allowance_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/:course_id/allowance",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP DELETE handler. Removes Allowance."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_bulk_allowance_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/:course_id/bulk_allowance",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP PUT handler. Adds or updates Allowances for many exams and students"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_proctored_exam_grouped_allowance_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/proctored_exam/:course_id/grouped/allowance",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET Handler."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_retire_backend_user_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/retire_backend_user/:user_id/",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes all user data for the particular user_id\nfrom all configured backends"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_retire_user_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/retire_user/:user_id/",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Obfuscates all PII for a given user_id"
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_user_onboarding_status_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/user_onboarding/status"
+          },
+          "docs": "HTTP GET handler. Returns the learner's onboarding status."
+        },
+        {
+          "info": {
+            "name": "edx_proctoring_v1_user_onboarding_status_course_id_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_proctoring/v1/user_onboarding/status/course_id/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP GET handler."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

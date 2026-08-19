@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements learning_sequences API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "learning_sequences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "learning_sequences_v1_course_outline_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/learning_sequences/v1/course_outline/:course_key_str",
+            "params": [
+              {
+                "name": "course_key_str",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "The CourseOutline, customized for a given user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements course_modes API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "course_modes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View to list or create course modes for a course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_modes/v1/courses/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "**Use Case**\n\n    List all course modes for a course, or create a new\n    course mode.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/\n\n        Returns a list of all existing course modes for a course.\n\n    POST /api/course_modes/v1/courses/{course_id}/\n\n        Creates a new course mode in a course.\n\n**Response Values**\n\n    For each HTTP verb below, an HTTP 404 \"Not Found\" response is returned if the\n    requested course id does not exist.\n\n    GET: If the request is s"
+        },
+        {
+          "info": {
+            "name": "View to list or create course modes for a course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/course_modes/v1/courses/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "**Use Case**\n\n    List all course modes for a course, or create a new\n    course mode.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/\n\n        Returns a list of all existing course modes for a course.\n\n    POST /api/course_modes/v1/courses/{course_id}/\n\n        Creates a new course mode in a course.\n\n**Response Values**\n\n    For each HTTP verb below, an HTTP 404 \"Not Found\" response is returned if the\n    requested course id does not exist.\n\n    GET: If the request is s"
+        },
+        {
+          "info": {
+            "name": "View to retrieve, update, or delete a specific course mode for a course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_modes/v1/courses/:course_id/:mode_slug",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mode_slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "**Use Case**\n\n    Get or update course mode details for a specific course mode on a course.\n    Or you may delete a specific course mode from a course.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Returns details on an existing course mode for a course.\n\n    PATCH /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Updates (via merge) details of an existing course mode for a course.\n\n    DELETE /api/course_modes/v1/courses/{course_id}/{mo"
+        },
+        {
+          "info": {
+            "name": "course_modes_v1_courses_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/course_modes/v1/courses/:course_id/:mode_slug",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mode_slug",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Performs a partial update of a CourseMode instance."
+        },
+        {
+          "info": {
+            "name": "View to retrieve, update, or delete a specific course mode for a course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/course_modes/v1/courses/:course_id/:mode_slug",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mode_slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "**Use Case**\n\n    Get or update course mode details for a specific course mode on a course.\n    Or you may delete a specific course mode from a course.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Returns details on an existing course mode for a course.\n\n    PATCH /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Updates (via merge) details of an existing course mode for a course.\n\n    DELETE /api/course_modes/v1/courses/{course_id}/{mo"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

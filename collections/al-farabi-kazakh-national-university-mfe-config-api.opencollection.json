@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements mfe_config API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "mfe_config",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return the MFE configuration, optionally including MFE-specific overrides.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/mfe_config/v1",
+            "params": [
+              {
+                "name": "mfe",
+                "value": "",
+                "type": "query",
+                "description": "Name of an MFE (a.k.a. an APP_ID)."
+              }
+            ]
+          },
+          "docs": "**Usage**\n\n  Get common config:\n  GET /api/mfe_config/v1\n\n  Get app config (common + app-specific overrides):\n  GET /api/mfe_config/v1?mfe=name_of_mfe\n\n**GET Response Values**\n```\n{\n    \"BASE_URL\": \"https://name_of_mfe.example.com\",\n    \"LANGUAGE_PREFERENCE_COOKIE_NAME\": \"example-language-preference\",\n    \"CREDENTIALS_BASE_URL\": \"https://credentials.example.com\",\n    \"DISCOVERY_API_BASE_URL\": \"https://discovery.example.com\",\n    \"LMS_BASE_URL\": \"https://courses.example.com\",\n    \"LOGIN_URL\": \"ht"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

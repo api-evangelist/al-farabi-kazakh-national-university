@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements change_email_settings API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "change_email_settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "change_email_settings_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/change_email_settings"
+          },
+          "docs": "Modify logged-in user's setting for receiving emails from a course."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

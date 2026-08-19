@@ -1,0 +1,755 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements user API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "user_v1_account_password_reset_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/account/password_reset/"
+          },
+          "docs": "HTTP end-point for GETting a description of the password reset form."
+        },
+        {
+          "info": {
+            "name": "user_v1_account_password_reset_token_validate_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/account/password_reset/token/validate/"
+          },
+          "docs": "HTTP end-point to validate password reset token."
+        },
+        {
+          "info": {
+            "name": "user_v1_account_registration_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/account/registration/"
+          },
+          "docs": "HTTP end-points for creating a new user."
+        },
+        {
+          "info": {
+            "name": "Create the user's account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/account/registration/"
+          },
+          "docs": "You must send all required form fields with the request.\n\nYou can optionally send a \"course_id\" param to indicate in analytics\nevents that the user registered while enrolling in a particular course."
+        },
+        {
+          "info": {
+            "name": "user_v1_accounts_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts"
+          },
+          "docs": "GET /api/user/v1/accounts?username={username1,username2}\nGET /api/user/v1/accounts?email={user_email} (Staff Only)\nGET /api/user/v1/accounts?lms_user_id={lms_user_id} (Staff Only)"
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/accounts/cancel_retirement/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/cancel_retirement/"
+          },
+          "docs": "Cancels the retirement for a user's account.\nThis also handles the top level error handling, and permissions."
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/accounts/deactivate_logout/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/deactivate_logout/"
+          },
+          "docs": "Marks the user as having no password set for deactivation purposes,\nand logs the user out."
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/accounts/name_change/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/name_change/"
+          },
+          "docs": "Request a profile name change. This creates a PendingNameChange to be verified later,\nrather than updating the user's profile name directly.\n\nExample request:\n    {\n        \"name\": \"Jon Doe\"\n    }"
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/account/name_change/{username}/confirm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/name_change/:username/confirm/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Confirm a name change request for the specified user, and update their profile name."
+        },
+        {
+          "info": {
+            "name": "user_v1_accounts_replace_usernames_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/replace_usernames/"
+          },
+          "docs": "POST /api/user/v1/accounts/replace_usernames/\n```\n{\n    \"username_mappings\": [\n        {\"current_username_1\": \"desired_username_1\"},\n        {\"current_username_2\": \"desired_username_2\"}\n    ]\n}\n```\n\n**POST Parameters**\n\nA POST request must include the following parameter.\n\n* username_mappings: Required. A list of objects that map the current username (key)\n  to the desired username (value)\n\n**POST Response Values**\n\nAs long as data validation passes, the request will return a 200 with a new mapp"
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/accounts/retire/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/retire/"
+          },
+          "docs": "```\n{\n    'username': 'user_to_retire'\n}\n```\n\nRetires the user with the given username.  This includes retiring this username, the associated email address,\nand any other PII associated with this user."
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/accounts/retire_misc/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/retire_misc/"
+          },
+          "docs": "```\n{\n    'username': 'user_to_retire'\n}\n```\n\nRetires the user with the given username in the LMS."
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/accounts/retirement_cleanup/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/retirement_cleanup/"
+          },
+          "docs": "```\n{\n    'usernames': ['user1', 'user2', ...]\n}\n```\n\nDeletes a batch of retirement requests by username."
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/accounts/retirement_partner_report/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/retirement_partner_report/"
+          },
+          "docs": "Returns the list of UserRetirementPartnerReportingStatus users\nthat are not already being processed and updates their status\nto indicate they are currently being processed."
+        },
+        {
+          "info": {
+            "name": "PUT /api/user/v1/accounts/retirement_partner_report/",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/retirement_partner_report/"
+          },
+          "docs": "```\n{\n    'username': 'user_to_retire'\n}\n```\n\nCreates a UserRetirementPartnerReportingStatus object for the given user\nas part of the retirement pipeline."
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/accounts/retirement_partner_report_cleanup/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/retirement_partner_report_cleanup/"
+          },
+          "docs": "[{'original_username': 'user1'}, {'original_username': 'user2'}, ...]\n\nDeletes UserRetirementPartnerReportingStatus objects for a list of users\nthat have been reported on."
+        },
+        {
+          "info": {
+            "name": "GET /api/user/v1/accounts/retirement_queue/\n{'cool_off_days': 7, 'states': ['PENDING', 'COMPLETE'], 'limit': 500}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/retirement_queue/"
+          },
+          "docs": "Returns the list of RetirementStatus users in the given states that were\ncreated in the retirement queue at least `cool_off_days` ago."
+        },
+        {
+          "info": {
+            "name": "GET /api/user/v1/accounts/retirements_by_status_and_date/\n?start_date=2018-09-05&end_date=2018-09-07&state=COMPLETE",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/retirements_by_status_and_date/"
+          },
+          "docs": "Returns a list of UserRetirementStatusSerializer serialized\nRetirementStatus rows in the given state that were created in the\nretirement queue between the dates given. Date range is inclusive,\nso to get one day you would set both dates to that day."
+        },
+        {
+          "info": {
+            "name": "user_v1_accounts_search_emails",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/search_emails"
+          },
+          "docs": "POST /api/user/v1/accounts/search_emails\nContent Type: \"application/json\"\n{\n    \"emails\": [\"edx@example.com\", \"staff@example.com\"]\n}"
+        },
+        {
+          "info": {
+            "name": "PATCH /api/user/v1/accounts/update_retirement_status/",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/update_retirement_status/"
+          },
+          "docs": "```\n{\n    'username': 'user_to_retire',\n    'new_state': 'LOCKING_COMPLETE',\n    'response': 'User account locked and logged out.'\n}\n```\n\nUpdates the RetirementStatus row for the given user to the new\nstatus, and append any messages to the message log.\n\nNote that this implementation DOES NOT use the \"merge patch\" implementation seen in AccountViewSet.\nThe content type for this request is 'application/json'."
+        },
+        {
+          "info": {
+            "name": "user_v1_accounts_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET /api/user/v1/accounts/{username}/"
+        },
+        {
+          "info": {
+            "name": "PATCH /api/user/v1/accounts/{username}/",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Note that this implementation is the \"merge patch\" implementation proposed in"
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/accounts/{username}/deactivate/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/:username/deactivate/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Marks the user as having no password set for deactivation purposes."
+        },
+        {
+          "info": {
+            "name": "user_v1_accounts_image_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/:username/image",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST /api/user/v1/accounts/{username}/image"
+        },
+        {
+          "info": {
+            "name": "user_v1_accounts_image_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/:username/image",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DELETE /api/user/v1/accounts/{username}/image"
+        },
+        {
+          "info": {
+            "name": "user_v1_accounts_retirement_status_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/:username/retirement_status/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET /api/user/v1/accounts/{username}/retirement_status/\nReturns the RetirementStatus of a given user, or 404 if that row\ndoesn't exist."
+        },
+        {
+          "info": {
+            "name": "user_v1_accounts_verification_status_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/:username/verification_status/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "IDVerification Status endpoint"
+        },
+        {
+          "info": {
+            "name": "user_v1_accounts_verifications_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/accounts/:username/verifications/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "IDVerificationStatusDeetails endpoint to retrieve more details about ID Verification status"
+        },
+        {
+          "info": {
+            "name": "user_v1_forum_roles_users_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/forum_roles/:name/users/",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Forum roles are represented by a list of user dicts"
+        },
+        {
+          "info": {
+            "name": "user_v1_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/me"
+          },
+          "docs": "GET /api/user/v1/me"
+        },
+        {
+          "info": {
+            "name": "Post function for updating the email opt in preference.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/preferences/email_opt_in/"
+          },
+          "docs": "Allows the modification or creation of the email opt in preference at an\norganizational level."
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/preferences/time_zones/"
+          },
+          "docs": "Retrieves a list of all time zones, by default, or common time zones for country, if given\n\n    The country is passed in as its ISO 3166-1 Alpha-2 country code as an\n    optional 'country_code' argument. The country code is also case-insensitive.\n\n**Example Requests**\n\n    GET /api/user/v1/preferences/time_zones/\n\n    GET /api/user/v1/preferences/time_zones/?country_code=FR\n\n**Example GET Response**\n\n    If the request is successful, an HTTP 200 \"OK\" response is returned along with a\n    list of"
+        },
+        {
+          "info": {
+            "name": "user_v1_preferences_users_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/preferences/:pref_key/users/",
+            "params": [
+              {
+                "name": "pref_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "DRF class for listing a user's preferences"
+        },
+        {
+          "info": {
+            "name": "user_v1_preferences_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/preferences/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET /api/user/v1/preferences/{username}/"
+        },
+        {
+          "info": {
+            "name": "user_v1_preferences_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/user/v1/preferences/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PATCH /api/user/v1/preferences/{username}/"
+        },
+        {
+          "info": {
+            "name": "user_v1_preferences_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/preferences/:username/:preference_key",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preference_key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET /api/user/v1/preferences/{username}/{preference_key}"
+        },
+        {
+          "info": {
+            "name": "user_v1_preferences_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/user/v1/preferences/:username/:preference_key",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preference_key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "PUT /api/user/v1/preferences/{username}/{preference_key}"
+        },
+        {
+          "info": {
+            "name": "user_v1_preferences_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/user/v1/preferences/:username/:preference_key",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "preference_key",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DELETE /api/user/v1/preferences/{username}/{preference_key}"
+        },
+        {
+          "info": {
+            "name": "user_v1_user_prefs_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/user_prefs/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "DRF class for interacting with the UserPreference ORM"
+        },
+        {
+          "info": {
+            "name": "user_v1_user_prefs_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/user_prefs/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this user preference."
+              }
+            ]
+          },
+          "docs": "DRF class for interacting with the UserPreference ORM"
+        },
+        {
+          "info": {
+            "name": "user_v1_users_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/users/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "DRF class for interacting with the User ORM object"
+        },
+        {
+          "info": {
+            "name": "user_v1_users_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v1/users/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this пользователь."
+              }
+            ]
+          },
+          "docs": "DRF class for interacting with the User ORM object"
+        },
+        {
+          "info": {
+            "name": "POST /api/user/v1/validation/registration/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v1/validation/registration"
+          },
+          "docs": "Expects request of the form\n```\n{\n    \"name\": \"Dan the Validator\",\n    \"username\": \"mslm\",\n    \"email\": \"mslm@gmail.com\",\n    \"confirm_email\": \"mslm@gmail.com\",\n    \"password\": \"password123\",\n    \"country\": \"PK\"\n}\n```\nwhere each key is the appropriate form field name and the value is\nuser input. One may enter individual inputs if needed. Some inputs\ncan get extra verification checks if entered along with others,\nlike when the password may not equal the username."
+        },
+        {
+          "info": {
+            "name": "user_v2_account_registration_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/v2/account/registration/"
+          },
+          "docs": "HTTP end-points for creating a new user."
+        },
+        {
+          "info": {
+            "name": "Create the user's account.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/v2/account/registration/"
+          },
+          "docs": "You must send all required form fields with the request.\n\nYou can optionally send a \"course_id\" param to indicate in analytics\nevents that the user registered while enrolling in a particular course."
+        },
+        {
+          "info": {
+            "name": "user_account_login_session_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/user/:api_version/account/login_session/",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "HTTP end-points for logging in users."
+        },
+        {
+          "info": {
+            "name": "POST /user/{api_version}/account/login_session/",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/user/:api_version/account/login_session/",
+            "params": [
+              {
+                "name": "api_version",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns 200 on success, and a detailed error message otherwise."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

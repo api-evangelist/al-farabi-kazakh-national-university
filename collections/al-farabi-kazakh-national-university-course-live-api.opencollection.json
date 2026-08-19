@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements course_live API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "course_live",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Handle HTTP/GET requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_live/course/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Handle HTTP/GET requests"
+        },
+        {
+          "info": {
+            "name": "Handle HTTP/POST requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/course_live/course/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "lti_1p1_client_key",
+                "value": "",
+                "type": "path",
+                "description": "The LTI provider's client key"
+              },
+              {
+                "name": "lti_1p1_client_secret",
+                "value": "",
+                "type": "path",
+                "description": "The LTI provider's client secretL"
+              },
+              {
+                "name": "lti_1p1_launch_url",
+                "value": "",
+                "type": "path",
+                "description": "The LTI provider's launch URL"
+              },
+              {
+                "name": "provider_type",
+                "value": "",
+                "type": "path",
+                "description": "The LTI provider's launch URL"
+              },
+              {
+                "name": "lti_config",
+                "value": "",
+                "type": "query",
+                "description": "The lti_config object with required additional parameters "
+              }
+            ]
+          },
+          "docs": "Handle HTTP/POST requests"
+        },
+        {
+          "info": {
+            "name": "course_live_iframe_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_live/iframe/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Handle HTTP/GET requests"
+        },
+        {
+          "info": {
+            "name": "course_live_providers_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_live/providers/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "A view for retrieving Program live IFrame ."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

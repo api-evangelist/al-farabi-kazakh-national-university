@@ -1,0 +1,918 @@
+{
+  "item": [
+    {
+      "id": "d3d9dfb2-e835-4d8f-a12c-b2bd95d5dc8b",
+      "name": "grades",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "99efe28c-5aa7-4590-99ed-5c79203e03d4",
+          "name": "grades v1 courses list",
+          "request": {
+            "name": "grades v1 courses list",
+            "description": {
+              "content": "Gets a course progress status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grades",
+                "v1",
+                "courses",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "The pagination cursor value."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40666869-4967-488b-b4b4-3b930dc748ee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grades",
+                    "v1",
+                    "courses",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cd06ea9-3f01-4baa-88cf-ca1c0de5f66f",
+          "name": "grades v1 courses read",
+          "request": {
+            "name": "grades v1 courses read",
+            "description": {
+              "content": "Gets a course progress status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grades",
+                "v1",
+                "courses",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "165da504-8293-414e-b378-94d03841dfd8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grades",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d443e5dc-052f-4e5e-9b25-d20a1dbe41d4",
+          "name": "grades v1 gradebook read",
+          "request": {
+            "name": "grades v1 gradebook read",
+            "description": {
+              "content": "Checks for course author access for the given course by the requesting user.\nCalls the view function if has access, otherwise raises a 403.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grades",
+                "v1",
+                "gradebook",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7931c3d3-31da-41da-9dba-5988eddb1b1a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grades",
+                    "v1",
+                    "gradebook",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e68b844-1c03-4ccf-8b85-58c31a34b952",
+          "name": "grades v1 gradebook bulk-update create",
+          "request": {
+            "name": "grades v1 gradebook bulk-update create",
+            "description": {
+              "content": "Checks for course author access for the given course by the requesting user.\nCalls the view function if has access, otherwise raises a 403.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grades",
+                "v1",
+                "gradebook",
+                ":course_id",
+                "bulk-update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c06ba176-bbf6-4e9a-87b6-dbdb15bb3ff3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grades",
+                    "v1",
+                    "gradebook",
+                    ":course_id",
+                    "bulk-update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c55854bb-3ca3-4e19-8396-7dfd4f918d01",
+          "name": "grades v1 gradebook grading-info list",
+          "request": {
+            "name": "grades v1 gradebook grading-info list",
+            "description": {
+              "content": "Checks for course author access for the given course by the requesting user.\nCalls the view function if has access, otherwise raises a 403.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grades",
+                "v1",
+                "gradebook",
+                ":course_id",
+                "grading-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb0f0064-5d44-4346-8276-32fa4043a424",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grades",
+                    "v1",
+                    "gradebook",
+                    ":course_id",
+                    "grading-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc52502d-9d0d-4afe-a8a0-73dd56a8bfbe",
+          "name": "**Use Case**",
+          "request": {
+            "name": "**Use Case**",
+            "description": {
+              "content": "Get the course grading policy.\n\n**Example requests**:\n\n    GET /api/grades/v1/policy/courses/{course_id}/\n\n**Response Values**\n\n    * assignment_type: The type of the assignment, as configured by course\n      staff. For example, course staff might make the assignment types Homework,\n      Quiz, and Exam.\n\n    * count: The number of assignments of the type.\n\n    * dropped: Number of assignments of the type that are dropped.\n\n    * weight: The weight, or effect, of the assignment type on the learner's\n      final grade.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grades",
+                "v1",
+                "policy",
+                "courses",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6f7c61e-0685-46cc-b917-9c6bcc21555d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grades",
+                    "v1",
+                    "policy",
+                    "courses",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2326e5d-35fb-46a6-8183-994d1a580f66",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Get a list of all grades for all sections, optionally filtered by a course ID or list of usernames.\n\n**Example Requests**\n\n    GET /api/grades/v1/section_grades_breakdown\n\n    GET /api/grades/v1/section_grades_breakdown?course_id={course_id}\n\n    GET /api/grades/v1/section_grades_breakdown?username={username},{username},{username}\n\n    GET /api/grades/v1/section_grades_breakdown?course_id={course_id}&username={username}\n\n**Query Parameters for GET**\n\n    * course_id: Filters the result to course grade status for the course corresponding to the\n        given course ID. The value must be URL encoded. Optional.\n\n    * username: List of comma-separated usernames. Filters the result to the course grade status\n        of the given users. Optional.\n\n    * page_size: Number of results to return per page. Optional.\n\n**Response Values**\n\n    If the request for information about the course grade status is successful, an HTTP 200 \"OK\" response\n    is returned.\n\n    The HTTP 200 response has the following values.\n\n    * results: A list of the course grading status matching the request.\n\n        * course_id: Course ID of the course in the course grading status.\n\n        * user: Username of the user in the course enrollment.\n\n        * passed: Boolean flag for user passing the course.\n\n        * current_grade: An integer representing the current grade of the course.\n\n        * section_breakdown: A summary of each course section's grade.\n\n        A dictionary in the section_breakdown list has the following keys:\n            * percent: A float percentage for the section.\n            * label: A short string identifying the section. Preferably fixed-length. E.g. \"HW  3\".\n            * detail: A string explanation of the score. E.g. \"Homework 1 - Ohms Law - 83% (5/6)\"\n            * category: A string identifying the category.\n            * prominent: A boolean value indicating that this section should be displayed as more prominent\n                than other items.\n\n    * next: The URL to the next page of results, or null if this is the\n        last page.\n\n    * previous: The URL to the next page of results, or null if this\n        is the first page.\n\n    If the user is not logged in, a 401 error is returned.\n\n    If the user is not global staff, a 403 error is returned.\n\n    If the specified course_id is not valid or any of the specified usernames\n    are not valid, a 400 error is returned.\n\n    If the specified course_id does not correspond to a valid course or if all the specified\n    usernames do not correspond to valid users, an HTTP 200 \"OK\" response is returned with an\n    empty 'results' field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grades",
+                "v1",
+                "section_grades_breakdown",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "The pagination cursor value."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c5b0613-5211-4238-ba2c-81e14217f5f9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grades",
+                    "v1",
+                    "section_grades_breakdown",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddf18b21-34f7-49ad-b625-359e8359936f",
+          "name": "grades v1 submission history read",
+          "request": {
+            "name": "grades v1 submission history read",
+            "description": {
+              "content": "Get submission history details. This submission history is related to only\nProblemBlock and it doesn't support LegacyLibraryContentBlock or ContentLibraries\nas of now.\n\n**Usecases**:\n\n    Users with GlobalStaff status can retrieve everyone's submission history.\n\n**Example Requests**:\n\n    GET /api/grades/v1/submission_history/{course_id}\n    GET /api/grades/v1/submission_history/{course_id}/?username={username}\n\n**Query Parameters for GET**\n\n    * course_id: Course id to retrieve submission history.\n    * username: Single username for which this view will retrieve the submission history details.\n\n**Response Values**:\n\n    If there's an error while getting the submission history an empty response will\n    be returned.\n    The submission history response has the following attributes:\n\n        * Results: A list of submission history:\n            * course_id: Course id\n            * course_name: Course name\n            * user: Username\n            * problems: List of problems\n                * location: problem location\n                * name: problem's display name\n                * submission_history: List of submission history\n                    * state: State of submission.\n                    * grade: Grade.\n                    * max_grade: Maximum possible grade.\n                * data: problem's data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grades",
+                "v1",
+                "submission_history",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "444c5d54-6892-4d9d-b698-e1dcd5d13082",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grades",
+                    "v1",
+                    "submission_history",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a69cff5b-1100-40a6-b9a7-b60bd20ab60b",
+          "name": "grades v1 subsection read",
+          "request": {
+            "name": "grades v1 subsection read",
+            "description": {
+              "content": "Returns subection grade data, override grade data and a history of changes made to\na specific users specific subsection grade.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "grades",
+                "v1",
+                "subsection",
+                ":subsection_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subsection_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "473ce93d-d506-4201-8fc5-7924c93773a7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "grades",
+                    "v1",
+                    "subsection",
+                    ":subsection_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subsection_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "12e06419-dfc3-46fb-86b4-99289038a193",
+    "name": "Open edX agreements grades API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

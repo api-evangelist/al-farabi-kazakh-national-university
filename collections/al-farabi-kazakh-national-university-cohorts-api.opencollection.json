@@ -1,0 +1,248 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements cohorts API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cohorts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "cohorts_v1_courses_cohorts_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/cohorts/v1/courses/:course_key_string/cohorts/:cohort_id",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cohort_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Endpoint to get either one or all cohorts."
+        },
+        {
+          "info": {
+            "name": "cohorts_v1_courses_cohorts_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/cohorts/v1/courses/:course_key_string/cohorts/:cohort_id",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cohort_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Endpoint to create a new cohort, must not include cohort_id."
+        },
+        {
+          "info": {
+            "name": "cohorts_v1_courses_cohorts_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/cohorts/v1/courses/:course_key_string/cohorts/:cohort_id",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cohort_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Endpoint to update a cohort name and/or assignment type."
+        },
+        {
+          "info": {
+            "name": "cohorts_v1_courses_cohorts_users_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/cohorts/v1/courses/:course_key_string/cohorts/:cohort_id/users/:username",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cohort_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists the users in a specific cohort."
+        },
+        {
+          "info": {
+            "name": "cohorts_v1_courses_cohorts_users_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/cohorts/v1/courses/:course_key_string/cohorts/:cohort_id/users/:username",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cohort_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add given users to the cohort."
+        },
+        {
+          "info": {
+            "name": "cohorts_v1_courses_cohorts_users_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/cohorts/v1/courses/:course_key_string/cohorts/:cohort_id/users/:username",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "cohort_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Removes and user from a specific cohort."
+        },
+        {
+          "info": {
+            "name": "cohorts_v1_courses_users_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/cohorts/v1/courses/:course_key_string/users",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "View method that accepts an uploaded file (using key \"uploaded-file\")\ncontaining cohort assignments for users. This method spawns a celery task\nto do the assignments, and a CSV file with results is provided via data downloads."
+        },
+        {
+          "info": {
+            "name": "cohorts_v1_settings_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/cohorts/v1/settings/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Endpoint to fetch the course cohort settings."
+        },
+        {
+          "info": {
+            "name": "cohorts_v1_settings_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/cohorts/v1/settings/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Endpoint to set the course cohort settings."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements certificates API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "certificates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a paginated list of certificates for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/certificates/v0/certificates/:username/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "**Use Case**\n\nGet the list of viewable course certificates for a specific user.\n\n**Example Request**\n\nGET /api/certificates/v0/certificates/{username}\n\n**GET Response Values**\n\n    If the request for information about the user's certificates is successful,\n    an HTTP 200 \"OK\" response is returned.\n\n    The HTTP 200 response contains a list of dicts with the following keys/values.\n\n    * username: A string representation of an user's username passed in the request.\n\n    * course_id: A string rep"
+        },
+        {
+          "info": {
+            "name": "certificates_v0_certificates_courses_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/certificates/v0/certificates/:username/courses/:course_id/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieves certificate information for a user in a specified course run."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

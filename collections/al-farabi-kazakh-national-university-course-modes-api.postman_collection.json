@@ -1,0 +1,624 @@
+{
+  "item": [
+    {
+      "id": "84424762-1b27-43e0-bf92-5207eb395433",
+      "name": "course_modes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f285296-024c-4c56-b15b-ccc9e7ffaf60",
+          "name": "View to list or create course modes for a course.",
+          "request": {
+            "name": "View to list or create course modes for a course.",
+            "description": {
+              "content": "**Use Case**\n\n    List all course modes for a course, or create a new\n    course mode.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/\n\n        Returns a list of all existing course modes for a course.\n\n    POST /api/course_modes/v1/courses/{course_id}/\n\n        Creates a new course mode in a course.\n\n**Response Values**\n\n    For each HTTP verb below, an HTTP 404 \"Not Found\" response is returned if the\n    requested course id does not exist.\n\n    GET: If the request is successful, an HTTP 200 \"OK\" response is returned\n    along with a list of course mode dictionaries within a course.\n    The details are contained in a JSON dictionary as follows:\n\n      * course_id: The course identifier.\n      * mode_slug: The short name for the course mode.\n      * mode_display_name: The verbose name for the course mode.\n      * min_price: The minimum price for which a user can\n        enroll in this mode.\n      * currency: The currency of the listed prices.\n      * expiration_datetime: The date and time after which\n        users cannot enroll in the course in this mode (not required for POST).\n      * expiration_datetime_is_explicit: Whether the expiration_datetime field was\n        explicitly set (not required for POST).\n      * description: A description of this mode (not required for POST).\n      * sku: The SKU for this mode (for ecommerce purposes, not required for POST).\n      * bulk_sku: The bulk SKU for this mode (for ecommerce purposes, not required for POST).\n\n    POST: If the request is successful, an HTTP 201 \"Created\" response is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_modes",
+                "v1",
+                "courses",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00bb56f2-1c73-4483-84be-7ac458d91999",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_modes",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"course_id\": \"string\",\n    \"mode_slug\": \"string\",\n    \"mode_display_name\": \"string\",\n    \"currency\": \"string\",\n    \"min_price\": 9329,\n    \"expiration_datetime\": \"1957-11-10T15:23:54.919Z\",\n    \"expiration_datetime_is_explicit\": false,\n    \"description\": \"string\",\n    \"sku\": \"string\",\n    \"bulk_sku\": \"string\"\n  },\n  {\n    \"course_id\": \"string\",\n    \"mode_slug\": \"string\",\n    \"mode_display_name\": \"string\",\n    \"currency\": \"string\",\n    \"min_price\": 4629,\n    \"expiration_datetime\": \"1977-07-02T01:07:36.562Z\",\n    \"expiration_datetime_is_explicit\": false,\n    \"description\": \"string\",\n    \"sku\": \"string\",\n    \"bulk_sku\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9690a09-8670-4cec-9dd5-cb97c26b2b64",
+          "name": "View to list or create course modes for a course.",
+          "request": {
+            "name": "View to list or create course modes for a course.",
+            "description": {
+              "content": "**Use Case**\n\n    List all course modes for a course, or create a new\n    course mode.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/\n\n        Returns a list of all existing course modes for a course.\n\n    POST /api/course_modes/v1/courses/{course_id}/\n\n        Creates a new course mode in a course.\n\n**Response Values**\n\n    For each HTTP verb below, an HTTP 404 \"Not Found\" response is returned if the\n    requested course id does not exist.\n\n    GET: If the request is successful, an HTTP 200 \"OK\" response is returned\n    along with a list of course mode dictionaries within a course.\n    The details are contained in a JSON dictionary as follows:\n\n      * course_id: The course identifier.\n      * mode_slug: The short name for the course mode.\n      * mode_display_name: The verbose name for the course mode.\n      * min_price: The minimum price for which a user can\n        enroll in this mode.\n      * currency: The currency of the listed prices.\n      * expiration_datetime: The date and time after which\n        users cannot enroll in the course in this mode (not required for POST).\n      * expiration_datetime_is_explicit: Whether the expiration_datetime field was\n        explicitly set (not required for POST).\n      * description: A description of this mode (not required for POST).\n      * sku: The SKU for this mode (for ecommerce purposes, not required for POST).\n      * bulk_sku: The bulk SKU for this mode (for ecommerce purposes, not required for POST).\n\n    POST: If the request is successful, an HTTP 201 \"Created\" response is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_modes",
+                "v1",
+                "courses",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course_id\": \"<string>\",\n  \"mode_slug\": \"<string>\",\n  \"mode_display_name\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"min_price\": \"<integer>\",\n  \"expiration_datetime\": \"<dateTime>\",\n  \"expiration_datetime_is_explicit\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"bulk_sku\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "23a2e3c9-75ac-47b8-951c-44aea8e5f2d3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_modes",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"course_id\": \"<string>\",\n  \"mode_slug\": \"<string>\",\n  \"mode_display_name\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"min_price\": \"<integer>\",\n  \"expiration_datetime\": \"<dateTime>\",\n  \"expiration_datetime_is_explicit\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"bulk_sku\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_id\": \"<string>\",\n  \"mode_slug\": \"<string>\",\n  \"mode_display_name\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"min_price\": \"<integer>\",\n  \"expiration_datetime\": \"<dateTime>\",\n  \"expiration_datetime_is_explicit\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"bulk_sku\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25377399-7120-4830-85d4-aa50dd3772bd",
+          "name": "View to retrieve, update, or delete a specific course mode for a course.",
+          "request": {
+            "name": "View to retrieve, update, or delete a specific course mode for a course.",
+            "description": {
+              "content": "**Use Case**\n\n    Get or update course mode details for a specific course mode on a course.\n    Or you may delete a specific course mode from a course.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Returns details on an existing course mode for a course.\n\n    PATCH /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Updates (via merge) details of an existing course mode for a course.\n\n    DELETE /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Deletes an existing course mode for a course.\n\n**Response Values**\n\n    For each HTTP verb below, an HTTP 404 \"Not Found\" response is returned if the\n    requested course id does not exist, or the mode slug does not exist within the course.\n\n    GET: If the request is successful, an HTTP 200 \"OK\" response is returned\n    along with a details for a single course mode within a course.  The details are contained\n    in a JSON dictionary as follows:\n\n      * course_id: The course identifier.\n      * mode_slug: The short name for the course mode.\n      * mode_display_name: The verbose name for the course mode.\n      * min_price: The minimum price for which a user can\n        enroll in this mode.\n      * currency: The currency of the listed prices.\n      * expiration_datetime: The date and time after which\n        users cannot enroll in the course in this mode (not required for PATCH).\n      * expiration_datetime_is_explicit: Whether the expiration_datetime field was\n        explicitly set (not required for PATCH).\n      * description: A description of this mode (not required for PATCH).\n      * sku: The SKU for this mode (for ecommerce purposes, not required for PATCH).\n      * bulk_sku: The bulk SKU for this mode (for ecommerce purposes, not required for PATCH).\n\n    PATCH: If the request is successful, an HTTP 204 \"No Content\" response is returned.\n    If \"application/merge-patch+json\" is not the specified content type,\n    a 415 \"Unsupported Media Type\" response is returned.\n\n    DELETE: If the request is successful, an HTTP 204 \"No Content\" response is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_modes",
+                "v1",
+                "courses",
+                ":course_id",
+                ":mode_slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mode_slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7204cb3-3727-41e4-8fad-68fcd0c6f2c6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_modes",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    ":mode_slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mode_slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_id\": \"<string>\",\n  \"mode_slug\": \"<string>\",\n  \"mode_display_name\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"min_price\": \"<integer>\",\n  \"expiration_datetime\": \"<dateTime>\",\n  \"expiration_datetime_is_explicit\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"bulk_sku\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9b4fd21-3a02-4f5c-9968-6fd43ce53703",
+          "name": "course modes v1 courses partial update",
+          "request": {
+            "name": "course modes v1 courses partial update",
+            "description": {
+              "content": "Performs a partial update of a CourseMode instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_modes",
+                "v1",
+                "courses",
+                ":course_id",
+                ":mode_slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mode_slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/merge-patch+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course_id\": \"<string>\",\n  \"mode_slug\": \"<string>\",\n  \"mode_display_name\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"min_price\": \"<integer>\",\n  \"expiration_datetime\": \"<dateTime>\",\n  \"expiration_datetime_is_explicit\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"bulk_sku\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d1311b8-1882-41a3-8352-a5a1102ea121",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_modes",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    ":mode_slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mode_slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"course_id\": \"<string>\",\n  \"mode_slug\": \"<string>\",\n  \"mode_display_name\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"min_price\": \"<integer>\",\n  \"expiration_datetime\": \"<dateTime>\",\n  \"expiration_datetime_is_explicit\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"bulk_sku\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_id\": \"<string>\",\n  \"mode_slug\": \"<string>\",\n  \"mode_display_name\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"min_price\": \"<integer>\",\n  \"expiration_datetime\": \"<dateTime>\",\n  \"expiration_datetime_is_explicit\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"bulk_sku\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99252b62-f133-461c-a375-0b012dc2fb00",
+          "name": "View to retrieve, update, or delete a specific course mode for a course.",
+          "request": {
+            "name": "View to retrieve, update, or delete a specific course mode for a course.",
+            "description": {
+              "content": "**Use Case**\n\n    Get or update course mode details for a specific course mode on a course.\n    Or you may delete a specific course mode from a course.\n\n**Example Requests**\n\n    GET /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Returns details on an existing course mode for a course.\n\n    PATCH /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Updates (via merge) details of an existing course mode for a course.\n\n    DELETE /api/course_modes/v1/courses/{course_id}/{mode_slug}\n\n        Deletes an existing course mode for a course.\n\n**Response Values**\n\n    For each HTTP verb below, an HTTP 404 \"Not Found\" response is returned if the\n    requested course id does not exist, or the mode slug does not exist within the course.\n\n    GET: If the request is successful, an HTTP 200 \"OK\" response is returned\n    along with a details for a single course mode within a course.  The details are contained\n    in a JSON dictionary as follows:\n\n      * course_id: The course identifier.\n      * mode_slug: The short name for the course mode.\n      * mode_display_name: The verbose name for the course mode.\n      * min_price: The minimum price for which a user can\n        enroll in this mode.\n      * currency: The currency of the listed prices.\n      * expiration_datetime: The date and time after which\n        users cannot enroll in the course in this mode (not required for PATCH).\n      * expiration_datetime_is_explicit: Whether the expiration_datetime field was\n        explicitly set (not required for PATCH).\n      * description: A description of this mode (not required for PATCH).\n      * sku: The SKU for this mode (for ecommerce purposes, not required for PATCH).\n      * bulk_sku: The bulk SKU for this mode (for ecommerce purposes, not required for PATCH).\n\n    PATCH: If the request is successful, an HTTP 204 \"No Content\" response is returned.\n    If \"application/merge-patch+json\" is not the specified content type,\n    a 415 \"Unsupported Media Type\" response is returned.\n\n    DELETE: If the request is successful, an HTTP 204 \"No Content\" response is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_modes",
+                "v1",
+                "courses",
+                ":course_id",
+                ":mode_slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mode_slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25ed6c01-f1c2-4626-b1b0-400210705d9a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_modes",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    ":mode_slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mode_slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7c6825e0-f57c-421c-81ea-1aae710717f8",
+    "name": "Open edX agreements course_modes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

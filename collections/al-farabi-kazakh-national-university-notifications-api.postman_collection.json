@@ -1,0 +1,1101 @@
+{
+  "item": [
+    {
+      "id": "2b9e5677-f77b-4289-82b7-6e26d3c8061e",
+      "name": "notifications",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "92a04480-228d-48dc-9a89-f094eb394c69",
+          "name": "API view for listing notifications for a user.",
+          "request": {
+            "name": "API view for listing notifications for a user.",
+            "description": {
+              "content": "**Permissions**: User must be authenticated.\n**Response Format** (paginated):\n\n    {\n        \"results\" : [\n            {\n                \"id\": (int) notification_id,\n                \"app_name\": (str) app_name,\n                \"notification_type\": (str) notification_type,\n                \"content\": (str) content,\n                \"content_context\": (dict) content_context,\n                \"content_url\": (str) content_url,\n                \"last_read\": (datetime) last_read,\n                \"last_seen\": (datetime) last_seen\n            },\n            ...\n        ],\n        \"count\": (int) total_number_of_notifications,\n        \"next\": (str) url_to_next_page_of_notifications,\n        \"previous\": (str) url_to_previous_page_of_notifications,\n        \"page_size\": (int) number_of_notifications_per_page,\n\n    }\n\nResponse Error Codes:\n- 403: The requester cannot access resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d58b1189-9b54-4e1e-ab91-a8c9d6991c2b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6057,\n  \"results\": [\n    {\n      \"app_name\": \"string\",\n      \"notification_type\": \"string\",\n      \"id\": 9467,\n      \"content_context\": {},\n      \"content\": \"string\",\n      \"content_url\": \"http://mweEQGBogggRdLsOKVxZjugOPvYoUTV.eevoDGt6Ym8V2dUCMpbfEE6BurV\",\n      \"course_id\": \"string\",\n      \"last_read\": \"2023-11-27T21:54:12.186Z\",\n      \"last_seen\": \"1947-05-18T19:18:16.599Z\",\n      \"created\": \"1971-01-29T23:26:39.356Z\"\n    },\n    {\n      \"app_name\": \"st\",\n      \"notification_type\": \"strin\",\n      \"id\": 4000,\n      \"content_context\": {},\n      \"content\": \"string\",\n      \"content_url\": \"https://bpjzfyfTNKuVjCeIexOQCHehW.vycS6kulMp\",\n      \"course_id\": \"string\",\n      \"last_read\": \"1987-12-29T22:08:13.048Z\",\n      \"last_seen\": \"2004-07-30T21:03:57.090Z\",\n      \"created\": \"1963-03-29T05:56:45.766Z\"\n    }\n  ],\n  \"next\": \"http://KpYPASiejebdlqYIarVKdZaU.uwippj66lAQX-mzD.rLqGaluQZ9fIA.XKNAocQE\",\n  \"previous\": \"https://gDFVzzIajEFEnLOpNHpM.yppsSVlvCgIGVrXBYjWiDDQ9,PVhOTOmXN8\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "201796e4-ad26-4460-a203-f8c58e1a61a6",
+          "name": "notifications configurations list",
+          "request": {
+            "name": "notifications configurations list",
+            "description": {
+              "content": "API view for getting the aggregate notification preferences for the current user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "configurations",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a52de202-1dd6-4611-869e-f1ae9f61308d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "configurations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "341892bb-e763-4310-9567-b7d87c8b2d19",
+          "name": "Returns notification preference for user for a course.",
+          "request": {
+            "name": "Returns notification preference for user for a course.",
+            "description": {
+              "content": "Parameters:\n     request (Request): The request object.\n     course_key_string (int): The ID of the course to retrieve notification preference.\n\n Returns:\n     {\n        'id': 1,\n        'course_name': 'testcourse',\n        'course_id': 'course-v1:testorg+testcourse+testrun',\n        'notification_preference_config': {\n            'discussion': {\n                'enabled': False,\n                'core': {\n                    'info': '',\n                    'web': False,\n                    'push': False,\n                    'email': False,\n                },\n                'notification_types': {\n                    'new_post': {\n                        'info': '',\n                        'web': False,\n                        'push': False,\n                        'email': False,\n                    },\n                },\n                'not_editable': {},\n            },\n        }\n    }",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "configurations",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20f0fa6f-56bd-4730-ab9c-eaa83dff7cc8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "configurations",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f456036-a012-4651-89ca-b000b695164c",
+          "name": "notifications configurations partial update",
+          "request": {
+            "name": "notifications configurations partial update",
+            "description": {
+              "content": "Update an existing user notification preference with the data in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "configurations",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "198fb9e2-f1f2-4e3e-a9fa-358ca43355e4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "configurations",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcf89630-470e-4bc7-b279-ae1f20cf6541",
+          "name": "Get the unseen notifications count and show_notification_tray flag for a user.",
+          "request": {
+            "name": "Get the unseen notifications count and show_notification_tray flag for a user.",
+            "description": {
+              "content": "**Permissions**: User must be authenticated.\n**Response Format**:\n```json\n{\n    \"show_notifications_tray\": (bool) show_notifications_tray,\n    \"count\": (int) total_number_of_unseen_notifications,\n    \"count_by_app_name\": {\n        (str) app_name: (int) number_of_unseen_notifications,\n        ...\n    },\n    \"notification_expiry_days\": 60\n}\n```\n**Response Error Codes**:\n- 403: The requester cannot access resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "count",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1068da49-16ab-46e8-b07a-d5cb3ed2f9dc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "count",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d7de7b7-5455-4fe7-bf60-7ff53a3c5c19",
+          "name": "API endpoint to get active CourseEnrollments for requester.",
+          "request": {
+            "name": "API endpoint to get active CourseEnrollments for requester.",
+            "description": {
+              "content": "**Permissions**: User must be authenticated.\n**Response Format** (paginated):\n\n    {\n        \"next\": (str) url_to_next_page_of_courses,\n        \"previous\": (str) url_to_previous_page_of_courses,\n        \"count\": (int) total_number_of_courses,\n        \"num_pages\": (int) total_number_of_pages,\n        \"current_page\": (int) current_page_number,\n        \"start\": (int) index_of_first_course_on_page,\n        \"results\" : [\n            {\n                \"course\": {\n                    \"id\": (int) course_id,\n                    \"display_name\": (str) course_display_name\n                },\n            },\n            ...\n        ],\n    }\n\nResponse Error Codes:\n- 403: The requester cannot access resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "978d8685-6bae-4187-88bc-00b2c5f3624f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3160,\n  \"results\": [\n    {\n      \"course\": {\n        \"id\": \"string\",\n        \"display_name\": \"string\"\n      }\n    },\n    {\n      \"course\": {\n        \"id\": \"string\",\n        \"display_name\": \"string\"\n      }\n    }\n  ],\n  \"next\": \"https://ucBME.xbpqySqRjpnvsycH,Gi6UQQWPsXV78rsFbDM,tqRAOo4gPm4P0mM02,zFM4JjfROV9+iAw5aatbJtCjNmY\",\n  \"previous\": \"http://xm.tpzxTKPHFCH3geiE.L.D,A\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "defb6ff2-c7a9-4150-9400-f230520a0ab8",
+          "name": "notifications mark-seen update",
+          "request": {
+            "name": "notifications mark-seen update",
+            "description": {
+              "content": "API view for marking user's all notifications seen for a provided app_name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "mark-seen",
+                ":app_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c783b99-1726-47b5-a2f2-fafa9b592339",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "mark-seen",
+                    ":app_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad5d6466-84d6-4633-a352-8914a9e83501",
+          "name": "notifications mark-seen partial update",
+          "request": {
+            "name": "notifications mark-seen partial update",
+            "description": {
+              "content": "API view for marking user's all notifications seen for a provided app_name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "mark-seen",
+                ":app_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80a4c8da-442a-4429-8e3e-8bf158b5f7bd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "mark-seen",
+                    ":app_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fcd66703-f62a-411f-bf2c-8652a5f40cde",
+          "name": "notifications preferences update-all create",
+          "request": {
+            "name": "notifications preferences update-all create",
+            "description": {
+              "content": "Update all notification preferences for the current user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "preferences",
+                "update-all",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f678d16-a18a-4f73-accb-703bcad9adf4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "preferences",
+                    "update-all",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f7bb7b5-160c-4faa-8de3-a4db450a6bb4",
+          "name": "notifications preferences update read",
+          "request": {
+            "name": "notifications preferences update read",
+            "description": {
+              "content": "View to update user preferences from encrypted username and patch.\nusername and patch must be string",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "preferences",
+                "update",
+                ":username",
+                ":patch",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "patch",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c23c052-b933-4482-9fae-c59b9c885845",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "preferences",
+                    "update",
+                    ":username",
+                    ":patch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "patch",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2c6f335-fd8a-49c0-a2ad-aca84ff2e9b6",
+          "name": "notifications preferences update create",
+          "request": {
+            "name": "notifications preferences update create",
+            "description": {
+              "content": "View to update user preferences from encrypted username and patch.\nusername and patch must be string",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "preferences",
+                "update",
+                ":username",
+                ":patch",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "patch",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "596ad673-4ffd-4aec-8f39-c93e4eec4241",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "preferences",
+                    "update",
+                    ":username",
+                    ":patch",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "patch",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75f81654-565b-417d-a57a-aca07facaaeb",
+          "name": "notifications read partial update",
+          "request": {
+            "name": "notifications read partial update",
+            "description": {
+              "content": "Marks all notifications or single notification read for the given\napp name or notification id for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "notifications",
+                "read",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fed311b6-6b29-4751-a1b2-ca196e2ae7cd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    "read",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a7f643fd-0b1c-4646-99b4-b1424c29aedc",
+    "name": "Open edX agreements notifications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

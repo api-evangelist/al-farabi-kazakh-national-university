@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements completion API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "completion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Inserts a batch of completions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/completion/v1/completion-batch"
+          },
+          "docs": "REST Endpoint Format:\n```\n{\n  \"username\": \"username\",\n  \"course_key\": \"course-key\",\n  \"blocks\": {\n    \"block_key1\": 0.0,\n    \"block_key2\": 1.0,\n    \"block_key3\": 1.0,\n  }\n}\n```\n\n**Returns**\n\nA Response object, with an appropriate status code.\n\nIf successful, status code is 200.\n```\n{\n   \"detail\" : _(\"ok\")\n}\n```\n\nOtherwise, a 400 or 404 may be returned, and the \"detail\" content will explain the error."
+        },
+        {
+          "info": {
+            "name": "completion_v1_subsection-completion_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/completion/v1/subsection-completion/:username/:course_key/:subsection_id",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "course_key",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subsection_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns completion for a (user, subsection, course)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

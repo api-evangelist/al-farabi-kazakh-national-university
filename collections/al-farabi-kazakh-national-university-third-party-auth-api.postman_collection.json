@@ -1,0 +1,403 @@
+{
+  "item": [
+    {
+      "id": "936d5a10-6747-4c96-841c-867f455eb51b",
+      "name": "third_party_auth",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "94fe515f-d6c2-4089-8581-f746e7c10a4b",
+          "name": "GET /api/third_party_auth/v0/providers/user_status/",
+          "request": {
+            "name": "GET /api/third_party_auth/v0/providers/user_status/",
+            "description": {
+              "content": "**GET Response Values**\n```\n{\n    \"accepts_logins\": true,\n    \"name\": \"Google\",\n    \"disconnect_url\": \"/auth/disconnect/google-oauth2/?\",\n    \"connect_url\": \"/auth/login/google-oauth2/?auth_entry=account_settings&next=%2Faccount%2Fsettings\",\n    \"connected\": false,\n    \"id\": \"oa2-google-oauth2\"\n}\n```",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "third_party_auth",
+                "v0",
+                "providers",
+                "user_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3126ac86-75d9-4db8-8380-0fa8f18b9cca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "third_party_auth",
+                    "v0",
+                    "providers",
+                    "user_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cab96d66-2c82-4edc-8266-e941f8047d15",
+          "name": "Map between the third party auth account IDs (remote_id) and EdX username.",
+          "request": {
+            "name": "Map between the third party auth account IDs (remote_id) and EdX username.",
+            "description": {
+              "content": "This API is intended to be a server-to-server endpoint. An on-campus middleware or system should consume this.\n\n**Use Case**\n\n    Get a paginated list of mappings between edX users and remote user IDs for all users currently\n    linked to the given backend.\n\n    The list can be filtered by edx username or third party ids. The filter is limited by the max length of URL.\n    It is suggested to query no more than 50 usernames or remote_ids in each request to stay within above\n    limitation\n\n    The page size can be changed by specifying `page_size` parameter in the request.\n\n**Example Requests**\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users?username={username1},{username2}\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users?username={username1}&usernames={username2}\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users?remote_id={remote_id1},{remote_id2}\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users?remote_id={remote_id1}&remote_id={remote_id2}\n\n      GET /api/third_party_auth/v0/providers/{provider_id}/users?username={username1}&remote_id={remote_id1}\n\n**URL Parameters**\n\n    * provider_id: The unique identifier of third_party_auth provider (e.g. \"saml-ubc\", \"oa2-google\", etc.\n      This is not the same thing as the backend_name.). (Optional/future: We may also want to allow\n      this to be an 'external domain' like 'ssl:MIT' so that this API can also search the legacy\n      ExternalAuthMap table used by Standford/MIT)\n\n**Query Parameters**\n\n    * remote_ids: Optional. List of comma separated remote (third party) user IDs to filter the result set.\n      e.g. ?remote_ids=8721384623\n\n    * usernames: Optional. List of comma separated edX usernames to filter the result set.\n      e.g. ?usernames=bob123,jane456\n\n    * page, page_size: Optional. Used for paging the result set, especially when getting\n      an unfiltered list.\n\n**Response Values**\n\n    If the request for information about the user is successful, an HTTP 200 \"OK\" response\n    is returned.\n\n    The HTTP 200 response has the following values:\n\n    * count: The number of mappings for the backend.\n\n    * next: The URI to the next page of the mappings.\n\n    * previous: The URI to the previous page of the mappings.\n\n    * num_pages: The number of pages listing the mappings.\n\n    * results:  A list of mappings returned. Each collection in the list\n      contains these fields.\n\n        * username: The edx username\n\n        * remote_id: The Id from third party auth provider",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "third_party_auth",
+                "v0",
+                "providers",
+                ":provider_id",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b7e0efc-4bf5-4832-ae0f-7b3ad00ecf49",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "third_party_auth",
+                    "v0",
+                    "providers",
+                    ":provider_id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3141,\n  \"results\": [\n    {\n      \"username\": \"string\",\n      \"remote_id\": \"string\"\n    },\n    {\n      \"username\": \"string\",\n      \"remote_id\": \"string\"\n    }\n  ],\n  \"next\": \"http://oJx.jhwhb-WdD1uxCCI0zyVCDb,uY04jRh6gRPZhLHUH0n\",\n  \"previous\": \"https://rqIHBHjeLJWyQJpyBkToqkSQKUJZmLYpH.eyIwIpNTsTkvsNy5RPpg9m-pXS7KRH+jV+2zdYafKUDZMjns1.6YXFLOvX\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e20e4726-3619-4711-b433-c18b0bad8ab1",
+          "name": "Read provider information for a user.",
+          "request": {
+            "name": "Read provider information for a user.",
+            "description": {
+              "content": "Allows reading the list of providers for a specified user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "third_party_auth",
+                "v0",
+                "users",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06964a5e-6118-49de-96b7-e3654ae59dde",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "third_party_auth",
+                    "v0",
+                    "users",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22f373d3-147d-48b4-b8a9-0574904b14e4",
+          "name": "Read provider information for a user.",
+          "request": {
+            "name": "Read provider information for a user.",
+            "description": {
+              "content": "Allows reading the list of providers for a specified user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "third_party_auth",
+                "v0",
+                "users",
+                ":username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5414fdbe-6128-4359-8f8b-36e252f8c01f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "third_party_auth",
+                    "v0",
+                    "users",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d874a3ed-bdb0-4d57-bcdc-ff71a424af77",
+    "name": "Open edX agreements third_party_auth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

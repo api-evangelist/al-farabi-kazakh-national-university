@@ -1,0 +1,225 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements grades API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "grades",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "grades_v1_courses_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/grades/v1/courses/",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The pagination cursor value."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Gets a course progress status."
+        },
+        {
+          "info": {
+            "name": "grades_v1_courses_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/grades/v1/courses/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets a course progress status."
+        },
+        {
+          "info": {
+            "name": "grades_v1_gradebook_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/grades/v1/gradebook/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Checks for course author access for the given course by the requesting user.\nCalls the view function if has access, otherwise raises a 403."
+        },
+        {
+          "info": {
+            "name": "grades_v1_gradebook_bulk-update_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/grades/v1/gradebook/:course_id/bulk-update",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Checks for course author access for the given course by the requesting user.\nCalls the view function if has access, otherwise raises a 403."
+        },
+        {
+          "info": {
+            "name": "grades_v1_gradebook_grading-info_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/grades/v1/gradebook/:course_id/grading-info",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Checks for course author access for the given course by the requesting user.\nCalls the view function if has access, otherwise raises a 403."
+        },
+        {
+          "info": {
+            "name": "**Use Case**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/grades/v1/policy/courses/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Get the course grading policy.\n\n**Example requests**:\n\n    GET /api/grades/v1/policy/courses/{course_id}/\n\n**Response Values**\n\n    * assignment_type: The type of the assignment, as configured by course\n      staff. For example, course staff might make the assignment types Homework,\n      Quiz, and Exam.\n\n    * count: The number of assignments of the type.\n\n    * dropped: Number of assignments of the type that are dropped.\n\n    * weight: The weight, or effect, of the assignment type on the learn"
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/grades/v1/section_grades_breakdown/",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "The pagination cursor value."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Get a list of all grades for all sections, optionally filtered by a course ID or list of usernames.\n\n**Example Requests**\n\n    GET /api/grades/v1/section_grades_breakdown\n\n    GET /api/grades/v1/section_grades_breakdown?course_id={course_id}\n\n    GET /api/grades/v1/section_grades_breakdown?username={username},{username},{username}\n\n    GET /api/grades/v1/section_grades_breakdown?course_id={course_id}&username={username}\n\n**Query Parameters for GET**\n\n    * course_id: Filters the result to course"
+        },
+        {
+          "info": {
+            "name": "grades_v1_submission_history_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/grades/v1/submission_history/:course_id/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get submission history details. This submission history is related to only\nProblemBlock and it doesn't support LegacyLibraryContentBlock or ContentLibraries\nas of now.\n\n**Usecases**:\n\n    Users with GlobalStaff status can retrieve everyone's submission history.\n\n**Example Requests**:\n\n    GET /api/grades/v1/submission_history/{course_id}\n    GET /api/grades/v1/submission_history/{course_id}/?username={username}\n\n**Query Parameters for GET**\n\n    * course_id: Course id to retrieve submission hist"
+        },
+        {
+          "info": {
+            "name": "grades_v1_subsection_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/grades/v1/subsection/:subsection_id/",
+            "params": [
+              {
+                "name": "subsection_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns subection grade data, override grade data and a history of changes made to\na specific users specific subsection grade."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

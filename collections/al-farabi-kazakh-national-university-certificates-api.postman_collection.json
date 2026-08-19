@@ -1,0 +1,245 @@
+{
+  "item": [
+    {
+      "id": "9df30839-ebb5-4278-bec1-dd5229c10718",
+      "name": "certificates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5caddef6-29f8-4be9-a03d-5f859c943181",
+          "name": "Get a paginated list of certificates for a user.",
+          "request": {
+            "name": "Get a paginated list of certificates for a user.",
+            "description": {
+              "content": "**Use Case**\n\nGet the list of viewable course certificates for a specific user.\n\n**Example Request**\n\nGET /api/certificates/v0/certificates/{username}\n\n**GET Response Values**\n\n    If the request for information about the user's certificates is successful,\n    an HTTP 200 \"OK\" response is returned.\n\n    The HTTP 200 response contains a list of dicts with the following keys/values.\n\n    * username: A string representation of an user's username passed in the request.\n\n    * course_id: A string representation of a Course ID.\n\n    * course_display_name: A string representation of the Course name.\n\n    * course_organization: A string representation of the organization associated with the Course.\n\n    * certificate_type: A string representation of the certificate type.\n        Can be honor|verified|professional\n\n    * created_date: Date/time the certificate was created, in ISO-8661 format.\n\n    * status: A string representation of the certificate status.\n\n    * is_passing: True if the certificate has a passing status, False if not.\n\n    * download_url: A string representation of the certificate url.\n\n    * grade: A string representation of a float for the user's course grade.\n\n**Example GET Response**\n\n    [{\n        \"username\": \"bob\",\n        \"course_id\": \"edX/DemoX/Demo_Course\",\n        \"certificate_type\": \"verified\",\n        \"created_date\": \"2015-12-03T13:14:28+0000\",\n        \"status\": \"downloadable\",\n        \"is_passing\": true,\n        \"download_url\": \"http://www.example.com/cert.pdf\",\n        \"grade\": \"0.98\"\n    }]",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                "v0",
+                "certificates",
+                ":username",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The users to get certificates for"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "beb8931b-3377-448e-9184-4d26aead409d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    "v0",
+                    "certificates",
+                    ":username",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The users to get certificates for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02eaa3da-4c02-47db-982d-cb46a48a4ee9",
+          "name": "certificates v0 certificates courses read",
+          "request": {
+            "name": "certificates v0 certificates courses read",
+            "description": {
+              "content": "Retrieves certificate information for a user in a specified course run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                "v0",
+                "certificates",
+                ":username",
+                "courses",
+                ":course_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8142a7e0-8a38-489a-8fda-7b0b6d692075",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    "v0",
+                    "certificates",
+                    ":username",
+                    "courses",
+                    ":course_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f6c6c159-5b78-4381-a9b6-01750c8f13d6",
+    "name": "Open edX agreements certificates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

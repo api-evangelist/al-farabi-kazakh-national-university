@@ -1,0 +1,1426 @@
+{
+  "item": [
+    {
+      "id": "a0ee4a1b-7baa-4017-baca-3a7757773d03",
+      "name": "team",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0fdbf2c1-2c77-4d2b-b024-4bd45d3dff9f",
+          "name": "team v0 bulk team membership read",
+          "request": {
+            "name": "team v0 bulk team membership read",
+            "description": {
+              "content": "Download CSV with team membership data for given course run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "bulk_team_membership",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cdef38c9-c094-4e8e-bb2d-28ef50a28fe5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "bulk_team_membership",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "225abc8b-4daa-4172-a864-2d2ad572b38d",
+          "name": "team v0 bulk team membership create",
+          "request": {
+            "name": "team v0 bulk team membership create",
+            "description": {
+              "content": "Process uploaded CSV to modify team memberships for given course run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "bulk_team_membership",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77fa385b-c501-4a65-906c-ddc263030b09",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "bulk_team_membership",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a086109a-b7a6-47ab-b58e-d29462571364",
+          "name": "team v0 team membership list",
+          "request": {
+            "name": "team v0 team membership list",
+            "description": {
+              "content": "GET /api/team/v0/team_membership",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "team_membership",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5e461e4-9d87-46b6-b973-babbea1eecb8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "team_membership",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 7931,\n  \"results\": [\n    {\n      \"user\": \"string\",\n      \"team\": \"string\",\n      \"date_joined\": \"2024-06-29T22:51:16.437Z\",\n      \"last_activity_at\": \"1961-11-01T13:27:47.034Z\"\n    },\n    {\n      \"user\": \"string\",\n      \"team\": \"string\",\n      \"date_joined\": \"2017-02-28T07:27:34.038Z\",\n      \"last_activity_at\": \"1959-11-21T22:42:44.676Z\"\n    }\n  ],\n  \"next\": \"http://LDByP.aiYHCar2YKDNDyWL.WL7MGUZ\",\n  \"previous\": \"https://kKMMdf.jbjyBkwOlEDp1.EOu6hpVFjtZ6RtTsIcxYjjAUbKz0VdX-s.xUOiELdTbzUScJjb6Gd1ol+LJowhVNi\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46310277-e86f-4c05-a98c-76326109ffb4",
+          "name": "team v0 team membership create",
+          "request": {
+            "name": "team v0 team membership create",
+            "description": {
+              "content": "POST /api/team/v0/team_membership",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "team_membership",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"<string>\",\n  \"team\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fee17084-3bea-415d-b16a-2dc778b230c8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "team_membership",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<string>\",\n  \"team\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": \"<string>\",\n  \"team\": \"<string>\",\n  \"date_joined\": \"1978-03-13T12:45:10.188Z\",\n  \"last_activity_at\": \"1959-12-21T16:34:06.634Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e6dc36c-40b0-44d3-93ab-5446042560fa",
+          "name": "team v0 team membership read",
+          "request": {
+            "name": "team v0 team membership read",
+            "description": {
+              "content": "GET /api/team/v0/team_membership/{team_id},{username}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "team_membership",
+                "{{team_id}},{{username}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9ce8464-084c-4916-bc1b-1498398bd0ed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "team_membership",
+                    "{{team_id}},{{username}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": \"<string>\",\n  \"team\": \"<string>\",\n  \"date_joined\": \"1978-03-13T12:45:10.188Z\",\n  \"last_activity_at\": \"1959-12-21T16:34:06.634Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6acf0f5f-ccd1-40b7-a01b-8c3e023e6c08",
+          "name": "team v0 team membership delete",
+          "request": {
+            "name": "team v0 team membership delete",
+            "description": {
+              "content": "DELETE /api/team/v0/team_membership/{team_id},{username}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "team_membership",
+                "{{team_id}},{{username}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c35d0c2d-ff5d-4414-a8ae-ff7d759c2e3b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "team_membership",
+                    "{{team_id}},{{username}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "705e61a0-9629-4d12-a032-cf17a282ce29",
+          "name": "team v0 teams list",
+          "request": {
+            "name": "team v0 teams list",
+            "description": {
+              "content": "GET /api/team/v0/teams/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "teams",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db607c27-5fab-4250-a6d3-817fa5d92afa",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "teams",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1791,\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"country\": \"string\",\n      \"id\": \"string\",\n      \"discussion_topic_id\": \"jHM\",\n      \"course_id\": \"string\",\n      \"topic_id\": \"string\",\n      \"date_created\": \"2003-08-08T00:29:43.005Z\",\n      \"language\": \"fi\",\n      \"last_activity_at\": \"1955-09-08T01:52:17.107Z\",\n      \"membership\": [\n        {\n          \"user\": \"string\",\n          \"date_joined\": \"1984-03-10T13:02:53.136Z\",\n          \"last_activity_at\": \"1985-08-20T14:31:16.036Z\"\n        },\n        {\n          \"user\": \"string\",\n          \"date_joined\": \"2006-01-09T00:43:36.060Z\",\n          \"last_activity_at\": \"1951-04-08T04:28:02.413Z\"\n        }\n      ],\n      \"organization_protected\": false\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"country\": \"string\",\n      \"id\": \"string\",\n      \"discussion_topic_id\": \"NL6oWb1SM\",\n      \"course_id\": \"string\",\n      \"topic_id\": \"string\",\n      \"date_created\": \"1984-08-10T13:33:53.084Z\",\n      \"language\": \"af\",\n      \"last_activity_at\": \"2021-08-20T08:34:21.529Z\",\n      \"membership\": [\n        {\n          \"user\": \"string\",\n          \"date_joined\": \"1981-06-03T13:06:02.190Z\",\n          \"last_activity_at\": \"1992-07-02T08:45:32.794Z\"\n        },\n        {\n          \"user\": \"string\",\n          \"date_joined\": \"1959-11-24T11:42:04.024Z\",\n          \"last_activity_at\": \"2001-05-18T14:45:01.538Z\"\n        }\n      ],\n      \"organization_protected\": true\n    }\n  ],\n  \"next\": \"https://wSrduZNhkbesbKnAVxCPSwsXnTzDyk.kobW3xiAQ9UHIncPhjoTq5trtATULk7K-FqOVdB6yJOoePXO\",\n  \"previous\": \"http://lCiSTUtXVbHBzGvFfqPmXL.yercZlXTcc7tI3J-eTBtgiHzi-SsDiQEhmq-kscqu2ZGv\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "120a15cd-6634-48f2-aee4-0cb6ef2ec8f0",
+          "name": "team v0 teams create",
+          "request": {
+            "name": "team v0 teams create",
+            "description": {
+              "content": "POST /api/team/v0/teams/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "teams",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"country\": \"<string>\",\n  \"topic_id\": \"<string>\",\n  \"language\": \"<string>\",\n  \"organization_protected\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bdab2a7f-97fe-4bc7-b806-6962c5f82920",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "teams",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"country\": \"<string>\",\n  \"topic_id\": \"<string>\",\n  \"language\": \"<string>\",\n  \"organization_protected\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"country\": \"<string>\",\n  \"id\": \"string\",\n  \"discussion_topic_id\": \"83Vqjg\",\n  \"course_id\": \"string\",\n  \"topic_id\": \"<string>\",\n  \"date_created\": \"1984-07-28T08:53:26.526Z\",\n  \"language\": \"<string>\",\n  \"last_activity_at\": \"2007-12-12T06:59:39.194Z\",\n  \"membership\": [\n    {\n      \"user\": \"string\",\n      \"date_joined\": \"2016-12-23T08:58:10.134Z\",\n      \"last_activity_at\": \"2007-03-28T05:21:03.028Z\"\n    },\n    {\n      \"user\": \"string\",\n      \"date_joined\": \"2001-08-14T18:30:02.645Z\",\n      \"last_activity_at\": \"1965-05-02T02:52:01.994Z\"\n    }\n  ],\n  \"organization_protected\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13cdf48a-56f0-4eb7-bc65-f5aa0c36dc68",
+          "name": "team v0 teams read",
+          "request": {
+            "name": "team v0 teams read",
+            "description": {
+              "content": "Retrieves the specified resource using the RetrieveModelMixin.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "teams",
+                ":team_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f14e103d-508e-4cec-9d01-8c6ce9b17630",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "teams",
+                    ":team_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"country\": \"<string>\",\n  \"id\": \"string\",\n  \"discussion_topic_id\": \"83Vqjg\",\n  \"course_id\": \"string\",\n  \"topic_id\": \"<string>\",\n  \"date_created\": \"1984-07-28T08:53:26.526Z\",\n  \"language\": \"<string>\",\n  \"last_activity_at\": \"2007-12-12T06:59:39.194Z\",\n  \"membership\": [\n    {\n      \"user\": \"string\",\n      \"date_joined\": \"2016-12-23T08:58:10.134Z\",\n      \"last_activity_at\": \"2007-03-28T05:21:03.028Z\"\n    },\n    {\n      \"user\": \"string\",\n      \"date_joined\": \"2001-08-14T18:30:02.645Z\",\n      \"last_activity_at\": \"1965-05-02T02:52:01.994Z\"\n    }\n  ],\n  \"organization_protected\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "463cf061-fad2-4a8d-a978-a66675ecdfc2",
+          "name": "team v0 teams partial update",
+          "request": {
+            "name": "team v0 teams partial update",
+            "description": {
+              "content": "Checks for validation errors, then updates the model using the UpdateModelMixin.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "teams",
+                ":team_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/merge-patch+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"country\": \"<string>\",\n  \"topic_id\": \"<string>\",\n  \"language\": \"<string>\",\n  \"organization_protected\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e0d45b0-56ef-4eca-b998-3bc84274392e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "teams",
+                    ":team_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"country\": \"<string>\",\n  \"topic_id\": \"<string>\",\n  \"language\": \"<string>\",\n  \"organization_protected\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"country\": \"<string>\",\n  \"id\": \"string\",\n  \"discussion_topic_id\": \"83Vqjg\",\n  \"course_id\": \"string\",\n  \"topic_id\": \"<string>\",\n  \"date_created\": \"1984-07-28T08:53:26.526Z\",\n  \"language\": \"<string>\",\n  \"last_activity_at\": \"2007-12-12T06:59:39.194Z\",\n  \"membership\": [\n    {\n      \"user\": \"string\",\n      \"date_joined\": \"2016-12-23T08:58:10.134Z\",\n      \"last_activity_at\": \"2007-03-28T05:21:03.028Z\"\n    },\n    {\n      \"user\": \"string\",\n      \"date_joined\": \"2001-08-14T18:30:02.645Z\",\n      \"last_activity_at\": \"1965-05-02T02:52:01.994Z\"\n    }\n  ],\n  \"organization_protected\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69831ca0-1201-41b1-9f85-3b53dbb856a7",
+          "name": "team v0 teams delete",
+          "request": {
+            "name": "team v0 teams delete",
+            "description": {
+              "content": "DELETE /api/team/v0/teams/{team_id}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "teams",
+                ":team_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "139fd180-5746-47fd-a384-0f00e8d9e51b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "teams",
+                    ":team_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9651731d-acca-4617-8557-64b8dce9ded1",
+          "name": "team v0 teams assignments list",
+          "request": {
+            "name": "team v0 teams assignments list",
+            "description": {
+              "content": "GET v0/teams/{team_id_pattern}/assignments",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "teams",
+                ":team_id",
+                "assignments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "team_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5793958b-fd06-44fa-af98-2f212705706e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "teams",
+                    ":team_id",
+                    "assignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "team_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5bc8dae6-9b61-429e-93f6-b88f99298e27",
+          "name": "team v0 topics list",
+          "request": {
+            "name": "team v0 topics list",
+            "description": {
+              "content": "GET /api/team/v0/topics/?course_id={course_id}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "topics",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d61fd806-9885-43e5-aab7-759f9090234e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "topics",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed4b683e-d715-47a9-bdb8-4d5c16358c65",
+          "name": "team v0 topics read",
+          "request": {
+            "name": "team v0 topics read",
+            "description": {
+              "content": "GET /api/team/v0/topics/{topic_id},{course_id}/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "team",
+                "v0",
+                "topics",
+                "{{topic_id}},{{course_id}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4bfbe32e-6f40-4307-8469-44473d729191",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "team",
+                    "v0",
+                    "topics",
+                    "{{topic_id}},{{course_id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "team_id"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "username"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "topic_id"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "course_id"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dd1bb1d9-bb70-473d-87e6-189905085859",
+    "name": "Open edX agreements team API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

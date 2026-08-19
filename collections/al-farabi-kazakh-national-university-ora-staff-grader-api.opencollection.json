@@ -1,0 +1,291 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements ora_staff_grader API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ora_staff_grader",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "View for fetching assessment feedback for a submission.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/assessments/feedback/from/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "**Methods**\n\n* (GET) `api/ora_staff_grader/assessments/feedback/from`\n    List all assessments received by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n* (GET) `api/ora_staff_grader/assessments/feedback/to`\n    List all assessments given by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n**Query Params**:\n\n* `oraLocation` (str): ORA location for XBlock handling\n* `submissionUUID` (str): The ORA submission UUID\n\n**Response**:\n\n    {\n        assessmen"
+        },
+        {
+          "info": {
+            "name": "View for fetching assessment feedback for a submission.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/assessments/feedback/to/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "**Methods**\n\n* (GET) `api/ora_staff_grader/assessments/feedback/from`\n    List all assessments received by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n* (GET) `api/ora_staff_grader/assessments/feedback/to`\n    List all assessments given by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n**Query Params**:\n\n* `oraLocation` (str): ORA location for XBlock handling\n* `submissionUUID` (str): The ORA submission UUID\n\n**Response**:\n\n    {\n        assessmen"
+        },
+        {
+          "info": {
+            "name": "View for fetching assessment feedback for a submission.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/assessments/feedback/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "**Methods**\n\n* (GET) `api/ora_staff_grader/assessments/feedback/from`\n    List all assessments received by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n* (GET) `api/ora_staff_grader/assessments/feedback/to`\n    List all assessments given by a user (according to\n    their submissionUUID) in an ORA assignment.\n\n**Query Params**:\n\n* `oraLocation` (str): ORA location for XBlock handling\n* `submissionUUID` (str): The ORA submission UUID\n\n**Response**:\n\n    {\n        assessmen"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_initialize_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/initialize"
+          },
+          "docs": "GET course metadata"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_mock_initialize_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/mock/initialize"
+          },
+          "docs": "Returns initial app state"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_mock_submission_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/mock/submission"
+          },
+          "docs": "Get a submission"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_mock_submission_grade_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/mock/submission/grade"
+          },
+          "docs": "Submit a grade"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_mock_submission_grade_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/mock/submission/grade"
+          },
+          "docs": "Save a grade update to the data store"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_mock_submission_lock_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/mock/submission/lock"
+          },
+          "docs": "Claim a submission lock, updating lock status"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_mock_submission_lock_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/mock/submission/lock"
+          },
+          "docs": "Delete a submission lock, updating lock status"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_mock_submission_status_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/mock/submission/status"
+          },
+          "docs": "Get a submission status, leaving out the response"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_submission_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/submission"
+          },
+          "docs": "GET submission contents and assessment info, if any"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_submission_batch_unlock_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/submission/batch/unlock"
+          },
+          "docs": "POST delete a group of submission locks, limited to just those in the list that the user owns."
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_submission_batch_unlock_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/submission/batch/unlock"
+          },
+          "docs": "Batch delete submission locks"
+        },
+        {
+          "info": {
+            "name": "GET file metadata for a submission.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/submission/files"
+          },
+          "docs": "Used to get updated file download links to avoid signed download link expiration\nissues."
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_submission_grade_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/submission/grade"
+          },
+          "docs": "POST submit a grade for a submission"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_submission_grade_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/submission/grade"
+          },
+          "docs": "Update a grade"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_submission_lock_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/submission/lock"
+          },
+          "docs": "POST claim a submission lock for grading\nDELETE release a submission lock"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_submission_lock_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/submission/lock"
+          },
+          "docs": "Claim a submission lock"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_submission_lock_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/submission/lock"
+          },
+          "docs": "Clear a submission lock"
+        },
+        {
+          "info": {
+            "name": "ora_staff_grader_submission_status_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/ora_staff_grader/submission/status"
+          },
+          "docs": "GET submission grade status, lock status, and grade data"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,213 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements edx_name_affirmation API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "edx_name_affirmation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get most recent verified name for the request user or for the specified username",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_name_affirmation/v1/verified_name",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "The username of which verified name records might be associated"
+              }
+            ]
+          },
+          "docs": "For example: /edx_name_affirmation/v1/verified_name?username=jdoe\nExample response: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\",\n    \"profile_name\": \"Jon Doe\",\n    \"verification_attempt_id\": 123,\n    \"proctored_exam_attempt_id\": None,\n    \"status\": \"approved\",\n    \"use_verified_name_for_certs\": False,\n}"
+        },
+        {
+          "info": {
+            "name": "Creates a new VerifiedName.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_name_affirmation/v1/verified_name",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Expected POST data: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\"\n    \"profile_name\": \"Jon Doe\"\n    \"verification_attempt_id\": (Optional)\n    \"proctored_exam_attempt_id\": (Optional)\n    \"platform_verification_attempt_id\": (Optional)\n    \"status\": (Optional)\n}"
+        },
+        {
+          "info": {
+            "name": "Update verified name status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/edx_name_affirmation/v1/verified_name",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example PATCH data: {\n        \"username\": \"jdoe\",\n        \"verification_attempt_id\" OR \"proctored_exam_attempt_id\": 123,\n        \"status\": \"approved\",\n    }"
+        },
+        {
+          "info": {
+            "name": "Delete verified name",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/edx_name_affirmation/v1/verified_name",
+            "params": [
+              {
+                "name": "verified_name_id",
+                "value": "",
+                "type": "path",
+                "description": "The database id of the verified_name to be deleted"
+              }
+            ]
+          },
+          "docs": "/edx_name_affirmation/v1/verified_name/{verified_name_id}"
+        },
+        {
+          "info": {
+            "name": "Create VerifiedNameConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_name_affirmation/v1/verified_name/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create VerifiedNameConfig"
+        },
+        {
+          "info": {
+            "name": "Get a list of verified name objects for the given user, ordered by most recently created.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_name_affirmation/v1/verified_name/history",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "The username of which verified name records might be associated"
+              }
+            ]
+          },
+          "docs": "Get a list of verified name objects for the given user, ordered by most recently created."
+        },
+        {
+          "info": {
+            "name": "Get most recent verified name for the request user or for the specified username",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/edx_name_affirmation/v1/verified_name/:verified_name_id",
+            "params": [
+              {
+                "name": "verified_name_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "The username of which verified name records might be associated"
+              }
+            ]
+          },
+          "docs": "For example: /edx_name_affirmation/v1/verified_name?username=jdoe\nExample response: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\",\n    \"profile_name\": \"Jon Doe\",\n    \"verification_attempt_id\": 123,\n    \"proctored_exam_attempt_id\": None,\n    \"status\": \"approved\",\n    \"use_verified_name_for_certs\": False,\n}"
+        },
+        {
+          "info": {
+            "name": "Creates a new VerifiedName.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/edx_name_affirmation/v1/verified_name/:verified_name_id",
+            "params": [
+              {
+                "name": "verified_name_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Expected POST data: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\"\n    \"profile_name\": \"Jon Doe\"\n    \"verification_attempt_id\": (Optional)\n    \"proctored_exam_attempt_id\": (Optional)\n    \"platform_verification_attempt_id\": (Optional)\n    \"status\": (Optional)\n}"
+        },
+        {
+          "info": {
+            "name": "Update verified name status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/edx_name_affirmation/v1/verified_name/:verified_name_id",
+            "params": [
+              {
+                "name": "verified_name_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example PATCH data: {\n        \"username\": \"jdoe\",\n        \"verification_attempt_id\" OR \"proctored_exam_attempt_id\": 123,\n        \"status\": \"approved\",\n    }"
+        },
+        {
+          "info": {
+            "name": "Delete verified name",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/edx_name_affirmation/v1/verified_name/:verified_name_id",
+            "params": [
+              {
+                "name": "verified_name_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "/edx_name_affirmation/v1/verified_name/{verified_name_id}"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

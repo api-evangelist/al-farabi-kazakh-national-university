@@ -1,0 +1,1710 @@
+{
+  "item": [
+    {
+      "id": "3811a69c-abbb-46b1-b448-ffd9196933a6",
+      "name": "program_enrollments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bf388800-fdac-4b83-a731-24e6efcf0202",
+          "name": "program enrollments v1 integration-reset create",
+          "request": {
+            "name": "program enrollments v1 integration-reset create",
+            "description": {
+              "content": "Reset enrollment and user data for organization",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "integration-reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76cf50b0-2dd8-41b5-9814-daaf51dcbf2b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "integration-reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49ff8a84-1802-455c-9123-55a6473372c6",
+          "name": "program enrollments v1 programs enrollments list",
+          "request": {
+            "name": "program enrollments v1 programs enrollments list",
+            "description": {
+              "content": "How to respond to a GET request to this endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8f8cd50-152d-468d-9c77-b6f07a989ada",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3abce34d-a9c9-484e-98b2-a5840b33899c",
+          "name": "program enrollments v1 programs readonly access list",
+          "request": {
+            "name": "program enrollments v1 programs readonly access list",
+            "description": {
+              "content": "How to respond to a GET request to this endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                "readonly_access",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb14b05c-179b-4bdb-9c26-68f5b08cabdd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    "readonly_access",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12c13ea6-3efe-40ad-94c7-92ca7eb83149",
+          "name": "program enrollments v1 programs courses enrollments list",
+          "request": {
+            "name": "program enrollments v1 programs courses enrollments list",
+            "description": {
+              "content": "Get a list of students enrolled in a course within a program.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                ":program_uuid",
+                "courses",
+                ":course_id",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "The pagination cursor value."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "decab00b-e476-4806-8509-964fe879f2a9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    ":program_uuid",
+                    "courses",
+                    ":course_id",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40ecf64d-8380-49e6-a159-39474b7b8c79",
+          "name": "program enrollments v1 programs courses enrollments create",
+          "request": {
+            "name": "program enrollments v1 programs courses enrollments create",
+            "description": {
+              "content": "Enroll a list of students in a course in a program",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                ":program_uuid",
+                "courses",
+                ":course_id",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "309f068e-0310-42b0-939b-fc7d18813855",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    ":program_uuid",
+                    "courses",
+                    ":course_id",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f781dc62-2e3b-4663-ae86-444758472e9d",
+          "name": "program enrollments v1 programs courses enrollments update",
+          "request": {
+            "name": "program enrollments v1 programs courses enrollments update",
+            "description": {
+              "content": "Create or Update the program course enrollments of a list of learners",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                ":program_uuid",
+                "courses",
+                ":course_id",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b11e9500-1875-40f3-916a-f18ccef01220",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    ":program_uuid",
+                    "courses",
+                    ":course_id",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "736c9a1c-11cf-4711-bbaf-b569946f00d5",
+          "name": "program enrollments v1 programs courses enrollments partial update",
+          "request": {
+            "name": "program enrollments v1 programs courses enrollments partial update",
+            "description": {
+              "content": "Modify the program course enrollments of a list of learners",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                ":program_uuid",
+                "courses",
+                ":course_id",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bbb80bbe-f219-461a-9ca8-85f0e0e362ff",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    ":program_uuid",
+                    "courses",
+                    ":course_id",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57f7f4e5-9236-4ac6-b2e4-66f9c14af004",
+          "name": "program enrollments v1 programs courses grades list",
+          "request": {
+            "name": "program enrollments v1 programs courses grades list",
+            "description": {
+              "content": "Defines the GET list endpoint for ProgramCourseGrade objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                ":program_uuid",
+                "courses",
+                ":course_id",
+                "grades",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "The pagination cursor value."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "584ba627-f8da-4494-a9a5-d34c60259f0e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    ":program_uuid",
+                    "courses",
+                    ":course_id",
+                    "grades",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ed92d7f-bdf1-43d4-b553-8530630d8751",
+          "name": "program enrollments v1 programs enrollments list",
+          "request": {
+            "name": "program enrollments v1 programs enrollments list",
+            "description": {
+              "content": "Defines the GET list endpoint for ProgramEnrollment objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                ":program_uuid",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "The pagination cursor value."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f5becd5-9aa2-4f84-a752-82d8cdd6f371",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    ":program_uuid",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "270ac79c-a5bd-441b-889e-7e4f3e37b578",
+          "name": "program enrollments v1 programs enrollments create",
+          "request": {
+            "name": "program enrollments v1 programs enrollments create",
+            "description": {
+              "content": "Create program enrollments for a list of learners",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                ":program_uuid",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bce49b0f-5483-4728-9c17-4bded35fc0d8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    ":program_uuid",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4409ae5b-30a1-4abb-bb9e-7ee4b2521320",
+          "name": "program enrollments v1 programs enrollments update",
+          "request": {
+            "name": "program enrollments v1 programs enrollments update",
+            "description": {
+              "content": "Create/update program enrollments for a list of learners",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                ":program_uuid",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9df32cec-11a5-4529-94a6-e7c0083456a5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    ":program_uuid",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a13aa93-b2c6-4d06-aa2c-948d72bd82c3",
+          "name": "program enrollments v1 programs enrollments partial update",
+          "request": {
+            "name": "program enrollments v1 programs enrollments partial update",
+            "description": {
+              "content": "Update program enrollments for a list of learners",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                ":program_uuid",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03c4cb6a-ef57-49b5-b60e-e06bc3f9ac74",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    ":program_uuid",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5c6d5a1-3268-4b70-94f7-fa23fdf49347",
+          "name": "program enrollments v1 programs overview read",
+          "request": {
+            "name": "program enrollments v1 programs overview read",
+            "description": {
+              "content": "A view for getting data associated with a user's course enrollments\nas part of a program enrollment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "programs",
+                ":program_uuid",
+                "overview",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "350e3bcf-6aea-4c60-a668-fc8411e9cf2a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "programs",
+                    ":program_uuid",
+                    "overview",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_runs\": [\n    {\n      \"course_run_id\": \"string\",\n      \"display_name\": \"string\",\n      \"course_run_url\": \"string\",\n      \"start_date\": \"1962-02-14T06:33:33.868Z\",\n      \"end_date\": \"1998-05-19T15:20:56.720Z\",\n      \"course_run_status\": \"in_progress\",\n      \"due_dates\": [\n        {\n          \"name\": \"string\",\n          \"url\": \"string\",\n          \"date\": \"1976-05-18T11:43:49.533Z\"\n        },\n        {\n          \"name\": \"string\",\n          \"url\": \"string\",\n          \"date\": \"1988-05-24T03:44:29.310Z\"\n        }\n      ],\n      \"resume_course_run_url\": \"string\",\n      \"emails_enabled\": false,\n      \"micromasters_title\": \"string\",\n      \"certificate_download_url\": \"string\"\n    },\n    {\n      \"course_run_id\": \"string\",\n      \"display_name\": \"string\",\n      \"course_run_url\": \"string\",\n      \"start_date\": \"1952-04-03T12:35:22.497Z\",\n      \"end_date\": \"1985-07-25T13:43:27.159Z\",\n      \"course_run_status\": \"upcoming\",\n      \"due_dates\": [\n        {\n          \"name\": \"string\",\n          \"url\": \"string\",\n          \"date\": \"2013-09-06T16:02:05.225Z\"\n        },\n        {\n          \"name\": \"string\",\n          \"url\": \"string\",\n          \"date\": \"2017-03-09T07:38:43.387Z\"\n        }\n      ],\n      \"resume_course_run_url\": \"string\",\n      \"emails_enabled\": true,\n      \"micromasters_title\": \"string\",\n      \"certificate_download_url\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81abd600-6e74-4748-b1ca-350bc16b028b",
+          "name": "Get an overview of each of a user's course enrollments associated with a program.",
+          "request": {
+            "name": "Get an overview of each of a user's course enrollments associated with a program.",
+            "description": {
+              "content": "This endpoint exists to get an overview of each course-run enrollment\nthat a user has for course-runs within a given program.\nFields included are the title, upcoming due dates, etc.\nThis API endpoint is intended for use with the\n[Program Learner Portal MFE](https://github.com/openedx/frontend-app-learner-portal-programs).\n\nIt is important to note that the set of enrollments that this endpoint returns\nis different than a user's set of *program-course-run enrollments*.\nSpecifically, this endpoint may include course runs that are *within*\nthe specified program but were not *enrolled in* via the specified program.\n\n**Example Response:**\n```json\n{\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"course_run_id\": \"edX+AnimalsX+Aardvarks\",\n            \"display_name\": \"Astonishing Aardvarks\",\n            \"course_run_url\": \"https://courses.edx.org/courses/course-v1:edX+AnimalsX+Aardvarks/course/\",\n            \"start_date\": \"2017-02-05T05:00:00Z\",\n            \"end_date\": \"2018-02-05T05:00:00Z\",\n            \"course_run_status\": \"completed\"\n            \"emails_enabled\": true,\n            \"due_dates\": [\n                {\n                    \"name\": \"Introduction: What even is an aardvark?\",\n                    \"url\": \"https://courses.edx.org/courses/course-v1:edX+AnimalsX+Aardvarks/jump_to/\n                          block-v1:edX+AnimalsX+Aardvarks+type@chapter+block@1414ffd5143b4b508f739b563ab468b7\",\n                    \"date\": \"2017-05-01T05:00:00Z\"\n                },\n                {\n                    \"name\": \"Quiz: Aardvark or Anteater?\",\n                    \"url\": \"https://courses.edx.org/courses/course-v1:edX+AnimalsX+Aardvarks/jump_to/\n                            block-v1:edX+AnimalsX+Aardvarks+type@sequential+block@edx_introduction\",\n                    \"date\": \"2017-03-05T00:00:00Z\"\n                }\n            ],\n            \"micromasters_title\": \"Animals\",\n            \"certificate_download_url\": \"https://courses.edx.org/certificates/123\"\n        },\n        {\n            \"course_run_id\": \"edX+AnimalsX+Baboons\",\n            \"display_name\": \"Breathtaking Baboons\",\n            \"course_run_url\": \"https://courses.edx.org/courses/course-v1:edX+AnimalsX+Baboons/course/\",\n            \"start_date\": \"2018-02-05T05:00:00Z\",\n            \"end_date\": null,\n            \"course_run_status\": \"in_progress\"\n            \"emails_enabled\": false,\n            \"due_dates\": [],\n            \"micromasters_title\": \"Animals\",\n            \"certificate_download_url\": \"https://courses.edx.org/certificates/123\",\n            \"resume_course_run_url\": \"https://courses.edx.org/courses/course-v1:edX+AnimalsX+Baboons/jump_to/\n                                       block-v1:edX+AnimalsX+Baboons+type@sequential+block@edx_introduction\"\n        }\n    ]\n}\n```",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "program_enrollments",
+                "v1",
+                "users",
+                ":username",
+                "programs",
+                ":program_uuid",
+                "courses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "The pagination cursor value."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page. Defaults to 10. Maximum is 25."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username of the user for which enrollment overviews will be fetched. For now, this must be the requesting user; otherwise, 403 will be returned. In the future, global staff users may be able to supply other usernames."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "program_uuid",
+                  "description": "(Required) UUID of a program. Enrollments will be returned for course runs in this program."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b89c37ba-0260-4a7b-8e86-7d7af9517c59",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "users",
+                    ":username",
+                    "programs",
+                    ":program_uuid",
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username of the user for which enrollment overviews will be fetched. For now, this must be the requesting user; otherwise, 403 will be returned. In the future, global staff users may be able to supply other usernames."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) UUID of a program. Enrollments will be returned for course runs in this program."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"course_run_id\": \"string\",\n      \"display_name\": \"string\",\n      \"course_run_url\": \"string\",\n      \"start_date\": \"1975-01-29T01:57:19.798Z\",\n      \"end_date\": \"2002-04-07T16:16:38.565Z\",\n      \"course_run_status\": \"upcoming\",\n      \"due_dates\": [\n        {\n          \"name\": \"string\",\n          \"url\": \"string\",\n          \"date\": \"2013-08-06T08:44:38.451Z\"\n        },\n        {\n          \"name\": \"string\",\n          \"url\": \"string\",\n          \"date\": \"1972-12-24T02:52:27.391Z\"\n        }\n      ],\n      \"resume_course_run_url\": \"string\",\n      \"emails_enabled\": false,\n      \"micromasters_title\": \"string\",\n      \"certificate_download_url\": \"string\"\n    },\n    {\n      \"course_run_id\": \"st\",\n      \"display_name\": \"string\",\n      \"course_run_url\": \"string\",\n      \"start_date\": \"1969-07-11T00:58:50.002Z\",\n      \"end_date\": \"1964-03-24T01:56:06.987Z\",\n      \"course_run_status\": \"completed\",\n      \"due_dates\": [\n        {\n          \"name\": \"string\",\n          \"url\": \"string\",\n          \"date\": \"1996-11-22T13:15:36.337Z\"\n        },\n        {\n          \"name\": \"string\",\n          \"url\": \"string\",\n          \"date\": \"1976-06-17T17:49:00.514Z\"\n        }\n      ],\n      \"resume_course_run_url\": \"string\",\n      \"emails_enabled\": true,\n      \"micromasters_title\": \"string\",\n      \"certificate_download_url\": \"string\"\n    }\n  ],\n  \"previous\": \"https://ErlyMFXTJeQqJNdQXskZdc.toqFBQuUNmvZzIlWWxBtRNl\",\n  \"next\": \"https://EnwYHDNhPHCJsxRXRg.trrcHgyN\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96153ae4-391c-46b0-9a3f-31c2788cf89e",
+              "name": "The requester is not authenticated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "users",
+                    ":username",
+                    "programs",
+                    ":program_uuid",
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username of the user for which enrollment overviews will be fetched. For now, this must be the requesting user; otherwise, 403 will be returned. In the future, global staff users may be able to supply other usernames."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) UUID of a program. Enrollments will be returned for course runs in this program."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb304bef-2284-4194-8213-921bc446edaf",
+              "name": "The requester cannot access the specified program and/or the requester may not retrieve this data for the specified user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "users",
+                    ":username",
+                    "programs",
+                    ":program_uuid",
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username of the user for which enrollment overviews will be fetched. For now, this must be the requesting user; otherwise, 403 will be returned. In the future, global staff users may be able to supply other usernames."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) UUID of a program. Enrollments will be returned for course runs in this program."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "227c3c8a-bdae-4ea9-842c-81722ab1ec51",
+              "name": "The requested program does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "program_enrollments",
+                    "v1",
+                    "users",
+                    ":username",
+                    "programs",
+                    ":program_uuid",
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username of the user for which enrollment overviews will be fetched. For now, this must be the requesting user; otherwise, 403 will be returned. In the future, global staff users may be able to supply other usernames."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "program_uuid",
+                      "description": "(Required) UUID of a program. Enrollments will be returned for course runs in this program."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e447a587-39c3-417e-be10-0cd0fa628508",
+    "name": "Open edX agreements program_enrollments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

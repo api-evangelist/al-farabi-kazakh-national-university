@@ -1,0 +1,215 @@
+{
+  "item": [
+    {
+      "id": "c2461276-4c6f-4684-9a51-e8d0d7fc3b6f",
+      "name": "course_experience",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a7b2c349-9c27-409f-b49c-40840896224c",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request course deadline info for mobile\n\n**Example Requests**\n\n    GET api/course_experience/v1/course_deadlines_info/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    dates_banner_info: (obj)\n        missed_deadlines: (bool) Whether the user has missed any graded content deadlines for the given course.\n        missed_gated_content: (bool) Whether the user has missed any gated content for the given course.\n        content_type_gating_enabled: (bool) Whether content type gating is enabled for this enrollment.\n        verified_upgrade_link: (str) The URL to ecommerce IDA for purchasing the verified upgrade.\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_experience",
+                "v1",
+                "course_deadlines_info",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5798604d-fe9d-4c7a-afd4-5afe70350c62",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_experience",
+                    "v1",
+                    "course_deadlines_info",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dates_banner_info\": \"string\",\n  \"has_ended\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd66a0c7-c493-4a9f-bbdc-15a271e20a58",
+          "name": "course experience v1 reset course deadlines create",
+          "request": {
+            "name": "course experience v1 reset course deadlines create",
+            "description": {
+              "content": "Set the start_date of a schedule to today, which in turn will adjust due dates for\nsequentials belonging to a self paced course\n\nRequest Parameters:\n    course_key: course key\n    research_event_data: any data that should be included in the research tracking event\n        Example: sending the location of where the reset deadlines banner (i.e. outline-tab)\n\nIMPORTANT NOTE: If updates are happening to the logic here, ALSO UPDATE the `reset_course_deadlines`\nfunction in common/djangoapps/util/views.py as well.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_experience",
+                "v1",
+                "reset_course_deadlines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a85f33d0-06a4-4cd6-84d2-91fc39676d32",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_experience",
+                    "v1",
+                    "reset_course_deadlines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5416cca7-9d45-4e18-b893-0c68e5fd0a01",
+    "name": "Open edX agreements course_experience API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

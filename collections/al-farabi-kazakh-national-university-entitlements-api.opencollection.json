@@ -1,0 +1,181 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements entitlements API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "entitlements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "entitlements_v1_entitlements_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/entitlements/v1/entitlements/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Override the list method to expire records that are past the\npolicy and requested via the API before returning those records."
+        },
+        {
+          "info": {
+            "name": "entitlements_v1_entitlements_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/entitlements/v1/entitlements/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "ViewSet for the Entitlements API."
+        },
+        {
+          "info": {
+            "name": "entitlements_v1_entitlements_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/entitlements/v1/entitlements/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Override the retrieve method to expire a record that is past the\npolicy and is requested via the API before returning that record."
+        },
+        {
+          "info": {
+            "name": "entitlements_v1_entitlements_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/entitlements/v1/entitlements/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "ViewSet for the Entitlements API."
+        },
+        {
+          "info": {
+            "name": "entitlements_v1_entitlements_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/entitlements/v1/entitlements/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "ViewSet for the Entitlements API."
+        },
+        {
+          "info": {
+            "name": "entitlements_v1_entitlements_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/entitlements/v1/entitlements/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "ViewSet for the Entitlements API."
+        },
+        {
+          "info": {
+            "name": "entitlements_v1_entitlements_enrollments_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/entitlements/v1/entitlements/:uuid/enrollments",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "On POST this method will be called and will handle enrolling a user in the\nprovided course_run_id from the data. This is called on a specific entitlement\nUUID so the course_run_id has to correspond to the Course that is assigned to\nthe Entitlement.\n\nWhen this API is called for a user who is already enrolled in a run that User\nwill be unenrolled from their current run and enrolled in the new run if it is\navailable."
+        },
+        {
+          "info": {
+            "name": "On DELETE call to this API we will unenroll the course enrollment for the provided uuid",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/entitlements/v1/entitlements/:uuid/enrollments",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "If is_refund parameter is provided then unenroll the user, set Entitlement expiration, and issue\na refund"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

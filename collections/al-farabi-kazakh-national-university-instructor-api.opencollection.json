@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements instructor API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "instructor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List report CSV files that are available for download for this course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/instructor/v1/reports/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "report_name",
+                "value": "",
+                "type": "query",
+                "description": "Filter results to only return details of for the report with the specified name."
+              }
+            ]
+          },
+          "docs": "**Use Cases**\n\nLists reports available for download\n\n**Example Requests**:\n\n    GET /api/instructor/v1/reports/{course_id}\n\n**Response Values**\n```json\n{\n    \"downloads\": [\n        {\n            \"url\": \"https://1.mock.url\",\n            \"link\": \"<a href=\"https://1.mock.url\">mock_file_name_1</a>\",\n            \"name\": \"mock_file_name_1\"\n        }\n    ]\n}\n```\n\nThe report name will depend on the type of report generated. For example a\nproblem responses report for an entire course might be called:\n\n  "
+        },
+        {
+          "info": {
+            "name": "Initiate generation of a CSV file containing all student answers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/instructor/v1/reports/:course_id/generate/problem_responses",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "to a given problem.\n\n**Example requests**\n\n    POST /api/instructor/v1/reports/{course_id}/generate/problem_responses {\n        \"problem_locations\": [\n            \"{usage_key1}\",\n            \"{usage_key2}\",\n            \"{usage_key3}\"\n        ]\n    }\n    POST /api/instructor/v1/reports/{course_id}/generate/problem_responses {\n        \"problem_locations\": [\"{usage_key}\"],\n        \"problem_types_filter\": [\"problem\"]\n    }\n\n**POST Parameters**\n\nA POST request can include the following parameters:\n\n*"
+        },
+        {
+          "info": {
+            "name": "List instructor tasks filtered by `course_id`.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/instructor/v1/tasks/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "problem_location_str",
+                "value": "",
+                "type": "query",
+                "description": "Filter instructor tasks to this problem location."
+              },
+              {
+                "name": "unique_student_identifier",
+                "value": "",
+                "type": "query",
+                "description": "Filter tasks to a singe problem and a single student. Must be used in combination with `problem_location_str`."
+              }
+            ]
+          },
+          "docs": "**Use Cases**\n\nLists currently running instructor tasks\n\n**Parameters**\n   - With no arguments, lists running tasks.\n   - `problem_location_str` lists task history for problem\n   - `problem_location_str` and `unique_student_identifier` lists task\n       history for problem AND student (intersection)\n\n**Example Requests**:\n\n    GET /courses/{course_id}/instructor/api/v0/tasks\n\n**Response Values**\n```json\n    {\n      \"tasks\": [\n        {\n          \"status\": \"Incomplete\",\n          \"task_type\": \"gr"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2680 @@
+{
+  "item": [
+    {
+      "id": "3d1f16b0-a3c4-4f4f-9b15-3002b37335eb",
+      "name": "discussion",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7f75310d-56a1-49b5-b97f-a910af5b90d9",
+          "name": "discussion v1 accounts replace username create",
+          "request": {
+            "name": "discussion v1 accounts replace username create",
+            "description": {
+              "content": "Implements the username replacement endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "accounts",
+                "replace_username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3edfdae-6f86-4df9-8794-02b933efde9e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "accounts",
+                    "replace_username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f93086c-e426-4f2a-8202-5c748de0dac9",
+          "name": "discussion v1 accounts retire forum create",
+          "request": {
+            "name": "discussion v1 accounts retire forum create",
+            "description": {
+              "content": "Implements the retirement endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "accounts",
+                "retire_forum",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f6740146-b623-4e53-85bb-7f400c9e3f69",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "accounts",
+                    "retire_forum",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12d73cf8-9301-4091-95ee-21f87b7df60c",
+          "name": "Implements the GET method for the list endpoint as described in\nthe class docstring.",
+          "request": {
+            "name": "Implements the GET method for the list endpoint as described in\nthe class docstring.",
+            "description": {
+              "content": "This endpoint implements two distinct usage contexts.\n\nWhen `username` is provided, the `course_id` parameter is\nrequired, and `thread_id` is ignored.\nThe behavior is to retrieve all of the user's non-anonymous\ncomments from the specified course, outside of the context of a\nforum thread. In this context, endorsement information is\nunavailable.\n\nWhen `username` is not provided, `thread_id` is required, and\n`course_id` is ignored, since the thread already belongs to a course.\nIn this context, all information relevant to usage in the\ndiscussions forum is available.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "comments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "578e9b71-8a2c-4e6b-bc41-7f1fb5456b4e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "comments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44d92309-012b-473d-82a4-63c3d67da4b4",
+          "name": "discussion v1 comments create",
+          "request": {
+            "name": "discussion v1 comments create",
+            "description": {
+              "content": "Implements the POST method for the list endpoint as described in the\nclass docstring.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "comments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cbdff2d-46f4-4f87-9ee0-3889c123e233",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "comments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8274ad6-5475-469f-9b6f-0d767857084f",
+          "name": "discussion v1 comments read",
+          "request": {
+            "name": "discussion v1 comments read",
+            "description": {
+              "content": "Implements the GET method for comments against response ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "comments",
+                ":comment_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "comment_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8cf55f6-d29c-49e5-ba9a-11817b35d0ae",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "comments",
+                    ":comment_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "comment_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d5ab19db-ff99-46f2-9c0e-de24ba2cfa87",
+          "name": "discussion v1 comments partial update",
+          "request": {
+            "name": "discussion v1 comments partial update",
+            "description": {
+              "content": "Implements the PATCH method for the instance endpoint as described in\nthe class docstring.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "comments",
+                ":comment_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "comment_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ecb025b-2bb0-42ef-89a3-e728e62e883a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "comments",
+                    ":comment_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "comment_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a5a71ed-6fb5-4885-b436-5bc26483ab24",
+          "name": "discussion v1 comments delete",
+          "request": {
+            "name": "discussion v1 comments delete",
+            "description": {
+              "content": "Implements the DELETE method for the instance endpoint as described in\nthe class docstring",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "comments",
+                ":comment_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "comment_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "69daafc1-91cb-482c-a0d6-125e58b06dc8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "comments",
+                    ":comment_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "comment_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fb05d71-50e9-4313-9f88-62bf7044ce6a",
+          "name": "discussion v1 course topics read",
+          "request": {
+            "name": "discussion v1 course topics read",
+            "description": {
+              "content": "Implements the GET method as described in the class docstring.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "course_topics",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e27049e-aa8c-4b08-ada8-4477e6839a91",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "course_topics",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51b9141b-17f4-4246-99b7-85ec5fa70798",
+          "name": "Retrieve general discussion metadata for a course.",
+          "request": {
+            "name": "Retrieve general discussion metadata for a course.",
+            "description": {
+              "content": "**Example Requests**:\n\n    GET /api/discussion/v1/courses/course-v1:ExampleX+Subject101+2015",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "courses",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) Course ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d0859ae-4552-4763-a998-5aba5cd0ada4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"blackouts\": [\n    {\n      \"start\": \"1962-05-08T03:51:03.011Z\",\n      \"end\": \"1968-06-04T20:30:35.177Z\"\n    },\n    {\n      \"start\": \"2012-09-09T03:49:30.197Z\",\n      \"end\": \"1975-07-02T00:35:30.826Z\"\n    }\n  ],\n  \"thread_list_url\": \"https://OJeAPzgUrngq.mnTawW9MBtphSoOqx\",\n  \"following_thread_list_url\": \"http://Gf.xhiYiQNXLbaw00xC59FTHcG00V+bOwyAZQzk\",\n  \"topics_url\": \"http://ezAXwOOfgCDr.kyhV2RA-pIWDRPQRAfRbsRQG9rr6BAb6eST\",\n  \"allow_anonymous\": true,\n  \"allow_anonymous_to_peers\": false,\n  \"user_roles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"user_is_privileged\": false,\n  \"provider\": \"string\",\n  \"enable_in_context\": true,\n  \"group_at_subsection\": true,\n  \"post_close_reasons\": [\n    {\n      \"code\": \"string\",\n      \"label\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"label\": \"string\"\n    }\n  ],\n  \"edit_reasons\": [\n    {\n      \"code\": \"string\",\n      \"label\": \"string\"\n    },\n    {\n      \"code\": \"strin\",\n      \"label\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d0b2e44-c409-4a18-b311-adc020b5a981",
+              "name": "The requester is not authenticated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "94f124b4-8032-4cc6-b930-3c4237fe039c",
+              "name": "The requester cannot access the specified course.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7a6a1a4a-18c1-4cbe-be75-e009f4adf70b",
+              "name": "The requested course does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed331241-9910-4bac-994f-e41fcc34b03a",
+          "name": "discussion v1 courses learner list",
+          "request": {
+            "name": "discussion v1 courses learner list",
+            "description": {
+              "content": "Implements the GET method as described in the class docstring.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "courses",
+                ":course_id",
+                "learner",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "99410deb-6b79-4705-8f3e-66d99aa02bb8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    "learner",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e74bd8c2-4aec-4db5-988e-feeea615ceb3",
+          "name": "discussion v1 courses roles read",
+          "request": {
+            "name": "discussion v1 courses roles read",
+            "description": {
+              "content": "Implement a handler for the GET method.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "courses",
+                ":course_id",
+                "roles",
+                ":rolename",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rolename",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a69beb4a-d84f-4962-ad32-4e1781aca745",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    "roles",
+                    ":rolename",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rolename",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf8ce8ef-3a0a-4bfc-be34-bf21f6b22324",
+          "name": "discussion v1 courses roles create",
+          "request": {
+            "name": "discussion v1 courses roles create",
+            "description": {
+              "content": "Implement a handler for the POST method.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "courses",
+                ":course_id",
+                "roles",
+                ":rolename",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rolename",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e02310de-2273-476c-b7f5-f142bbffe6c8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    "roles",
+                    ":rolename",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rolename",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc01bc6a-1fd3-4f7b-9bf0-cc7c7dce1591",
+          "name": "discussion v1 courses settings list",
+          "request": {
+            "name": "discussion v1 courses settings list",
+            "description": {
+              "content": "Implement a handler for the GET method.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "courses",
+                ":course_id",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe0bc531-e7dc-494c-ab7f-64fbd2da4ad3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "444ea809-b6f4-4510-ab1c-46a109338181",
+          "name": "discussion v1 courses settings partial update",
+          "request": {
+            "name": "discussion v1 courses settings partial update",
+            "description": {
+              "content": "Implement a handler for the PATCH method.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "courses",
+                ":course_id",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4f187bb-f781-47be-b908-ba8503c83bee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54003775-a564-4a69-9530-de3b6c62e5be",
+          "name": "discussion v1 courses upload create",
+          "request": {
+            "name": "discussion v1 courses upload create",
+            "description": {
+              "content": "Handles a file upload.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "courses",
+                ":course_id",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "252abf18-1cfa-4c19-b785-06e0216ca401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_id",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c8106f6-39df-46b5-b255-6410e0fa4b10",
+          "name": "discussion v1 courses activity stats list",
+          "request": {
+            "name": "discussion v1 courses activity stats list",
+            "description": {
+              "content": "Implements the GET method as described in the class docstring.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "courses",
+                ":course_key_string",
+                "activity_stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76cc18c6-44eb-49a4-a95f-8fbdcefcd715",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "courses",
+                    ":course_key_string",
+                    "activity_stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a32b1fcc-6367-462f-abe3-ae56da4a9d27",
+          "name": "discussion v1 threads list",
+          "request": {
+            "name": "discussion v1 threads list",
+            "description": {
+              "content": "Implements the GET method for the list endpoint as described in the\nclass docstring.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "threads",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91f658bb-6f68-42e4-99d2-972e21cecca1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "threads",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a823362f-515f-47f0-b568-72e484f4373d",
+          "name": "discussion v1 threads create",
+          "request": {
+            "name": "discussion v1 threads create",
+            "description": {
+              "content": "Implements the POST method for the list endpoint as described in the\nclass docstring.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "threads",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b46f4357-1156-4c41-8df1-09ba842fec1d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "threads",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9eb9a9d-542b-4523-b4cc-631b8fd54f55",
+          "name": "discussion v1 threads read",
+          "request": {
+            "name": "discussion v1 threads read",
+            "description": {
+              "content": "Implements the GET method for thread ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "threads",
+                ":thread_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "thread_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80c3f7f5-1fed-4a0b-b465-944ae16d5080",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "threads",
+                    ":thread_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "thread_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8450548a-07d5-4490-930f-f46a10aaea5a",
+          "name": "discussion v1 threads partial update",
+          "request": {
+            "name": "discussion v1 threads partial update",
+            "description": {
+              "content": "Implements the PATCH method for the instance endpoint as described in\nthe class docstring.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "threads",
+                ":thread_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "thread_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7cc5fbf-369f-430b-87e0-2c5d9ad671eb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "threads",
+                    ":thread_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "thread_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "527f503c-1057-488b-9b5f-bccac2fcad2f",
+          "name": "discussion v1 threads delete",
+          "request": {
+            "name": "discussion v1 threads delete",
+            "description": {
+              "content": "Implements the DELETE method for the instance endpoint as described in\nthe class docstring",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v1",
+                "threads",
+                ":thread_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "thread_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a877318a-8c0e-4937-8ca4-02630b85cafe",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v1",
+                    "threads",
+                    ":thread_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "thread_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d527557d-4ef5-4a3a-9baa-2ca5541ffcf4",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "    Retrieve the topic listing for a course.\n\n**Example Requests**:\n\n    GET /api/discussion/v2/course_topics/course-v1:ExampleX+Subject101+2015\n        ?topic_id={topic_id_1, topid_id_2}&order_by=course_structure",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v2",
+                "course_topics",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "topic_id",
+                  "value": "<string>",
+                  "description": "Comma-separated list of topic ids to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "Sort ordering for topics"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) Course ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "129ac4c5-e741-4919-802f-24701362d317",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v2",
+                    "course_topics",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "topic_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"usage_key\": \"string\",\n  \"name\": \"string\",\n  \"thread_counts\": {},\n  \"enabled_in_context\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8c86a3a-6ef4-4153-a663-5fa63bd23f1b",
+              "name": "The requester is not authenticated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v2",
+                    "course_topics",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "topic_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fc00ce4c-5b72-41ef-b642-22efb7882cb4",
+              "name": "The requester cannot access the specified course.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v2",
+                    "course_topics",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "topic_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e7db0565-e678-4414-88d1-65bb58f3f917",
+              "name": "The requested course does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v2",
+                    "course_topics",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "topic_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8808ad09-a40f-4e02-8bb0-125171236250",
+          "name": "Retrieve general discussion metadata for a course.",
+          "request": {
+            "name": "Retrieve general discussion metadata for a course.",
+            "description": {
+              "content": "**Example Requests**:\n    GET /api/discussion/v2/courses/course-v1:ExampleX+Subject101+2015",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v2",
+                "courses",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) Course ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49cbe193-2304-4a8f-a670-b54d4dddbaa6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v2",
+                    "courses",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"blackouts\": [\n    {\n      \"start\": \"2002-10-02T00:32:50.137Z\",\n      \"end\": \"2003-05-03T18:35:24.931Z\"\n    },\n    {\n      \"start\": \"2008-09-28T07:52:01.673Z\",\n      \"end\": \"1986-12-15T09:12:31.197Z\"\n    }\n  ],\n  \"thread_list_url\": \"https://VWiFYUhEHVamoguzYOOaGJmG.eqKwEKxMDnTJGPaYQA0D\",\n  \"following_thread_list_url\": \"https://PxVUqILjgYGJHwkgmEHhiYRRhzVrlzjCS.phnAmTzZqJ-t6on0WfHcwIl0CLpijm1FKNdL.-tLjqrc9\",\n  \"topics_url\": \"https://VecRiNl.yzqmJVL6dOneoAcfnT\",\n  \"allow_anonymous\": true,\n  \"allow_anonymous_to_peers\": true,\n  \"user_roles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"user_is_privileged\": false,\n  \"provider\": \"string\",\n  \"enable_in_context\": true,\n  \"group_at_subsection\": true,\n  \"post_close_reasons\": [\n    {\n      \"code\": \"string\",\n      \"label\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"label\": \"string\"\n    }\n  ],\n  \"edit_reasons\": [\n    {\n      \"code\": \"string\",\n      \"label\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"label\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f79e5f43-dfa6-4526-846a-91e955a4065e",
+              "name": "The requester is not authenticated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v2",
+                    "courses",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ef03e101-ab6d-476d-b7e9-ea589b60f665",
+              "name": "The requester cannot access the specified course.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v2",
+                    "courses",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "718659a7-e0b2-4fce-b65e-4bfd3be5c076",
+              "name": "The requested course does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v2",
+                    "courses",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) Course ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "277c6f60-505f-493f-8c28-dc7bbcdf5620",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Retrieve the topic listing for a course.\n\n**Example Requests**:\n\n    GET /api/discussion/v3/course_topics/course-v1:ExampleX+Subject101+2015",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "discussion",
+                "v3",
+                "course_topics",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32dca8c0-9bd3-4f66-9623-30ae3517530b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "discussion",
+                    "v3",
+                    "course_topics",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a4f9ef1c-e403-4a43-a6e2-b8f725aafea6",
+    "name": "Open edX agreements discussion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

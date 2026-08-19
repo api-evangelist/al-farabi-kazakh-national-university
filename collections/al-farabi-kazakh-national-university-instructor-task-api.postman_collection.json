@@ -1,0 +1,553 @@
+{
+  "item": [
+    {
+      "id": "e9eee093-7eeb-4a32-9812-49bf5a8e3c0c",
+      "name": "instructor_task",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bcf63a20-ffd2-4850-9aa2-265258f264c4",
+          "name": "instructor task v1 schedules bulk email list",
+          "request": {
+            "name": "instructor task v1 schedules bulk email list",
+            "description": {
+              "content": "Read only view to list all scheduled bulk email messages for a course-run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instructor_task",
+                "v1",
+                "schedules",
+                ":course_id",
+                "bulk_email",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15d4af3e-340a-4b0f-ae42-7d0560ea98e5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor_task",
+                    "v1",
+                    "schedules",
+                    ":course_id",
+                    "bulk_email",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 794,\n  \"results\": [\n    {\n      \"task\": 2623,\n      \"task_due\": \"1990-12-12T02:54:06.161Z\",\n      \"id\": 4377,\n      \"course_email\": \"string\"\n    },\n    {\n      \"task\": 144,\n      \"task_due\": \"1971-08-02T05:54:06.036Z\",\n      \"id\": 238,\n      \"course_email\": \"string\"\n    }\n  ],\n  \"next\": \"http://IMYvXgPfA.jyhwP8TLtuthoic9uRxQrPPBBwwJhfzAgkecZYsXTmx\",\n  \"previous\": \"https://rthOXQKBedD.xptbM2UTUrUdz1CatzOFEZjZUiAvT.loApOfi3aoBRCp\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de0b221b-442f-43ec-aa0d-6c54e2bb5c10",
+          "name": "instructor task v1 schedules bulk email update",
+          "request": {
+            "name": "instructor task v1 schedules bulk email update",
+            "description": {
+              "content": "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instructor_task",
+                "v1",
+                "schedules",
+                ":course_id",
+                "bulk_email",
+                ":schedule_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schedule_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"task\": \"<integer>\",\n  \"task_due\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7b78054c-700a-47cc-87b3-f6f6c3640deb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor_task",
+                    "v1",
+                    "schedules",
+                    ":course_id",
+                    "bulk_email",
+                    ":schedule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schedule_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"task\": \"<integer>\",\n  \"task_due\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"task\": \"<integer>\",\n  \"task_due\": \"<dateTime>\",\n  \"id\": 6071,\n  \"course_email\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e829f783-ca88-43dd-a1b1-db288131a1b4",
+          "name": "instructor task v1 schedules bulk email partial update",
+          "request": {
+            "name": "instructor task v1 schedules bulk email partial update",
+            "description": {
+              "content": "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instructor_task",
+                "v1",
+                "schedules",
+                ":course_id",
+                "bulk_email",
+                ":schedule_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schedule_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"task\": \"<integer>\",\n  \"task_due\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de4321f2-c261-4bfd-a892-fd314b4cb522",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor_task",
+                    "v1",
+                    "schedules",
+                    ":course_id",
+                    "bulk_email",
+                    ":schedule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schedule_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"task\": \"<integer>\",\n  \"task_due\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"task\": \"<integer>\",\n  \"task_due\": \"<dateTime>\",\n  \"id\": 6071,\n  \"course_email\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40c63af3-5b21-49a4-992a-899420c426f0",
+          "name": "instructor task v1 schedules bulk email delete",
+          "request": {
+            "name": "instructor task v1 schedules bulk email delete",
+            "description": {
+              "content": "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instructor_task",
+                "v1",
+                "schedules",
+                ":course_id",
+                "bulk_email",
+                ":schedule_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schedule_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4842710-30ec-4aec-ae2f-36d478fdee22",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor_task",
+                    "v1",
+                    "schedules",
+                    ":course_id",
+                    "bulk_email",
+                    ":schedule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schedule_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8741b016-fc0d-4359-b25a-f0c0b8ce59c8",
+    "name": "Open edX agreements instructor_task API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

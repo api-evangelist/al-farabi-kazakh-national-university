@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements send_account_activation_email API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "send_account_activation_email",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "send_account_activation_email_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/send_account_activation_email"
+          },
+          "docs": "Returns status code."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

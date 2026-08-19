@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "0f76db0f-ba64-4441-91ee-dc2923c30de2",
+      "name": "completion",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fca4ef7b-a492-4a94-9008-48cecac74949",
+          "name": "Inserts a batch of completions.",
+          "request": {
+            "name": "Inserts a batch of completions.",
+            "description": {
+              "content": "REST Endpoint Format:\n```\n{\n  \"username\": \"username\",\n  \"course_key\": \"course-key\",\n  \"blocks\": {\n    \"block_key1\": 0.0,\n    \"block_key2\": 1.0,\n    \"block_key3\": 1.0,\n  }\n}\n```\n\n**Returns**\n\nA Response object, with an appropriate status code.\n\nIf successful, status code is 200.\n```\n{\n   \"detail\" : _(\"ok\")\n}\n```\n\nOtherwise, a 400 or 404 may be returned, and the \"detail\" content will explain the error.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "completion",
+                "v1",
+                "completion-batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60278e61-fa0c-4cd7-a64f-8abf382a00ce",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "completion",
+                    "v1",
+                    "completion-batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8d6ea71-683d-4e30-bcc8-9df39f420fbb",
+          "name": "completion v1 subsection-completion read",
+          "request": {
+            "name": "completion v1 subsection-completion read",
+            "description": {
+              "content": "Returns completion for a (user, subsection, course).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "completion",
+                "v1",
+                "subsection-completion",
+                ":username",
+                ":course_key",
+                ":subsection_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subsection_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04adf2f8-4ea0-40dd-8bdc-ea94914bffcb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "completion",
+                    "v1",
+                    "subsection-completion",
+                    ":username",
+                    ":course_key",
+                    ":subsection_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subsection_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "13825b7e-d555-47d0-8681-405f9363d4c0",
+    "name": "Open edX agreements completion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1030 @@
+{
+  "item": [
+    {
+      "id": "6648821a-6054-4405-bb46-c7c57d94b3fd",
+      "name": "credit",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6cbfb8d9-c371-45f9-aa87-9b9c5ff1cb3c",
+          "name": "credit v1 courses list",
+          "request": {
+            "name": "credit v1 courses list",
+            "description": {
+              "content": "CreditCourse endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "v1",
+                "courses",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7614864d-62c7-402d-8eaf-c74c41e98fd4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "v1",
+                    "courses",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"course_key\": \"string\",\n    \"enabled\": false\n  },\n  {\n    \"course_key\": \"string\",\n    \"enabled\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "498cb820-35c6-49db-9c9b-e92b4203d59e",
+          "name": "credit v1 courses create",
+          "request": {
+            "name": "credit v1 courses create",
+            "description": {
+              "content": "CreditCourse endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "v1",
+                "courses",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course_key\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "773aa42c-098b-4aeb-b7d6-be55ca798d4b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "v1",
+                    "courses",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"course_key\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_key\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9ba85c9-8fe2-4105-9b47-4561c6c648a3",
+          "name": "credit v1 courses read",
+          "request": {
+            "name": "credit v1 courses read",
+            "description": {
+              "content": "CreditCourse endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "v1",
+                "courses",
+                ":course_key",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9bd355b-0b03-4fee-bfca-3cf2943dc72e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "v1",
+                    "courses",
+                    ":course_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_key\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "734a5946-0f04-49ae-b89b-4db39d2597a9",
+          "name": "credit v1 courses update",
+          "request": {
+            "name": "credit v1 courses update",
+            "description": {
+              "content": "Create/update course modes for a course.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "v1",
+                "courses",
+                ":course_key",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course_key\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "93afc962-cc2d-411c-bbe6-b82cb0033dd4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "v1",
+                    "courses",
+                    ":course_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"course_key\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_key\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c40185e8-3efb-42b1-a4d0-a804e04c0270",
+          "name": "credit v1 courses partial update",
+          "request": {
+            "name": "credit v1 courses partial update",
+            "description": {
+              "content": "CreditCourse endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "v1",
+                "courses",
+                ":course_key",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course_key\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3d75670b-237b-437a-95f4-36fd2502e3d8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "v1",
+                    "courses",
+                    ":course_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"course_key\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_key\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06e7ecba-f21e-489a-980f-1de2b5444dc5",
+          "name": "credit v1 eligibility list",
+          "request": {
+            "name": "credit v1 eligibility list",
+            "description": {
+              "content": "Returns eligibility for a user-course combination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "v1",
+                "eligibility",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82da9df3-5de5-405d-9070-eb1d8dcc6339",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "v1",
+                    "eligibility",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"username\": \"string\",\n    \"course_key\": \"string\",\n    \"deadline\": \"1952-08-05T15:02:52.774Z\"\n  },\n  {\n    \"username\": \"string\",\n    \"course_key\": \"string\",\n    \"deadline\": \"2006-11-23T13:09:43.459Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb847d85-1399-4a6b-b62d-599e3bf7ff25",
+          "name": "credit v1 providers list",
+          "request": {
+            "name": "credit v1 providers list",
+            "description": {
+              "content": "Credit provider endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "v1",
+                "providers",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75d2171b-67f4-40d7-8ae2-6e56251464b1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "v1",
+                    "providers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"display_name\": \"string\",\n    \"url\": \"http://eJX.lsfVmhhAoNZ52ceQQg7JgBrk2rqmPSq-oU-YQjzz-9k7F+SaA4XR\",\n    \"status_url\": \"http://LEPCFVatuvcdeyTavWJeRHRH.tnuWN7HM3etgym2GatVvbCddI+z7MTlxvyWU+9VuFN1iglDCeyI8behZoj79YtK52HknjA\",\n    \"description\": \"string\",\n    \"enable_integration\": true,\n    \"fulfillment_instructions\": \"string\",\n    \"thumbnail_url\": \"https://oWEALTOlEefJEajhHQ.vfxvwWf\"\n  },\n  {\n    \"id\": \"string\",\n    \"display_name\": \"string\",\n    \"url\": \"https://ViTELvJuNK.lmvzQ,.aQ,+DJVK6kkO2lFmjxouOGurnbnirhgH2loe3htMrz\",\n    \"status_url\": \"https://OtCyzFqYhWzfpJKHZpMsYoasI.uylNWAxs-p3R-lFoNarKvXbXxrD1s\",\n    \"description\": \"string\",\n    \"enable_integration\": false,\n    \"fulfillment_instructions\": \"string\",\n    \"thumbnail_url\": \"https://TXLoRN.cam1r7bMQv\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abd5c118-b019-4f96-9b8f-34fd9f80c846",
+          "name": "credit v1 providers read",
+          "request": {
+            "name": "credit v1 providers read",
+            "description": {
+              "content": "Credit provider endpoints.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "v1",
+                "providers",
+                ":provider_id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider_id",
+                  "description": "(Required) Идентификатор кредитора. Может содержать только буквы, цифры и дефисы (-). Регистр учитывается."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0a29c99-1436-4068-8d32-b5293e79ff1d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "v1",
+                    "providers",
+                    ":provider_id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_id",
+                      "description": "(Required) Идентификатор кредитора. Может содержать только буквы, цифры и дефисы (-). Регистр учитывается."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"display_name\": \"string\",\n  \"url\": \"https://kpLRMyGPyoWFXnFZCXNm.lywUtEaIxCTT5sZJKqkDkYtyKly\",\n  \"status_url\": \"https://vxsvHFktdIIfLvNAjnrLIthlwhrEYXmVH.kfZlIdzFTQd,LfOlEDXm6iaQdMjoDzEhMyPYwIUr1Kb\",\n  \"description\": \"string\",\n  \"enable_integration\": true,\n  \"fulfillment_instructions\": \"string\",\n  \"thumbnail_url\": \"http://fAiqdPStRpiEhROjGVKySD.etzkWwyU+rPywhTgpG.koX5AQgVKu5EMC7JQBaDgooDfNR,z7sIWd\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfa5a66a-e4a1-40b0-a7f9-04b33b86251e",
+          "name": "credit v1 providers callback create",
+          "request": {
+            "name": "credit v1 providers callback create",
+            "description": {
+              "content": "POST handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "v1",
+                "providers",
+                ":provider_id",
+                "callback",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2eb9278-ae3c-4edb-b6d9-73461353df78",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "v1",
+                    "providers",
+                    ":provider_id",
+                    "callback",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a3f92d4-1d0d-4d5f-bbc1-3e94bdbea9d9",
+          "name": "credit v1 providers request create",
+          "request": {
+            "name": "credit v1 providers request create",
+            "description": {
+              "content": "POST handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "credit",
+                "v1",
+                "providers",
+                ":provider_id",
+                "request",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "provider_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa06e3b3-9033-4920-b2a0-7b0da360c45a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "credit",
+                    "v1",
+                    "providers",
+                    ":provider_id",
+                    "request",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "provider_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7e1a03f0-ef55-451c-aeb2-1043cc89706a",
+    "name": "Open edX agreements credit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

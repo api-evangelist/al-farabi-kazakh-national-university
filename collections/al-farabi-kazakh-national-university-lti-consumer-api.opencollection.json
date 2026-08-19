@@ -1,0 +1,273 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements lti_consumer API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "lti_consumer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/lti_consumer/v1/lti/:lti_config_id/lti-ags",
+            "params": [
+              {
+                "name": "lti_config_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "See full documentation at:"
+        },
+        {
+          "info": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/lti_consumer/v1/lti/:lti_config_id/lti-ags",
+            "params": [
+              {
+                "name": "lti_config_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "See full documentation at:"
+        },
+        {
+          "info": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/lti_consumer/v1/lti/:lti_config_id/lti-ags/:id",
+            "params": [
+              {
+                "name": "lti_config_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "See full documentation at:"
+        },
+        {
+          "info": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://open.kaznu.kz/api/lti_consumer/v1/lti/:lti_config_id/lti-ags/:id",
+            "params": [
+              {
+                "name": "lti_config_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "See full documentation at:"
+        },
+        {
+          "info": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/lti_consumer/v1/lti/:lti_config_id/lti-ags/:id",
+            "params": [
+              {
+                "name": "lti_config_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "See full documentation at:"
+        },
+        {
+          "info": {
+            "name": "LineItem endpoint implementation from LTI Advantage.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/lti_consumer/v1/lti/:lti_config_id/lti-ags/:id",
+            "params": [
+              {
+                "name": "lti_config_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "See full documentation at:"
+        },
+        {
+          "info": {
+            "name": "Return a Result list for an LtiAgsLineItem",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/lti_consumer/v1/lti/:lti_config_id/lti-ags/:id/results/:user_id",
+            "params": [
+              {
+                "name": "lti_config_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "URL Parameters:\n  * user_id (string): String external user id representation.\n\nQuery Parameters:\n  * limit (integer): The maximum number of records to return. Records are\n        sorted with most recent timestamp first"
+        },
+        {
+          "info": {
+            "name": "lti_consumer_v1_lti_lti-ags_scores",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/lti_consumer/v1/lti/:lti_config_id/lti-ags/:id/scores",
+            "params": [
+              {
+                "name": "lti_config_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Score record for an LtiAgsLineItem"
+        },
+        {
+          "info": {
+            "name": "lti_consumer_v1_lti_memberships_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/lti_consumer/v1/lti/:lti_config_id/memberships",
+            "params": [
+              {
+                "name": "lti_config_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              }
+            ]
+          },
+          "docs": "Overrides default list method of ModelViewSet. Calls LMS `get_course_members`\nAPI and returns result."
+        },
+        {
+          "info": {
+            "name": "LTI NRPS Context Membership Service endpoint.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/lti_consumer/v1/lti/:lti_config_id/memberships/:id",
+            "params": [
+              {
+                "name": "lti_config_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "See full documentation at:"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

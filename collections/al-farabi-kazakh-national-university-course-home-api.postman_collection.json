@@ -1,0 +1,1709 @@
+{
+  "item": [
+    {
+      "id": "cfe0e83a-4615-495e-a058-06f1b37fbbac",
+      "name": "course_home",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "080403d9-275b-4ca7-aaf8-bc7d9c8de0cc",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request Course metadata details for the Course Home MFE that every page needs.\n\n**Example Requests**\n\n    GET api/course_home/v1/course_metadata/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_id: (str) The Course's id (Course Run key)\n    username: (str) The requesting (or masqueraded) user. Returns None for an\n        unauthenticated user.\n    is_enrolled: (bool) Indicates if the user is enrolled in the course\n    is_self_paced: (bool) Indicates if the course is self paced\n    is_staff: (bool) Indicates if the user is staff\n    original_user_is_staff: (bool) Indicates if the original user has staff access\n        Used for when masquerading to distinguish between the original requesting user\n        and the user being masqueraded as.\n    number: (str) The Course's number\n    org: (str) The Course's organization\n    tabs: List of Course Tabs to display. They are serialized as:\n        tab_id: (str) The tab's id\n        title: (str) The title of the tab to display\n        url: (str) The url to view the tab\n    title: (str) The Course's display title\n    celebrations: (dict) a dict of celebration data\n    user_timezone: (str) The timezone of the given user\n    can_view_certificate: Flag to determine whether or not the learner can view their course certificate.\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "course_metadata",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "843e0616-4f9b-454a-985c-9d43d8199dba",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "course_metadata",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"celebrations\": {\n    \"key_0\": \"string\"\n  },\n  \"course_access\": {\n    \"key_0\": \"string\"\n  },\n  \"studio_access\": false,\n  \"course_id\": \"string\",\n  \"is_enrolled\": false,\n  \"is_self_paced\": false,\n  \"is_staff\": false,\n  \"number\": \"string\",\n  \"org\": \"string\",\n  \"original_user_is_staff\": false,\n  \"start\": \"1962-04-16T14:03:02.828Z\",\n  \"tabs\": [\n    {\n      \"tab_id\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"string\"\n    },\n    {\n      \"tab_id\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"string\"\n    }\n  ],\n  \"title\": \"string\",\n  \"username\": \"string\",\n  \"user_timezone\": \"str\",\n  \"can_view_certificate\": false,\n  \"course_modes\": [\n    {\n      \"slug\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"slug\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"is_new_discussion_sidebar_view_enabled\": true,\n  \"has_course_author_access\": true,\n  \"verified_mode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88edb259-faab-4933-8086-e87cf8030063",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request details for the Dates Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/dates/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_date_blocks: List of serialized DateSummary objects. Each serialization has the following fields:\n        complete: (bool) Meant to only be used by assignments. Indicates completeness for an\n            assignment.\n        date: (datetime) The date time corresponding for the event\n        date_type: (str) The type of date (ex. course-start-date, assignment-due-date, etc.)\n        description: (str) The description for the date event\n        learner_has_access: (bool) Indicates if the learner has access to the date event\n        link: (str) An absolute link to content related to the date event\n            (ex. verified link or link to assignment)\n        title: (str) The title of the date event\n    dates_banner_info: (obj)\n        content_type_gating_enabled: (bool) Whether content type gating is enabled for this enrollment.\n        missed_deadlines: (bool) Indicates whether the user missed any graded content deadlines\n        missed_gated_content: (bool) Indicates whether the user missed gated content\n        verified_upgrade_link: (str) The link for upgrading to the Verified track in a course\n    has_ended: (bool) Indicates whether course has ended\n    learner_is_full_access: (bool) Indicates if the user is verified in the course\n    user_timezone: (str) The user's preferred timezone\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "dates",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3559440c-eccb-4382-b806-25c5b83609c6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "dates",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_date_blocks\": [\n    {\n      \"complete\": false,\n      \"date\": \"1949-06-09T12:16:29.257Z\",\n      \"date_type\": \"string\",\n      \"description\": \"string\",\n      \"link_text\": \"string\",\n      \"title\": \"string\",\n      \"extra_info\": \"string\",\n      \"assignment_type\": \"string\",\n      \"learner_has_access\": \"string\",\n      \"link\": \"string\",\n      \"first_component_block_id\": \"string\"\n    },\n    {\n      \"complete\": false,\n      \"date\": \"1947-04-24T15:35:28.183Z\",\n      \"date_type\": \"string\",\n      \"description\": \"string\",\n      \"link_text\": \"string\",\n      \"title\": \"string\",\n      \"extra_info\": \"string\",\n      \"assignment_type\": \"string\",\n      \"learner_has_access\": \"string\",\n      \"link\": \"string\",\n      \"first_component_block_id\": \"string\"\n    }\n  ],\n  \"has_ended\": true,\n  \"learner_is_full_access\": false,\n  \"user_timezone\": \"string\",\n  \"dates_banner_info\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7ac31b9-3d2c-4a04-86b6-1d72b0e3e71c",
+          "name": "course home dismiss welcome message create",
+          "request": {
+            "name": "course home dismiss welcome message create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "dismiss_welcome_message"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f87913eb-5938-4a5c-9566-c598ad68206b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "dismiss_welcome_message"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e9fbed6-9388-442b-8604-138347b5aac8",
+          "name": "course home navigation read",
+          "request": {
+            "name": "course home navigation read",
+            "description": {
+              "content": "Get the visible course blocks (from course to vertical types) for the given course.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "navigation",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25995863-d273-45f3-942f-117945a65d0f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "navigation",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"blocks\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fce5238-0f1b-4186-a3bc-0a8549930738",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request details for the Outline Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/outline/{course_key}\n\n**Response Values**\n\n    Body consists of two possible shapes.\n\n    For a good 200 response, the response will include:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    course_blocks:\n        blocks: List of serialized Course Block objects. Each serialization has the following fields:\n            id: (str) The usage ID of the block.\n            type: (str) The type of block. Possible values the names of any\n                XBlock type in the system, including custom blocks. Examples are\n                course, chapter, sequential, vertical, html, problem, video, and\n                discussion.\n            display_name: (str) The display name of the block.\n            lms_web_url: (str) The URL to the navigational container of the\n                xBlock on the web LMS.\n            children: (list) If the block has child blocks, a list of IDs of\n                the child blocks.\n            resume_block: (bool) Whether the block is the resume block\n            has_scheduled_content: (bool) Whether the block has more content scheduled for the future\n    course_goals:\n        selected_goal:\n            days_per_week: (int) The number of days the learner wants to learn per week\n            subscribed_to_reminders: (bool) Whether the learner wants email reminders about their goal\n        weekly_learning_goal_enabled: Flag indicating if this feature is enabled for this call\n    course_tools: List of serialized Course Tool objects. Each serialization has the following fields:\n        analytics_id: (str) The unique id given to the tool.\n        title: (str) The display title of the tool.\n        url: (str) The link to access the tool.\n    dates_banner_info: (obj)\n        content_type_gating_enabled: (bool) Whether content type gating is enabled for this enrollment.\n        missed_deadlines: (bool) Whether the user has missed any graded content deadlines for the given course.\n        missed_gated_content: (bool) Whether the user has missed any gated content for the given course.\n        verified_upgrade_link: (str) The URL to ecommerce IDA for purchasing the verified upgrade.\n    dates_widget:\n        course_date_blocks: List of serialized Course Dates objects. Each serialization has the following fields:\n            complete: (bool) Meant to only be used by assignments. Indicates completeness for an\n            assignment.\n            date: (datetime) The date time corresponding for the event\n            date_type: (str) The type of date (ex. course-start-date, assignment-due-date, etc.)\n            description: (str) The description for the date event\n            learner_has_access: (bool) Indicates if the learner has access to the date event\n            link: (str) An absolute link to content related to the date event\n                (ex. verified link or link to assignment)\n            title: (str) The title of the date event\n        dates_tab_link: (str) The URL to the Dates Tab\n        user_timezone: (str) The timezone of the given user\n    enroll_alert:\n        can_enroll: (bool) Whether the user can enroll in the given course\n        extra_text: (str)\n    enrollment_mode: (str) Current enrollment mode. Null if the user is not enrolled.\n    handouts_html: (str) Raw HTML for the handouts section of the course info\n    has_ended: (bool) Indicates whether course has ended\n    offer: An object detailing upgrade discount information\n        code: (str) Checkout code\n        expiration_date: (str) Expiration of offer, in ISO 8601 notation\n        original_price: (str) Full upgrade price without checkout code; includes currency symbol\n        discounted_price: (str) Upgrade price with checkout code; includes currency symbol\n        percentage: (int) Amount of discount\n        upgrade_url: (str) Checkout URL\n    resume_course:\n        has_visited_course: (bool) Whether the user has ever visited the course\n        url: (str) The display name of the course block to resume\n    welcome_message_html: (str) Raw HTML for the course updates banner\n    user_has_passing_grade: (bool) Whether the user currently is passing the course\n\n    If the learner does not have access to the course for a specific reason and should be redirected this\n    view will return a 403 and the following data:\n\n    url: (str) The URL to which the user should be redirected\n    error_code: (str) A system identifier for the reason the user is being redirected\n    developer_message: (str) A message explaining why the user is being redirected,\n                             intended for developer debugging.\n    user_message: (str) A message explaining why the user is being redirected, intended to be shown to the user.\n\n**Returns**\n\n    * 200 on success.\n    * 403 if the user does not currently have access to the course and should be redirected.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "outline",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a565b80-8d1d-41c0-8263-18c9b0eb70fc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "outline",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_expiration\": {\n    \"key_0\": \"string\"\n  },\n  \"cert_data\": {\n    \"cert_status\": \"string\",\n    \"cert_web_view_url\": \"string\",\n    \"download_url\": \"string\",\n    \"certificate_available_date\": \"1978-06-27T20:10:37.744Z\"\n  },\n  \"course_blocks\": {\n    \"blocks\": \"string\"\n  },\n  \"course_goals\": {\n    \"selected_goal\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\",\n      \"key_3\": \"string\"\n    },\n    \"weekly_learning_goal_enabled\": false\n  },\n  \"course_tools\": [\n    {\n      \"analytics_id\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"string\"\n    },\n    {\n      \"analytics_id\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"string\"\n    }\n  ],\n  \"dates_widget\": {\n    \"course_date_blocks\": [\n      {\n        \"complete\": false,\n        \"date\": \"1980-10-09T15:22:08.668Z\",\n        \"date_type\": \"string\",\n        \"description\": \"string\",\n        \"link_text\": \"string\",\n        \"title\": \"string\",\n        \"extra_info\": \"string\",\n        \"assignment_type\": \"string\",\n        \"learner_has_access\": \"string\",\n        \"link\": \"string\",\n        \"first_component_block_id\": \"string\"\n      },\n      {\n        \"complete\": true,\n        \"date\": \"1995-01-16T00:09:54.415Z\",\n        \"date_type\": \"string\",\n        \"description\": \"string\",\n        \"link_text\": \"string\",\n        \"title\": \"string\",\n        \"extra_info\": \"string\",\n        \"assignment_type\": \"string\",\n        \"learner_has_access\": \"string\",\n        \"link\": \"string\",\n        \"first_component_block_id\": \"string\"\n      }\n    ],\n    \"dates_tab_link\": \"string\",\n    \"user_timezone\": \"string\"\n  },\n  \"enroll_alert\": {\n    \"can_enroll\": true,\n    \"extra_text\": \"string\"\n  },\n  \"enrollment_mode\": \"string\",\n  \"enable_proctored_exams\": false,\n  \"handouts_html\": \"string\",\n  \"has_ended\": true,\n  \"offer\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"resume_course\": {\n    \"has_visited_course\": false,\n    \"url\": \"https://Ov.siffXrDj83x8PhtGpdFTzacDv9XXGgsgmv4EhAxgh5WUTf+vruGM1OJ0tJNV63zlw4coj\"\n  },\n  \"welcome_message_html\": \"string\",\n  \"user_has_passing_grade\": true,\n  \"dates_banner_info\": \"string\",\n  \"verified_mode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f06e9379-9db7-4eea-9193-96f34ace1526",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    certificate_data: Object containing information about the user's certificate status\n        cert_status: (str) the status of a user's certificate (full list of statuses are defined in\n                     lms/djangoapps/certificates/models.py)\n        cert_web_view_url: (str) the url to view the certificate\n        download_url: (str) the url to download the certificate\n    completion_summary: Object containing unit completion counts with the following fields:\n        complete_count: (float) number of complete units\n        incomplete_count: (float) number of incomplete units\n        locked_count: (float) number of units where contains_gated_content is True\n    course_grade: Object containing the following fields:\n        is_passing: (bool) whether the user's grade is above the passing grade cutoff\n        letter_grade: (str) the user's letter grade based on the set grade range.\n                            If user is passing, value may be 'A', 'B', 'C', 'D', 'Pass', otherwise none\n        percent: (float) the user's total graded percent in the course\n    credit_course_requirements: Object containing credit course requirements with the following fields:\n        eligibility_status: (str) Indicates if the user is eligible to receive credit. Value may be\n            \"eligible\", \"not_eligible\", or \"partial_eligible\"\n        requirements: List of requirements that must be fulfilled to be eligible to receive credit. See\n            `get_credit_requirement_status` for details on the fields\n    end: (date) end date of the course\n    enrollment_mode: (str) a str representing the enrollment the user has ('audit', 'verified', ...)\n    grading_policy:\n        assignment_policies: List of serialized assignment grading policy objects, each has the following fields:\n            num_droppable: (int) the number of lowest scored assignments that will not be counted towards the final\n                           grade\n            short_label: (str) the abbreviated name given to the assignment type\n            type: (str) the assignment type\n            weight: (float) the percent weight the given assigment type has on the overall grade\n        grade_range: an object containing the grade range cutoffs. The exact keys in the object can vary, but they\n                     range from just 'Pass', to a combination of 'A', 'B', 'C', and 'D'. If a letter grade is\n                     present, 'Pass' is not included.\n    has_scheduled_content: (bool) boolean on if the course has content scheduled with a release date in the future\n    section_scores: List of serialized Chapters. Each Chapter has the following fields:\n        display_name: (str) a str of what the name of the Chapter is for displaying on the site\n        subsections: List of serialized Subsections, each has the following fields:\n            assignment_type: (str) the format, if any, of the Subsection (Homework, Exam, etc)\n            block_key: (str) the key of the given subsection block\n            display_name: (str) a str of what the name of the Subsection is for displaying on the site\n            has_graded_assignment: (bool) whether or not the Subsection is a graded assignment\n            learner_has_access: (bool) whether the learner has access to the subsection (could be FBE gated)\n            num_points_earned: (int) the amount of points the user has earned for the given subsection\n            num_points_possible: (int) the total amount of points possible for the given subsection\n            override: Optional object if grade has been overridden by proctor or grading change\n                system: (str) either GRADING or PROCTORING\n                reason: (str) a comment on the grading override\n            percent_graded: (float) the percentage of total points the user has received a grade for in a given\n                            subsection\n            problem_scores: List of objects that represent individual problem scores with the following fields:\n                earned: (float) number of earned points\n                possible: (float) number of possible points\n            show_correctness: (str) a str representing whether to show the problem/practice scores based on due date\n                              ('always', 'never', 'past_due', values defined in\n                               xmodule/modulestore/inheritance.py)\n            show_grades: (bool) a bool for whether to show grades based on the access the user has\n            url: (str or None) the absolute path url to the Subsection or None if the Subsection is no longer\n                 accessible to the learner due to a hide_after_due course team setting\n    studio_url: (str) a str of the link to the grading in studio for the course\n    user_has_passing_grade: (bool) boolean on if the user has a passing grade in the course\n    username: (str) username of the student whose progress information is being displayed.\n    verification_data: an object containing\n        link: (str) the link to either start or retry ID verification\n        status: (str) the status of the ID verification\n        status_date: (str) the date time string of when the ID verification status was set\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated or not enrolled.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "progress",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6532c02c-5a3a-4c54-80ae-0790d5d6e739",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "progress",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_expiration\": {\n    \"key_0\": \"string\"\n  },\n  \"certificate_data\": {\n    \"cert_status\": \"string\",\n    \"cert_web_view_url\": \"string\",\n    \"download_url\": \"string\",\n    \"certificate_available_date\": \"2007-03-12T23:08:40.064Z\"\n  },\n  \"completion_summary\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"course_grade\": {\n    \"letter_grade\": \"string\",\n    \"percent\": 7377.599355568543,\n    \"is_passing\": false\n  },\n  \"credit_course_requirements\": {\n    \"key_0\": \"string\"\n  },\n  \"end\": \"1999-08-18T03:30:58.384Z\",\n  \"enrollment_mode\": \"string\",\n  \"grading_policy\": {\n    \"grade_range\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"assignment_policies\": \"string\"\n  },\n  \"has_scheduled_content\": true,\n  \"section_scores\": [\n    {\n      \"display_name\": \"string\",\n      \"subsections\": [\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": false,\n          \"num_points_earned\": 8788.583346526242,\n          \"num_points_possible\": 6299.773134070072,\n          \"percent_graded\": 9293.388566854812,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": false,\n          \"num_points_earned\": 2597.099625331929,\n          \"num_points_possible\": 6211.278792242197,\n          \"percent_graded\": 4702.475210810949,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        }\n      ]\n    },\n    {\n      \"display_name\": \"string\",\n      \"subsections\": [\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": false,\n          \"num_points_earned\": 5089.816624454845,\n          \"num_points_possible\": 9653.098287348968,\n          \"percent_graded\": 6944.708779113029,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": true,\n          \"num_points_earned\": 1653.407311291616,\n          \"num_points_possible\": 8280.626344622753,\n          \"percent_graded\": 2558.341317481353,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"studio_url\": \"string\",\n  \"username\": \"string\",\n  \"user_has_passing_grade\": false,\n  \"verification_data\": {\n    \"link\": \"http://AOBnvQnJBQt.yekqLBj2zPRVIG2MObmQxrqt-acJtuBYtg9MwMkuFehbdCZAEQzlNeHRar\",\n    \"status\": \"string\",\n    \"status_date\": \"1952-10-04T01:46:00.612Z\"\n  },\n  \"disable_progress_graph\": true,\n  \"verified_mode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "213db28e-8a3b-4d38-9a97-3bb5568cba70",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    certificate_data: Object containing information about the user's certificate status\n        cert_status: (str) the status of a user's certificate (full list of statuses are defined in\n                     lms/djangoapps/certificates/models.py)\n        cert_web_view_url: (str) the url to view the certificate\n        download_url: (str) the url to download the certificate\n    completion_summary: Object containing unit completion counts with the following fields:\n        complete_count: (float) number of complete units\n        incomplete_count: (float) number of incomplete units\n        locked_count: (float) number of units where contains_gated_content is True\n    course_grade: Object containing the following fields:\n        is_passing: (bool) whether the user's grade is above the passing grade cutoff\n        letter_grade: (str) the user's letter grade based on the set grade range.\n                            If user is passing, value may be 'A', 'B', 'C', 'D', 'Pass', otherwise none\n        percent: (float) the user's total graded percent in the course\n    credit_course_requirements: Object containing credit course requirements with the following fields:\n        eligibility_status: (str) Indicates if the user is eligible to receive credit. Value may be\n            \"eligible\", \"not_eligible\", or \"partial_eligible\"\n        requirements: List of requirements that must be fulfilled to be eligible to receive credit. See\n            `get_credit_requirement_status` for details on the fields\n    end: (date) end date of the course\n    enrollment_mode: (str) a str representing the enrollment the user has ('audit', 'verified', ...)\n    grading_policy:\n        assignment_policies: List of serialized assignment grading policy objects, each has the following fields:\n            num_droppable: (int) the number of lowest scored assignments that will not be counted towards the final\n                           grade\n            short_label: (str) the abbreviated name given to the assignment type\n            type: (str) the assignment type\n            weight: (float) the percent weight the given assigment type has on the overall grade\n        grade_range: an object containing the grade range cutoffs. The exact keys in the object can vary, but they\n                     range from just 'Pass', to a combination of 'A', 'B', 'C', and 'D'. If a letter grade is\n                     present, 'Pass' is not included.\n    has_scheduled_content: (bool) boolean on if the course has content scheduled with a release date in the future\n    section_scores: List of serialized Chapters. Each Chapter has the following fields:\n        display_name: (str) a str of what the name of the Chapter is for displaying on the site\n        subsections: List of serialized Subsections, each has the following fields:\n            assignment_type: (str) the format, if any, of the Subsection (Homework, Exam, etc)\n            block_key: (str) the key of the given subsection block\n            display_name: (str) a str of what the name of the Subsection is for displaying on the site\n            has_graded_assignment: (bool) whether or not the Subsection is a graded assignment\n            learner_has_access: (bool) whether the learner has access to the subsection (could be FBE gated)\n            num_points_earned: (int) the amount of points the user has earned for the given subsection\n            num_points_possible: (int) the total amount of points possible for the given subsection\n            override: Optional object if grade has been overridden by proctor or grading change\n                system: (str) either GRADING or PROCTORING\n                reason: (str) a comment on the grading override\n            percent_graded: (float) the percentage of total points the user has received a grade for in a given\n                            subsection\n            problem_scores: List of objects that represent individual problem scores with the following fields:\n                earned: (float) number of earned points\n                possible: (float) number of possible points\n            show_correctness: (str) a str representing whether to show the problem/practice scores based on due date\n                              ('always', 'never', 'past_due', values defined in\n                               xmodule/modulestore/inheritance.py)\n            show_grades: (bool) a bool for whether to show grades based on the access the user has\n            url: (str or None) the absolute path url to the Subsection or None if the Subsection is no longer\n                 accessible to the learner due to a hide_after_due course team setting\n    studio_url: (str) a str of the link to the grading in studio for the course\n    user_has_passing_grade: (bool) boolean on if the user has a passing grade in the course\n    username: (str) username of the student whose progress information is being displayed.\n    verification_data: an object containing\n        link: (str) the link to either start or retry ID verification\n        status: (str) the status of the ID verification\n        status_date: (str) the date time string of when the ID verification status was set\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated or not enrolled.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "progress",
+                ":course_key_string",
+                ":student_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "student_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf54382e-15fa-4500-bce2-09238ea99622",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "progress",
+                    ":course_key_string",
+                    ":student_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "student_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_expiration\": {\n    \"key_0\": \"string\"\n  },\n  \"certificate_data\": {\n    \"cert_status\": \"string\",\n    \"cert_web_view_url\": \"string\",\n    \"download_url\": \"string\",\n    \"certificate_available_date\": \"2025-10-06T14:28:23.037Z\"\n  },\n  \"completion_summary\": {\n    \"key_0\": \"string\"\n  },\n  \"course_grade\": {\n    \"letter_grade\": \"string\",\n    \"percent\": 3392.3451993364097,\n    \"is_passing\": true\n  },\n  \"credit_course_requirements\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"end\": \"2007-07-04T13:47:22.078Z\",\n  \"enrollment_mode\": \"string\",\n  \"grading_policy\": {\n    \"grade_range\": {\n      \"key_0\": \"string\"\n    },\n    \"assignment_policies\": \"string\"\n  },\n  \"has_scheduled_content\": false,\n  \"section_scores\": [\n    {\n      \"display_name\": \"string\",\n      \"subsections\": [\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": false,\n          \"num_points_earned\": 7457.186411841478,\n          \"num_points_possible\": 4457.6496635477315,\n          \"percent_graded\": 4288.885927987874,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": true,\n          \"num_points_earned\": 5636.966724492057,\n          \"num_points_possible\": 901.2568910641894,\n          \"percent_graded\": 9593.522300296048,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        }\n      ]\n    },\n    {\n      \"display_name\": \"string\",\n      \"subsections\": [\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": true,\n          \"num_points_earned\": 2411.517056547937,\n          \"num_points_possible\": 2974.176790864529,\n          \"percent_graded\": 4242.944888464291,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": false,\n          \"num_points_earned\": 7663.52183899472,\n          \"num_points_possible\": 2749.6175683903944,\n          \"percent_graded\": 5857.100416562038,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"studio_url\": \"string\",\n  \"username\": \"string\",\n  \"user_has_passing_grade\": false,\n  \"verification_data\": {\n    \"link\": \"http://adryREcJalPJZPGBAdJenYnvY.hmDev.XBN6d-UiXmuM6UW3QbQNnoyydCHkLXL+Jvf+BBMrUxa8wwEP68QYdS4t1MT\",\n    \"status\": \"string\",\n    \"status_date\": \"2005-10-03T02:16:08.836Z\"\n  },\n  \"disable_progress_graph\": true,\n  \"verified_mode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66de7c2a-1a4b-4051-b7c2-c43485278484",
+          "name": "course home save course goal create",
+          "request": {
+            "name": "course home save course goal create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "save_course_goal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec5c6b64-cd11-4f9b-89a4-c845fd7b46f4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "save_course_goal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96ba8aa3-6abf-406c-8102-9e01d9d147ac",
+          "name": "API calls to unsubscribe from course goal reminders.",
+          "request": {
+            "name": "API calls to unsubscribe from course goal reminders.",
+            "description": {
+              "content": "Note that this does not require authentication - this view may be hit from an email on a different device than\nnormal or whatever. We should still be able to unsubscribe the user. Instead, we use a token in the email to\nvalidate that they have permission to unsubscribe.\n\nThis endpoint is very tightly scoped (only unsubscribe: no subscribing, no PII) because it is unauthenticated.\n\n**Example Requests**\n    POST api/course_home/v1/unsubscribe_from_course_goal/{token}\n\n**Example Response Data**\n    {'course_title': 'Cats & Dogs In Canadian Media'}\n\nReturns a 404 response if the token was not found. Otherwise, returns some basic course info. But no PII.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "unsubscribe_from_course_goal",
+                ":token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "640c22e0-09c9-4901-b9fd-21586073d6d1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "unsubscribe_from_course_goal",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21a2b3ca-97e6-4288-89ef-fa85d3b8b37a",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request Course metadata details for the Course Home MFE that every page needs.\n\n**Example Requests**\n\n    GET api/course_home/v1/course_metadata/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_id: (str) The Course's id (Course Run key)\n    username: (str) The requesting (or masqueraded) user. Returns None for an\n        unauthenticated user.\n    is_enrolled: (bool) Indicates if the user is enrolled in the course\n    is_self_paced: (bool) Indicates if the course is self paced\n    is_staff: (bool) Indicates if the user is staff\n    original_user_is_staff: (bool) Indicates if the original user has staff access\n        Used for when masquerading to distinguish between the original requesting user\n        and the user being masqueraded as.\n    number: (str) The Course's number\n    org: (str) The Course's organization\n    tabs: List of Course Tabs to display. They are serialized as:\n        tab_id: (str) The tab's id\n        title: (str) The title of the tab to display\n        url: (str) The url to view the tab\n    title: (str) The Course's display title\n    celebrations: (dict) a dict of celebration data\n    user_timezone: (str) The timezone of the given user\n    can_view_certificate: Flag to determine whether or not the learner can view their course certificate.\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "v1",
+                "course_metadata",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50e8d102-437b-4803-b9ed-ccb14b95947d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "v1",
+                    "course_metadata",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"celebrations\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"course_access\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"studio_access\": true,\n  \"course_id\": \"string\",\n  \"is_enrolled\": false,\n  \"is_self_paced\": false,\n  \"is_staff\": true,\n  \"number\": \"string\",\n  \"org\": \"string\",\n  \"original_user_is_staff\": true,\n  \"start\": \"1974-01-11T15:33:01.224Z\",\n  \"tabs\": [\n    {\n      \"tab_id\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"string\"\n    },\n    {\n      \"tab_id\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"string\"\n    }\n  ],\n  \"title\": \"string\",\n  \"username\": \"string\",\n  \"user_timezone\": \"string\",\n  \"can_view_certificate\": true,\n  \"course_modes\": [\n    {\n      \"slug\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"slug\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"is_new_discussion_sidebar_view_enabled\": true,\n  \"has_course_author_access\": false,\n  \"verified_mode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b31866cf-e6f7-4f3b-9eb5-7bb3e039eed6",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request details for the Dates Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/dates/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    course_date_blocks: List of serialized DateSummary objects. Each serialization has the following fields:\n        complete: (bool) Meant to only be used by assignments. Indicates completeness for an\n            assignment.\n        date: (datetime) The date time corresponding for the event\n        date_type: (str) The type of date (ex. course-start-date, assignment-due-date, etc.)\n        description: (str) The description for the date event\n        learner_has_access: (bool) Indicates if the learner has access to the date event\n        link: (str) An absolute link to content related to the date event\n            (ex. verified link or link to assignment)\n        title: (str) The title of the date event\n    dates_banner_info: (obj)\n        content_type_gating_enabled: (bool) Whether content type gating is enabled for this enrollment.\n        missed_deadlines: (bool) Indicates whether the user missed any graded content deadlines\n        missed_gated_content: (bool) Indicates whether the user missed gated content\n        verified_upgrade_link: (str) The link for upgrading to the Verified track in a course\n    has_ended: (bool) Indicates whether course has ended\n    learner_is_full_access: (bool) Indicates if the user is verified in the course\n    user_timezone: (str) The user's preferred timezone\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "v1",
+                "dates",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0feaa4a-5bc1-41ab-a7f6-3685e5450e8a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "v1",
+                    "dates",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_date_blocks\": [\n    {\n      \"complete\": true,\n      \"date\": \"2003-10-29T19:57:24.655Z\",\n      \"date_type\": \"string\",\n      \"description\": \"string\",\n      \"link_text\": \"string\",\n      \"title\": \"string\",\n      \"extra_info\": \"string\",\n      \"assignment_type\": \"string\",\n      \"learner_has_access\": \"string\",\n      \"link\": \"string\",\n      \"first_component_block_id\": \"string\"\n    },\n    {\n      \"complete\": true,\n      \"date\": \"2015-09-03T17:52:24.361Z\",\n      \"date_type\": \"string\",\n      \"description\": \"string\",\n      \"link_text\": \"string\",\n      \"title\": \"string\",\n      \"extra_info\": \"string\",\n      \"assignment_type\": \"string\",\n      \"learner_has_access\": \"string\",\n      \"link\": \"string\",\n      \"first_component_block_id\": \"string\"\n    }\n  ],\n  \"has_ended\": false,\n  \"learner_is_full_access\": true,\n  \"user_timezone\": \"string\",\n  \"dates_banner_info\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e8a5e06-9059-4f7f-a142-0006e797c961",
+          "name": "course home v1 dismiss welcome message create",
+          "request": {
+            "name": "course home v1 dismiss welcome message create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "v1",
+                "dismiss_welcome_message"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a2ece86f-6caa-4f05-a92e-ede2c6f5ea60",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "v1",
+                    "dismiss_welcome_message"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00bf31c8-e09c-40a7-a48f-464a7caa129e",
+          "name": "course home v1 navigation read",
+          "request": {
+            "name": "course home v1 navigation read",
+            "description": {
+              "content": "Get the visible course blocks (from course to vertical types) for the given course.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "v1",
+                "navigation",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7922363d-958b-45e7-acdd-0a3fe1220159",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "v1",
+                    "navigation",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"blocks\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e68a753-22fa-4ff5-9526-021bc42f7ce1",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request details for the Outline Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/outline/{course_key}\n\n**Response Values**\n\n    Body consists of two possible shapes.\n\n    For a good 200 response, the response will include:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    course_blocks:\n        blocks: List of serialized Course Block objects. Each serialization has the following fields:\n            id: (str) The usage ID of the block.\n            type: (str) The type of block. Possible values the names of any\n                XBlock type in the system, including custom blocks. Examples are\n                course, chapter, sequential, vertical, html, problem, video, and\n                discussion.\n            display_name: (str) The display name of the block.\n            lms_web_url: (str) The URL to the navigational container of the\n                xBlock on the web LMS.\n            children: (list) If the block has child blocks, a list of IDs of\n                the child blocks.\n            resume_block: (bool) Whether the block is the resume block\n            has_scheduled_content: (bool) Whether the block has more content scheduled for the future\n    course_goals:\n        selected_goal:\n            days_per_week: (int) The number of days the learner wants to learn per week\n            subscribed_to_reminders: (bool) Whether the learner wants email reminders about their goal\n        weekly_learning_goal_enabled: Flag indicating if this feature is enabled for this call\n    course_tools: List of serialized Course Tool objects. Each serialization has the following fields:\n        analytics_id: (str) The unique id given to the tool.\n        title: (str) The display title of the tool.\n        url: (str) The link to access the tool.\n    dates_banner_info: (obj)\n        content_type_gating_enabled: (bool) Whether content type gating is enabled for this enrollment.\n        missed_deadlines: (bool) Whether the user has missed any graded content deadlines for the given course.\n        missed_gated_content: (bool) Whether the user has missed any gated content for the given course.\n        verified_upgrade_link: (str) The URL to ecommerce IDA for purchasing the verified upgrade.\n    dates_widget:\n        course_date_blocks: List of serialized Course Dates objects. Each serialization has the following fields:\n            complete: (bool) Meant to only be used by assignments. Indicates completeness for an\n            assignment.\n            date: (datetime) The date time corresponding for the event\n            date_type: (str) The type of date (ex. course-start-date, assignment-due-date, etc.)\n            description: (str) The description for the date event\n            learner_has_access: (bool) Indicates if the learner has access to the date event\n            link: (str) An absolute link to content related to the date event\n                (ex. verified link or link to assignment)\n            title: (str) The title of the date event\n        dates_tab_link: (str) The URL to the Dates Tab\n        user_timezone: (str) The timezone of the given user\n    enroll_alert:\n        can_enroll: (bool) Whether the user can enroll in the given course\n        extra_text: (str)\n    enrollment_mode: (str) Current enrollment mode. Null if the user is not enrolled.\n    handouts_html: (str) Raw HTML for the handouts section of the course info\n    has_ended: (bool) Indicates whether course has ended\n    offer: An object detailing upgrade discount information\n        code: (str) Checkout code\n        expiration_date: (str) Expiration of offer, in ISO 8601 notation\n        original_price: (str) Full upgrade price without checkout code; includes currency symbol\n        discounted_price: (str) Upgrade price with checkout code; includes currency symbol\n        percentage: (int) Amount of discount\n        upgrade_url: (str) Checkout URL\n    resume_course:\n        has_visited_course: (bool) Whether the user has ever visited the course\n        url: (str) The display name of the course block to resume\n    welcome_message_html: (str) Raw HTML for the course updates banner\n    user_has_passing_grade: (bool) Whether the user currently is passing the course\n\n    If the learner does not have access to the course for a specific reason and should be redirected this\n    view will return a 403 and the following data:\n\n    url: (str) The URL to which the user should be redirected\n    error_code: (str) A system identifier for the reason the user is being redirected\n    developer_message: (str) A message explaining why the user is being redirected,\n                             intended for developer debugging.\n    user_message: (str) A message explaining why the user is being redirected, intended to be shown to the user.\n\n**Returns**\n\n    * 200 on success.\n    * 403 if the user does not currently have access to the course and should be redirected.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "v1",
+                "outline",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "679998f9-8d51-428d-826c-afab42fa0e10",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "v1",
+                    "outline",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_expiration\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\",\n    \"key_3\": \"string\"\n  },\n  \"cert_data\": {\n    \"cert_status\": \"string\",\n    \"cert_web_view_url\": \"string\",\n    \"download_url\": \"string\",\n    \"certificate_available_date\": \"1992-05-22T16:53:54.296Z\"\n  },\n  \"course_blocks\": {\n    \"blocks\": \"string\"\n  },\n  \"course_goals\": {\n    \"selected_goal\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"weekly_learning_goal_enabled\": false\n  },\n  \"course_tools\": [\n    {\n      \"analytics_id\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"string\"\n    },\n    {\n      \"analytics_id\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"string\"\n    }\n  ],\n  \"dates_widget\": {\n    \"course_date_blocks\": [\n      {\n        \"complete\": false,\n        \"date\": \"1947-01-19T15:28:20.547Z\",\n        \"date_type\": \"string\",\n        \"description\": \"string\",\n        \"link_text\": \"string\",\n        \"title\": \"string\",\n        \"extra_info\": \"string\",\n        \"assignment_type\": \"string\",\n        \"learner_has_access\": \"string\",\n        \"link\": \"string\",\n        \"first_component_block_id\": \"string\"\n      },\n      {\n        \"complete\": true,\n        \"date\": \"1948-11-07T02:04:56.633Z\",\n        \"date_type\": \"string\",\n        \"description\": \"string\",\n        \"link_text\": \"string\",\n        \"title\": \"string\",\n        \"extra_info\": \"string\",\n        \"assignment_type\": \"string\",\n        \"learner_has_access\": \"string\",\n        \"link\": \"string\",\n        \"first_component_block_id\": \"string\"\n      }\n    ],\n    \"dates_tab_link\": \"string\",\n    \"user_timezone\": \"stri\"\n  },\n  \"enroll_alert\": {\n    \"can_enroll\": true,\n    \"extra_text\": \"string\"\n  },\n  \"enrollment_mode\": \"string\",\n  \"enable_proctored_exams\": false,\n  \"handouts_html\": \"string\",\n  \"has_ended\": true,\n  \"offer\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"resume_course\": {\n    \"has_visited_course\": false,\n    \"url\": \"http://nibpYpCFYSSZxajfiRnvcTL.bsrve-KBmttmQfgjTwsZ-wQktNTZiXbnIZQXnUPX9VXTzi,bfpzkx+82XcBvyNfvtsqk0bCa+Y\"\n  },\n  \"welcome_message_html\": \"string\",\n  \"user_has_passing_grade\": true,\n  \"dates_banner_info\": \"string\",\n  \"verified_mode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af8f1786-feda-4693-823b-6c86f93b45ee",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    certificate_data: Object containing information about the user's certificate status\n        cert_status: (str) the status of a user's certificate (full list of statuses are defined in\n                     lms/djangoapps/certificates/models.py)\n        cert_web_view_url: (str) the url to view the certificate\n        download_url: (str) the url to download the certificate\n    completion_summary: Object containing unit completion counts with the following fields:\n        complete_count: (float) number of complete units\n        incomplete_count: (float) number of incomplete units\n        locked_count: (float) number of units where contains_gated_content is True\n    course_grade: Object containing the following fields:\n        is_passing: (bool) whether the user's grade is above the passing grade cutoff\n        letter_grade: (str) the user's letter grade based on the set grade range.\n                            If user is passing, value may be 'A', 'B', 'C', 'D', 'Pass', otherwise none\n        percent: (float) the user's total graded percent in the course\n    credit_course_requirements: Object containing credit course requirements with the following fields:\n        eligibility_status: (str) Indicates if the user is eligible to receive credit. Value may be\n            \"eligible\", \"not_eligible\", or \"partial_eligible\"\n        requirements: List of requirements that must be fulfilled to be eligible to receive credit. See\n            `get_credit_requirement_status` for details on the fields\n    end: (date) end date of the course\n    enrollment_mode: (str) a str representing the enrollment the user has ('audit', 'verified', ...)\n    grading_policy:\n        assignment_policies: List of serialized assignment grading policy objects, each has the following fields:\n            num_droppable: (int) the number of lowest scored assignments that will not be counted towards the final\n                           grade\n            short_label: (str) the abbreviated name given to the assignment type\n            type: (str) the assignment type\n            weight: (float) the percent weight the given assigment type has on the overall grade\n        grade_range: an object containing the grade range cutoffs. The exact keys in the object can vary, but they\n                     range from just 'Pass', to a combination of 'A', 'B', 'C', and 'D'. If a letter grade is\n                     present, 'Pass' is not included.\n    has_scheduled_content: (bool) boolean on if the course has content scheduled with a release date in the future\n    section_scores: List of serialized Chapters. Each Chapter has the following fields:\n        display_name: (str) a str of what the name of the Chapter is for displaying on the site\n        subsections: List of serialized Subsections, each has the following fields:\n            assignment_type: (str) the format, if any, of the Subsection (Homework, Exam, etc)\n            block_key: (str) the key of the given subsection block\n            display_name: (str) a str of what the name of the Subsection is for displaying on the site\n            has_graded_assignment: (bool) whether or not the Subsection is a graded assignment\n            learner_has_access: (bool) whether the learner has access to the subsection (could be FBE gated)\n            num_points_earned: (int) the amount of points the user has earned for the given subsection\n            num_points_possible: (int) the total amount of points possible for the given subsection\n            override: Optional object if grade has been overridden by proctor or grading change\n                system: (str) either GRADING or PROCTORING\n                reason: (str) a comment on the grading override\n            percent_graded: (float) the percentage of total points the user has received a grade for in a given\n                            subsection\n            problem_scores: List of objects that represent individual problem scores with the following fields:\n                earned: (float) number of earned points\n                possible: (float) number of possible points\n            show_correctness: (str) a str representing whether to show the problem/practice scores based on due date\n                              ('always', 'never', 'past_due', values defined in\n                               xmodule/modulestore/inheritance.py)\n            show_grades: (bool) a bool for whether to show grades based on the access the user has\n            url: (str or None) the absolute path url to the Subsection or None if the Subsection is no longer\n                 accessible to the learner due to a hide_after_due course team setting\n    studio_url: (str) a str of the link to the grading in studio for the course\n    user_has_passing_grade: (bool) boolean on if the user has a passing grade in the course\n    username: (str) username of the student whose progress information is being displayed.\n    verification_data: an object containing\n        link: (str) the link to either start or retry ID verification\n        status: (str) the status of the ID verification\n        status_date: (str) the date time string of when the ID verification status was set\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated or not enrolled.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "v1",
+                "progress",
+                ":course_key_string"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec0dd19c-3390-45dc-a1b7-3feb955e79ed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "v1",
+                    "progress",
+                    ":course_key_string"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_expiration\": {\n    \"key_0\": \"string\"\n  },\n  \"certificate_data\": {\n    \"cert_status\": \"string\",\n    \"cert_web_view_url\": \"string\",\n    \"download_url\": \"string\",\n    \"certificate_available_date\": \"2025-10-06T14:28:23.037Z\"\n  },\n  \"completion_summary\": {\n    \"key_0\": \"string\"\n  },\n  \"course_grade\": {\n    \"letter_grade\": \"string\",\n    \"percent\": 3392.3451993364097,\n    \"is_passing\": true\n  },\n  \"credit_course_requirements\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"end\": \"2007-07-04T13:47:22.078Z\",\n  \"enrollment_mode\": \"string\",\n  \"grading_policy\": {\n    \"grade_range\": {\n      \"key_0\": \"string\"\n    },\n    \"assignment_policies\": \"string\"\n  },\n  \"has_scheduled_content\": false,\n  \"section_scores\": [\n    {\n      \"display_name\": \"string\",\n      \"subsections\": [\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": false,\n          \"num_points_earned\": 7457.186411841478,\n          \"num_points_possible\": 4457.6496635477315,\n          \"percent_graded\": 4288.885927987874,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": true,\n          \"num_points_earned\": 5636.966724492057,\n          \"num_points_possible\": 901.2568910641894,\n          \"percent_graded\": 9593.522300296048,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        }\n      ]\n    },\n    {\n      \"display_name\": \"string\",\n      \"subsections\": [\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": true,\n          \"num_points_earned\": 2411.517056547937,\n          \"num_points_possible\": 2974.176790864529,\n          \"percent_graded\": 4242.944888464291,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": false,\n          \"num_points_earned\": 7663.52183899472,\n          \"num_points_possible\": 2749.6175683903944,\n          \"percent_graded\": 5857.100416562038,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"studio_url\": \"string\",\n  \"username\": \"string\",\n  \"user_has_passing_grade\": false,\n  \"verification_data\": {\n    \"link\": \"http://adryREcJalPJZPGBAdJenYnvY.hmDev.XBN6d-UiXmuM6UW3QbQNnoyydCHkLXL+Jvf+BBMrUxa8wwEP68QYdS4t1MT\",\n    \"status\": \"string\",\n    \"status_date\": \"2005-10-03T02:16:08.836Z\"\n  },\n  \"disable_progress_graph\": true,\n  \"verified_mode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc1c121c-5095-4a7f-af20-dc587fee3697",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Request details for the Progress Tab\n\n**Example Requests**\n\n    GET api/course_home/v1/progress/{course_key}\n    GET api/course_home/v1/progress/{course_key}/{student_id}/\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    access_expiration: An object detailing when access to this course will expire\n        expiration_date: (str) When the access expires, in ISO 8601 notation\n        masquerading_expired_course: (bool) Whether this course is expired for the masqueraded user\n        upgrade_deadline: (str) Last chance to upgrade, in ISO 8601 notation (or None if can't upgrade anymore)\n        upgrade_url: (str) Upgrade link (or None if can't upgrade anymore)\n    certificate_data: Object containing information about the user's certificate status\n        cert_status: (str) the status of a user's certificate (full list of statuses are defined in\n                     lms/djangoapps/certificates/models.py)\n        cert_web_view_url: (str) the url to view the certificate\n        download_url: (str) the url to download the certificate\n    completion_summary: Object containing unit completion counts with the following fields:\n        complete_count: (float) number of complete units\n        incomplete_count: (float) number of incomplete units\n        locked_count: (float) number of units where contains_gated_content is True\n    course_grade: Object containing the following fields:\n        is_passing: (bool) whether the user's grade is above the passing grade cutoff\n        letter_grade: (str) the user's letter grade based on the set grade range.\n                            If user is passing, value may be 'A', 'B', 'C', 'D', 'Pass', otherwise none\n        percent: (float) the user's total graded percent in the course\n    credit_course_requirements: Object containing credit course requirements with the following fields:\n        eligibility_status: (str) Indicates if the user is eligible to receive credit. Value may be\n            \"eligible\", \"not_eligible\", or \"partial_eligible\"\n        requirements: List of requirements that must be fulfilled to be eligible to receive credit. See\n            `get_credit_requirement_status` for details on the fields\n    end: (date) end date of the course\n    enrollment_mode: (str) a str representing the enrollment the user has ('audit', 'verified', ...)\n    grading_policy:\n        assignment_policies: List of serialized assignment grading policy objects, each has the following fields:\n            num_droppable: (int) the number of lowest scored assignments that will not be counted towards the final\n                           grade\n            short_label: (str) the abbreviated name given to the assignment type\n            type: (str) the assignment type\n            weight: (float) the percent weight the given assigment type has on the overall grade\n        grade_range: an object containing the grade range cutoffs. The exact keys in the object can vary, but they\n                     range from just 'Pass', to a combination of 'A', 'B', 'C', and 'D'. If a letter grade is\n                     present, 'Pass' is not included.\n    has_scheduled_content: (bool) boolean on if the course has content scheduled with a release date in the future\n    section_scores: List of serialized Chapters. Each Chapter has the following fields:\n        display_name: (str) a str of what the name of the Chapter is for displaying on the site\n        subsections: List of serialized Subsections, each has the following fields:\n            assignment_type: (str) the format, if any, of the Subsection (Homework, Exam, etc)\n            block_key: (str) the key of the given subsection block\n            display_name: (str) a str of what the name of the Subsection is for displaying on the site\n            has_graded_assignment: (bool) whether or not the Subsection is a graded assignment\n            learner_has_access: (bool) whether the learner has access to the subsection (could be FBE gated)\n            num_points_earned: (int) the amount of points the user has earned for the given subsection\n            num_points_possible: (int) the total amount of points possible for the given subsection\n            override: Optional object if grade has been overridden by proctor or grading change\n                system: (str) either GRADING or PROCTORING\n                reason: (str) a comment on the grading override\n            percent_graded: (float) the percentage of total points the user has received a grade for in a given\n                            subsection\n            problem_scores: List of objects that represent individual problem scores with the following fields:\n                earned: (float) number of earned points\n                possible: (float) number of possible points\n            show_correctness: (str) a str representing whether to show the problem/practice scores based on due date\n                              ('always', 'never', 'past_due', values defined in\n                               xmodule/modulestore/inheritance.py)\n            show_grades: (bool) a bool for whether to show grades based on the access the user has\n            url: (str or None) the absolute path url to the Subsection or None if the Subsection is no longer\n                 accessible to the learner due to a hide_after_due course team setting\n    studio_url: (str) a str of the link to the grading in studio for the course\n    user_has_passing_grade: (bool) boolean on if the user has a passing grade in the course\n    username: (str) username of the student whose progress information is being displayed.\n    verification_data: an object containing\n        link: (str) the link to either start or retry ID verification\n        status: (str) the status of the ID verification\n        status_date: (str) the date time string of when the ID verification status was set\n\n**Returns**\n\n    * 200 on success with above fields.\n    * 401 if the user is not authenticated or not enrolled.\n    * 403 if the user does not have access to the course.\n    * 404 if the course is not available or cannot be seen.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "v1",
+                "progress",
+                ":course_key_string",
+                ":student_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_key_string",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "student_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a349f04f-6e22-441e-b6eb-9d53c57dd2fc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "v1",
+                    "progress",
+                    ":course_key_string",
+                    ":student_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_key_string",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "student_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_expiration\": {\n    \"key_0\": \"string\"\n  },\n  \"certificate_data\": {\n    \"cert_status\": \"string\",\n    \"cert_web_view_url\": \"string\",\n    \"download_url\": \"string\",\n    \"certificate_available_date\": \"2025-10-06T14:28:23.037Z\"\n  },\n  \"completion_summary\": {\n    \"key_0\": \"string\"\n  },\n  \"course_grade\": {\n    \"letter_grade\": \"string\",\n    \"percent\": 3392.3451993364097,\n    \"is_passing\": true\n  },\n  \"credit_course_requirements\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"end\": \"2007-07-04T13:47:22.078Z\",\n  \"enrollment_mode\": \"string\",\n  \"grading_policy\": {\n    \"grade_range\": {\n      \"key_0\": \"string\"\n    },\n    \"assignment_policies\": \"string\"\n  },\n  \"has_scheduled_content\": false,\n  \"section_scores\": [\n    {\n      \"display_name\": \"string\",\n      \"subsections\": [\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": false,\n          \"num_points_earned\": 7457.186411841478,\n          \"num_points_possible\": 4457.6496635477315,\n          \"percent_graded\": 4288.885927987874,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": true,\n          \"num_points_earned\": 5636.966724492057,\n          \"num_points_possible\": 901.2568910641894,\n          \"percent_graded\": 9593.522300296048,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        }\n      ]\n    },\n    {\n      \"display_name\": \"string\",\n      \"subsections\": [\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": true,\n          \"num_points_earned\": 2411.517056547937,\n          \"num_points_possible\": 2974.176790864529,\n          \"percent_graded\": 4242.944888464291,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"assignment_type\": \"string\",\n          \"display_name\": \"string\",\n          \"has_graded_assignment\": false,\n          \"num_points_earned\": 7663.52183899472,\n          \"num_points_possible\": 2749.6175683903944,\n          \"percent_graded\": 5857.100416562038,\n          \"show_correctness\": \"string\",\n          \"block_key\": \"string\",\n          \"override\": \"string\",\n          \"learner_has_access\": \"string\",\n          \"problem_scores\": \"string\",\n          \"show_grades\": \"string\",\n          \"url\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"studio_url\": \"string\",\n  \"username\": \"string\",\n  \"user_has_passing_grade\": false,\n  \"verification_data\": {\n    \"link\": \"http://adryREcJalPJZPGBAdJenYnvY.hmDev.XBN6d-UiXmuM6UW3QbQNnoyydCHkLXL+Jvf+BBMrUxa8wwEP68QYdS4t1MT\",\n    \"status\": \"string\",\n    \"status_date\": \"2005-10-03T02:16:08.836Z\"\n  },\n  \"disable_progress_graph\": true,\n  \"verified_mode\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bd9d7d2-a24e-4c53-99f5-33553a77b71f",
+          "name": "course home v1 save course goal create",
+          "request": {
+            "name": "course home v1 save course goal create",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "v1",
+                "save_course_goal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70d1954f-88b4-4476-a9ca-78ab29c43b9c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "v1",
+                    "save_course_goal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "969e64dd-0612-48ca-9d64-e6a3cf5d58e8",
+          "name": "API calls to unsubscribe from course goal reminders.",
+          "request": {
+            "name": "API calls to unsubscribe from course goal reminders.",
+            "description": {
+              "content": "Note that this does not require authentication - this view may be hit from an email on a different device than\nnormal or whatever. We should still be able to unsubscribe the user. Instead, we use a token in the email to\nvalidate that they have permission to unsubscribe.\n\nThis endpoint is very tightly scoped (only unsubscribe: no subscribing, no PII) because it is unauthenticated.\n\n**Example Requests**\n    POST api/course_home/v1/unsubscribe_from_course_goal/{token}\n\n**Example Response Data**\n    {'course_title': 'Cats & Dogs In Canadian Media'}\n\nReturns a 404 response if the token was not found. Otherwise, returns some basic course info. But no PII.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "course_home",
+                "v1",
+                "unsubscribe_from_course_goal",
+                ":token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d5807f9-c0b3-407e-bb8a-24d45f4249b0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "course_home",
+                    "v1",
+                    "unsubscribe_from_course_goal",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "77ff4761-2bc0-43ff-b7ff-47c4c714f37c",
+    "name": "Open edX agreements course_home API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

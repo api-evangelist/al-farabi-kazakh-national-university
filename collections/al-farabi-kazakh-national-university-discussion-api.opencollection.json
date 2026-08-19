@@ -1,0 +1,437 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements discussion API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "discussion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "discussion_v1_accounts_replace_username_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/discussion/v1/accounts/replace_username"
+          },
+          "docs": "Implements the username replacement endpoint"
+        },
+        {
+          "info": {
+            "name": "discussion_v1_accounts_retire_forum_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/discussion/v1/accounts/retire_forum/"
+          },
+          "docs": "Implements the retirement endpoint."
+        },
+        {
+          "info": {
+            "name": "Implements the GET method for the list endpoint as described in\nthe class docstring.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v1/comments/"
+          },
+          "docs": "This endpoint implements two distinct usage contexts.\n\nWhen `username` is provided, the `course_id` parameter is\nrequired, and `thread_id` is ignored.\nThe behavior is to retrieve all of the user's non-anonymous\ncomments from the specified course, outside of the context of a\nforum thread. In this context, endorsement information is\nunavailable.\n\nWhen `username` is not provided, `thread_id` is required, and\n`course_id` is ignored, since the thread already belongs to a course.\nIn this context, all "
+        },
+        {
+          "info": {
+            "name": "discussion_v1_comments_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/discussion/v1/comments/"
+          },
+          "docs": "Implements the POST method for the list endpoint as described in the\nclass docstring."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_comments_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v1/comments/:comment_id/",
+            "params": [
+              {
+                "name": "comment_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implements the GET method for comments against response ID"
+        },
+        {
+          "info": {
+            "name": "discussion_v1_comments_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/discussion/v1/comments/:comment_id/",
+            "params": [
+              {
+                "name": "comment_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implements the PATCH method for the instance endpoint as described in\nthe class docstring."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_comments_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/discussion/v1/comments/:comment_id/",
+            "params": [
+              {
+                "name": "comment_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implements the DELETE method for the instance endpoint as described in\nthe class docstring"
+        },
+        {
+          "info": {
+            "name": "discussion_v1_course_topics_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v1/course_topics/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implements the GET method as described in the class docstring."
+        },
+        {
+          "info": {
+            "name": "Retrieve general discussion metadata for a course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v1/courses/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "**Example Requests**:\n\n    GET /api/discussion/v1/courses/course-v1:ExampleX+Subject101+2015"
+        },
+        {
+          "info": {
+            "name": "discussion_v1_courses_learner_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v1/courses/:course_id/learner/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implements the GET method as described in the class docstring."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_courses_roles_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v1/courses/:course_id/roles/:rolename/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rolename",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implement a handler for the GET method."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_courses_roles_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/discussion/v1/courses/:course_id/roles/:rolename/",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rolename",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implement a handler for the POST method."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_courses_settings_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v1/courses/:course_id/settings",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implement a handler for the GET method."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_courses_settings_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/discussion/v1/courses/:course_id/settings",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implement a handler for the PATCH method."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_courses_upload_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/discussion/v1/courses/:course_id/upload",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Handles a file upload."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_courses_activity_stats_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v1/courses/:course_key_string/activity_stats",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implements the GET method as described in the class docstring."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_threads_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v1/threads/"
+          },
+          "docs": "Implements the GET method for the list endpoint as described in the\nclass docstring."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_threads_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/discussion/v1/threads/"
+          },
+          "docs": "Implements the POST method for the list endpoint as described in the\nclass docstring."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_threads_read",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v1/threads/:thread_id/",
+            "params": [
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implements the GET method for thread ID"
+        },
+        {
+          "info": {
+            "name": "discussion_v1_threads_partial_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://open.kaznu.kz/api/discussion/v1/threads/:thread_id/",
+            "params": [
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implements the PATCH method for the instance endpoint as described in\nthe class docstring."
+        },
+        {
+          "info": {
+            "name": "discussion_v1_threads_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/discussion/v1/threads/:thread_id/",
+            "params": [
+              {
+                "name": "thread_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Implements the DELETE method for the instance endpoint as described in\nthe class docstring"
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v2/course_topics/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "topic_id",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of topic ids to filter"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Sort ordering for topics"
+              }
+            ]
+          },
+          "docs": "    Retrieve the topic listing for a course.\n\n**Example Requests**:\n\n    GET /api/discussion/v2/course_topics/course-v1:ExampleX+Subject101+2015\n        ?topic_id={topic_id_1, topid_id_2}&order_by=course_structure"
+        },
+        {
+          "info": {
+            "name": "Retrieve general discussion metadata for a course.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v2/courses/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "**Example Requests**:\n    GET /api/discussion/v2/courses/course-v1:ExampleX+Subject101+2015"
+        },
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/discussion/v3/course_topics/:course_id",
+            "params": [
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the topic listing for a course.\n\n**Example Requests**:\n\n    GET /api/discussion/v3/course_topics/course-v1:ExampleX+Subject101+2015"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

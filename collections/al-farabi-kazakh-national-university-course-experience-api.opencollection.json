@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements course_experience API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "course_experience",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "**Use Cases**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/course_experience/v1/course_deadlines_info/:course_key_string",
+            "params": [
+              {
+                "name": "course_key_string",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Request course deadline info for mobile\n\n**Example Requests**\n\n    GET api/course_experience/v1/course_deadlines_info/{course_key}\n\n**Response Values**\n\n    Body consists of the following fields:\n\n    dates_banner_info: (obj)\n        missed_deadlines: (bool) Whether the user has missed any graded content deadlines for the given course.\n        missed_gated_content: (bool) Whether the user has missed any gated content for the given course.\n        content_type_gating_enabled: (bool) Whether conte"
+        },
+        {
+          "info": {
+            "name": "course_experience_v1_reset_course_deadlines_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/course_experience/v1/reset_course_deadlines"
+          },
+          "docs": "Set the start_date of a schedule to today, which in turn will adjust due dates for\nsequentials belonging to a self paced course\n\nRequest Parameters:\n    course_key: course key\n    research_event_data: any data that should be included in the research tracking event\n        Example: sending the location of where the reset deadlines banner (i.e. outline-tab)\n\nIMPORTANT NOTE: If updates are happening to the logic here, ALSO UPDATE the `reset_course_deadlines`\nfunction in common/djangoapps/util/views"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

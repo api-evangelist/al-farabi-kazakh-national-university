@@ -1,0 +1,923 @@
+{
+  "item": [
+    {
+      "id": "10b3f730-cbe6-46f5-8612-e5871ca4cbda",
+      "name": "instructor",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a0031b3-7fa0-4973-98c0-ebd130e3ce7e",
+          "name": "List report CSV files that are available for download for this course.",
+          "request": {
+            "name": "List report CSV files that are available for download for this course.",
+            "description": {
+              "content": "**Use Cases**\n\nLists reports available for download\n\n**Example Requests**:\n\n    GET /api/instructor/v1/reports/{course_id}\n\n**Response Values**\n```json\n{\n    \"downloads\": [\n        {\n            \"url\": \"https://1.mock.url\",\n            \"link\": \"<a href=\"https://1.mock.url\">mock_file_name_1</a>\",\n            \"name\": \"mock_file_name_1\"\n        }\n    ]\n}\n```\n\nThe report name will depend on the type of report generated. For example a\nproblem responses report for an entire course might be called:\n\n    edX_DemoX_Demo_Course_student_state_from_block-v1_edX+DemoX+Demo_Course+type@course+block@course_2021-04-30-0918.csv",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instructor",
+                "v1",
+                "reports",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "report_name",
+                  "value": "<string>",
+                  "description": "Filter results to only return details of for the report with the specified name."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) ID for the course whose reports need to be listed."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0fcad37c-f91b-4156-86bf-9269616c5aec",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "reports",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "report_name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID for the course whose reports need to be listed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"downloads\": [\n    {\n      \"url\": \"https://J.agyduuy0OijybWoupI.WnC05D7FAy.iY\",\n      \"name\": \"string\",\n      \"link\": \"stri\"\n    },\n    {\n      \"url\": \"https://XEvuAnsSrrxirtwAKhOm.sbopJ8CwepV4YSq+Cd\",\n      \"name\": \"string\",\n      \"link\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3fc9b06-c872-4336-9a7e-141e64711014",
+              "name": "The requesting user is not authenticated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "reports",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "report_name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID for the course whose reports need to be listed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "83c52bc9-8a2c-4911-953f-f11c0bab4bb3",
+              "name": "The requesting user lacks access to the course.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "reports",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "report_name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID for the course whose reports need to be listed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "654cbae0-3561-409c-873a-b1e82daea25d",
+              "name": "The requested course does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "reports",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "report_name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID for the course whose reports need to be listed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e50c590-89c0-4e42-ba15-b013d43b4c65",
+          "name": "Initiate generation of a CSV file containing all student answers",
+          "request": {
+            "name": "Initiate generation of a CSV file containing all student answers",
+            "description": {
+              "content": "to a given problem.\n\n**Example requests**\n\n    POST /api/instructor/v1/reports/{course_id}/generate/problem_responses {\n        \"problem_locations\": [\n            \"{usage_key1}\",\n            \"{usage_key2}\",\n            \"{usage_key3}\"\n        ]\n    }\n    POST /api/instructor/v1/reports/{course_id}/generate/problem_responses {\n        \"problem_locations\": [\"{usage_key}\"],\n        \"problem_types_filter\": [\"problem\"]\n    }\n\n**POST Parameters**\n\nA POST request can include the following parameters:\n\n* problem_location: A list of usage keys for the blocks to include in\n  the report. If the location is a block that contains other blocks,\n  (such as the course, section, subsection, or unit blocks) then all\n  blocks under that block will be included in the report.\n* problem_types_filter: Optional. A comma-separated list of block types\n  to include in the report. If set, only blocks of the specified types\n  will be included in the report.\n\nTo get data on all the poll and survey blocks in a course, you could\nPOST the usage key of the course for `problem_location`, and\n\"poll, survey\" as the value for `problem_types_filter`.\n\n\n**Example Response:**\nIf initiation is successful (or generation task is already running):\n```json\n{\n    \"status\": \"The problem responses report is being created. ...\",\n    \"task_id\": \"4e49522f-31d9-431a-9cff-dd2a2bf4c85a\"\n}\n```\n\nResponds with BadRequest if any of the provided problem locations are faulty.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instructor",
+                "v1",
+                "reports",
+                ":course_id",
+                "generate",
+                "problem_responses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) ID of the course for which report is to be generate."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"problem_locations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"problem_types_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1aeba22-a519-423a-94bb-c839162089e9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "reports",
+                    ":course_id",
+                    "generate",
+                    "problem_responses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID of the course for which report is to be generate."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"problem_locations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"problem_types_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"task_id\": \"2b37a799-5bad-d7c0-55d8-974f25bbe0fe\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89b4903e-ef65-4784-8999-6e83eff8e470",
+              "name": "The provided parameters were invalid. Make sure you've provided at least one valid usage key for `problem_locations`.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "reports",
+                    ":course_id",
+                    "generate",
+                    "problem_responses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID of the course for which report is to be generate."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"problem_locations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"problem_types_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52528093-3452-4efb-8228-b1c626340c48",
+              "name": "The requesting user is not authenticated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "reports",
+                    ":course_id",
+                    "generate",
+                    "problem_responses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID of the course for which report is to be generate."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"problem_locations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"problem_types_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6af95e4d-fb85-4735-86cc-a714217ad006",
+              "name": "The requesting user lacks access to the course.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "reports",
+                    ":course_id",
+                    "generate",
+                    "problem_responses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID of the course for which report is to be generate."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"problem_locations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"problem_types_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0926dd48-4ec3-470b-b809-5838273604c3",
+          "name": "List instructor tasks filtered by `course_id`.",
+          "request": {
+            "name": "List instructor tasks filtered by `course_id`.",
+            "description": {
+              "content": "**Use Cases**\n\nLists currently running instructor tasks\n\n**Parameters**\n   - With no arguments, lists running tasks.\n   - `problem_location_str` lists task history for problem\n   - `problem_location_str` and `unique_student_identifier` lists task\n       history for problem AND student (intersection)\n\n**Example Requests**:\n\n    GET /courses/{course_id}/instructor/api/v0/tasks\n\n**Response Values**\n```json\n    {\n      \"tasks\": [\n        {\n          \"status\": \"Incomplete\",\n          \"task_type\": \"grade_problems\",\n          \"task_id\": \"2519ff31-22d9-4a62-91e2-55495895b355\",\n          \"created\": \"2019-01-15T18:00:15.902470+00:00\",\n          \"task_input\": \"{}\",\n          \"duration_sec\": \"unknown\",\n          \"task_message\": \"No status information available\",\n          \"requester\": \"staff\",\n          \"task_state\": \"PROGRESS\"\n        }\n      ]\n    }\n```",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "instructor",
+                "v1",
+                "tasks",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "problem_location_str",
+                  "value": "<string>",
+                  "description": "Filter instructor tasks to this problem location."
+                },
+                {
+                  "disabled": false,
+                  "key": "unique_student_identifier",
+                  "value": "<string>",
+                  "description": "Filter tasks to a singe problem and a single student. Must be used in combination with `problem_location_str`."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) ID for the course whose tasks need to be listed."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7199fcda-8687-4b98-9d06-e3e851a14d84",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "tasks",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "problem_location_str",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unique_student_identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID for the course whose tasks need to be listed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tasks\": [\n    {\n      \"status\": \"string\",\n      \"task_type\": \"string\",\n      \"task_id\": \"string\",\n      \"created\": \"1991-03-24T08:52:28.936Z\",\n      \"task_input\": {\n        \"key_0\": \"string\"\n      },\n      \"requester\": \"string\",\n      \"task_state\": \"string\",\n      \"duration_sec\": \"string\",\n      \"task_message\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"task_type\": \"string\",\n      \"task_id\": \"string\",\n      \"created\": \"1972-09-27T07:04:48.738Z\",\n      \"task_input\": {\n        \"key_0\": \"string\"\n      },\n      \"requester\": \"string\",\n      \"task_state\": \"string\",\n      \"duration_sec\": \"string\",\n      \"task_message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59266154-eb69-4bdf-8530-6f3d1e0f8d51",
+              "name": "The requesting user is not authenticated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "tasks",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "problem_location_str",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unique_student_identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID for the course whose tasks need to be listed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7398908b-31e6-46ed-bbcd-7a069aa308ca",
+              "name": "The requesting user lacks access to the course.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "tasks",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "problem_location_str",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unique_student_identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID for the course whose tasks need to be listed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "787f607c-03d7-4f02-ade5-d8868fcf0de8",
+              "name": "The requested course does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "instructor",
+                    "v1",
+                    "tasks",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "problem_location_str",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unique_student_identifier",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) ID for the course whose tasks need to be listed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "da96e795-159e-4f0d-8288-4e67c3bdbbc0",
+    "name": "Open edX agreements instructor API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

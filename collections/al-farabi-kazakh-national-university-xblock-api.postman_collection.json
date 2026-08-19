@@ -1,0 +1,1149 @@
+{
+  "item": [
+    {
+      "id": "0c58c0c6-213e-409f-8b7e-2e8e4faa5a35",
+      "name": "xblock",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0c2272f1-cc76-46b9-be3d-489e22ad4b0b",
+          "name": "Get metadata about the specified block.",
+          "request": {
+            "name": "Get metadata about the specified block.",
+            "description": {
+              "content": "Accepts the following query parameters:\n\n* \"include\": a comma-separated list of keys to include.\n  Valid keys are \"index_dictionary\" and \"student_view_data\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                ":usage_key",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "usage_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46061676-093a-411e-bae8-600fd4c55156",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    ":usage_key",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "usage_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b0be2bd-5f73-4b3a-9b6d-e76d61c53688",
+          "name": "xblock v2 xblocks fields list",
+          "request": {
+            "name": "xblock v2 xblocks fields list",
+            "description": {
+              "content": "retrieves the xblock, returning display_name, data, and metadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                ":usage_key",
+                "fields",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "usage_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "260f0657-718e-4c9f-a064-02eb4d618986",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    ":usage_key",
+                    "fields",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "usage_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e9a0866-8563-41f5-8d9c-ce206fd61091",
+          "name": "xblock v2 xblocks fields create",
+          "request": {
+            "name": "xblock v2 xblocks fields create",
+            "description": {
+              "content": "edits the xblock, saving changes to data and metadata only (display_name included in metadata)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                ":usage_key",
+                "fields",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "usage_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "804c4954-f095-4fa4-8d91-0289d5109150",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    ":usage_key",
+                    "fields",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "usage_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3643f165-5975-41f6-8b0c-bf956d0f2c15",
+          "name": "Get an absolute URL which can be used (without any authentication) to call\nthe given XBlock handler.",
+          "request": {
+            "name": "Get an absolute URL which can be used (without any authentication) to call\nthe given XBlock handler.",
+            "description": {
+              "content": "The URL will expire but is guaranteed to be valid for a minimum of 2 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                ":usage_key",
+                "handler_url",
+                ":handler_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "usage_key",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "handler_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc1b68c5-0475-44e1-9759-88524b64fa48",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    ":usage_key",
+                    "handler_url",
+                    ":handler_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "usage_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handler_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7793381c-ca20-46ca-a6dd-39474eb5e727",
+          "name": "xblock v2 xblocks olx list",
+          "request": {
+            "name": "xblock v2 xblocks olx list",
+            "description": {
+              "content": "Get the OLX (XML serialization) of the specified XBlock",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                ":usage_key",
+                "olx",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "usage_key",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e5ea3636-4700-4034-82e8-21960e03c4bd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    ":usage_key",
+                    "olx",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "usage_key",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "494c6c84-3274-4317-b96b-c8ae97b9217c",
+          "name": "xblock v2 xblocks view read",
+          "request": {
+            "name": "xblock v2 xblocks view read",
+            "description": {
+              "content": "Get the HTML, JS, and CSS needed to render the given XBlock.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                ":usage_key",
+                "view",
+                ":view_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "usage_key",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "view_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a7c8044-ab88-47fe-85f9-d19d92c63ca6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    ":usage_key",
+                    "view",
+                    ":view_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "usage_key",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6914db09-0657-40cd-8c79-0ca9029354a3",
+          "name": "Get metadata about the specified block.",
+          "request": {
+            "name": "Get metadata about the specified block.",
+            "description": {
+              "content": "Accepts the following query parameters:\n\n* \"include\": a comma-separated list of keys to include.\n  Valid keys are \"index_dictionary\" and \"student_view_data\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                "{{usage_key}}@{{version}}",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1cd0bb2b-edee-460e-ba03-bd70e5fbb18f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    "{{usage_key}}@{{version}}",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82f4094d-903e-4b57-969d-03ef495d0b0f",
+          "name": "xblock v2 xblocks fields list",
+          "request": {
+            "name": "xblock v2 xblocks fields list",
+            "description": {
+              "content": "retrieves the xblock, returning display_name, data, and metadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                "{{usage_key}}@{{version}}",
+                "fields",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59dc04ab-38c6-45e1-a225-d6d83227eb44",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    "{{usage_key}}@{{version}}",
+                    "fields",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dd4d671-b90e-4b6b-aa18-ce9123f6c0f2",
+          "name": "xblock v2 xblocks fields create",
+          "request": {
+            "name": "xblock v2 xblocks fields create",
+            "description": {
+              "content": "edits the xblock, saving changes to data and metadata only (display_name included in metadata)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                "{{usage_key}}@{{version}}",
+                "fields",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ec06641-2db5-415a-8874-869716159eac",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    "{{usage_key}}@{{version}}",
+                    "fields",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54e5e1f1-45f2-46f8-869a-336348871699",
+          "name": "Get an absolute URL which can be used (without any authentication) to call\nthe given XBlock handler.",
+          "request": {
+            "name": "Get an absolute URL which can be used (without any authentication) to call\nthe given XBlock handler.",
+            "description": {
+              "content": "The URL will expire but is guaranteed to be valid for a minimum of 2 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                "{{usage_key}}@{{version}}",
+                "handler_url",
+                ":handler_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "handler_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7902c595-332e-4f74-a4ff-9c968bce8b33",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    "{{usage_key}}@{{version}}",
+                    "handler_url",
+                    ":handler_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handler_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b45ec7ac-0c2e-43f9-9954-9d0e17eabf96",
+          "name": "xblock v2 xblocks olx list",
+          "request": {
+            "name": "xblock v2 xblocks olx list",
+            "description": {
+              "content": "Get the OLX (XML serialization) of the specified XBlock",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                "{{usage_key}}@{{version}}",
+                "olx",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "132595a4-ed76-4312-b02a-b1eb110d4711",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    "{{usage_key}}@{{version}}",
+                    "olx",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "101c8382-c785-4bf7-892e-1d231b89b797",
+          "name": "xblock v2 xblocks view read",
+          "request": {
+            "name": "xblock v2 xblocks view read",
+            "description": {
+              "content": "Get the HTML, JS, and CSS needed to render the given XBlock.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "xblock",
+                "v2",
+                "xblocks",
+                "{{usage_key}}@{{version}}",
+                "view",
+                ":view_name",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "view_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0fa26ed5-fae1-4697-bd4c-6de8e8a6c8a9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "xblock",
+                    "v2",
+                    "xblocks",
+                    "{{usage_key}}@{{version}}",
+                    "view",
+                    ":view_name",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "view_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "usage_key"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "version"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "72e62c59-b29d-4be5-8678-d6f8256852ab",
+    "name": "Open edX agreements xblock API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

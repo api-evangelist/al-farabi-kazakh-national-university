@@ -1,0 +1,928 @@
+{
+  "item": [
+    {
+      "id": "8aec8391-3b69-4705-aef5-60f6e8bced42",
+      "name": "enrollment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0aaad9f4-0fc6-4c05-be14-d69f7fd93888",
+          "name": "Read enrollment information for a particular course.",
+          "request": {
+            "name": "Read enrollment information for a particular course.",
+            "description": {
+              "content": "HTTP Endpoint for retrieving course level enrollment information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "course",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3f4d4dd-8d6f-4a54-a6c1-9b7fed3266e0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "course",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0baf3d6-64db-4cc1-994f-ced088a88f6a",
+          "name": "Gets a list of all course enrollments for a user.",
+          "request": {
+            "name": "Gets a list of all course enrollments for a user.",
+            "description": {
+              "content": "Returns a list for the currently logged in user, or for the user named by the 'user' GET\nparameter. If the username does not match that of the currently logged in user, only\ncourses for which the currently logged in user has the Staff or Admin role are listed.\nAs a result, a course team member can find out which of their own courses a particular\nlearner is enrolled in.\n\nOnly the Staff or Admin role (granted on the Django administrative console as the staff\nor instructor permission) in individual courses gives the requesting user access to\nenrollment data. Permissions granted at the organizational level do not give a user\naccess to enrollment data for all of that organization's courses.\n\nUsers who have the global staff permission can access all enrollment data for all\ncourses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "enrollment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "312cddd5-8f5c-4f87-8417-6cd00dec6079",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "enrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f296045-bcf4-47e5-8926-5797170d70fa",
+          "name": "Enrolls the currently logged-in user in a course.",
+          "request": {
+            "name": "Enrolls the currently logged-in user in a course.",
+            "description": {
+              "content": "Server-to-server calls may deactivate or modify the mode of existing enrollments. All other requests\ngo through `add_enrollment()`, which allows creation of new and reactivation of old enrollments.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "enrollment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de936f15-f362-4704-9249-abbaae731d58",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "enrollment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0c1f196-3ada-44cd-90f1-89041b6c1cf8",
+          "name": "Create, read, or update enrollment information for a user.",
+          "request": {
+            "name": "Create, read, or update enrollment information for a user.",
+            "description": {
+              "content": "HTTP Endpoint for all CRUD operations for a user course enrollment. Allows creation, reading, and\nupdates of the current enrollment for a particular course.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "enrollment",
+                ":course_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "course_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e2e3d8ce-8581-4e1b-b92b-51a3a11d6c7e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "enrollment",
+                    ":course_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "course_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cec744a0-6f51-410c-b3f9-fed52ee5b9de",
+          "name": "Create, read, or update enrollment information for a user.",
+          "request": {
+            "name": "Create, read, or update enrollment information for a user.",
+            "description": {
+              "content": "HTTP Endpoint for all CRUD operations for a user course enrollment. Allows creation, reading, and\nupdates of the current enrollment for a particular course.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "enrollment",
+                "{{username}},{{course_id}}"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8fa53691-b7e5-4c71-9375-c1e6ce974885",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "enrollment",
+                    "{{username}},{{course_id}}"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3955269-c33c-41b0-b0ec-03958e4529ab",
+          "name": "Returns the enrollments allowed for a given user email.",
+          "request": {
+            "name": "Returns the enrollments allowed for a given user email.",
+            "description": {
+              "content": "**Example Requests**\n\nGET /api/enrollment/v1/enrollment_allowed?email=user@example.com\n\n**Parameters**\n\n- `email` (optional, string, _query_params_) - defaults to the calling user if not provided.\n\n**Responses**\n- 200: Success.\n- 403: Forbidden, you need to be staff.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "enrollment_allowed",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35572a50-8d25-4220-8a3c-51c42975af73",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "enrollment_allowed",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "068ff862-1952-49c0-83ba-4d35ed7e32d9",
+          "name": "Creates an enrollment allowed for a given user email and course id.",
+          "request": {
+            "name": "Creates an enrollment allowed for a given user email and course id.",
+            "description": {
+              "content": "**Example Request**\n\nPOST /api/enrollment/v1/enrollment_allowed/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "enrollment_allowed",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ca001ae-24c6-46e5-b376-f0a89bcde865",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "enrollment_allowed",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "758691b5-2e08-4a57-89d3-96ee7143dd55",
+          "name": "Deletes an enrollment allowed for a given user email and course id.",
+          "request": {
+            "name": "Deletes an enrollment allowed for a given user email and course id.",
+            "description": {
+              "content": "**Example Request**\n\nDELETE /api/enrollment/v1/enrollment_allowed/",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "enrollment_allowed",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60d9c5ee-8521-4f12-8c42-fed289a8e5c3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "enrollment_allowed",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8ff568c-31f0-4390-824d-8015cc3d6d60",
+          "name": "**Use Cases**",
+          "request": {
+            "name": "**Use Cases**",
+            "description": {
+              "content": "Get a list of all course enrollments, optionally filtered by a course ID or list of usernames.\n\n**Example Requests**\n\n    GET /api/enrollment/v1/enrollments\n\n    GET /api/enrollment/v1/enrollments?course_id={course_id}\n\n    GET /api/enrollment/v1/enrollments?username={username},{username},{username}\n\n    GET /api/enrollment/v1/enrollments?course_id={course_id}&username={username}\n\n    GET /api/enrollment/v1/enrollments?email={email},{email}\n\n**Query Parameters for GET**\n\n    * course_id: Filters the result to course enrollments for the course corresponding to the\n      given course ID. The value must be URL encoded. Optional.\n\n    * username: List of comma-separated usernames. Filters the result to the course enrollments\n      of the given users. Optional.\n\n    * email: List of comma-separated emails. Filters the result to the course enrollments\n      of the given users. Optional.\n\n    * page_size: Number of results to return per page. Optional.\n\n    * page: Page number to retrieve. Optional.\n\n**Response Values**\n\n    If the request for information about the course enrollments is successful, an HTTP 200 \"OK\" response\n    is returned.\n\n    The HTTP 200 response has the following values.\n\n    * results: A list of the course enrollments matching the request.\n\n        * created: Date and time when the course enrollment was created.\n\n        * mode: Mode for the course enrollment.\n\n        * is_active: Whether the course enrollment is active or not.\n\n        * user: Username of the user in the course enrollment.\n\n        * course_id: Course ID of the course in the course enrollment.\n\n    * next: The URL to the next page of results, or null if this is the\n      last page.\n\n    * previous: The URL to the next page of results, or null if this\n      is the first page.\n\n    If the user is not logged in, a 401 error is returned.\n\n    If the user is not global staff, a 403 error is returned.\n\n    If the specified course_id is not valid or any of the specified usernames\n    are not valid, a 400 error is returned.\n\n    If the specified course_id does not correspond to a valid course or if all the specified\n    usernames do not correspond to valid users, an HTTP 200 \"OK\" response is returned with an\n    empty 'results' field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "enrollments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "The pagination cursor value."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ce1e945-3e61-4e4d-817c-b79ff040619e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "enrollments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"course_id\": \"string\",\n      \"created\": \"2011-07-17T23:09:55.595Z\",\n      \"mode\": \"st\",\n      \"is_active\": true,\n      \"user\": \"string\"\n    },\n    {\n      \"course_id\": \"string\",\n      \"created\": \"1954-11-08T09:23:00.450Z\",\n      \"mode\": \"str\",\n      \"is_active\": true,\n      \"user\": \"string\"\n    }\n  ],\n  \"next\": \"http://egwLGKSHrVZiK.gnzgb4uYbNRDBWW1HRnNGmy2uqF1tUlwAf9bykARftuMILBatxKWUN\",\n  \"previous\": \"http://UxPosgolStODXQeShmqCpbh.ifsrF2IePw+IB\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "202f6fb4-3c99-42ef-abba-6f3e401f238c",
+          "name": "enrollment v1 roles list",
+          "request": {
+            "name": "enrollment v1 roles list",
+            "description": {
+              "content": "Gets a list of all roles for the currently logged-in user, filtered by course_id if supplied",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "roles",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fd00b8c-6b8f-4ed7-a262-35b70aea2402",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "roles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c43751a2-9535-43d0-9851-c36dadb68cc3",
+          "name": "enrollment v1 unenroll create",
+          "request": {
+            "name": "enrollment v1 unenroll create",
+            "description": {
+              "content": "Unenrolls the specified user from all courses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "enrollment",
+                "v1",
+                "unenroll",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2bd6a8e-ca22-4dae-8515-b9ba2612d2db",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "enrollment",
+                    "v1",
+                    "unenroll",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "username"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "course_id"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "87b59e24-1b74-45df-a6dd-28d4a0000edd",
+    "name": "Open edX agreements enrollment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Open edX agreements bookmarks API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bookmarks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a paginated list of bookmarks for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/bookmarks/v1/bookmarks/",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "course_id",
+                "value": "",
+                "type": "query",
+                "description": "The id of the course to limit the list"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "The fields to return: display_name, path."
+              }
+            ]
+          },
+          "docs": "The list can be filtered by passing parameter \"course_id=<course_id>\"\nto only include bookmarks from a particular course.\n\nThe bookmarks are always sorted in descending order by creation date.\n\nEach page in the list contains 10 bookmarks by default. The page\nsize can be altered by passing parameter \"page_size=<page_size>\".\n\nTo include the optional fields pass the values in \"fields\" parameter\nas a comma separated list. Possible values are:\n\n* \"display_name\"\n* \"path\"\n\n**Example Requests**\n\nGET /ap"
+        },
+        {
+          "info": {
+            "name": "Create a new bookmark for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://open.kaznu.kz/api/bookmarks/v1/bookmarks/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The POST request only needs to contain one parameter \"usage_id\".\n\nHttp400 is returned if the format of the request is not correct,\nthe usage_id is invalid or a block corresponding to the usage_id\ncould not be found.\n\n**Example Requests**\n\nPOST /api/bookmarks/v1/bookmarks/\nRequest data: {\"usage_id\": <usage-id>}"
+        },
+        {
+          "info": {
+            "name": "Get a specific bookmark for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://open.kaznu.kz/api/bookmarks/v1/bookmarks/:username,:usage_id/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "usage_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "**Example Requests**\n\nGET /api/bookmarks/v1/bookmarks/{username},{usage_id}?fields=display_name,path"
+        },
+        {
+          "info": {
+            "name": "bookmarks_v1_bookmarks_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://open.kaznu.kz/api/bookmarks/v1/bookmarks/:username,:usage_id/",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "usage_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DELETE /api/bookmarks/v1/bookmarks/{username},{usage_id}"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

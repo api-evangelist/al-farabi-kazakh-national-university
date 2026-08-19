@@ -1,0 +1,444 @@
+{
+  "item": [
+    {
+      "id": "ff6eb6d5-bc13-42b2-bc10-92a6cea71548",
+      "name": "bookmarks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "05779cdd-1bc1-4fa9-84ff-71eaae7d513e",
+          "name": "Get a paginated list of bookmarks for a user.",
+          "request": {
+            "name": "Get a paginated list of bookmarks for a user.",
+            "description": {
+              "content": "The list can be filtered by passing parameter \"course_id=<course_id>\"\nto only include bookmarks from a particular course.\n\nThe bookmarks are always sorted in descending order by creation date.\n\nEach page in the list contains 10 bookmarks by default. The page\nsize can be altered by passing parameter \"page_size=<page_size>\".\n\nTo include the optional fields pass the values in \"fields\" parameter\nas a comma separated list. Possible values are:\n\n* \"display_name\"\n* \"path\"\n\n**Example Requests**\n\nGET /api/bookmarks/v1/bookmarks/?course_id={course_id1}&fields=display_name,path",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookmarks",
+                "v1",
+                "bookmarks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "course_id",
+                  "value": "<string>",
+                  "description": "The id of the course to limit the list"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "The fields to return: display_name, path."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c94815c6-2fd4-49fe-bd77-17104aab2cf0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookmarks",
+                    "v1",
+                    "bookmarks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "course_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6636,\n  \"results\": [\n    {\n      \"course_id\": \"string\",\n      \"usage_id\": \"string\",\n      \"id\": \"string\",\n      \"block_type\": \"string\",\n      \"created\": \"1958-06-23T20:30:31.478Z\"\n    },\n    {\n      \"course_id\": \"string\",\n      \"usage_id\": \"string\",\n      \"id\": \"string\",\n      \"block_type\": \"string\",\n      \"created\": \"1947-11-09T14:02:55.848Z\"\n    }\n  ],\n  \"next\": \"http://ZaJFMplmDpel.rdNs5uQ0rT2ISYotyqhYs\",\n  \"previous\": \"https://RUqZZFn.eoxbnxOIN9301la8vVPB5eGTHC44\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fbe64b5-4c9b-43e8-bcd7-c25a973dd18f",
+          "name": "Create a new bookmark for a user.",
+          "request": {
+            "name": "Create a new bookmark for a user.",
+            "description": {
+              "content": "The POST request only needs to contain one parameter \"usage_id\".\n\nHttp400 is returned if the format of the request is not correct,\nthe usage_id is invalid or a block corresponding to the usage_id\ncould not be found.\n\n**Example Requests**\n\nPOST /api/bookmarks/v1/bookmarks/\nRequest data: {\"usage_id\": <usage-id>}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookmarks",
+                "v1",
+                "bookmarks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"course_id\": \"<string>\",\n  \"usage_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7cc75b30-c86a-4033-bd29-9ad6abb54fac",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookmarks",
+                    "v1",
+                    "bookmarks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"course_id\": \"<string>\",\n  \"usage_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"course_id\": \"<string>\",\n  \"usage_id\": \"<string>\",\n  \"id\": \"string\",\n  \"block_type\": \"string\",\n  \"created\": \"1956-03-07T19:11:59.978Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2545b83e-1e8e-4a2f-a8a8-d214677963d6",
+          "name": "Get a specific bookmark for a user.",
+          "request": {
+            "name": "Get a specific bookmark for a user.",
+            "description": {
+              "content": "**Example Requests**\n\nGET /api/bookmarks/v1/bookmarks/{username},{usage_id}?fields=display_name,path",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookmarks",
+                "v1",
+                "bookmarks",
+                "{{username}},{{usage_id}}",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "324b44f8-102a-4968-9068-7cdae9410142",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookmarks",
+                    "v1",
+                    "bookmarks",
+                    "{{username}},{{usage_id}}",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4376ff99-cbb6-4a98-b753-1ef73ace2225",
+          "name": "bookmarks v1 bookmarks delete",
+          "request": {
+            "name": "bookmarks v1 bookmarks delete",
+            "description": {
+              "content": "DELETE /api/bookmarks/v1/bookmarks/{username},{usage_id}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bookmarks",
+                "v1",
+                "bookmarks",
+                "{{username}},{{usage_id}}",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29b6b808-54e8-4f06-8115-96810790ab51",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bookmarks",
+                    "v1",
+                    "bookmarks",
+                    "{{username}},{{usage_id}}",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://open.kaznu.kz/api",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "username"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "usage_id"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a060e8cf-4e61-4bd5-a955-b83541290d11",
+    "name": "Open edX agreements bookmarks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for access to Open edX information\n\nContact Support:\n Email: dl@kaznu.kz",
+      "type": "text/plain"
+    }
+  }
+}
