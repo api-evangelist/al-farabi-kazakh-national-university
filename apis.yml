@@ -49,6 +49,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Agreements
+  tags_raw:
   - agreements
   properties:
   - type: OpenAPI
@@ -74,6 +76,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Bookmarks
+  tags_raw:
   - bookmarks
   properties:
   - type: OpenAPI
@@ -100,6 +104,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Certificates
+  tags_raw:
   - certificates
   properties:
   - type: OpenAPI
@@ -125,7 +131,8 @@ apis:
     The change_email_settings API from Al-Farabi Kazakh National University — 1 operation(s) for change_email_settings.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - change_email_settings
   properties:
   - type: OpenAPI
@@ -150,6 +157,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Cohorts
+  tags_raw:
   - cohorts
   properties:
   - type: OpenAPI
@@ -175,6 +184,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Commerce
+  tags_raw:
   - commerce
   properties:
   - type: OpenAPI
@@ -200,6 +211,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Completion
+  tags_raw:
   - completion
   properties:
   - type: OpenAPI
@@ -225,7 +238,8 @@ apis:
     The course_experience API from Al-Farabi Kazakh National University — 2 operation(s) for course_experience.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - course_experience
   properties:
   - type: OpenAPI
@@ -251,7 +265,8 @@ apis:
     The course_home API from Al-Farabi Kazakh National University — 18 operation(s) for course_home.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - course_home
   properties:
   - type: OpenAPI
@@ -277,7 +292,8 @@ apis:
     The course_live API from Al-Farabi Kazakh National University — 3 operation(s) for course_live.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - course_live
   properties:
   - type: OpenAPI
@@ -303,7 +319,8 @@ apis:
     The course_modes API from Al-Farabi Kazakh National University — 2 operation(s) for course_modes.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - course_modes
   properties:
   - type: OpenAPI
@@ -328,6 +345,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Courses
+  tags_raw:
   - courses
   properties:
   - type: OpenAPI
@@ -353,6 +372,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Courseware
+  tags_raw:
   - courseware
   properties:
   - type: OpenAPI
@@ -377,6 +398,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Credit
+  tags_raw:
   - credit
   properties:
   - type: OpenAPI
@@ -402,6 +425,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Dashboard
+  tags_raw:
   - dashboard
   properties:
   - type: OpenAPI
@@ -427,6 +452,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Discounts
+  tags_raw:
   - discounts
   properties:
   - type: OpenAPI
@@ -452,6 +479,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Discussion
+  tags_raw:
   - discussion
   properties:
   - type: OpenAPI
@@ -477,7 +506,8 @@ apis:
     The edx_name_affirmation API from Al-Farabi Kazakh National University — 4 operation(s) for edx_name_affirmation.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - edx_name_affirmation
   properties:
   - type: OpenAPI
@@ -503,7 +533,8 @@ apis:
     The edx_proctoring API from Al-Farabi Kazakh National University — 30 operation(s) for edx_proctoring.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - edx_proctoring
   properties:
   - type: OpenAPI
@@ -554,6 +585,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Enrollment
+  tags_raw:
   - enrollment
   properties:
   - type: OpenAPI
@@ -580,6 +613,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Entitlements
+  tags_raw:
   - entitlements
   properties:
   - type: OpenAPI
@@ -606,6 +641,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Experiments
+  tags_raw:
   - experiments
   properties:
   - type: OpenAPI
@@ -630,6 +667,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Grades
+  tags_raw:
   - grades
   properties:
   - type: OpenAPI
@@ -680,7 +719,8 @@ apis:
     The instructor_task API from Al-Farabi Kazakh National University — 2 operation(s) for instructor_task.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - instructor_task
   properties:
   - type: OpenAPI
@@ -706,7 +746,8 @@ apis:
     The learner_home API from Al-Farabi Kazakh National University — 4 operation(s) for learner_home.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - learner_home
   properties:
   - type: OpenAPI
@@ -732,7 +773,8 @@ apis:
     The learning_sequences API from Al-Farabi Kazakh National University — 1 operation(s) for learning_sequences.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - learning_sequences
   properties:
   - type: OpenAPI
@@ -758,7 +800,8 @@ apis:
     The lti_consumer API from Al-Farabi Kazakh National University — 6 operation(s) for lti_consumer.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - lti_consumer
   properties:
   - type: OpenAPI
@@ -783,7 +826,8 @@ apis:
     The mfe_config API from Al-Farabi Kazakh National University — 1 operation(s) for mfe_config.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - mfe_config
   properties:
   - type: OpenAPI
@@ -809,7 +853,8 @@ apis:
     The mfe_context API from Al-Farabi Kazakh National University — 1 operation(s) for mfe_context.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - mfe_context
   properties:
   - type: OpenAPI
@@ -834,6 +879,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Mobile
+  tags_raw:
   - mobile
   properties:
   - type: OpenAPI
@@ -860,6 +907,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Notification
+  tags_raw:
   - notifications
   properties:
   - type: OpenAPI
@@ -885,7 +934,8 @@ apis:
     The ora_staff_grader API from Al-Farabi Kazakh National University — 15 operation(s) for ora_staff_grader.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - ora_staff_grader
   properties:
   - type: OpenAPI
@@ -912,6 +962,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Organization
+  tags_raw:
   - organizations
   properties:
   - type: OpenAPI
@@ -938,6 +990,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - ProfileImages
+  tags_raw:
   - profile_images
   properties:
   - type: OpenAPI
@@ -963,7 +1017,8 @@ apis:
     The program_enrollments API from Al-Farabi Kazakh National University — 8 operation(s) for program_enrollments.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - program_enrollments
   properties:
   - type: OpenAPI
@@ -990,7 +1045,8 @@ apis:
     send_account_activation_email.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - send_account_activation_email
   properties:
   - type: OpenAPI
@@ -1016,6 +1072,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - Team
+  tags_raw:
   - team
   properties:
   - type: OpenAPI
@@ -1042,6 +1100,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - ThirdPartyAuth
+  tags_raw:
   - third_party_auth
   properties:
   - type: OpenAPI
@@ -1067,7 +1127,8 @@ apis:
     The third_party_auth_context API from Al-Farabi Kazakh National University — 1 operation(s) for third_party_auth_context.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - third_party_auth_context
   properties:
   - type: OpenAPI
@@ -1141,6 +1202,8 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
+  - User
+  tags_raw:
   - user
   properties:
   - type: OpenAPI
@@ -1165,7 +1228,8 @@ apis:
     The user_tours API from Al-Farabi Kazakh National University — 2 operation(s) for user_tours.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
+  tags: []
+  tags_raw:
   - user_tours
   properties:
   - type: OpenAPI
