@@ -1309,6 +1309,9 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/al-farabi-kazakh-national-university-capability-edges.yml
+    name: Al-Farabi Kazakh National University Business Capability Map
   - type: AgenticAccess
     url: agentic-access/al-farabi-kazakh-national-university-agentic-access.yml
   - type: DomainSecurity

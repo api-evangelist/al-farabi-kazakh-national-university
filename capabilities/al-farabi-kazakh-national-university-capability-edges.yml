@@ -1,0 +1,111 @@
+slug: al-farabi-kazakh-national-university
+provider: Al-Farabi Kazakh National University
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 10
+edges:
+- tag: edx_proctoring
+  spec_file: al-farabi-kazakh-national-university-edx-proctoring-api-openapi.yml
+  capability_id: BC-4740.20
+  capability_id_l1: BC-4740
+  capability_name: Examination Operations
+  confidence: 0.9
+  evidence: GET /edx_proctoring/v1/proctored_exam/attempt ... proctoring_review_callback, proctored_exam/allowance
+  reason: Operations manage proctored exam attempts, allowances (extra time), instructor review of exams
+    and proctoring review callbacks — this is operational delivery of online examinations with remote
+    proctoring.
+- tag: enrollment
+  spec_file: al-farabi-kazakh-national-university-enrollment-api-openapi.yml
+  capability_id: BC-4720.10
+  capability_id_l1: BC-4720
+  capability_name: Enrolment & Registration
+  confidence: 0.9
+  evidence: '''Enrolls the currently logged-in user in a course.'' / POST /enrollment/v1/unenroll/'
+  reason: Course enrollment creation, listing, allowed-enrollment management and unenrollment are exactly
+    term/course registration of learners.
+- tag: grades
+  spec_file: al-farabi-kazakh-national-university-grades-api-openapi.yml
+  capability_id: BC-4740.30
+  capability_id_l1: BC-4740
+  capability_name: Marking & Grading Operations
+  confidence: 0.9
+  evidence: GET /grades/v1/gradebook/{course_id}/ ; POST /grades/v1/gradebook/{course_id}/bulk-update
+    ; grading-info
+  reason: Gradebook read, bulk grade update, grading policy and subsection grades are marking and grade-computation
+    operations.
+- tag: ora_staff_grader
+  spec_file: al-farabi-kazakh-national-university-ora-staff-grader-api-openapi.yml
+  capability_id: BC-4740.30
+  capability_id_l1: BC-4740
+  capability_name: Marking & Grading Operations
+  confidence: 0.9
+  evidence: GET /ora_staff_grader/assessments/feedback/from/ 'View for fetching assessment feedback for
+    a submission', POST /ora_staff_grader/mock/submission/grade, POST /ora_staff_grader/mock/submission/lock
+  reason: 'Open Response Assessment staff grader: fetching learner submissions, locking them for grading,
+    submitting grades and assessment feedback. This is marking and grading of student work.'
+- tag: program_enrollments
+  spec_file: al-farabi-kazakh-national-university-program-enrollments-api-openapi.yml
+  capability_id: BC-4720.10
+  capability_id_l1: BC-4720
+  capability_name: Enrolment & Registration
+  confidence: 0.85
+  evidence: POST /program_enrollments/v1/programs/{program_uuid}/enrollments/ and GET /program_enrollments/v1/programs/{program_uuid}/courses/{course_id}/enrollments/
+  reason: Create, read and update of learner enrolments at programme and course-run level (schemas CourseRunOverview,
+    DueDate), i.e. registration of students into programmes and their course runs.
+- tag: course_home
+  spec_file: al-farabi-kazakh-national-university-course-home-api-openapi.yml
+  capability_id: BC-4730.30
+  capability_id_l1: BC-4730
+  capability_name: Learning Environment Management
+  confidence: 0.75
+  evidence: GET /course_home/outline/{course_key_string}; GET /course_home/progress/{course_key_string};
+    schemas "OutlineTab", "CourseGoals", "GradingPolicy", "ResumeCourse"
+  reason: Serves the learner's course home experience (outline, dates, progress, goals) within the Open
+    edX LMS — operation of the learning-management platform for course delivery.
+- tag: credit
+  spec_file: al-farabi-kazakh-national-university-credit-api-openapi.yml
+  capability_id: BC-4720.40
+  capability_id_l1: BC-4720
+  capability_name: Credit Transfer & Recognition
+  confidence: 0.72
+  evidence: GET /credit/v1/eligibility/ ; GET /credit/v1/providers/{provider_id}/ ; POST /credit/v1/providers/{provider_id}/request/
+    ; schemas "CreditEligibility", "CreditCourse", "CreditProvider"
+  reason: Manages credit-eligible courses, learner credit eligibility and requests to external credit
+    providers — evaluation and recording of credit recognised toward a qualification.
+- tag: certificates
+  spec_file: al-farabi-kazakh-national-university-certificates-api-openapi.yml
+  capability_id: BC-4720.50
+  capability_id_l1: BC-4720
+  capability_name: Graduation & Credentialing
+  confidence: 0.7
+  evidence: Get a paginated list of certificates for a user; /certificates/v0/certificates/{username}/courses/{course_id}/
+  reason: Exposes course-completion certificates issued to learners, which is credential issuance/verification.
+    Could alternatively sit under award issuance in assessment, hence 0.7.
+- tag: course_live
+  spec_file: al-farabi-kazakh-national-university-course-live-api-openapi.yml
+  capability_id: BC-4730.30
+  capability_id_l1: BC-4730
+  capability_name: Learning Environment Management
+  confidence: 0.7
+  evidence: GET /course_live/providers/{course_id}/; schemas "Lti", "CourseLiveConfiguration"
+  reason: Configures live-session (LTI conferencing) providers for a course, i.e. operation of virtual
+    classroom platform integration within the LMS, which BC-4730.30 explicitly covers.
+- tag: courseware
+  spec_file: al-farabi-kazakh-national-university-courseware-api-openapi.yml
+  capability_id: BC-4730.30
+  capability_id_l1: BC-4730
+  capability_name: Learning Environment Management
+  confidence: 0.7
+  evidence: GET /courseware/course/{course_key_string}; GET /courseware/resume/{course_key_string}; GET
+    /courseware/sequence/{usage_key_string}
+  reason: Delivers courseware sequences and resume state to learners through the LMS runtime — operation
+    of the learning environment for online course delivery.
