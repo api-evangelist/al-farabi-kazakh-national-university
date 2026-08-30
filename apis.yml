@@ -61,7 +61,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Agreements
+  - agreements
   tags_raw:
   - agreements
   properties:
@@ -88,7 +88,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Bookmarks
+  - bookmarks
   tags_raw:
   - bookmarks
   properties:
@@ -196,7 +196,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Commerce
+  - commerce
   tags_raw:
   - commerce
   properties:
@@ -223,7 +223,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Completion
+  - completion
   tags_raw:
   - completion
   properties:
@@ -384,7 +384,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Courseware
+  - courseware
   tags_raw:
   - courseware
   properties:
@@ -464,7 +464,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Discounts
+  - discounts
   tags_raw:
   - discounts
   properties:
@@ -491,7 +491,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Discussion
+  - discussion
   tags_raw:
   - discussion
   properties:
@@ -597,7 +597,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Enrollment
+  - enrollment
   tags_raw:
   - enrollment
   properties:
@@ -625,7 +625,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Entitlements
+  - entitlements
   tags_raw:
   - entitlements
   properties:
@@ -679,7 +679,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Grades
+  - grades
   tags_raw:
   - grades
   properties:
@@ -1001,8 +1001,7 @@ apis:
     The profile_images API from Al-Farabi Kazakh National University — 2 operation(s) for profile_images.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
-  - ProfileImages
+  tags: []
   tags_raw:
   - profile_images
   properties:
@@ -1111,8 +1110,7 @@ apis:
     The third_party_auth API from Al-Farabi Kazakh National University — 4 operation(s) for third_party_auth.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
-  tags:
-  - ThirdPartyAuth
+  tags: []
   tags_raw:
   - third_party_auth
   properties:
