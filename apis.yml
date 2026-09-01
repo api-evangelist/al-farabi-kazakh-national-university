@@ -2,16 +2,26 @@
 aid: al-farabi-kazakh-national-university
 name: Al-Farabi Kazakh National University
 description: >-
-  Al-Farabi Kazakh National University (KazNU) is the leading public research
-  university in Kazakhstan, headquartered in Almaty, and is ranked #163 in the
-  QS World University Rankings 2025. The institution operates a public web
-  presence across kaznu.kz and farabi.university, an electronic library portal
-  (elibrary.kaznu.kz), and an open courseware / MOOC platform (open.kaznu.kz).
-  As of this review no public, documented developer portal or open API was
-  found; the institution's digital footprint is primarily web properties and
-  internal information systems, so this profile catalogs the verified public
-  properties rather than any open developer endpoints.
+  Al-Farabi Kazakh National University (KazNU) is Kazakhstan's leading public research university,
+  founded in 1934 in Almaty and ranked in the QS World University Rankings top 200. Unlike most of
+  this cohort, KazNU does operate a genuine institution-owned programmable surface: a self-hosted
+  Open edX platform at open.kaznu.kz that publishes a live Swagger 2.0 contract covering 284 paths
+  across 47 service groups, including a publicly readable course catalog (510 courses, no
+  authentication required) and LTI 1.3 Advantage grade and roster services. The deployment carries
+  the institution's own contact address (dl@kaznu.kz) and a KazNU-specific `univertest` service
+  group, so it is their operation and not a vendor tenancy. Alongside it the university runs seven
+  Open Journal Systems OAI-PMH repositories for its Bulletin (Vestnik) journal series on kaznu.kz
+  hosts, a Moodle distance-learning platform with web services enabled at dl.kaznu.edu.kz, an IRBIS
+  library catalog at lib.kaznu.kz, and a Crossref membership under its own DOI prefix 10.26577.
+  What KazNU does not have is a developer program: there is no developer portal, no published
+  authentication guide, no rate-limit or terms-of-use document for the APIs, no SDKs, and no
+  identity-federation metadata — Kazakhstan has no eduGAIN-participating federation. The main
+  www.kaznu.kz site has additionally been serving an expired TLS certificate since May 2026. The
+  programmable footprint here is real but accidental: it is what the software they installed
+  happens to expose, published without any surrounding developer contract.
 type: Index
+x-type: university
+x-category: Public Research University
 deliveryModel:
   model: saas
   open_source: false
@@ -50,8 +60,65 @@ tags:
   - Open Education
   - Kazakhstan
   - Central Asia
+  - Course Catalog
+  - Learning Management
+  - Open edX
+  - MOOC
+  - Scholarly Publishing
+  - OAI-PMH
+  - Open Access
+  - Research Data
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-09-01'
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    KazNU is one of the few institutions in this cohort with a genuinely institution-operated,
+    publicly readable API. Its self-hosted Open edX platform at open.kaznu.kz publishes a live
+    Swagger 2.0 contract (HTTP 200, 375 KB, 284 paths, 47 service groups) whose servers block,
+    contact address (dl@kaznu.kz) and KazNU-specific `univertest` service group all place operation
+    with the institution rather than with a vendor tenancy. The course catalog endpoint answers
+    unauthenticated with 510 courses. Seven Open Journal Systems OAI-PMH repositories on kaznu.kz
+    hosts answer Identify and ListSets. A Moodle web-services endpoint is enabled at
+    dl.kaznu.edu.kz on the institution's second domain. What is absent is the developer contract
+    around all of it — no developer portal, no authentication or rate-limit documentation, no SDKs,
+    no changelog, no status page. No identity federation exists to record: SAML metadata 404s and
+    Kazakhstan has no eduGAIN-participating national federation. No DataCite membership exists;
+    DOIs are minted through Crossref under prefix 10.26577. One pointer was removed as dead — the
+    main www.kaznu.kz site has served an expired wildcard TLS certificate (expired 2026-05-04)
+    since May 2026 and is unreachable over HTTPS, though it still answers over plain HTTP. The OJS journal portal has a second defect: the
+    be.kaznu.kz site root and its locale-neutral /index.php/index path both enter an infinite
+    redirect loop (curl exhausts 50 hops), so only explicitly locale-qualified journal URLs
+    such as /index.php/math/en resolve. The OAI-PMH endpoints underneath are unaffected.
+  evidence:
+  - url: https://open.kaznu.kz/swagger.json
+    status: 200
+  - url: https://open.kaznu.kz/api/courses/v1/courses/
+    status: 200
+  - url: https://open.kaznu.kz/api-docs/
+    status: 200
+  - url: https://be.kaznu.kz/index.php/index/oai?verb=Identify
+    status: 200
+  - url: https://bulletin-law.kaznu.kz/index.php/index/oai?verb=Identify
+    status: 200
+  - url: https://dl.kaznu.edu.kz/webservice/rest/server.php
+    status: 200
+  - url: https://lib.kaznu.kz/
+    status: 200
+  - url: https://farabi.university/?lang=en
+    status: 200
+  - url: https://api.crossref.org/members/11115
+    status: 200
+  - url: https://api.ror.org/v2/organizations/03q0vrn42
+    status: 200
+  - url: https://open.kaznu.kz/auth/saml/metadata.xml
+    status: 404
+  - url: https://www.kaznu.kz/en
+    status: 0
+    note: TLS handshake fails — wildcard certificate expired 2026-05-04
+  generated: '2026-09-01'
+  method: probed
 specificationVersion: '0.23'
 apis:
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-agreements-api
@@ -64,6 +131,7 @@ apis:
   - Agreements
   tags_raw:
   - agreements
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-agreements-api-openapi.yml
@@ -91,6 +159,7 @@ apis:
   - Bookmarks
   tags_raw:
   - bookmarks
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-bookmarks-api-openapi.yml
@@ -119,6 +188,7 @@ apis:
   - Certificates
   tags_raw:
   - certificates
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-certificates-api-openapi.yml
@@ -146,6 +216,7 @@ apis:
   tags: []
   tags_raw:
   - change_email_settings
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-change-email-settings-api-openapi.yml
@@ -172,6 +243,7 @@ apis:
   - Cohorts
   tags_raw:
   - cohorts
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-cohorts-api-openapi.yml
@@ -199,6 +271,7 @@ apis:
   - Commerce
   tags_raw:
   - commerce
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-commerce-api-openapi.yml
@@ -226,6 +299,7 @@ apis:
   - Completion
   tags_raw:
   - completion
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-completion-api-openapi.yml
@@ -253,6 +327,7 @@ apis:
   tags: []
   tags_raw:
   - course_experience
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-course-experience-api-openapi.yml
@@ -280,6 +355,7 @@ apis:
   tags: []
   tags_raw:
   - course_home
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-course-home-api-openapi.yml
@@ -307,6 +383,7 @@ apis:
   tags: []
   tags_raw:
   - course_live
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-course-live-api-openapi.yml
@@ -334,6 +411,7 @@ apis:
   tags: []
   tags_raw:
   - course_modes
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-course-modes-api-openapi.yml
@@ -360,6 +438,7 @@ apis:
   - Courses
   tags_raw:
   - courses
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-courses-api-openapi.yml
@@ -387,6 +466,7 @@ apis:
   - Courseware
   tags_raw:
   - courseware
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-courseware-api-openapi.yml
@@ -413,6 +493,7 @@ apis:
   - Credit
   tags_raw:
   - credit
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-credit-api-openapi.yml
@@ -440,6 +521,7 @@ apis:
   - Dashboard
   tags_raw:
   - dashboard
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-dashboard-api-openapi.yml
@@ -467,6 +549,7 @@ apis:
   - Discounts
   tags_raw:
   - discounts
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-discounts-api-openapi.yml
@@ -494,6 +577,7 @@ apis:
   - Discussion
   tags_raw:
   - discussion
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-discussion-api-openapi.yml
@@ -521,6 +605,7 @@ apis:
   tags: []
   tags_raw:
   - edx_name_affirmation
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-edx-name-affirmation-api-openapi.yml
@@ -548,6 +633,7 @@ apis:
   tags: []
   tags_raw:
   - edx_proctoring
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-edx-proctoring-api-openapi.yml
@@ -573,6 +659,7 @@ apis:
   baseURL: https://open.kaznu.kz/api
   tags:
   - edxnotes
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-edxnotes-api-openapi.yml
@@ -600,6 +687,7 @@ apis:
   - Enrollment
   tags_raw:
   - enrollment
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-enrollment-api-openapi.yml
@@ -628,6 +716,7 @@ apis:
   - Entitlements
   tags_raw:
   - entitlements
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-entitlements-api-openapi.yml
@@ -656,6 +745,7 @@ apis:
   - Experiments
   tags_raw:
   - experiments
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-experiments-api-openapi.yml
@@ -682,6 +772,7 @@ apis:
   - Grades
   tags_raw:
   - grades
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-grades-api-openapi.yml
@@ -709,6 +800,7 @@ apis:
   - Instructor
   tags_raw:
   - instructor
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-instructor-api-openapi.yml
@@ -736,6 +828,7 @@ apis:
   tags: []
   tags_raw:
   - instructor_task
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-instructor-task-api-openapi.yml
@@ -763,6 +856,7 @@ apis:
   tags: []
   tags_raw:
   - learner_home
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-learner-home-api-openapi.yml
@@ -790,6 +884,7 @@ apis:
   tags: []
   tags_raw:
   - learning_sequences
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-learning-sequences-api-openapi.yml
@@ -817,6 +912,7 @@ apis:
   tags: []
   tags_raw:
   - lti_consumer
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-lti-consumer-api-openapi.yml
@@ -843,6 +939,7 @@ apis:
   tags: []
   tags_raw:
   - mfe_config
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-mfe-config-api-openapi.yml
@@ -870,6 +967,7 @@ apis:
   tags: []
   tags_raw:
   - mfe_context
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-mfe-context-api-openapi.yml
@@ -896,6 +994,7 @@ apis:
   - Mobile
   tags_raw:
   - mobile
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-mobile-api-openapi.yml
@@ -924,6 +1023,7 @@ apis:
   - Notification
   tags_raw:
   - notifications
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-notifications-api-openapi.yml
@@ -951,6 +1051,7 @@ apis:
   tags: []
   tags_raw:
   - ora_staff_grader
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-ora-staff-grader-api-openapi.yml
@@ -979,6 +1080,7 @@ apis:
   - Organization
   tags_raw:
   - organizations
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-organizations-api-openapi.yml
@@ -1007,6 +1109,7 @@ apis:
   - ProfileImages
   tags_raw:
   - profile_images
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-profile-images-api-openapi.yml
@@ -1034,6 +1137,7 @@ apis:
   tags: []
   tags_raw:
   - program_enrollments
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-program-enrollments-api-openapi.yml
@@ -1062,6 +1166,7 @@ apis:
   tags: []
   tags_raw:
   - send_account_activation_email
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: >-
@@ -1089,6 +1194,7 @@ apis:
   - Team
   tags_raw:
   - team
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-team-api-openapi.yml
@@ -1117,6 +1223,7 @@ apis:
   - ThirdPartyAuth
   tags_raw:
   - third_party_auth
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-third-party-auth-api-openapi.yml
@@ -1144,6 +1251,7 @@ apis:
   tags: []
   tags_raw:
   - third_party_auth_context
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-third-party-auth-context-api-openapi.yml
@@ -1168,6 +1276,7 @@ apis:
   baseURL: https://open.kaznu.kz/api
   tags:
   - toggles
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-toggles-api-openapi.yml
@@ -1193,6 +1302,7 @@ apis:
   baseURL: https://open.kaznu.kz/api
   tags:
   - univertest
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-univertest-api-openapi.yml
@@ -1219,6 +1329,7 @@ apis:
   - User
   tags_raw:
   - user
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-user-api-openapi.yml
@@ -1245,6 +1356,7 @@ apis:
   tags: []
   tags_raw:
   - user_tours
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-user-tours-api-openapi.yml
@@ -1269,6 +1381,7 @@ apis:
   baseURL: https://open.kaznu.kz/api
   tags:
   - val
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-val-api-openapi.yml
@@ -1293,6 +1406,7 @@ apis:
   baseURL: https://open.kaznu.kz/api
   tags:
   - xblock
+  x-operator: institution
   properties:
   - type: OpenAPI
     url: openapi/al-farabi-kazakh-national-university-xblock-api-openapi.yml
@@ -1310,6 +1424,98 @@ apis:
     url: vocabulary/al-farabi-kazakh-national-university-vocabulary.yml
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
+- aid: al-farabi-kazakh-national-university:kaznu-bulletin-oai-pmh
+  name: KazNU Bulletin OAI-PMH Repositories
+  description: >-
+    Seven OAI-PMH 2.0 metadata harvesting endpoints operated by Al-Farabi Kazakh National University
+    on its own kaznu.kz hosts, one per Bulletin (Vestnik) journal series — Economic, Law, Historical,
+    Physical, Geographical, Orientalism, and the International Journal of Mathematics and Physics.
+    All run Open Journal Systems 3.5.0.5. Identify, ListSets and ListRecords all answer without
+    authentication. The repository software is PKP's and the contract is OAI-PMH's, so no product
+    specification is saved under the institution; what is recorded here is the institution's own
+    operation of seven live standards-conformant endpoints.
+  humanURL: https://be.kaznu.kz/index.php/math/en
+  baseURL: https://be.kaznu.kz/index.php/index/oai
+  x-operator: institution
+  tags:
+  - OAI-PMH
+  - Scholarly Publishing
+  - Open Access
+  properties:
+  - type: x-oai-pmh
+    url: https://be.kaznu.kz/index.php/index/oai?verb=Identify
+  - type: x-oai-pmh
+    url: https://bulletin-law.kaznu.kz/index.php/index/oai?verb=Identify
+  - type: x-oai-pmh
+    url: https://bulletin-history.kaznu.kz/index.php/index/oai?verb=Identify
+  - type: x-oai-pmh
+    url: https://bph.kaznu.kz/index.php/index/oai?verb=Identify
+  - type: x-oai-pmh
+    url: https://bulletin-geography.kaznu.kz/index.php/index/oai?verb=Identify
+  - type: x-oai-pmh
+    url: https://bulletin-orientalism.kaznu.kz/index.php/index/oai?verb=Identify
+  - type: x-oai-pmh
+    url: https://ijmph.kaznu.kz/index.php/index/oai?verb=Identify
+  - type: Conformance
+    url: conformance/al-farabi-kazakh-national-university-conformance.yml
+- aid: al-farabi-kazakh-national-university:kaznu-moodle-web-services
+  name: KazNU Distance Learning (Moodle) Web Services
+  description: >-
+    The university's distance-learning platform runs Moodle at dl.kaznu.edu.kz, on the institution's
+    own kaznu.edu.kz domain, with the Moodle Web Services REST endpoint enabled — an unauthenticated
+    request returns a Moodle invalidtoken exception rather than a 404, which is how the service
+    announces itself as switched on. Token-gated, with no published token issuance process, so this
+    is recorded as an institution-operated surface rather than a consumable API. Moodle's own
+    function contract belongs to Moodle and is not saved here.
+  humanURL: https://dl.kaznu.edu.kz/
+  baseURL: https://dl.kaznu.edu.kz/webservice/rest/server.php
+  x-operator: institution
+  tags:
+  - Learning Management
+  - Moodle
+  properties:
+  - type: x-endpoint
+    url: https://dl.kaznu.edu.kz/webservice/rest/server.php
+  - type: Website
+    url: https://dl.kaznu.edu.kz/
+- aid: al-farabi-kazakh-national-university:crossref-membership
+  name: Crossref Membership — al-Farabi Kazakh National University
+  description: >-
+    Al-Farabi Kazakh National University is a Crossref member in its own name (member 11115) and
+    registers DOIs for its Bulletin journal series under its own prefix 10.26577, with 9,066 DOIs
+    deposited. This is a registry membership — a verifiable fact about the institution — and not an
+    API the institution operates. Crossref's own contract is deliberately not saved under this slug.
+  humanURL: https://www.crossref.org/
+  baseURL: https://api.crossref.org/members/11115
+  x-operator: registry
+  x-registrant-id: '11115'
+  x-doi-prefix: '10.26577'
+  tags:
+  - Crossref
+  - DOI
+  - Scholarly Publishing
+  properties:
+  - type: x-registry-record
+    url: https://api.crossref.org/members/11115
+- aid: al-farabi-kazakh-national-university:ror-registration
+  name: ROR Registration — Al-Farabi Kazakh National University
+  description: >-
+    The institution's Research Organization Registry identifier, ror.org/03q0vrn42, cross-walked to
+    Crossref Funder ID 501100016254, GRID grid.77184.3d, ISNI 0000 0000 8887 5266 and Wikidata
+    Q427677. A registry the institution is registered in, not one it operates; the membership is
+    recorded and ROR's contract is not saved here.
+  humanURL: https://ror.org/03q0vrn42
+  baseURL: https://api.ror.org/v2/organizations/03q0vrn42
+  x-operator: registry
+  x-registrant-id: '03q0vrn42'
+  tags:
+  - ROR
+  - Research
+  properties:
+  - type: x-registry-record
+    url: https://api.ror.org/v2/organizations/03q0vrn42
+  - type: Website
+    url: https://ror.org/03q0vrn42
 common:
   - type: CapabilityMap
     url: capabilities/al-farabi-kazakh-national-university-capability-edges.yml
@@ -1322,10 +1528,26 @@ common:
     url: authentication/al-farabi-kazakh-national-university-authentication.yml
   - type: Website
     url: https://farabi.university/?lang=en
-  - type: Website
-    url: https://www.kaznu.kz/en
   - type: DeveloperPortal
     url: https://open.kaznu.kz/
+  - type: APIReference
+    url: https://open.kaznu.kz/api-docs/
+  - type: OpenAPI
+    url: https://open.kaznu.kz/swagger.json
+  - type: CourseCatalog
+    url: https://open.kaznu.kz/courses
+  - type: ResearchRepository
+    url: https://be.kaznu.kz/index.php/math/en
+  - type: LibraryCatalog
+    url: https://lib.kaznu.kz/
+  - type: TermsOfService
+    url: https://open.kaznu.kz/tos
+  - type: PrivacyPolicy
+    url: https://open.kaznu.kz/privacy
+  - type: Support
+    url: https://open.kaznu.kz/contact
+  - type: Conformance
+    url: conformance/al-farabi-kazakh-national-university-conformance.yml
   - type: SourceCode
     url: https://github.com/NLP-KazNU
   - type: LinkedIn
