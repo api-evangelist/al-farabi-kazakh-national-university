@@ -520,7 +520,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Dashboard
+  - Dashboards
   tags_raw:
   - dashboard
   x-operator: institution
@@ -576,7 +576,7 @@ apis:
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
   tags:
-  - Discussion
+  - Discussions
   tags_raw:
   - discussion
   x-operator: institution
