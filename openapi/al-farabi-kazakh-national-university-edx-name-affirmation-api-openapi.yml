@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements edx_name_affirmation API
+  title: Open edX Edx Name Affirmation API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -16,7 +16,25 @@ paths:
     get:
       operationId: edx_name_affirmation_v1_verified_name_list
       summary: Get most recent verified name for the request user or for the specified username
-      description: "For example: /edx_name_affirmation/v1/verified_name?username=jdoe\nExample response: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\",\n    \"profile_name\": \"Jon Doe\",\n    \"verification_attempt_id\": 123,\n    \"proctored_exam_attempt_id\": None,\n    \"status\": \"approved\",\n    \"use_verified_name_for_certs\": False,\n}"
+      description: 'For example: /edx_name_affirmation/v1/verified_name?username=jdoe
+
+        Example response: {
+
+        "username": "jdoe",
+
+        "verified_name": "Jonathan Doe",
+
+        "profile_name": "Jon Doe",
+
+        "verification_attempt_id": 123,
+
+        "proctored_exam_attempt_id": None,
+
+        "status": "approved",
+
+        "use_verified_name_for_certs": False,
+
+        }'
       tags:
       - edx_name_affirmation
       parameters:
@@ -35,8 +53,24 @@ paths:
           description: The verified_name record associated with the username provided does not exist.
     post:
       operationId: edx_name_affirmation_v1_verified_name_create
-      summary: Creates a new VerifiedName.
-      description: "Expected POST data: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\"\n    \"profile_name\": \"Jon Doe\"\n    \"verification_attempt_id\": (Optional)\n    \"proctored_exam_attempt_id\": (Optional)\n    \"platform_verification_attempt_id\": (Optional)\n    \"status\": (Optional)\n}"
+      summary: Creates a new VerifiedName
+      description: 'Expected POST data: {
+
+        "username": "jdoe",
+
+        "verified_name": "Jonathan Doe"
+
+        "profile_name": "Jon Doe"
+
+        "verification_attempt_id": (Optional)
+
+        "proctored_exam_attempt_id": (Optional)
+
+        "platform_verification_attempt_id": (Optional)
+
+        "status": (Optional)
+
+        }'
       tags:
       - edx_name_affirmation
       requestBody:
@@ -55,7 +89,15 @@ paths:
     patch:
       operationId: edx_name_affirmation_v1_verified_name_partial_update
       summary: Update verified name status
-      description: "Example PATCH data: {\n        \"username\": \"jdoe\",\n        \"verification_attempt_id\" OR \"proctored_exam_attempt_id\": 123,\n        \"status\": \"approved\",\n    }"
+      description: 'Example PATCH data: {
+
+        "username": "jdoe",
+
+        "verification_attempt_id" OR "proctored_exam_attempt_id": 123,
+
+        "status": "approved",
+
+        }'
       tags:
       - edx_name_affirmation
       requestBody:
@@ -95,7 +137,6 @@ paths:
     post:
       operationId: edx_name_affirmation_v1_verified_name_config_create
       summary: Create VerifiedNameConfig
-      description: Create VerifiedNameConfig
       tags:
       - edx_name_affirmation
       requestBody:
@@ -114,7 +155,7 @@ paths:
   /edx_name_affirmation/v1/verified_name/history:
     get:
       operationId: edx_name_affirmation_v1_verified_name_history_list
-      summary: Get a list of verified name objects for the given user, ordered by most recently created.
+      summary: Get a list of verified name objects for the given user, ordered by most…
       description: Get a list of verified name objects for the given user, ordered by most recently created.
       tags:
       - edx_name_affirmation
@@ -134,7 +175,25 @@ paths:
     get:
       operationId: edx_name_affirmation_v1_verified_name_read
       summary: Get most recent verified name for the request user or for the specified username
-      description: "For example: /edx_name_affirmation/v1/verified_name?username=jdoe\nExample response: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\",\n    \"profile_name\": \"Jon Doe\",\n    \"verification_attempt_id\": 123,\n    \"proctored_exam_attempt_id\": None,\n    \"status\": \"approved\",\n    \"use_verified_name_for_certs\": False,\n}"
+      description: 'For example: /edx_name_affirmation/v1/verified_name?username=jdoe
+
+        Example response: {
+
+        "username": "jdoe",
+
+        "verified_name": "Jonathan Doe",
+
+        "profile_name": "Jon Doe",
+
+        "verification_attempt_id": 123,
+
+        "proctored_exam_attempt_id": None,
+
+        "status": "approved",
+
+        "use_verified_name_for_certs": False,
+
+        }'
       tags:
       - edx_name_affirmation
       parameters:
@@ -158,8 +217,24 @@ paths:
           description: The verified_name record associated with the username provided does not exist.
     post:
       operationId: edx_name_affirmation_v1_verified_name_create
-      summary: Creates a new VerifiedName.
-      description: "Expected POST data: {\n    \"username\": \"jdoe\",\n    \"verified_name\": \"Jonathan Doe\"\n    \"profile_name\": \"Jon Doe\"\n    \"verification_attempt_id\": (Optional)\n    \"proctored_exam_attempt_id\": (Optional)\n    \"platform_verification_attempt_id\": (Optional)\n    \"status\": (Optional)\n}"
+      summary: Creates a new VerifiedName
+      description: 'Expected POST data: {
+
+        "username": "jdoe",
+
+        "verified_name": "Jonathan Doe"
+
+        "profile_name": "Jon Doe"
+
+        "verification_attempt_id": (Optional)
+
+        "proctored_exam_attempt_id": (Optional)
+
+        "platform_verification_attempt_id": (Optional)
+
+        "status": (Optional)
+
+        }'
       tags:
       - edx_name_affirmation
       parameters:
@@ -184,7 +259,15 @@ paths:
     patch:
       operationId: edx_name_affirmation_v1_verified_name_partial_update
       summary: Update verified name status
-      description: "Example PATCH data: {\n        \"username\": \"jdoe\",\n        \"verification_attempt_id\" OR \"proctored_exam_attempt_id\": 123,\n        \"status\": \"approved\",\n    }"
+      description: 'Example PATCH data: {
+
+        "username": "jdoe",
+
+        "verification_attempt_id" OR "proctored_exam_attempt_id": 123,
+
+        "status": "approved",
+
+        }'
       tags:
       - edx_name_affirmation
       parameters:
@@ -262,26 +345,31 @@ components:
           minLength: 1
         verification_attempt_id:
           title: Verification attempt id
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         verification_attempt_status:
           title: Verification attempt status
-          type: string
+          type:
+          - string
+          - 'null'
           minLength: 1
-          nullable: true
         proctored_exam_attempt_id:
           title: Proctored exam attempt id
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         platform_verification_attempt_id:
           title: Platform verification attempt id
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         platform_verification_attempt_status:
           title: Platform verification attempt status
-          type: string
+          type:
+          - string
+          - 'null'
           minLength: 1
-          nullable: true
         status:
           title: Status
           type: string
@@ -302,8 +390,9 @@ components:
           minLength: 1
         use_verified_name_for_certs:
           title: Use verified name for certs
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
     VerifiedName:
       required:
       - username
@@ -334,31 +423,37 @@ components:
           minLength: 1
         verification_attempt_id:
           title: Verification attempt id
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         verification_attempt_status:
           title: Verification attempt status
-          type: string
+          type:
+          - string
+          - 'null'
           minLength: 1
-          nullable: true
         proctored_exam_attempt_id:
           title: Proctored exam attempt id
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         platform_verification_attempt_id:
           title: Platform verification attempt id
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
         platform_verification_attempt_status:
           title: Platform verification attempt status
-          type: string
+          type:
+          - string
+          - 'null'
           minLength: 1
-          nullable: true
         status:
           title: Status
-          type: string
+          type:
+          - string
+          - 'null'
           minLength: 1
-          nullable: true
   securitySchemes:
     Basic:
       type: http

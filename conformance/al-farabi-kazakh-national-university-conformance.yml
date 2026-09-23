@@ -1,0 +1,153 @@
+---
+name: Al-Farabi Kazakh National University — Education Regime Conformance
+description: >-
+  Domain-standard conformance for Al-Farabi Kazakh National University (KazNU), evaluated against
+  the Kin Score `education` regime standards list (scim, lti, oneroster, ed-fi, caliper, qti,
+  oai-pmh, shibboleth, saml, orcid, datacite, crossref). Only standards with evidence located in a
+  saved contract or in a live probed response are recorded. Standards with no evidence are listed
+  explicitly as not-found rather than omitted, so absence is a measurement and not a gap in the
+  survey.
+generated: '2026-09-01'
+method: generated
+x-evidence-method: probed
+x-authorship-note: >-
+  API Evangelist authored this document; every conformance and not_found claim in it was
+  established by a live probe on 2026-09-01, recorded per item as method: probed with the URL
+  and status code that established it. No claim here is inferred from prose or from vendor
+  documentation.
+source: >-
+  https://open.kaznu.kz/swagger.json (live, HTTP 200, 2026-09-01);
+  https://be.kaznu.kz/index.php/index/oai?verb=Identify (live, HTTP 200, 2026-09-01);
+  https://api.crossref.org/members/11115 (live, HTTP 200, 2026-09-01)
+regime: education
+x-operator: institution
+conformance:
+- standard: lti
+  status: conformant
+  detail: >-
+    The institution's own Open edX deployment exposes LTI 1.3 Advantage service endpoints in its
+    published contract — Assignment and Grade Services (AGS) and Names and Role Provisioning
+    Services (NRPS). These are declared paths in the contract KazNU serves at
+    https://open.kaznu.kz/swagger.json, not a prose claim.
+  method: probed
+  evidence:
+  - type: contract-path
+    location: openapi/al-farabi-kazakh-national-university-lti-consumer-api-openapi.yml
+    pointer: /lti_consumer/v1/lti/{lti_config_id}/lti-ags
+    note: LTI Advantage Assignment and Grade Services line-item collection
+  - type: contract-path
+    location: openapi/al-farabi-kazakh-national-university-lti-consumer-api-openapi.yml
+    pointer: /lti_consumer/v1/lti/{lti_config_id}/lti-ags/{id}/scores
+    note: AGS score publication
+  - type: contract-path
+    location: openapi/al-farabi-kazakh-national-university-lti-consumer-api-openapi.yml
+    pointer: /lti_consumer/v1/lti/{lti_config_id}/memberships
+    note: LTI Advantage Names and Role Provisioning Service
+  - type: live
+    url: https://open.kaznu.kz/swagger.json
+    status: 200
+- standard: oai-pmh
+  status: conformant
+  detail: >-
+    KazNU operates at least seven OAI-PMH 2.0 repositories on its own kaznu.kz hosts, one per
+    Bulletin (Vestnik) journal series, all running Open Journal Systems 3.5.0.5. Identify and
+    ListSets both answer. The repository software is PKP's; the endpoints, the hosts and the
+    content are the institution's.
+  method: probed
+  evidence:
+  - type: live
+    url: https://be.kaznu.kz/index.php/index/oai?verb=Identify
+    status: 200
+    note: 'repositoryName: KAZNU BULLETIN ECONOMIC SERIES; protocolVersion 2.0; OJS 3.5.0.5'
+  - type: live
+    url: https://bulletin-law.kaznu.kz/index.php/index/oai?verb=Identify
+    status: 200
+    note: 'repositoryName: KAZNU BULLETIN LAW SERIES'
+  - type: live
+    url: https://bulletin-history.kaznu.kz/index.php/index/oai?verb=Identify
+    status: 200
+    note: 'repositoryName: KAZNU BULLETIN HISTORICAL SERIES'
+  - type: live
+    url: https://bph.kaznu.kz/index.php/index/oai?verb=Identify
+    status: 200
+    note: 'repositoryName: KAZNU BULLETIN PHYSICAL SERIES'
+  - type: live
+    url: https://bulletin-geography.kaznu.kz/index.php/index/oai?verb=Identify
+    status: 200
+  - type: live
+    url: https://bulletin-orientalism.kaznu.kz/index.php/index/oai?verb=Identify
+    status: 200
+  - type: live
+    url: https://ijmph.kaznu.kz/index.php/index/oai?verb=Identify
+    status: 200
+  - type: live
+    url: https://be.kaznu.kz/index.php/index/oai?verb=ListSets
+    status: 200
+    note: journal and section sets enumerate
+- standard: crossref
+  status: conformant
+  detail: >-
+    KazNU is a Crossref member in its own name and registers DOIs under its own prefix for its
+    Bulletin journal series. This is a registry membership — a fact about the institution — and
+    Crossref's own API is not saved here as the institution's contract.
+  method: probed
+  evidence:
+  - type: registry-member
+    url: https://api.crossref.org/members/11115
+    status: 200
+    member_id: '11115'
+    primary_name: al-Farabi Kazakh National University
+    prefix: '10.26577'
+    total_dois: 9066
+not_found:
+- standard: scim
+  detail: No SCIM 2.0 provisioning endpoint found on any institution host or in any saved contract.
+  method: probed
+- standard: oneroster
+  detail: No OneRoster endpoint or declaration found.
+  method: probed
+- standard: ed-fi
+  detail: No Ed-Fi API found; Ed-Fi is a US K-12 standard with no expected footprint here.
+  method: probed
+- standard: caliper
+  detail: >-
+    No Caliper Analytics endpoint declared. Open edX ships event tracking, but nothing in the
+    published contract or on a probed host names Caliper.
+  method: probed
+- standard: qti
+  detail: No QTI import/export or delivery endpoint found.
+  method: probed
+- standard: shibboleth
+  detail: >-
+    No Shibboleth/SAML IdP metadata located. https://open.kaznu.kz/auth/saml/metadata.xml returns
+    404, and Kazakhstan has no eduGAIN-participating national identity federation, so no federation
+    entry exists to record. Open edX's third_party_auth app is present in the contract but exposes
+    no configured SAML provider.
+  method: probed
+  evidence:
+  - type: negative-probe
+    url: https://open.kaznu.kz/auth/saml/metadata.xml
+    status: 404
+- standard: saml
+  detail: Same negative probe as shibboleth — no SAML metadata document is published.
+  method: probed
+  evidence:
+  - type: negative-probe
+    url: https://open.kaznu.kz/auth/saml/metadata.xml
+    status: 404
+- standard: orcid
+  detail: >-
+    OJS 3.5 supports ORCID, but no ORCID plugin surface or authenticated ORCID identifier flow was
+    evidenced on a probed KazNU host, so no conformance is claimed.
+  method: probed
+- standard: datacite
+  detail: >-
+    No DataCite provider or repository account exists for the institution. api.datacite.org returns
+    zero providers and zero clients on both a 'kazakh' and a 'farabi' query. KazNU mints DOIs
+    through Crossref instead.
+  method: probed
+  evidence:
+  - type: negative-probe
+    url: https://api.datacite.org/clients?query=farabi
+    status: 200
+    note: total 0

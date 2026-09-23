@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements val API
+  title: Open edX Val API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -45,17 +45,21 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/Video'
+      summary: Val v0 videos list
+      x-summary-source: derived
     post:
       operationId: val_v0_videos_create
       description: GETs or POST video objects
@@ -74,6 +78,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Video'
+      summary: Val v0 videos create
+      x-summary-source: derived
   /val/v0/videos/course-transcripts/{course_id}/:
     get:
       operationId: val_v0_videos_course-transcripts_read
@@ -89,6 +95,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Val v0 videos course transcripts read
+      x-summary-source: derived
   /val/v0/videos/courses/{course_id}/video-ids:
     get:
       operationId: val_v0_videos_courses_video-ids_list
@@ -104,11 +112,64 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Val v0 videos courses video ids list
+      x-summary-source: derived
   /val/v0/videos/missing-hls/:
     post:
       operationId: val_v0_videos_missing-hls_create
-      summary: 'Retrieve video IDs that are missing HLS profiles. This endpoint supports 2 types of input data:'
-      description: "1. If we want a batch of video ids which are missing HLS profile irrespective of their courses, the request\n   data should be in following format:\n        {\n            'batch_size': 50,\n            'offset': 0\n        }\n   And response will be in following format:\n        {\n            'videos': ['video_id1', 'video_id2', 'video_id3', ... , video_id50],\n            'total': 300,\n            'offset': 50,\n            'batch_size': 50\n        }\n\n2. If we want all the videos which are missing HLS profiles in a set of specific courses, the request data\n   should be in following format:\n        {\n            'courses': [\n                'course_id1',\n                'course_id2',\n                ...\n            ]\n        }\n   And response will be in following format:\n        {\n            'videos': ['video_id1', 'video_id2', 'video_id3', ...]\n        }"
+      summary: Retrieve video IDs that are missing HLS profiles.
+      description: '1. If we want a batch of video ids which are missing HLS profile irrespective of their courses, the request
+
+        data should be in following format:
+
+        {
+
+        ''batch_size'': 50,
+
+        ''offset'': 0
+
+        }
+
+        And response will be in following format:
+
+        {
+
+        ''videos'': [''video_id1'', ''video_id2'', ''video_id3'', ... , video_id50],
+
+        ''total'': 300,
+
+        ''offset'': 50,
+
+        ''batch_size'': 50
+
+        }
+
+
+        2. If we want all the videos which are missing HLS profiles in a set of specific courses, the request data
+
+        should be in following format:
+
+        {
+
+        ''courses'': [
+
+        ''course_id1'',
+
+        ''course_id2'',
+
+        ...
+
+        ]
+
+        }
+
+        And response will be in following format:
+
+        {
+
+        ''videos'': [''video_id1'', ''video_id2'', ''video_id3'', ...]
+
+        }'
       tags:
       - val
       responses:
@@ -116,8 +177,30 @@ paths:
           description: ''
     put:
       operationId: val_v0_videos_missing-hls_update
-      summary: Update a single profile for a given video.
-      description: "Example request data:\n    ```\n    {\n        'edx_video_id': '1234'\n        'profile': 'hls',\n        'encode_data': {\n            'url': 'foo.com/qwe.m3u8'\n            'file_size': 34\n            'bitrate': 12\n        }\n    }\n    ```"
+      summary: Update a single profile for a given video
+      description: 'Example request data:
+
+        ```
+
+        {
+
+        ''edx_video_id'': ''1234''
+
+        ''profile'': ''hls'',
+
+        ''encode_data'': {
+
+        ''url'': ''foo.com/qwe.m3u8''
+
+        ''file_size'': 34
+
+        ''bitrate'': 12
+
+        }
+
+        }
+
+        ```'
       tags:
       - val
       responses:
@@ -132,6 +215,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Val v0 videos status partial update
+      x-summary-source: derived
   /val/v0/videos/video-images/update/:
     post:
       operationId: val_v0_videos_video-images_update_create
@@ -141,6 +226,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Val v0 videos video images update create
+      x-summary-source: derived
   /val/v0/videos/video-transcripts/:
     post:
       operationId: val_v0_videos_video-transcripts_create
@@ -150,6 +237,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Val v0 videos video transcripts create
+      x-summary-source: derived
     patch:
       operationId: val_v0_videos_video-transcripts_partial_update
       description: Partially update a video transcript, only supporting updating the `provider` field.
@@ -158,6 +247,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Val v0 videos video transcripts partial update
+      x-summary-source: derived
     delete:
       operationId: val_v0_videos_video-transcripts_delete
       description: Delete a video transcript instance with the given information.
@@ -166,6 +257,8 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Val v0 videos video transcripts delete
+      x-summary-source: derived
   /val/v0/videos/video-transcripts/create/:
     post:
       operationId: val_v0_videos_video-transcripts_create_create
@@ -175,6 +268,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Val v0 videos video transcripts create create
+      x-summary-source: derived
     patch:
       operationId: val_v0_videos_video-transcripts_create_partial_update
       description: Partially update a video transcript, only supporting updating the `provider` field.
@@ -183,6 +278,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Val v0 videos video transcripts create partial update
+      x-summary-source: derived
     delete:
       operationId: val_v0_videos_video-transcripts_create_delete
       description: Delete a video transcript instance with the given information.
@@ -191,6 +288,8 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Val v0 videos video transcripts create delete
+      x-summary-source: derived
   /val/v0/videos/{edx_video_id}:
     get:
       operationId: val_v0_videos_read
@@ -211,6 +310,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Video'
+      summary: Val v0 videos read
+      x-summary-source: derived
     put:
       operationId: val_v0_videos_update
       description: Gets a video instance given its edx_video_id
@@ -236,6 +337,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Video'
+      summary: Val v0 videos update
+      x-summary-source: derived
     patch:
       operationId: val_v0_videos_partial_update
       description: Gets a video instance given its edx_video_id
@@ -261,6 +364,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Video'
+      summary: Val v0 videos partial update
+      x-summary-source: derived
     delete:
       operationId: val_v0_videos_delete
       description: Gets a video instance given its edx_video_id
@@ -276,8 +381,43 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Val v0 videos delete
+      x-summary-source: derived
 components:
   schemas:
+    EncodedVideo:
+      required:
+      - url
+      - file_size
+      - bitrate
+      - profile
+      type: object
+      properties:
+        created:
+          title: Created
+          type: string
+          format: date-time
+        modified:
+          title: Modified
+          type: string
+          format: date-time
+        url:
+          title: Url
+          type: string
+          maxLength: 200
+          minLength: 1
+        file_size:
+          title: File size
+          type: integer
+          minimum: 0
+        bitrate:
+          title: Bitrate
+          type: integer
+          minimum: 0
+        profile:
+          title: Profile
+          type: string
+          pattern: ^[a-zA-Z0-9\-_]*$
     Video:
       required:
       - encoded_videos
@@ -324,41 +464,9 @@ components:
           minLength: 1
         error_description:
           title: Error Description
-          type: string
-          nullable: true
-    EncodedVideo:
-      required:
-      - url
-      - file_size
-      - bitrate
-      - profile
-      type: object
-      properties:
-        created:
-          title: Created
-          type: string
-          format: date-time
-        modified:
-          title: Modified
-          type: string
-          format: date-time
-        url:
-          title: Url
-          type: string
-          maxLength: 200
-          minLength: 1
-        file_size:
-          title: File size
-          type: integer
-          minimum: 0
-        bitrate:
-          title: Bitrate
-          type: integer
-          minimum: 0
-        profile:
-          title: Profile
-          type: string
-          pattern: ^[a-zA-Z0-9\-_]*$
+          type:
+          - string
+          - 'null'
   securitySchemes:
     Basic:
       type: http

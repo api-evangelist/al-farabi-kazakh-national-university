@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements grades API
+  title: Open edX Grades API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -10,14 +10,14 @@ servers:
 security:
 - Basic: []
 tags:
-- name: grades
+- name: Grades
 paths:
   /grades/v1/courses/:
     get:
       operationId: grades_v1_courses_list
       description: Gets a course progress status.
       tags:
-      - grades
+      - Grades
       parameters:
       - name: cursor
         in: query
@@ -34,12 +34,14 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Grades v1 courses list
+      x-summary-source: derived
   /grades/v1/courses/{course_id}/:
     get:
       operationId: grades_v1_courses_read
       description: Gets a course progress status.
       tags:
-      - grades
+      - Grades
       parameters:
       - name: course_id
         in: path
@@ -49,6 +51,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Grades v1 courses read
+      x-summary-source: derived
   /grades/v1/gradebook/{course_id}/:
     get:
       operationId: grades_v1_gradebook_read
@@ -56,7 +60,7 @@ paths:
 
         Calls the view function if has access, otherwise raises a 403.'
       tags:
-      - grades
+      - Grades
       parameters:
       - name: course_id
         in: path
@@ -66,6 +70,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Grades v1 gradebook read
+      x-summary-source: derived
   /grades/v1/gradebook/{course_id}/bulk-update:
     post:
       operationId: grades_v1_gradebook_bulk-update_create
@@ -73,7 +79,7 @@ paths:
 
         Calls the view function if has access, otherwise raises a 403.'
       tags:
-      - grades
+      - Grades
       parameters:
       - name: course_id
         in: path
@@ -83,6 +89,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Grades v1 gradebook bulk update create
+      x-summary-source: derived
   /grades/v1/gradebook/{course_id}/grading-info:
     get:
       operationId: grades_v1_gradebook_grading-info_list
@@ -90,7 +98,7 @@ paths:
 
         Calls the view function if has access, otherwise raises a 403.'
       tags:
-      - grades
+      - Grades
       parameters:
       - name: course_id
         in: path
@@ -112,13 +120,42 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Grades v1 gradebook grading info list
+      x-summary-source: derived
   /grades/v1/policy/courses/{course_id}/:
     get:
       operationId: grades_v1_policy_courses_read
       summary: '**Use Case**'
-      description: "Get the course grading policy.\n\n**Example requests**:\n\n    GET /api/grades/v1/policy/courses/{course_id}/\n\n**Response Values**\n\n    * assignment_type: The type of the assignment, as configured by course\n      staff. For example, course staff might make the assignment types Homework,\n      Quiz, and Exam.\n\n    * count: The number of assignments of the type.\n\n    * dropped: Number of assignments of the type that are dropped.\n\n    * weight: The weight, or effect, of the assignment type on the learner's\n      final grade."
+      description: 'Get the course grading policy.
+
+
+        **Example requests**:
+
+
+        GET /api/grades/v1/policy/courses/{course_id}/
+
+
+        **Response Values**
+
+
+        * assignment_type: The type of the assignment, as configured by course
+
+        staff. For example, course staff might make the assignment types Homework,
+
+        Quiz, and Exam.
+
+
+        * count: The number of assignments of the type.
+
+
+        * dropped: Number of assignments of the type that are dropped.
+
+
+        * weight: The weight, or effect, of the assignment type on the learner''s
+
+        final grade.'
       tags:
-      - grades
+      - Grades
       parameters:
       - name: course_id
         in: path
@@ -144,9 +181,112 @@ paths:
     get:
       operationId: grades_v1_section_grades_breakdown_list
       summary: '**Use Cases**'
-      description: "Get a list of all grades for all sections, optionally filtered by a course ID or list of usernames.\n\n**Example Requests**\n\n    GET /api/grades/v1/section_grades_breakdown\n\n    GET /api/grades/v1/section_grades_breakdown?course_id={course_id}\n\n    GET /api/grades/v1/section_grades_breakdown?username={username},{username},{username}\n\n    GET /api/grades/v1/section_grades_breakdown?course_id={course_id}&username={username}\n\n**Query Parameters for GET**\n\n    * course_id: Filters the result to course grade status for the course corresponding to the\n        given course ID. The value must be URL encoded. Optional.\n\n    * username: List of comma-separated usernames. Filters the result to the course grade status\n        of the given users. Optional.\n\n    * page_size: Number of results to return per page. Optional.\n\n**Response Values**\n\n    If the request for information about the course grade status is successful, an HTTP 200 \"OK\" response\n    is returned.\n\n    The HTTP 200 response has the following values.\n\n    * results: A list of the course grading status matching the request.\n\n        * course_id: Course ID of the course in the course grading status.\n\n        * user: Username of the user in the course enrollment.\n\n        * passed: Boolean flag for user passing the course.\n\n        * current_grade: An integer representing the current grade of the course.\n\n        * section_breakdown: A summary of each course section's grade.\n\n        A dictionary in the section_breakdown list has the following keys:\n            * percent: A float percentage for the section.\n            * label: A short string identifying the section. Preferably fixed-length. E.g. \"HW  3\".\n            * detail: A string explanation of the score. E.g. \"Homework 1 - Ohms Law - 83% (5/6)\"\n            * category: A string identifying the category.\n            * prominent: A boolean value indicating that this section should be displayed as more prominent\n                than other items.\n\n    * next: The URL to the next page of results, or null if this is the\n        last page.\n\n    * previous: The URL to the next page of results, or null if this\n        is the first page.\n\n    If the user is not logged in, a 401 error is returned.\n\n    If the user is not global staff, a 403 error is returned.\n\n    If the specified course_id is not valid or any of the specified usernames\n    are not valid, a 400 error is returned.\n\n    If the specified course_id does not correspond to a valid course or if all the specified\n    usernames do not correspond to valid users, an HTTP 200 \"OK\" response is returned with an\n    empty 'results' field."
+      description: 'Get a list of all grades for all sections, optionally filtered by a course ID or list of usernames.
+
+
+        **Example Requests**
+
+
+        GET /api/grades/v1/section_grades_breakdown
+
+
+        GET /api/grades/v1/section_grades_breakdown?course_id={course_id}
+
+
+        GET /api/grades/v1/section_grades_breakdown?username={username},{username},{username}
+
+
+        GET /api/grades/v1/section_grades_breakdown?course_id={course_id}&username={username}
+
+
+        **Query Parameters for GET**
+
+
+        * course_id: Filters the result to course grade status for the course corresponding to the
+
+        given course ID. The value must be URL encoded. Optional.
+
+
+        * username: List of comma-separated usernames. Filters the result to the course grade status
+
+        of the given users. Optional.
+
+
+        * page_size: Number of results to return per page. Optional.
+
+
+        **Response Values**
+
+
+        If the request for information about the course grade status is successful, an HTTP 200 "OK" response
+
+        is returned.
+
+
+        The HTTP 200 response has the following values.
+
+
+        * results: A list of the course grading status matching the request.
+
+
+        * course_id: Course ID of the course in the course grading status.
+
+
+        * user: Username of the user in the course enrollment.
+
+
+        * passed: Boolean flag for user passing the course.
+
+
+        * current_grade: An integer representing the current grade of the course.
+
+
+        * section_breakdown: A summary of each course section''s grade.
+
+
+        A dictionary in the section_breakdown list has the following keys:
+
+        * percent: A float percentage for the section.
+
+        * label: A short string identifying the section. Preferably fixed-length. E.g. "HW 3".
+
+        * detail: A string explanation of the score. E.g. "Homework 1 - Ohms Law - 83% (5/6)"
+
+        * category: A string identifying the category.
+
+        * prominent: A boolean value indicating that this section should be displayed as more prominent
+
+        than other items.
+
+
+        * next: The URL to the next page of results, or null if this is the
+
+        last page.
+
+
+        * previous: The URL to the next page of results, or null if this
+
+        is the first page.
+
+
+        If the user is not logged in, a 401 error is returned.
+
+
+        If the user is not global staff, a 403 error is returned.
+
+
+        If the specified course_id is not valid or any of the specified usernames
+
+        are not valid, a 400 error is returned.
+
+
+        If the specified course_id does not correspond to a valid course or if all the specified
+
+        usernames do not correspond to valid users, an HTTP 200 "OK" response is returned with an
+
+        empty ''results'' field.'
       tags:
-      - grades
+      - Grades
       parameters:
       - name: cursor
         in: query
@@ -166,9 +306,70 @@ paths:
   /grades/v1/submission_history/{course_id}/:
     get:
       operationId: grades_v1_submission_history_read
-      description: "Get submission history details. This submission history is related to only\nProblemBlock and it doesn't support LegacyLibraryContentBlock or ContentLibraries\nas of now.\n\n**Usecases**:\n\n    Users with GlobalStaff status can retrieve everyone's submission history.\n\n**Example Requests**:\n\n    GET /api/grades/v1/submission_history/{course_id}\n    GET /api/grades/v1/submission_history/{course_id}/?username={username}\n\n**Query Parameters for GET**\n\n    * course_id: Course id to retrieve submission history.\n    * username: Single username for which this view will retrieve the submission history details.\n\n**Response Values**:\n\n    If there's an error while getting the submission history an empty response will\n    be returned.\n    The submission history response has the following attributes:\n\n        * Results: A list of submission history:\n            * course_id: Course id\n            * course_name: Course name\n            * user: Username\n            * problems: List of problems\n                * location: problem location\n                * name: problem's display name\n                * submission_history: List of submission history\n                    * state: State of submission.\n                    * grade: Grade.\n                    * max_grade: Maximum possible grade.\n                * data: problem's data."
+      description: 'Get submission history details. This submission history is related to only
+
+        ProblemBlock and it doesn''t support LegacyLibraryContentBlock or ContentLibraries
+
+        as of now.
+
+
+        **Usecases**:
+
+
+        Users with GlobalStaff status can retrieve everyone''s submission history.
+
+
+        **Example Requests**:
+
+
+        GET /api/grades/v1/submission_history/{course_id}
+
+        GET /api/grades/v1/submission_history/{course_id}/?username={username}
+
+
+        **Query Parameters for GET**
+
+
+        * course_id: Course id to retrieve submission history.
+
+        * username: Single username for which this view will retrieve the submission history details.
+
+
+        **Response Values**:
+
+
+        If there''s an error while getting the submission history an empty response will
+
+        be returned.
+
+        The submission history response has the following attributes:
+
+
+        * Results: A list of submission history:
+
+        * course_id: Course id
+
+        * course_name: Course name
+
+        * user: Username
+
+        * problems: List of problems
+
+        * location: problem location
+
+        * name: problem''s display name
+
+        * submission_history: List of submission history
+
+        * state: State of submission.
+
+        * grade: Grade.
+
+        * max_grade: Maximum possible grade.
+
+        * data: problem''s data.'
       tags:
-      - grades
+      - Grades
       parameters:
       - name: course_id
         in: path
@@ -178,6 +379,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Grades v1 submission history read
+      x-summary-source: derived
   /grades/v1/subsection/{subsection_id}/:
     get:
       operationId: grades_v1_subsection_read
@@ -185,7 +388,7 @@ paths:
 
         a specific users specific subsection grade.'
       tags:
-      - grades
+      - Grades
       parameters:
       - name: subsection_id
         in: path
@@ -195,6 +398,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Grades v1 subsection read
+      x-summary-source: derived
 components:
   securitySchemes:
     Basic:

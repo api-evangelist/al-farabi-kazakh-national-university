@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements completion API
+  title: Open edX Completion API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -10,15 +10,59 @@ servers:
 security:
 - Basic: []
 tags:
-- name: completion
+- name: Completion
 paths:
   /completion/v1/completion-batch:
     post:
       operationId: completion_v1_completion-batch_create
-      summary: Inserts a batch of completions.
-      description: "REST Endpoint Format:\n```\n{\n  \"username\": \"username\",\n  \"course_key\": \"course-key\",\n  \"blocks\": {\n    \"block_key1\": 0.0,\n    \"block_key2\": 1.0,\n    \"block_key3\": 1.0,\n  }\n}\n```\n\n**Returns**\n\nA Response object, with an appropriate status code.\n\nIf successful, status code is 200.\n```\n{\n   \"detail\" : _(\"ok\")\n}\n```\n\nOtherwise, a 400 or 404 may be returned, and the \"detail\" content will explain the error."
+      summary: Inserts a batch of completions
+      description: 'REST Endpoint Format:
+
+        ```
+
+        {
+
+        "username": "username",
+
+        "course_key": "course-key",
+
+        "blocks": {
+
+        "block_key1": 0.0,
+
+        "block_key2": 1.0,
+
+        "block_key3": 1.0,
+
+        }
+
+        }
+
+        ```
+
+
+        **Returns**
+
+
+        A Response object, with an appropriate status code.
+
+
+        If successful, status code is 200.
+
+        ```
+
+        {
+
+        "detail" : _("ok")
+
+        }
+
+        ```
+
+
+        Otherwise, a 400 or 404 may be returned, and the "detail" content will explain the error.'
       tags:
-      - completion
+      - Completion
       responses:
         '201':
           description: ''
@@ -27,7 +71,7 @@ paths:
       operationId: completion_v1_subsection-completion_read
       description: Returns completion for a (user, subsection, course).
       tags:
-      - completion
+      - Completion
       parameters:
       - name: username
         in: path
@@ -47,6 +91,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Completion v1 subsection completion read
+      x-summary-source: derived
 components:
   securitySchemes:
     Basic:

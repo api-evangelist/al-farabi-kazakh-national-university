@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements credit API
+  title: Open edX Credit API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -10,14 +10,14 @@ servers:
 security:
 - Basic: []
 tags:
-- name: credit
+- name: Credit
 paths:
   /credit/v1/courses/:
     get:
       operationId: credit_v1_courses_list
       description: CreditCourse endpoints.
       tags:
-      - credit
+      - Credit
       responses:
         '200':
           description: ''
@@ -27,11 +27,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CreditCourse'
+      summary: Credit v1 courses list
+      x-summary-source: derived
     post:
       operationId: credit_v1_courses_create
       description: CreditCourse endpoints.
       tags:
-      - credit
+      - Credit
       requestBody:
         required: true
         content:
@@ -45,12 +47,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreditCourse'
+      summary: Credit v1 courses create
+      x-summary-source: derived
   /credit/v1/courses/{course_key}/:
     get:
       operationId: credit_v1_courses_read
       description: CreditCourse endpoints.
       tags:
-      - credit
+      - Credit
       parameters:
       - name: course_key
         in: path
@@ -65,11 +69,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreditCourse'
+      summary: Credit v1 courses read
+      x-summary-source: derived
     put:
       operationId: credit_v1_courses_update
       description: Create/update course modes for a course.
       tags:
-      - credit
+      - Credit
       parameters:
       - name: course_key
         in: path
@@ -90,11 +96,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreditCourse'
+      summary: Credit v1 courses update
+      x-summary-source: derived
     patch:
       operationId: credit_v1_courses_partial_update
       description: CreditCourse endpoints.
       tags:
-      - credit
+      - Credit
       parameters:
       - name: course_key
         in: path
@@ -115,12 +123,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreditCourse'
+      summary: Credit v1 courses partial update
+      x-summary-source: derived
   /credit/v1/eligibility/:
     get:
       operationId: credit_v1_eligibility_list
       description: Returns eligibility for a user-course combination.
       tags:
-      - credit
+      - Credit
       responses:
         '200':
           description: ''
@@ -130,12 +140,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CreditEligibility'
+      summary: Credit v1 eligibility list
+      x-summary-source: derived
   /credit/v1/providers/:
     get:
       operationId: credit_v1_providers_list
       description: Credit provider endpoints.
       tags:
-      - credit
+      - Credit
       responses:
         '200':
           description: ''
@@ -145,12 +157,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/CreditProvider'
+      summary: Credit v1 providers list
+      x-summary-source: derived
   /credit/v1/providers/{provider_id}/:
     get:
       operationId: credit_v1_providers_read
       description: Credit provider endpoints.
       tags:
-      - credit
+      - Credit
       parameters:
       - name: provider_id
         in: path
@@ -166,12 +180,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreditProvider'
+      summary: Credit v1 providers read
+      x-summary-source: derived
   /credit/v1/providers/{provider_id}/callback/:
     post:
       operationId: credit_v1_providers_callback_create
       description: POST handler.
       tags:
-      - credit
+      - Credit
       parameters:
       - name: provider_id
         in: path
@@ -181,12 +197,14 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Credit v1 providers callback create
+      x-summary-source: derived
   /credit/v1/providers/{provider_id}/request/:
     post:
       operationId: credit_v1_providers_request_create
       description: POST handler.
       tags:
-      - credit
+      - Credit
       parameters:
       - name: provider_id
         in: path
@@ -196,6 +214,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Credit v1 providers request create
+      x-summary-source: derived
 components:
   schemas:
     CreditCourse:
@@ -209,6 +229,25 @@ components:
         enabled:
           title: Enabled
           type: boolean
+    CreditEligibility:
+      required:
+      - username
+      type: object
+      properties:
+        username:
+          title: Username
+          type: string
+          maxLength: 255
+          minLength: 1
+        course_key:
+          title: Course key
+          type: string
+          readOnly: true
+        deadline:
+          title: Deadline
+          description: Крайний срок подачи заявки и оформления кредита.
+          type: string
+          format: date-time
     CreditProvider:
       required:
       - id
@@ -249,8 +288,9 @@ components:
         fulfillment_instructions:
           title: Fulfillment instructions
           description: Текст или HTML-код с дальнейшими инструкциями по оформлению зачётных единиц. Он появится на странице с квитанцией только после оплаты.
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         thumbnail_url:
           title: Thumbnail url
           description: Ссылка на миниатюру образовательной организации, предоставляющей зачётные баллы.
@@ -258,25 +298,6 @@ components:
           format: uri
           maxLength: 255
           minLength: 1
-    CreditEligibility:
-      required:
-      - username
-      type: object
-      properties:
-        username:
-          title: Username
-          type: string
-          maxLength: 255
-          minLength: 1
-        course_key:
-          title: Course key
-          type: string
-          readOnly: true
-        deadline:
-          title: Deadline
-          description: Крайний срок подачи заявки и оформления кредита.
-          type: string
-          format: date-time
   securitySchemes:
     Basic:
       type: http

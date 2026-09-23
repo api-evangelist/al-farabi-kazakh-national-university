@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements xblock API
+  title: Open edX Xblock API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -15,8 +15,13 @@ paths:
   /xblock/v2/xblocks/{usage_key}/:
     get:
       operationId: xblock_v2_xblocks_read
-      summary: Get metadata about the specified block.
-      description: "Accepts the following query parameters:\n\n* \"include\": a comma-separated list of keys to include.\n  Valid keys are \"index_dictionary\" and \"student_view_data\"."
+      summary: Get metadata about the specified block
+      description: 'Accepts the following query parameters:
+
+
+        * "include": a comma-separated list of keys to include.
+
+        Valid keys are "index_dictionary" and "student_view_data".'
       tags:
       - xblock
       parameters:
@@ -43,6 +48,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Xblock v2 xblocks fields list
+      x-summary-source: derived
     post:
       operationId: xblock_v2_xblocks_fields_create
       description: edits the xblock, saving changes to data and metadata only (display_name included in metadata)
@@ -57,12 +64,12 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Xblock v2 xblocks fields create
+      x-summary-source: derived
   /xblock/v2/xblocks/{usage_key}/handler_url/{handler_name}/:
     get:
       operationId: xblock_v2_xblocks_handler_url_read
-      summary: 'Get an absolute URL which can be used (without any authentication) to call
-
-        the given XBlock handler.'
+      summary: Get an absolute URL which can be used (without any authentication) to call the…
       description: The URL will expire but is guaranteed to be valid for a minimum of 2 days.
       tags:
       - xblock
@@ -95,6 +102,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Xblock v2 xblocks olx list
+      x-summary-source: derived
   /xblock/v2/xblocks/{usage_key}/view/{view_name}/:
     get:
       operationId: xblock_v2_xblocks_view_read
@@ -115,11 +124,18 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Xblock v2 xblocks view read
+      x-summary-source: derived
   /xblock/v2/xblocks/{usage_key}@{version}/:
     get:
       operationId: xblock_v2_xblocks_read
-      summary: Get metadata about the specified block.
-      description: "Accepts the following query parameters:\n\n* \"include\": a comma-separated list of keys to include.\n  Valid keys are \"index_dictionary\" and \"student_view_data\"."
+      summary: Get metadata about the specified block
+      description: 'Accepts the following query parameters:
+
+
+        * "include": a comma-separated list of keys to include.
+
+        Valid keys are "index_dictionary" and "student_view_data".'
       tags:
       - xblock
       parameters:
@@ -156,6 +172,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Xblock v2 xblocks fields list
+      x-summary-source: derived
     post:
       operationId: xblock_v2_xblocks_fields_create
       description: edits the xblock, saving changes to data and metadata only (display_name included in metadata)
@@ -175,12 +193,12 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Xblock v2 xblocks fields create
+      x-summary-source: derived
   /xblock/v2/xblocks/{usage_key}@{version}/handler_url/{handler_name}/:
     get:
       operationId: xblock_v2_xblocks_handler_url_read
-      summary: 'Get an absolute URL which can be used (without any authentication) to call
-
-        the given XBlock handler.'
+      summary: Get an absolute URL which can be used (without any authentication) to call the…
       description: The URL will expire but is guaranteed to be valid for a minimum of 2 days.
       tags:
       - xblock
@@ -223,6 +241,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Xblock v2 xblocks olx list
+      x-summary-source: derived
   /xblock/v2/xblocks/{usage_key}@{version}/view/{view_name}/:
     get:
       operationId: xblock_v2_xblocks_view_read
@@ -248,6 +268,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Xblock v2 xblocks view read
+      x-summary-source: derived
 components:
   securitySchemes:
     Basic:

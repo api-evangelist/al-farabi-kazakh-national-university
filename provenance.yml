@@ -294,6 +294,9 @@ artifacts:
   collections/al-farabi-kazakh-national-university-xblock-api.postman_collection.json:
     method: derived
     evidence: openapi/al-farabi-kazakh-national-university-xblock-api
+  conformance/al-farabi-kazakh-national-university-conformance.yml:
+    method: generated
+    evidence: declared in the artifact
   examples/al-farabi-kazakh-national-university-create-enrollment-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -333,70 +336,7 @@ artifacts:
   json-structure/al-farabi-kazakh-national-university-course-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-08-28T221322.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-23T094130.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-23T182523.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-26T223651.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-27T083119.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-27T190208.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-28T115055.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-28T170848.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-28T172558.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-28T192327.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-28T200725.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-31T133250.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-31T151044.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-31T162206.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-31T202106.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-01T163141.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-01T163302.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-01T171935.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-03T113057.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-03T161012.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-04T083143.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-05T153418.yml:
+  kin/checks-2026-09-05T072335.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-06T210741.yml:
@@ -480,147 +420,201 @@ artifacts:
   kin/score-2026-08-28T221322.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-08-29T213958.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-08-29T230545.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-08-30T203505.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-08-30T220315.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-08-31T223420.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-01T063623.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-01T210448.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-01T222808.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-02T211804.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-02T224043.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-03T161828.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-03T174231.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-04T062714.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-04T212454.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-04T224856.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T055819.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T072335.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  openapi/_original/al-farabi-kazakh-national-university-open-edx.yaml:
+    method: harvested
+    evidence: fetched from the provider as-is; byte-identical to the source
   openapi/al-farabi-kazakh-national-university-agreements-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-bookmarks-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-certificates-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-change-email-settings-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-cohorts-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-commerce-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-completion-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-course-experience-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-course-home-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-course-live-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-course-modes-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-courses-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-courseware-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-credit-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-dashboard-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-discounts-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-discussion-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-edx-name-affirmation-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-edx-proctoring-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-edxnotes-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-enrollment-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-entitlements-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-experiments-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-grades-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-instructor-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-instructor-task-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-learner-home-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-learning-sequences-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-lti-consumer-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-mfe-config-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-mfe-context-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-mobile-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-notifications-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-ora-staff-grader-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-organizations-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-profile-images-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-program-enrollments-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-send-account-activation-email-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-team-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-third-party-auth-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-third-party-auth-context-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-toggles-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-univertest-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-user-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-user-tours-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-val-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/al-farabi-kazakh-national-university-xblock-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   plans/al-farabi-kazakh-national-university-plans-pricing.yml:
     method: unknown
     evidence: no authorship recorded

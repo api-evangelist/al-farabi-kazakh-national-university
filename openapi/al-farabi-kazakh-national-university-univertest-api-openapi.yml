@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements univertest API
+  title: Open edX Univertest API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -21,6 +21,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Univertest list
+      x-summary-source: derived
 components:
   securitySchemes:
     Basic:

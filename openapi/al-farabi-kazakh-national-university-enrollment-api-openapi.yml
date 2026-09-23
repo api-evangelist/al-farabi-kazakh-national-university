@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements enrollment API
+  title: Open edX Enrollment API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -10,15 +10,15 @@ servers:
 security:
 - Basic: []
 tags:
-- name: enrollment
+- name: Enrollment
 paths:
   /enrollment/v1/course/{course_id}:
     get:
       operationId: enrollment_v1_course_read
-      summary: Read enrollment information for a particular course.
+      summary: Read enrollment information for a particular course
       description: HTTP Endpoint for retrieving course level enrollment information.
       tags:
-      - enrollment
+      - Enrollment
       parameters:
       - name: course_id
         in: path
@@ -31,7 +31,7 @@ paths:
   /enrollment/v1/enrollment:
     get:
       operationId: enrollment_v1_enrollment_list
-      summary: Gets a list of all course enrollments for a user.
+      summary: Gets a list of all course enrollments for a user
       description: 'Returns a list for the currently logged in user, or for the user named by the ''user'' GET
 
         parameter. If the username does not match that of the currently logged in user, only
@@ -56,30 +56,30 @@ paths:
 
         courses.'
       tags:
-      - enrollment
+      - Enrollment
       responses:
         '200':
           description: ''
     post:
       operationId: enrollment_v1_enrollment_create
-      summary: Enrolls the currently logged-in user in a course.
+      summary: Enrolls the currently logged-in user in a course
       description: 'Server-to-server calls may deactivate or modify the mode of existing enrollments. All other requests
 
         go through `add_enrollment()`, which allows creation of new and reactivation of old enrollments.'
       tags:
-      - enrollment
+      - Enrollment
       responses:
         '201':
           description: ''
   /enrollment/v1/enrollment/{course_id}:
     get:
       operationId: enrollment_v1_enrollment_read
-      summary: Create, read, or update enrollment information for a user.
+      summary: Create, read, or update enrollment information for a user
       description: 'HTTP Endpoint for all CRUD operations for a user course enrollment. Allows creation, reading, and
 
         updates of the current enrollment for a particular course.'
       tags:
-      - enrollment
+      - Enrollment
       parameters:
       - name: course_id
         in: path
@@ -92,12 +92,12 @@ paths:
   /enrollment/v1/enrollment/{username},{course_id}:
     get:
       operationId: enrollment_v1_enrollment_read
-      summary: Create, read, or update enrollment information for a user.
+      summary: Create, read, or update enrollment information for a user
       description: 'HTTP Endpoint for all CRUD operations for a user course enrollment. Allows creation, reading, and
 
         updates of the current enrollment for a particular course.'
       tags:
-      - enrollment
+      - Enrollment
       parameters:
       - name: username
         in: path
@@ -115,7 +115,7 @@ paths:
   /enrollment/v1/enrollment_allowed/:
     get:
       operationId: enrollment_v1_enrollment_allowed_list
-      summary: Returns the enrollments allowed for a given user email.
+      summary: Returns the enrollments allowed for a given user email
       description: '**Example Requests**
 
 
@@ -134,31 +134,31 @@ paths:
 
         - 403: Forbidden, you need to be staff.'
       tags:
-      - enrollment
+      - Enrollment
       responses:
         '200':
           description: ''
     post:
       operationId: enrollment_v1_enrollment_allowed_create
-      summary: Creates an enrollment allowed for a given user email and course id.
+      summary: Creates an enrollment allowed for a given user email and course id
       description: '**Example Request**
 
 
         POST /api/enrollment/v1/enrollment_allowed/'
       tags:
-      - enrollment
+      - Enrollment
       responses:
         '201':
           description: ''
     delete:
       operationId: enrollment_v1_enrollment_allowed_delete
-      summary: Deletes an enrollment allowed for a given user email and course id.
+      summary: Deletes an enrollment allowed for a given user email and course id
       description: '**Example Request**
 
 
         DELETE /api/enrollment/v1/enrollment_allowed/'
       tags:
-      - enrollment
+      - Enrollment
       responses:
         '204':
           description: ''
@@ -166,9 +166,108 @@ paths:
     get:
       operationId: enrollment_v1_enrollments_list
       summary: '**Use Cases**'
-      description: "Get a list of all course enrollments, optionally filtered by a course ID or list of usernames.\n\n**Example Requests**\n\n    GET /api/enrollment/v1/enrollments\n\n    GET /api/enrollment/v1/enrollments?course_id={course_id}\n\n    GET /api/enrollment/v1/enrollments?username={username},{username},{username}\n\n    GET /api/enrollment/v1/enrollments?course_id={course_id}&username={username}\n\n    GET /api/enrollment/v1/enrollments?email={email},{email}\n\n**Query Parameters for GET**\n\n    * course_id: Filters the result to course enrollments for the course corresponding to the\n      given course ID. The value must be URL encoded. Optional.\n\n    * username: List of comma-separated usernames. Filters the result to the course enrollments\n      of the given users. Optional.\n\n    * email: List of comma-separated emails. Filters the result to the course enrollments\n      of the given users. Optional.\n\n    * page_size: Number of results to return per page. Optional.\n\n    * page: Page number to retrieve. Optional.\n\n**Response Values**\n\n    If the request for information about the course enrollments is successful, an HTTP 200 \"OK\" response\n    is returned.\n\n    The HTTP 200 response has the following values.\n\n    * results: A list of the course enrollments matching the request.\n\n        * created: Date and time when the course enrollment was created.\n\n        * mode: Mode for the course enrollment.\n\n        * is_active: Whether the course enrollment is active or not.\n\n        * user: Username of the user in the course enrollment.\n\n        * course_id: Course ID of the course in the course enrollment.\n\n    * next: The URL to the next page of results, or null if this is the\n      last page.\n\n    * previous: The URL to the next page of results, or null if this\n      is the first page.\n\n    If the user is not logged in, a 401 error is returned.\n\n    If the user is not global staff, a 403 error is returned.\n\n    If the specified course_id is not valid or any of the specified usernames\n    are not valid, a 400 error is returned.\n\n    If the specified course_id does not correspond to a valid course or if all the specified\n    usernames do not correspond to valid users, an HTTP 200 \"OK\" response is returned with an\n    empty 'results' field."
+      description: 'Get a list of all course enrollments, optionally filtered by a course ID or list of usernames.
+
+
+        **Example Requests**
+
+
+        GET /api/enrollment/v1/enrollments
+
+
+        GET /api/enrollment/v1/enrollments?course_id={course_id}
+
+
+        GET /api/enrollment/v1/enrollments?username={username},{username},{username}
+
+
+        GET /api/enrollment/v1/enrollments?course_id={course_id}&username={username}
+
+
+        GET /api/enrollment/v1/enrollments?email={email},{email}
+
+
+        **Query Parameters for GET**
+
+
+        * course_id: Filters the result to course enrollments for the course corresponding to the
+
+        given course ID. The value must be URL encoded. Optional.
+
+
+        * username: List of comma-separated usernames. Filters the result to the course enrollments
+
+        of the given users. Optional.
+
+
+        * email: List of comma-separated emails. Filters the result to the course enrollments
+
+        of the given users. Optional.
+
+
+        * page_size: Number of results to return per page. Optional.
+
+
+        * page: Page number to retrieve. Optional.
+
+
+        **Response Values**
+
+
+        If the request for information about the course enrollments is successful, an HTTP 200 "OK" response
+
+        is returned.
+
+
+        The HTTP 200 response has the following values.
+
+
+        * results: A list of the course enrollments matching the request.
+
+
+        * created: Date and time when the course enrollment was created.
+
+
+        * mode: Mode for the course enrollment.
+
+
+        * is_active: Whether the course enrollment is active or not.
+
+
+        * user: Username of the user in the course enrollment.
+
+
+        * course_id: Course ID of the course in the course enrollment.
+
+
+        * next: The URL to the next page of results, or null if this is the
+
+        last page.
+
+
+        * previous: The URL to the next page of results, or null if this
+
+        is the first page.
+
+
+        If the user is not logged in, a 401 error is returned.
+
+
+        If the user is not global staff, a 403 error is returned.
+
+
+        If the specified course_id is not valid or any of the specified usernames
+
+        are not valid, a 400 error is returned.
+
+
+        If the specified course_id does not correspond to a valid course or if all the specified
+
+        usernames do not correspond to valid users, an HTTP 200 "OK" response is returned with an
+
+        empty ''results'' field.'
       tags:
-      - enrollment
+      - Enrollment
       parameters:
       - name: cursor
         in: query
@@ -193,13 +292,15 @@ paths:
                 type: object
                 properties:
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
@@ -209,19 +310,23 @@ paths:
       operationId: enrollment_v1_roles_list
       description: Gets a list of all roles for the currently logged-in user, filtered by course_id if supplied
       tags:
-      - enrollment
+      - Enrollment
       responses:
         '200':
           description: ''
+      summary: Enrollment v1 roles list
+      x-summary-source: derived
   /enrollment/v1/unenroll/:
     post:
       operationId: enrollment_v1_unenroll_create
       description: Unenrolls the specified user from all courses.
       tags:
-      - enrollment
+      - Enrollment
       responses:
         '201':
           description: ''
+      summary: Enrollment v1 unenroll create
+      x-summary-source: derived
 components:
   schemas:
     CourseEnrollmentsApiList:
@@ -231,10 +336,11 @@ components:
       properties:
         created:
           title: Created
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
           readOnly: true
-          nullable: true
         mode:
           title: Mode
           type: string

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements organizations API
+  title: Open edX Organizations API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -10,14 +10,20 @@ servers:
 security:
 - Basic: []
 tags:
-- name: organizations
+- name: Organizations
 paths:
   /organizations/v0/organizations/:
     get:
       operationId: organizations_v0_organizations_list
-      description: "Organization view to:\n    - list organization data (GET .../)\n    - retrieve single organization (GET .../<short_name>)\n    - create or update an organization via the PUT endpoint (PUT .../<short_name>)"
+      description: 'Organization view to:
+
+        - list organization data (GET .../)
+
+        - retrieve single organization (GET .../)
+
+        - create or update an organization via the PUT endpoint (PUT .../)'
       tags:
-      - organizations
+      - Organizations
       parameters:
       - name: page
         in: query
@@ -45,23 +51,33 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/Organization'
+      summary: Organizations v0 organizations list
+      x-summary-source: derived
   /organizations/v0/organizations/{short_name}/:
     get:
       operationId: organizations_v0_organizations_read
-      description: "Organization view to:\n    - list organization data (GET .../)\n    - retrieve single organization (GET .../<short_name>)\n    - create or update an organization via the PUT endpoint (PUT .../<short_name>)"
+      description: 'Organization view to:
+
+        - list organization data (GET .../)
+
+        - retrieve single organization (GET .../)
+
+        - create or update an organization via the PUT endpoint (PUT .../)'
       tags:
-      - organizations
+      - Organizations
       parameters:
       - name: short_name
         in: path
@@ -77,12 +93,22 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Organization'
+      summary: Organizations v0 organizations read
+      x-summary-source: derived
     put:
       operationId: organizations_v0_organizations_update
-      summary: We perform both Update and Create action via the PUT method.
-      description: "The 'active' field may not be specified via the HTTP API, since it\nis always assumed to be True. So:\n    (1) new organizations created through the API are always Active, and\n    (2) existing organizations updated through the API always end up Active,\n        regardless of whether or not they were previously active."
+      summary: We perform both Update and Create action via the PUT method
+      description: 'The ''active'' field may not be specified via the HTTP API, since it
+
+        is always assumed to be True. So:
+
+        (1) new organizations created through the API are always Active, and
+
+        (2) existing organizations updated through the API always end up Active,
+
+        regardless of whether or not they were previously active.'
       tags:
-      - organizations
+      - Organizations
       parameters:
       - name: short_name
         in: path
@@ -108,7 +134,7 @@ paths:
       operationId: organizations_v0_organizations_partial_update
       description: We disable PATCH because all updates and creates should use the PUT action above.
       tags:
-      - organizations
+      - Organizations
       parameters:
       - name: short_name
         in: path
@@ -130,6 +156,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Organization'
+      summary: Organizations v0 organizations partial update
+      x-summary-source: derived
 components:
   schemas:
     Organization:
@@ -165,15 +193,17 @@ components:
           minLength: 1
         description:
           title: Description
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         logo:
           title: Logo
           description: Please add only .PNG files for logo images. This logo will be used on certificates.
-          type: string
+          type:
+          - string
+          - 'null'
           readOnly: true
           format: uri
-          nullable: true
         active:
           title: Active
           type: boolean

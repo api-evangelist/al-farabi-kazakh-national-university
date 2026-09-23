@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements discussion API
+  title: Open edX Discussion API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -10,32 +10,34 @@ servers:
 security:
 - Basic: []
 tags:
-- name: discussion
+- name: Discussion
 paths:
   /discussion/v1/accounts/replace_username:
     post:
       operationId: discussion_v1_accounts_replace_username_create
       description: Implements the username replacement endpoint
       tags:
-      - discussion
+      - Discussion
       responses:
         '201':
           description: ''
+      summary: Discussion v1 accounts replace username create
+      x-summary-source: derived
   /discussion/v1/accounts/retire_forum/:
     post:
       operationId: discussion_v1_accounts_retire_forum_create
       description: Implements the retirement endpoint.
       tags:
-      - discussion
+      - Discussion
       responses:
         '201':
           description: ''
+      summary: Discussion v1 accounts retire forum create
+      x-summary-source: derived
   /discussion/v1/comments/:
     get:
       operationId: discussion_v1_comments_list
-      summary: 'Implements the GET method for the list endpoint as described in
-
-        the class docstring.'
+      summary: Implements the GET method for the list endpoint as described in the class…
       description: 'This endpoint implements two distinct usage contexts.
 
 
@@ -60,7 +62,7 @@ paths:
 
         discussions forum is available.'
       tags:
-      - discussion
+      - Discussion
       responses:
         '200':
           description: ''
@@ -70,16 +72,18 @@ paths:
 
         class docstring.'
       tags:
-      - discussion
+      - Discussion
       responses:
         '201':
           description: ''
+      summary: Discussion v1 comments create
+      x-summary-source: derived
   /discussion/v1/comments/{comment_id}/:
     get:
       operationId: discussion_v1_comments_read
       description: Implements the GET method for comments against response ID
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: comment_id
         in: path
@@ -89,13 +93,15 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Discussion v1 comments read
+      x-summary-source: derived
     patch:
       operationId: discussion_v1_comments_partial_update
       description: 'Implements the PATCH method for the instance endpoint as described in
 
         the class docstring.'
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: comment_id
         in: path
@@ -105,13 +111,15 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Discussion v1 comments partial update
+      x-summary-source: derived
     delete:
       operationId: discussion_v1_comments_delete
       description: 'Implements the DELETE method for the instance endpoint as described in
 
         the class docstring'
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: comment_id
         in: path
@@ -121,12 +129,14 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Discussion v1 comments delete
+      x-summary-source: derived
   /discussion/v1/course_topics/{course_id}:
     get:
       operationId: discussion_v1_course_topics_read
       description: Implements the GET method as described in the class docstring.
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -136,13 +146,18 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Discussion v1 course topics read
+      x-summary-source: derived
   /discussion/v1/courses/{course_id}:
     get:
       operationId: discussion_v1_courses_read
-      summary: Retrieve general discussion metadata for a course.
-      description: "**Example Requests**:\n\n    GET /api/discussion/v1/courses/course-v1:ExampleX+Subject101+2015"
+      summary: Retrieve general discussion metadata for a course
+      description: '**Example Requests**:
+
+
+        GET /api/discussion/v1/courses/course-v1:ExampleX+Subject101+2015'
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -173,7 +188,7 @@ paths:
       operationId: discussion_v1_courses_learner_list
       description: Implements the GET method as described in the class docstring.
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -183,12 +198,14 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Discussion v1 courses learner list
+      x-summary-source: derived
   /discussion/v1/courses/{course_id}/roles/{rolename}/:
     get:
       operationId: discussion_v1_courses_roles_read
       description: Implement a handler for the GET method.
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -203,11 +220,13 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Discussion v1 courses roles read
+      x-summary-source: derived
     post:
       operationId: discussion_v1_courses_roles_create
       description: Implement a handler for the POST method.
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -222,12 +241,14 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Discussion v1 courses roles create
+      x-summary-source: derived
   /discussion/v1/courses/{course_id}/settings:
     get:
       operationId: discussion_v1_courses_settings_list
       description: Implement a handler for the GET method.
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -237,11 +258,13 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Discussion v1 courses settings list
+      x-summary-source: derived
     patch:
       operationId: discussion_v1_courses_settings_partial_update
       description: Implement a handler for the PATCH method.
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -251,12 +274,14 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Discussion v1 courses settings partial update
+      x-summary-source: derived
   /discussion/v1/courses/{course_id}/upload:
     post:
       operationId: discussion_v1_courses_upload_create
       description: Handles a file upload.
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -266,12 +291,14 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Discussion v1 courses upload create
+      x-summary-source: derived
   /discussion/v1/courses/{course_key_string}/activity_stats:
     get:
       operationId: discussion_v1_courses_activity_stats_list
       description: Implements the GET method as described in the class docstring.
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_key_string
         in: path
@@ -281,6 +308,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Discussion v1 courses activity stats list
+      x-summary-source: derived
   /discussion/v1/threads/:
     get:
       operationId: discussion_v1_threads_list
@@ -288,26 +317,30 @@ paths:
 
         class docstring.'
       tags:
-      - discussion
+      - Discussion
       responses:
         '200':
           description: ''
+      summary: Discussion v1 threads list
+      x-summary-source: derived
     post:
       operationId: discussion_v1_threads_create
       description: 'Implements the POST method for the list endpoint as described in the
 
         class docstring.'
       tags:
-      - discussion
+      - Discussion
       responses:
         '201':
           description: ''
+      summary: Discussion v1 threads create
+      x-summary-source: derived
   /discussion/v1/threads/{thread_id}/:
     get:
       operationId: discussion_v1_threads_read
       description: Implements the GET method for thread ID
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: thread_id
         in: path
@@ -317,13 +350,15 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Discussion v1 threads read
+      x-summary-source: derived
     patch:
       operationId: discussion_v1_threads_partial_update
       description: 'Implements the PATCH method for the instance endpoint as described in
 
         the class docstring.'
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: thread_id
         in: path
@@ -333,13 +368,15 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Discussion v1 threads partial update
+      x-summary-source: derived
     delete:
       operationId: discussion_v1_threads_delete
       description: 'Implements the DELETE method for the instance endpoint as described in
 
         the class docstring'
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: thread_id
         in: path
@@ -349,13 +386,23 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Discussion v1 threads delete
+      x-summary-source: derived
   /discussion/v2/course_topics/{course_id}:
     get:
       operationId: discussion_v2_course_topics_read
       summary: '**Use Cases**'
-      description: "    Retrieve the topic listing for a course.\n\n**Example Requests**:\n\n    GET /api/discussion/v2/course_topics/course-v1:ExampleX+Subject101+2015\n        ?topic_id={topic_id_1, topid_id_2}&order_by=course_structure"
+      description: 'Retrieve the topic listing for a course.
+
+
+        **Example Requests**:
+
+
+        GET /api/discussion/v2/course_topics/course-v1:ExampleX+Subject101+2015
+
+        ?topic_id={topic_id_1, topid_id_2}&order_by=course_structure'
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -400,10 +447,12 @@ paths:
   /discussion/v2/courses/{course_id}:
     get:
       operationId: discussion_v2_courses_read
-      summary: Retrieve general discussion metadata for a course.
-      description: "**Example Requests**:\n    GET /api/discussion/v2/courses/course-v1:ExampleX+Subject101+2015"
+      summary: Retrieve general discussion metadata for a course
+      description: '**Example Requests**:
+
+        GET /api/discussion/v2/courses/course-v1:ExampleX+Subject101+2015'
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -433,9 +482,15 @@ paths:
     get:
       operationId: discussion_v3_course_topics_read
       summary: '**Use Cases**'
-      description: "Retrieve the topic listing for a course.\n\n**Example Requests**:\n\n    GET /api/discussion/v3/course_topics/course-v1:ExampleX+Subject101+2015"
+      description: 'Retrieve the topic listing for a course.
+
+
+        **Example Requests**:
+
+
+        GET /api/discussion/v3/course_topics/course-v1:ExampleX+Subject101+2015'
       tags:
-      - discussion
+      - Discussion
       parameters:
       - name: course_id
         in: path
@@ -463,22 +518,6 @@ components:
           description: A user-friendly name text for the close or edit reason
           type: string
           minLength: 1
-    BlackoutDate:
-      required:
-      - start
-      - end
-      type: object
-      properties:
-        start:
-          title: Start
-          description: The ISO 8601 timestamp for the start of the blackout period
-          type: string
-          format: date-time
-        end:
-          title: End
-          description: The ISO 8601 timestamp for the end of the blackout period
-          type: string
-          format: date-time
     CourseMetadataSerailizer:
       required:
       - id
@@ -565,6 +604,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReasonCodeSeralizer'
+    BlackoutDate:
+      required:
+      - start
+      - end
+      type: object
+      properties:
+        start:
+          title: Start
+          description: The ISO 8601 timestamp for the start of the blackout period
+          type: string
+          format: date-time
+        end:
+          title: End
+          description: The ISO 8601 timestamp for the end of the blackout period
+          type: string
+          format: date-time
     DiscussionTopicSerializerV2:
       type: object
       properties:

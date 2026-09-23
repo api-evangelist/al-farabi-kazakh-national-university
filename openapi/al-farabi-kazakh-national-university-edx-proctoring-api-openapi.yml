@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements edx_proctoring API
+  title: Open edX Edx Proctoring API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -21,6 +21,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Edx proctoring proctoring review callback create
+      x-summary-source: derived
   /edx_proctoring/v1/instructor/{course_id}:
     get:
       operationId: edx_proctoring_v1_instructor_read
@@ -36,6 +38,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 instructor read
+      x-summary-source: derived
   /edx_proctoring/v1/instructor/{course_id}/{exam_id}:
     get:
       operationId: edx_proctoring_v1_instructor_read
@@ -56,6 +60,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 instructor read
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/active_attempt:
     get:
       operationId: edx_proctoring_v1_proctored_exam_active_attempt_list
@@ -65,6 +71,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam active attempt list
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/active_exams_for_user:
     get:
       operationId: edx_proctoring_v1_proctored_exam_active_exams_for_user_list
@@ -74,6 +82,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam active exams for user list
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/allowance:
     get:
       operationId: edx_proctoring_v1_proctored_exam_allowance_list
@@ -85,6 +95,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam allowance list
+      x-summary-source: derived
     put:
       operationId: edx_proctoring_v1_proctored_exam_allowance_update
       description: HTTP GET handler. Adds or updates Allowance
@@ -93,6 +105,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam allowance update
+      x-summary-source: derived
     delete:
       operationId: edx_proctoring_v1_proctored_exam_allowance_delete
       description: HTTP DELETE handler. Removes Allowance.
@@ -101,6 +115,8 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Edx proctoring v1 proctored exam allowance delete
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/attempt:
     get:
       operationId: edx_proctoring_v1_proctored_exam_attempt_list
@@ -110,6 +126,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt list
+      x-summary-source: derived
     post:
       operationId: edx_proctoring_v1_proctored_exam_attempt_create
       description: HTTP POST handler. To create an exam attempt.
@@ -118,6 +136,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt create
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/attempt/course_id/{course_id}:
     get:
       operationId: edx_proctoring_v1_proctored_exam_attempt_course_id_read
@@ -133,6 +153,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt course id read
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/attempt/grouped/course_id/{course_id}:
     get:
       operationId: edx_proctoring_v1_proctored_exam_attempt_grouped_course_id_read
@@ -148,6 +170,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt grouped course id read
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/attempt/grouped/course_id/{course_id}/search/{search_by}:
     get:
       operationId: edx_proctoring_v1_proctored_exam_attempt_grouped_course_id_search_read
@@ -168,6 +192,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt grouped course id search read
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/attempt/{attempt_id}:
     get:
       operationId: edx_proctoring_v1_proctored_exam_attempt_read
@@ -183,6 +209,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt read
+      x-summary-source: derived
     put:
       operationId: edx_proctoring_v1_proctored_exam_attempt_update
       description: HTTP PUT handler to update exam attempt status based on an action.
@@ -197,6 +225,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt update
+      x-summary-source: derived
     delete:
       operationId: edx_proctoring_v1_proctored_exam_attempt_delete
       description: HTTP DELETE handler. Removes an exam attempt.
@@ -211,6 +241,8 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt delete
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/attempt/{attempt_id}/review_status:
     put:
       operationId: edx_proctoring_v1_proctored_exam_attempt_review_status_update
@@ -226,6 +258,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt review status update
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/attempt/{external_id}/ready:
     post:
       operationId: edx_proctoring_v1_proctored_exam_attempt_ready_create
@@ -241,6 +275,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt ready create
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/attempt/{external_id}/reviewed:
     post:
       operationId: edx_proctoring_v1_proctored_exam_attempt_reviewed_create
@@ -258,6 +294,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Edx proctoring v1 proctored exam attempt reviewed create
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/bulk_allowance:
     put:
       operationId: edx_proctoring_v1_proctored_exam_bulk_allowance_update
@@ -267,15 +305,25 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam bulk allowance update
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/exam:
     get:
       operationId: edx_proctoring_v1_proctored_exam_exam_list
-      description: "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+      description: 'HTTP GET handler.
+
+        Scenarios:
+
+        by exam_id: calls get_exam_by_id()
+
+        by course_id, content_id: get_exam_by_content_id()'
       tags:
       - edx_proctoring
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam list
+      x-summary-source: derived
     post:
       operationId: edx_proctoring_v1_proctored_exam_exam_create
       description: Http POST handler. Creates an exam.
@@ -284,6 +332,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam create
+      x-summary-source: derived
     put:
       operationId: edx_proctoring_v1_proctored_exam_exam_update
       description: 'HTTP PUT handler. To update an exam.
@@ -294,10 +344,18 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam update
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/exam/course_id/{course_id}:
     get:
       operationId: edx_proctoring_v1_proctored_exam_exam_course_id_read
-      description: "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+      description: 'HTTP GET handler.
+
+        Scenarios:
+
+        by exam_id: calls get_exam_by_id()
+
+        by course_id, content_id: get_exam_by_content_id()'
       tags:
       - edx_proctoring
       parameters:
@@ -309,6 +367,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam course id read
+      x-summary-source: derived
     post:
       operationId: edx_proctoring_v1_proctored_exam_exam_course_id_create
       description: Http POST handler. Creates an exam.
@@ -323,6 +383,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam course id create
+      x-summary-source: derived
     put:
       operationId: edx_proctoring_v1_proctored_exam_exam_course_id_update
       description: 'HTTP PUT handler. To update an exam.
@@ -339,10 +401,18 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam course id update
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/exam/course_id/{course_id}/content_id/{content_id}:
     get:
       operationId: edx_proctoring_v1_proctored_exam_exam_course_id_content_id_read
-      description: "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+      description: 'HTTP GET handler.
+
+        Scenarios:
+
+        by exam_id: calls get_exam_by_id()
+
+        by course_id, content_id: get_exam_by_content_id()'
       tags:
       - edx_proctoring
       parameters:
@@ -359,6 +429,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam course id content id read
+      x-summary-source: derived
     post:
       operationId: edx_proctoring_v1_proctored_exam_exam_course_id_content_id_create
       description: Http POST handler. Creates an exam.
@@ -378,6 +450,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam course id content id create
+      x-summary-source: derived
     put:
       operationId: edx_proctoring_v1_proctored_exam_exam_course_id_content_id_update
       description: 'HTTP PUT handler. To update an exam.
@@ -399,10 +473,18 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam course id content id update
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/exam/exam_id/{exam_id}:
     get:
       operationId: edx_proctoring_v1_proctored_exam_exam_exam_id_read
-      description: "HTTP GET handler.\n    Scenarios:\n        by exam_id: calls get_exam_by_id()\n        by course_id, content_id: get_exam_by_content_id()"
+      description: 'HTTP GET handler.
+
+        Scenarios:
+
+        by exam_id: calls get_exam_by_id()
+
+        by course_id, content_id: get_exam_by_content_id()'
       tags:
       - edx_proctoring
       parameters:
@@ -414,6 +496,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam exam id read
+      x-summary-source: derived
     post:
       operationId: edx_proctoring_v1_proctored_exam_exam_exam_id_create
       description: Http POST handler. Creates an exam.
@@ -428,6 +512,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam exam id create
+      x-summary-source: derived
     put:
       operationId: edx_proctoring_v1_proctored_exam_exam_exam_id_update
       description: 'HTTP PUT handler. To update an exam.
@@ -444,6 +530,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam exam id update
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/exam_id/{exam_id}/user_id/{user_id}/reset_attempts:
     delete:
       operationId: edx_proctoring_v1_proctored_exam_exam_id_user_id_reset_attempts_delete
@@ -464,6 +552,8 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam id user id reset attempts delete
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/exam_registration/course_id/{course_id}:
     patch:
       operationId: edx_proctoring_v1_proctored_exam_exam_registration_course_id_partial_update
@@ -481,6 +571,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam exam registration course id partial update
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/review_policy/exam_id/{exam_id}/:
     get:
       operationId: edx_proctoring_v1_proctored_exam_review_policy_exam_id_read
@@ -496,6 +588,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam review policy exam id read
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/settings/exam_id/{exam_id}/:
     get:
       operationId: edx_proctoring_v1_proctored_exam_settings_exam_id_read
@@ -511,6 +605,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam settings exam id read
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/{course_id}/allowance:
     get:
       operationId: edx_proctoring_v1_proctored_exam_allowance_list
@@ -528,6 +624,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam allowance list
+      x-summary-source: derived
     put:
       operationId: edx_proctoring_v1_proctored_exam_allowance_update
       description: HTTP GET handler. Adds or updates Allowance
@@ -542,6 +640,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam allowance update
+      x-summary-source: derived
     delete:
       operationId: edx_proctoring_v1_proctored_exam_allowance_delete
       description: HTTP DELETE handler. Removes Allowance.
@@ -556,6 +656,8 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Edx proctoring v1 proctored exam allowance delete
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/{course_id}/bulk_allowance:
     put:
       operationId: edx_proctoring_v1_proctored_exam_bulk_allowance_update
@@ -571,6 +673,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam bulk allowance update
+      x-summary-source: derived
   /edx_proctoring/v1/proctored_exam/{course_id}/grouped/allowance:
     get:
       operationId: edx_proctoring_v1_proctored_exam_grouped_allowance_list
@@ -586,6 +690,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 proctored exam grouped allowance list
+      x-summary-source: derived
   /edx_proctoring/v1/retire_backend_user/{user_id}/:
     post:
       operationId: edx_proctoring_v1_retire_backend_user_create
@@ -603,6 +709,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Edx proctoring v1 retire backend user create
+      x-summary-source: derived
   /edx_proctoring/v1/retire_user/{user_id}/:
     post:
       operationId: edx_proctoring_v1_retire_user_create
@@ -618,6 +726,8 @@ paths:
       responses:
         '201':
           description: ''
+      summary: Edx proctoring v1 retire user create
+      x-summary-source: derived
   /edx_proctoring/v1/user_onboarding/status:
     get:
       operationId: edx_proctoring_v1_user_onboarding_status_list
@@ -627,6 +737,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 user onboarding status list
+      x-summary-source: derived
   /edx_proctoring/v1/user_onboarding/status/course_id/{course_id}:
     get:
       operationId: edx_proctoring_v1_user_onboarding_status_course_id_read
@@ -642,6 +754,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Edx proctoring v1 user onboarding status course id read
+      x-summary-source: derived
 components:
   securitySchemes:
     Basic:

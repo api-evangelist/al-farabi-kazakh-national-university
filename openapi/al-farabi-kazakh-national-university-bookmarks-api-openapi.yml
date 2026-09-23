@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements bookmarks API
+  title: Open edX Bookmarks API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -10,13 +10,13 @@ servers:
 security:
 - Basic: []
 tags:
-- name: bookmarks
+- name: Bookmarks
 paths:
   /bookmarks/v1/bookmarks/:
     get:
       operationId: bookmarks_v1_bookmarks_list
-      summary: Get a paginated list of bookmarks for a user.
-      description: 'The list can be filtered by passing parameter "course_id=<course_id>"
+      summary: Get a paginated list of bookmarks for a user
+      description: 'The list can be filtered by passing parameter "course_id="
 
         to only include bookmarks from a particular course.
 
@@ -26,7 +26,7 @@ paths:
 
         Each page in the list contains 10 bookmarks by default. The page
 
-        size can be altered by passing parameter "page_size=<page_size>".
+        size can be altered by passing parameter "page_size=".
 
 
         To include the optional fields pass the values in "fields" parameter
@@ -44,7 +44,7 @@ paths:
 
         GET /api/bookmarks/v1/bookmarks/?course_id={course_id1}&fields=display_name,path'
       tags:
-      - bookmarks
+      - Bookmarks
       parameters:
       - name: page
         in: query
@@ -84,20 +84,22 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/Bookmark'
     post:
       operationId: bookmarks_v1_bookmarks_create
-      summary: Create a new bookmark for a user.
+      summary: Create a new bookmark for a user
       description: 'The POST request only needs to contain one parameter "usage_id".
 
 
@@ -113,9 +115,9 @@ paths:
 
         POST /api/bookmarks/v1/bookmarks/
 
-        Request data: {"usage_id": <usage-id>}'
+        Request data: {"usage_id": }'
       tags:
-      - bookmarks
+      - Bookmarks
       requestBody:
         required: true
         content:
@@ -132,13 +134,13 @@ paths:
   /bookmarks/v1/bookmarks/{username},{usage_id}/:
     get:
       operationId: bookmarks_v1_bookmarks_read
-      summary: Get a specific bookmark for a user.
+      summary: Get a specific bookmark for a user
       description: '**Example Requests**
 
 
         GET /api/bookmarks/v1/bookmarks/{username},{usage_id}?fields=display_name,path'
       tags:
-      - bookmarks
+      - Bookmarks
       parameters:
       - name: username
         in: path
@@ -157,7 +159,7 @@ paths:
       operationId: bookmarks_v1_bookmarks_delete
       description: DELETE /api/bookmarks/v1/bookmarks/{username},{usage_id}
       tags:
-      - bookmarks
+      - Bookmarks
       parameters:
       - name: username
         in: path
@@ -172,6 +174,8 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Bookmarks v1 bookmarks delete
+      x-summary-source: derived
 components:
   schemas:
     Bookmark:

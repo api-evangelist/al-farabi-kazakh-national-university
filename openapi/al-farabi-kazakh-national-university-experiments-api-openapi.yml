@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements experiments API
+  title: Open edX Experiments API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -10,23 +10,25 @@ servers:
 security:
 - Basic: []
 tags:
-- name: experiments
+- name: Experiments
 paths:
   /experiments/v0/custom/REV-934/:
     get:
       operationId: experiments_v0_custom_REV-934_list
       description: Return the if the course should be upsold in the mobile app, if the user has appropriate permissions.
       tags:
-      - experiments
+      - Experiments
       responses:
         '200':
           description: ''
+      summary: Experiments v0 custom REV 934 list
+      x-summary-source: derived
   /experiments/v0/custom/userMetadata/{username},{course_id}:
     get:
       operationId: experiments_v0_custom_userMetadata_read
       description: Return user-metadata for the given course and user
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: username
         in: path
@@ -41,12 +43,14 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Experiments v0 custom user metadata read
+      x-summary-source: derived
   /experiments/v0/data/:
     get:
       operationId: experiments_v0_data_list
       description: ''
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: page
         in: query
@@ -74,22 +78,26 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ExperimentData'
+      summary: Experiments v0 data list
+      x-summary-source: derived
     post:
       operationId: experiments_v0_data_create
       description: ''
       tags:
-      - experiments
+      - Experiments
       requestBody:
         required: true
         content:
@@ -103,11 +111,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExperimentDataCreate'
+      summary: Experiments v0 data create
+      x-summary-source: derived
     put:
       operationId: experiments_v0_data_update
       description: ''
       tags:
-      - experiments
+      - Experiments
       requestBody:
         required: true
         content:
@@ -121,12 +131,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExperimentData'
+      summary: Experiments v0 data update
+      x-summary-source: derived
   /experiments/v0/data/{id}/:
     get:
       operationId: experiments_v0_data_read
       description: ''
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: id
         in: path
@@ -141,11 +153,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExperimentData'
+      summary: Experiments v0 data read
+      x-summary-source: derived
     put:
       operationId: experiments_v0_data_update
       description: ''
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: id
         in: path
@@ -166,11 +180,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExperimentData'
+      summary: Experiments v0 data update
+      x-summary-source: derived
     patch:
       operationId: experiments_v0_data_partial_update
       description: ''
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: id
         in: path
@@ -191,11 +207,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExperimentData'
+      summary: Experiments v0 data partial update
+      x-summary-source: derived
     delete:
       operationId: experiments_v0_data_delete
       description: ''
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: id
         in: path
@@ -206,12 +224,14 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Experiments v0 data delete
+      x-summary-source: derived
   /experiments/v0/key-value/:
     get:
       operationId: experiments_v0_key-value_list
       description: ''
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: page
         in: query
@@ -239,22 +259,26 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ExperimentKeyValue'
+      summary: Experiments v0 key value list
+      x-summary-source: derived
     post:
       operationId: experiments_v0_key-value_create
       description: ''
       tags:
-      - experiments
+      - Experiments
       requestBody:
         required: true
         content:
@@ -268,12 +292,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExperimentKeyValue'
+      summary: Experiments v0 key value create
+      x-summary-source: derived
   /experiments/v0/key-value/{id}/:
     get:
       operationId: experiments_v0_key-value_read
       description: ''
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: id
         in: path
@@ -288,11 +314,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExperimentKeyValue'
+      summary: Experiments v0 key value read
+      x-summary-source: derived
     put:
       operationId: experiments_v0_key-value_update
       description: ''
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: id
         in: path
@@ -313,11 +341,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExperimentKeyValue'
+      summary: Experiments v0 key value update
+      x-summary-source: derived
     patch:
       operationId: experiments_v0_key-value_partial_update
       description: ''
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: id
         in: path
@@ -338,11 +368,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExperimentKeyValue'
+      summary: Experiments v0 key value partial update
+      x-summary-source: derived
     delete:
       operationId: experiments_v0_key-value_delete
       description: ''
       tags:
-      - experiments
+      - Experiments
       parameters:
       - name: id
         in: path
@@ -353,8 +385,50 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Experiments v0 key value delete
+      x-summary-source: derived
 components:
   schemas:
+    ExperimentDataCreate:
+      required:
+      - experiment_id
+      - key
+      - value
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        experiment_id:
+          title: Experiment ID
+          type: integer
+          maximum: 65535
+          minimum: 0
+        user:
+          title: User
+          type: string
+          pattern: ^[\w.@+-]+$
+          default: ''
+        key:
+          title: Key
+          type: string
+          maxLength: 255
+          minLength: 1
+        value:
+          title: Value
+          type: string
+          minLength: 1
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          title: Изменено
+          type: string
+          format: date-time
+          readOnly: true
     ExperimentKeyValue:
       required:
       - experiment_id
@@ -411,46 +485,6 @@ components:
           type: string
           pattern: ^[\w.@+-]+$
           readOnly: true
-          default: ''
-        key:
-          title: Key
-          type: string
-          maxLength: 255
-          minLength: 1
-        value:
-          title: Value
-          type: string
-          minLength: 1
-        created:
-          title: Создано
-          type: string
-          format: date-time
-          readOnly: true
-        modified:
-          title: Изменено
-          type: string
-          format: date-time
-          readOnly: true
-    ExperimentDataCreate:
-      required:
-      - experiment_id
-      - key
-      - value
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        experiment_id:
-          title: Experiment ID
-          type: integer
-          maximum: 65535
-          minimum: 0
-        user:
-          title: User
-          type: string
-          pattern: ^[\w.@+-]+$
           default: ''
         key:
           title: Key

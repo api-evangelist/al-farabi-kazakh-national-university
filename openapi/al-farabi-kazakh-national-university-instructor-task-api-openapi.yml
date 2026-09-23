@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements instructor_task API
+  title: Open edX Instructor Task API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -50,21 +50,29 @@ paths:
                   count:
                     type: integer
                   next:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   previous:
-                    type: string
+                    type:
+                    - string
+                    - 'null'
                     format: uri
-                    nullable: true
                   results:
                     type: array
                     items:
                       $ref: '#/components/schemas/ScheduledBulkEmail'
+      summary: Instructor task v1 schedules bulk email list
+      x-summary-source: derived
   /instructor_task/v1/schedules/{course_id}/bulk_email/{schedule_id}:
     put:
       operationId: instructor_task_v1_schedules_bulk_email_update
-      description: "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task."
+      description: 'A view that supports the modification of instructor task schedules. It provides the ability to:
+
+        * Delete an instructor task schedule
+
+        * Update an instructor task schedule and/or update the course email associated with the scheduled task.'
       tags:
       - instructor_task
       parameters:
@@ -91,9 +99,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ScheduledBulkEmail'
+      summary: Instructor task v1 schedules bulk email update
+      x-summary-source: derived
     patch:
       operationId: instructor_task_v1_schedules_bulk_email_partial_update
-      description: "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task."
+      description: 'A view that supports the modification of instructor task schedules. It provides the ability to:
+
+        * Delete an instructor task schedule
+
+        * Update an instructor task schedule and/or update the course email associated with the scheduled task.'
       tags:
       - instructor_task
       parameters:
@@ -120,9 +134,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ScheduledBulkEmail'
+      summary: Instructor task v1 schedules bulk email partial update
+      x-summary-source: derived
     delete:
       operationId: instructor_task_v1_schedules_bulk_email_delete
-      description: "A view that supports the modification of instructor task schedules. It provides the ability to:\n    * Delete an instructor task schedule\n    * Update an instructor task schedule and/or update the course email associated with the scheduled task."
+      description: 'A view that supports the modification of instructor task schedules. It provides the ability to:
+
+        * Delete an instructor task schedule
+
+        * Update an instructor task schedule and/or update the course email associated with the scheduled task.'
       tags:
       - instructor_task
       parameters:
@@ -139,6 +159,8 @@ paths:
       responses:
         '204':
           description: ''
+      summary: Instructor task v1 schedules bulk email delete
+      x-summary-source: derived
 components:
   schemas:
     ScheduledBulkEmail:

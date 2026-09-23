@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements commerce API
+  title: Open edX Commerce API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -10,23 +10,25 @@ servers:
 security:
 - Basic: []
 tags:
-- name: commerce
+- name: Commerce
 paths:
   /commerce/v0/baskets/:
     post:
       operationId: commerce_v0_baskets_create
       description: Attempt to enroll the user.
       tags:
-      - commerce
+      - Commerce
       responses:
         '201':
           description: ''
+      summary: Commerce v0 baskets create
+      x-summary-source: derived
   /commerce/v0/baskets/{basket_id}/order/:
     get:
       operationId: commerce_v0_baskets_order_list
       description: HTTP handler.
       tags:
-      - commerce
+      - Commerce
       parameters:
       - name: basket_id
         in: path
@@ -36,12 +38,14 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Commerce v0 baskets order list
+      x-summary-source: derived
   /commerce/v1/courses/:
     get:
       operationId: commerce_v1_courses_list
       description: List courses and modes.
       tags:
-      - commerce
+      - Commerce
       responses:
         '200':
           description: ''
@@ -51,12 +55,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/commerce.Course'
+      summary: Commerce v1 courses list
+      x-summary-source: derived
   /commerce/v1/courses/{course_id}/:
     get:
       operationId: commerce_v1_courses_read
       description: Retrieve, update, or create courses/modes.
       tags:
-      - commerce
+      - Commerce
       parameters:
       - name: course_id
         in: path
@@ -70,11 +76,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/commerce.Course'
+      summary: Commerce v1 courses read
+      x-summary-source: derived
     put:
       operationId: commerce_v1_courses_update
       description: Retrieve, update, or create courses/modes.
       tags:
-      - commerce
+      - Commerce
       parameters:
       - name: course_id
         in: path
@@ -94,11 +102,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/commerce.Course'
+      summary: Commerce v1 courses update
+      x-summary-source: derived
     patch:
       operationId: commerce_v1_courses_partial_update
       description: Retrieve, update, or create courses/modes.
       tags:
-      - commerce
+      - Commerce
       parameters:
       - name: course_id
         in: path
@@ -118,12 +128,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/commerce.Course'
+      summary: Commerce v1 courses partial update
+      x-summary-source: derived
   /commerce/v1/orders/{number}/:
     get:
       operationId: commerce_v1_orders_read
       description: HTTP handler.
       tags:
-      - commerce
+      - Commerce
       parameters:
       - name: number
         in: path
@@ -133,6 +145,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Commerce v1 orders read
+      x-summary-source: derived
 components:
   schemas:
     commerce.CourseMode:
@@ -156,32 +170,37 @@ components:
         sku:
           title: SKU
           description: 'НЕОБЯЗАТЕЛЬНО: поле SKU (единица учёта запасов) для внешнего сервиса электронной коммерции. Оставьте пустым, если курс ещё не был добавлен в сервис электронной коммерции.'
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 255
-          nullable: true
         bulk_sku:
           title: Bulk SKU
           description: Это основная часть SKU (единица учёта запасов) этого режима в службе внешней электронной коммерции.
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 255
-          nullable: true
         expires:
           title: Expires
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         android_sku:
           title: Android SKU
           description: 'OPTIONAL: This is the Android SKU registered on play store for this mode of the course. Leave this blank if the course has not yet been migrated to the ecommerce service.'
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 255
-          nullable: true
         ios_sku:
           title: IOS SKU
           description: 'OPTIONAL: This is the iOS SKU registered on app store for this mode of the course.  Leave this blank if the course has not yet been migrated to the ecommerce service.'
-          type: string
+          type:
+          - string
+          - 'null'
           maxLength: 255
-          nullable: true
     commerce.Course:
       required:
       - id
@@ -199,9 +218,10 @@ components:
           minLength: 1
         verification_deadline:
           title: Verification deadline
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         modes:
           type: array
           items:

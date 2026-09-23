@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements user_tours API
+  title: Open edX User Tours API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -27,6 +27,8 @@ paths:
       responses:
         '200':
           description: ''
+      summary: User tours discussion tours read
+      x-summary-source: derived
     put:
       operationId: user_tours_discussion_tours_update
       description: Update an existing tour with the data in the request body.
@@ -41,11 +43,31 @@ paths:
       responses:
         '200':
           description: ''
+      summary: User tours discussion tours update
+      x-summary-source: derived
   /user_tours/v1/{username}:
     get:
       operationId: user_tours_v1_read
-      summary: Retrieve the User Tour for the given username.
-      description: "Allows staff users to retrieve any user's User Tour.\n\nReturns\n    200 with the following fields:\n        course_home_tour_status (str): one of UserTour.CourseHomeChoices\n        show_courseware_tour (bool): indicates if courseware tour should be shown.\n\n    400 if there is a not allowed request (requesting a user you don't have access to)\n    401 if unauthorized request\n    403 if tours are disabled\n    404 if the UserTour does not exist (shouldn't happen, but safety first)"
+      summary: Retrieve the User Tour for the given username
+      description: 'Allows staff users to retrieve any user''s User Tour.
+
+
+        Returns
+
+        200 with the following fields:
+
+        course_home_tour_status (str): one of UserTour.CourseHomeChoices
+
+        show_courseware_tour (bool): indicates if courseware tour should be shown.
+
+
+        400 if there is a not allowed request (requesting a user you don''t have access to)
+
+        401 if unauthorized request
+
+        403 if tours are disabled
+
+        404 if the UserTour does not exist (shouldn''t happen, but safety first)'
       tags:
       - user_tours
       parameters:
@@ -85,9 +107,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserTour'
+      summary: User tours v1 update
+      x-summary-source: derived
     patch:
       operationId: user_tours_v1_partial_update
-      summary: Patch the User Tour for the request.user.
+      summary: Patch the User Tour for the request.user
       description: Supports updating the `course_home_tour_status` and `show_courseware_tour` fields.
       tags:
       - user_tours

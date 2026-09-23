@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements instructor API
+  title: Open edX Instructor API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -15,8 +15,50 @@ paths:
   /instructor/v1/reports/{course_id}:
     get:
       operationId: instructor_v1_reports_read
-      summary: List report CSV files that are available for download for this course.
-      description: "**Use Cases**\n\nLists reports available for download\n\n**Example Requests**:\n\n    GET /api/instructor/v1/reports/{course_id}\n\n**Response Values**\n```json\n{\n    \"downloads\": [\n        {\n            \"url\": \"https://1.mock.url\",\n            \"link\": \"<a href=\"https://1.mock.url\">mock_file_name_1</a>\",\n            \"name\": \"mock_file_name_1\"\n        }\n    ]\n}\n```\n\nThe report name will depend on the type of report generated. For example a\nproblem responses report for an entire course might be called:\n\n    edX_DemoX_Demo_Course_student_state_from_block-v1_edX+DemoX+Demo_Course+type@course+block@course_2021-04-30-0918.csv"
+      summary: List report CSV files that are available for download for this course
+      description: '**Use Cases**
+
+
+        Lists reports available for download
+
+
+        **Example Requests**:
+
+
+        GET /api/instructor/v1/reports/{course_id}
+
+
+        **Response Values**
+
+        ```json
+
+        {
+
+        "downloads": [
+
+        {
+
+        "url": "https://1.mock.url",
+
+        "link": "mock_file_name_1",
+
+        "name": "mock_file_name_1"
+
+        }
+
+        ]
+
+        }
+
+        ```
+
+
+        The report name will depend on the type of report generated. For example a
+
+        problem responses report for an entire course might be called:
+
+
+        edX_DemoX_Demo_Course_student_state_from_block-v1_edX+DemoX+Demo_Course+type@course+block@course_2021-04-30-0918.csv'
       tags:
       - instructor
       parameters:
@@ -54,7 +96,81 @@ paths:
     post:
       operationId: instructor_v1_reports_generate_problem_responses_create
       summary: Initiate generation of a CSV file containing all student answers
-      description: "to a given problem.\n\n**Example requests**\n\n    POST /api/instructor/v1/reports/{course_id}/generate/problem_responses {\n        \"problem_locations\": [\n            \"{usage_key1}\",\n            \"{usage_key2}\",\n            \"{usage_key3}\"\n        ]\n    }\n    POST /api/instructor/v1/reports/{course_id}/generate/problem_responses {\n        \"problem_locations\": [\"{usage_key}\"],\n        \"problem_types_filter\": [\"problem\"]\n    }\n\n**POST Parameters**\n\nA POST request can include the following parameters:\n\n* problem_location: A list of usage keys for the blocks to include in\n  the report. If the location is a block that contains other blocks,\n  (such as the course, section, subsection, or unit blocks) then all\n  blocks under that block will be included in the report.\n* problem_types_filter: Optional. A comma-separated list of block types\n  to include in the report. If set, only blocks of the specified types\n  will be included in the report.\n\nTo get data on all the poll and survey blocks in a course, you could\nPOST the usage key of the course for `problem_location`, and\n\"poll, survey\" as the value for `problem_types_filter`.\n\n\n**Example Response:**\nIf initiation is successful (or generation task is already running):\n```json\n{\n    \"status\": \"The problem responses report is being created. ...\",\n    \"task_id\": \"4e49522f-31d9-431a-9cff-dd2a2bf4c85a\"\n}\n```\n\nResponds with BadRequest if any of the provided problem locations are faulty."
+      description: 'to a given problem.
+
+
+        **Example requests**
+
+
+        POST /api/instructor/v1/reports/{course_id}/generate/problem_responses {
+
+        "problem_locations": [
+
+        "{usage_key1}",
+
+        "{usage_key2}",
+
+        "{usage_key3}"
+
+        ]
+
+        }
+
+        POST /api/instructor/v1/reports/{course_id}/generate/problem_responses {
+
+        "problem_locations": ["{usage_key}"],
+
+        "problem_types_filter": ["problem"]
+
+        }
+
+
+        **POST Parameters**
+
+
+        A POST request can include the following parameters:
+
+
+        * problem_location: A list of usage keys for the blocks to include in
+
+        the report. If the location is a block that contains other blocks,
+
+        (such as the course, section, subsection, or unit blocks) then all
+
+        blocks under that block will be included in the report.
+
+        * problem_types_filter: Optional. A comma-separated list of block types
+
+        to include in the report. If set, only blocks of the specified types
+
+        will be included in the report.
+
+
+        To get data on all the poll and survey blocks in a course, you could
+
+        POST the usage key of the course for `problem_location`, and
+
+        "poll, survey" as the value for `problem_types_filter`.
+
+
+        **Example Response:**
+
+        If initiation is successful (or generation task is already running):
+
+        ```json
+
+        {
+
+        "status": "The problem responses report is being created. ...",
+
+        "task_id": "4e49522f-31d9-431a-9cff-dd2a2bf4c85a"
+
+        }
+
+        ```
+
+
+        Responds with BadRequest if any of the provided problem locations are faulty.'
       tags:
       - instructor
       parameters:
@@ -91,8 +207,65 @@ paths:
   /instructor/v1/tasks/{course_id}:
     get:
       operationId: instructor_v1_tasks_read
-      summary: List instructor tasks filtered by `course_id`.
-      description: "**Use Cases**\n\nLists currently running instructor tasks\n\n**Parameters**\n   - With no arguments, lists running tasks.\n   - `problem_location_str` lists task history for problem\n   - `problem_location_str` and `unique_student_identifier` lists task\n       history for problem AND student (intersection)\n\n**Example Requests**:\n\n    GET /courses/{course_id}/instructor/api/v0/tasks\n\n**Response Values**\n```json\n    {\n      \"tasks\": [\n        {\n          \"status\": \"Incomplete\",\n          \"task_type\": \"grade_problems\",\n          \"task_id\": \"2519ff31-22d9-4a62-91e2-55495895b355\",\n          \"created\": \"2019-01-15T18:00:15.902470+00:00\",\n          \"task_input\": \"{}\",\n          \"duration_sec\": \"unknown\",\n          \"task_message\": \"No status information available\",\n          \"requester\": \"staff\",\n          \"task_state\": \"PROGRESS\"\n        }\n      ]\n    }\n```"
+      summary: List instructor tasks filtered by `course_id`
+      description: '**Use Cases**
+
+
+        Lists currently running instructor tasks
+
+
+        **Parameters**
+
+        - With no arguments, lists running tasks.
+
+        - `problem_location_str` lists task history for problem
+
+        - `problem_location_str` and `unique_student_identifier` lists task
+
+        history for problem AND student (intersection)
+
+
+        **Example Requests**:
+
+
+        GET /courses/{course_id}/instructor/api/v0/tasks
+
+
+        **Response Values**
+
+        ```json
+
+        {
+
+        "tasks": [
+
+        {
+
+        "status": "Incomplete",
+
+        "task_type": "grade_problems",
+
+        "task_id": "2519ff31-22d9-4a62-91e2-55495895b355",
+
+        "created": "2019-01-15T18:00:15.902470+00:00",
+
+        "task_input": "{}",
+
+        "duration_sec": "unknown",
+
+        "task_message": "No status information available",
+
+        "requester": "staff",
+
+        "task_state": "PROGRESS"
+
+        }
+
+        ]
+
+        }
+
+        ```'
       tags:
       - instructor
       parameters:
@@ -134,50 +307,6 @@ paths:
           description: The requested course does not exist.
 components:
   schemas:
-    ReportDownloadsList:
-      required:
-      - downloads
-      type: object
-      properties:
-        downloads:
-          description: List of report downloads
-          type: array
-          items:
-            $ref: '#/components/schemas/ReportDownload'
-    ReportDownload:
-      description: Report Download
-      required:
-      - url
-      - name
-      - link
-      type: object
-      properties:
-        url:
-          title: Url
-          description: URL from which report can be downloaded.
-          type: string
-          format: uri
-          minLength: 1
-        name:
-          title: Name
-          description: Name of report.
-          type: string
-          minLength: 1
-        link:
-          title: Link
-          description: HTML anchor tag that contains the name and link.
-          type: string
-          minLength: 1
-    InstructorTasksList:
-      required:
-      - tasks
-      type: object
-      properties:
-        tasks:
-          description: List of instructor tasks.
-          type: array
-          items:
-            $ref: '#/components/schemas/InstructorTask'
     ProblemResponseReportPostParams:
       required:
       - problem_locations
@@ -196,6 +325,22 @@ components:
           items:
             type: string
             minLength: 1
+    ProblemResponsesReportStatus:
+      required:
+      - status
+      - task_id
+      type: object
+      properties:
+        status:
+          title: Status
+          description: User-friendly text describing current status of report generation.
+          type: string
+          minLength: 1
+        task_id:
+          title: Task id
+          description: A unique id for the report generation task. It can be used to query the latest report generation status.
+          type: string
+          format: uuid
     InstructorTask:
       required:
       - status
@@ -234,8 +379,9 @@ components:
           description: The input parameters for the task. The format and content of this data will depend on the kind of task being performed. For instanceit may contain the problem locations for a problem resources task.
           type: object
           additionalProperties:
-            type: string
-            nullable: true
+            type:
+            - string
+            - 'null'
         requester:
           title: Requester
           description: The username of the user who initiated this task.
@@ -256,22 +402,50 @@ components:
           description: User-friendly task status information, if available.
           type: string
           minLength: 1
-    ProblemResponsesReportStatus:
+    InstructorTasksList:
       required:
-      - status
-      - task_id
+      - tasks
       type: object
       properties:
-        status:
-          title: Status
-          description: User-friendly text describing current status of report generation.
+        tasks:
+          description: List of instructor tasks.
+          type: array
+          items:
+            $ref: '#/components/schemas/InstructorTask'
+    ReportDownloadsList:
+      required:
+      - downloads
+      type: object
+      properties:
+        downloads:
+          description: List of report downloads
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportDownload'
+    ReportDownload:
+      description: Report Download
+      required:
+      - url
+      - name
+      - link
+      type: object
+      properties:
+        url:
+          title: Url
+          description: URL from which report can be downloaded.
+          type: string
+          format: uri
+          minLength: 1
+        name:
+          title: Name
+          description: Name of report.
           type: string
           minLength: 1
-        task_id:
-          title: Task id
-          description: A unique id for the report generation task. It can be used to query the latest report generation status.
+        link:
+          title: Link
+          description: HTML anchor tag that contains the name and link.
           type: string
-          format: uuid
+          minLength: 1
   securitySchemes:
     Basic:
       type: http

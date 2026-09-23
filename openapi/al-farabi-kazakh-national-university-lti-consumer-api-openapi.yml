@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Open edX agreements lti_consumer API
+  title: Open edX Lti Consumer API
   description: APIs for access to Open edX information
   contact:
     email: dl@kaznu.kz
@@ -15,7 +15,7 @@ paths:
   /lti_consumer/v1/lti/{lti_config_id}/lti-ags:
     get:
       operationId: lti_consumer_v1_lti_lti-ags_list
-      summary: LineItem endpoint implementation from LTI Advantage.
+      summary: LineItem endpoint implementation from LTI Advantage
       description: 'See full documentation at:'
       tags:
       - lti_consumer
@@ -41,7 +41,7 @@ paths:
                   $ref: '#/components/schemas/LtiAgsLineItem'
     post:
       operationId: lti_consumer_v1_lti_lti-ags_create
-      summary: LineItem endpoint implementation from LTI Advantage.
+      summary: LineItem endpoint implementation from LTI Advantage
       description: 'See full documentation at:'
       tags:
       - lti_consumer
@@ -70,7 +70,7 @@ paths:
   /lti_consumer/v1/lti/{lti_config_id}/lti-ags/{id}:
     get:
       operationId: lti_consumer_v1_lti_lti-ags_read
-      summary: LineItem endpoint implementation from LTI Advantage.
+      summary: LineItem endpoint implementation from LTI Advantage
       description: 'See full documentation at:'
       tags:
       - lti_consumer
@@ -97,7 +97,7 @@ paths:
                 $ref: '#/components/schemas/LtiAgsLineItem'
     put:
       operationId: lti_consumer_v1_lti_lti-ags_update
-      summary: LineItem endpoint implementation from LTI Advantage.
+      summary: LineItem endpoint implementation from LTI Advantage
       description: 'See full documentation at:'
       tags:
       - lti_consumer
@@ -130,7 +130,7 @@ paths:
                 $ref: '#/components/schemas/LtiAgsLineItem'
     patch:
       operationId: lti_consumer_v1_lti_lti-ags_partial_update
-      summary: LineItem endpoint implementation from LTI Advantage.
+      summary: LineItem endpoint implementation from LTI Advantage
       description: 'See full documentation at:'
       tags:
       - lti_consumer
@@ -163,7 +163,7 @@ paths:
                 $ref: '#/components/schemas/LtiAgsLineItem'
     delete:
       operationId: lti_consumer_v1_lti_lti-ags_delete
-      summary: LineItem endpoint implementation from LTI Advantage.
+      summary: LineItem endpoint implementation from LTI Advantage
       description: 'See full documentation at:'
       tags:
       - lti_consumer
@@ -185,7 +185,16 @@ paths:
     get:
       operationId: lti_consumer_v1_lti_lti-ags_results
       summary: Return a Result list for an LtiAgsLineItem
-      description: "URL Parameters:\n  * user_id (string): String external user id representation.\n\nQuery Parameters:\n  * limit (integer): The maximum number of records to return. Records are\n        sorted with most recent timestamp first"
+      description: 'URL Parameters:
+
+        * user_id (string): String external user id representation.
+
+
+        Query Parameters:
+
+        * limit (integer): The maximum number of records to return. Records are
+
+        sorted with most recent timestamp first'
       tags:
       - lti_consumer
       parameters:
@@ -241,6 +250,8 @@ paths:
             application/vnd.ims.lis.v1.score+json:
               schema:
                 $ref: '#/components/schemas/LtiAgsLineItem'
+      summary: Lti consumer v1 lti lti ags scores
+      x-summary-source: derived
   /lti_consumer/v1/lti/{lti_config_id}/memberships:
     get:
       operationId: lti_consumer_v1_lti_memberships_list
@@ -270,10 +281,12 @@ paths:
       responses:
         '200':
           description: ''
+      summary: Lti consumer v1 lti memberships list
+      x-summary-source: derived
   /lti_consumer/v1/lti/{lti_config_id}/memberships/{id}:
     get:
       operationId: lti_consumer_v1_lti_memberships_read
-      summary: LTI NRPS Context Membership Service endpoint.
+      summary: LTI NRPS Context Membership Service endpoint
       description: 'See full documentation at:'
       tags:
       - lti_consumer
