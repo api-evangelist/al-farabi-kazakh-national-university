@@ -439,6 +439,22 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    CourseOverview:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          maxLength: 255
+          minLength: 1
+        display_name:
+          title: Display name
+          type:
+          - string
+          - 'null'
+          minLength: 1
     Notification:
       required:
       - app_name
@@ -503,22 +519,6 @@ components:
       properties:
         course:
           $ref: '#/components/schemas/CourseOverview'
-    CourseOverview:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          maxLength: 255
-          minLength: 1
-        display_name:
-          title: Display name
-          type:
-          - string
-          - 'null'
-          minLength: 1
   securitySchemes:
     Basic:
       type: http

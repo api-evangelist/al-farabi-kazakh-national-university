@@ -502,6 +502,53 @@ paths:
           description: ''
 components:
   schemas:
+    DiscussionTopicSerializerV2:
+      type: object
+      properties:
+        id:
+          title: Id
+          description: Provider-specific unique id for the topic
+          type: string
+          readOnly: true
+          minLength: 1
+        usage_key:
+          title: Usage key
+          description: Usage context for the topic
+          type: string
+          readOnly: true
+          minLength: 1
+        name:
+          title: Name
+          description: Topic name
+          type: string
+          readOnly: true
+          minLength: 1
+        thread_counts:
+          title: Thread counts
+          description: Mapping of thread counts by type of thread
+          type: object
+          readOnly: true
+        enabled_in_context:
+          title: Enabled in context
+          description: Whether this topic is enabled in its context
+          type: boolean
+          readOnly: true
+    BlackoutDate:
+      required:
+      - start
+      - end
+      type: object
+      properties:
+        start:
+          title: Start
+          description: The ISO 8601 timestamp for the start of the blackout period
+          type: string
+          format: date-time
+        end:
+          title: End
+          description: The ISO 8601 timestamp for the end of the blackout period
+          type: string
+          format: date-time
     ReasonCodeSeralizer:
       required:
       - code
@@ -604,53 +651,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReasonCodeSeralizer'
-    BlackoutDate:
-      required:
-      - start
-      - end
-      type: object
-      properties:
-        start:
-          title: Start
-          description: The ISO 8601 timestamp for the start of the blackout period
-          type: string
-          format: date-time
-        end:
-          title: End
-          description: The ISO 8601 timestamp for the end of the blackout period
-          type: string
-          format: date-time
-    DiscussionTopicSerializerV2:
-      type: object
-      properties:
-        id:
-          title: Id
-          description: Provider-specific unique id for the topic
-          type: string
-          readOnly: true
-          minLength: 1
-        usage_key:
-          title: Usage key
-          description: Usage context for the topic
-          type: string
-          readOnly: true
-          minLength: 1
-        name:
-          title: Name
-          description: Topic name
-          type: string
-          readOnly: true
-          minLength: 1
-        thread_counts:
-          title: Thread counts
-          description: Mapping of thread counts by type of thread
-          type: object
-          readOnly: true
-        enabled_in_context:
-          title: Enabled in context
-          description: Whether this topic is enabled in its context
-          type: boolean
-          readOnly: true
   securitySchemes:
     Basic:
       type: http

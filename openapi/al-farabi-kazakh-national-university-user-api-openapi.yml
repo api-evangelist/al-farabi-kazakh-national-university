@@ -227,7 +227,7 @@ paths:
           description: ''
   /user/v1/accounts/retire_misc/:
     post:
-      operationId: user_v1_accounts_post
+      operationId: postUserV1AccountsRetireMisc
       summary: POST /api/user/v1/accounts/retire_misc/
       description: '```
 
@@ -246,6 +246,8 @@ paths:
       responses:
         '201':
           description: ''
+      x-operation-id-source: normalized
+      x-operation-id-original: user_v1_accounts_post
   /user/v1/accounts/retirement_cleanup/:
     post:
       operationId: user_v1_accounts_cleanup
@@ -751,7 +753,7 @@ paths:
       x-summary-source: derived
   /user/v1/preferences/{username}/{preference_key}:
     get:
-      operationId: user_v1_preferences_read
+      operationId: getUserV1PreferencesByUsernameByPreferenceKey
       description: GET /api/user/v1/preferences/{username}/{preference_key}
       tags:
       - User
@@ -771,6 +773,8 @@ paths:
           description: ''
       summary: User v1 preferences read
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: user_v1_preferences_read
     put:
       operationId: user_v1_preferences_update
       description: PUT /api/user/v1/preferences/{username}/{preference_key}
@@ -1098,44 +1102,6 @@ paths:
                     type: string
 components:
   schemas:
-    CountryTimeZone:
-      required:
-      - time_zone
-      - description
-      type: object
-      properties:
-        time_zone:
-          title: Time zone
-          type: string
-          minLength: 1
-        description:
-          title: Description
-          type: string
-          minLength: 1
-    UserPreference:
-      required:
-      - user
-      - key
-      - value
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/user_api.User'
-        key:
-          title: Key
-          type: string
-          pattern: '[-_a-zA-Z0-9]+'
-          maxLength: 255
-          minLength: 1
-        value:
-          title: Value
-          type: string
-          minLength: 1
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
     user_api.User:
       type: object
       properties:
@@ -1168,6 +1134,44 @@ components:
           title: Preferences
           type: string
           readOnly: true
+    UserPreference:
+      required:
+      - user
+      - key
+      - value
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/user_api.User'
+        key:
+          title: Key
+          type: string
+          pattern: '[-_a-zA-Z0-9]+'
+          maxLength: 255
+          minLength: 1
+        value:
+          title: Value
+          type: string
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    CountryTimeZone:
+      required:
+      - time_zone
+      - description
+      type: object
+      properties:
+        time_zone:
+          title: Time zone
+          type: string
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          minLength: 1
     IDVerificationDetails:
       required:
       - status

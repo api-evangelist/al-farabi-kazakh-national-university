@@ -178,7 +178,7 @@ paths:
       x-summary-source: derived
   /program_enrollments/v1/programs/{program_uuid}/enrollments/:
     get:
-      operationId: program_enrollments_v1_programs_enrollments_list
+      operationId: getProgramEnrollmentsV1ProgramsByProgramUuidEnrollments
       description: Defines the GET list endpoint for ProgramEnrollment objects.
       tags:
       - program_enrollments
@@ -205,6 +205,8 @@ paths:
           description: ''
       summary: Program enrollments v1 programs enrollments list
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: program_enrollments_v1_programs_enrollments_list
     post:
       operationId: program_enrollments_v1_programs_enrollments_create
       description: Create program enrollments for a list of learners
@@ -447,15 +449,6 @@ paths:
           description: The requested program does not exist.
 components:
   schemas:
-    CourseRunOverviewList:
-      required:
-      - course_runs
-      type: object
-      properties:
-        course_runs:
-          type: array
-          items:
-            $ref: '#/components/schemas/CourseRunOverview'
     DueDate:
       required:
       - name
@@ -494,6 +487,15 @@ components:
           minLength: 1
         results:
           description: The list of result objects on this page.
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseRunOverview'
+    CourseRunOverviewList:
+      required:
+      - course_runs
+      type: object
+      properties:
+        course_runs:
           type: array
           items:
             $ref: '#/components/schemas/CourseRunOverview'

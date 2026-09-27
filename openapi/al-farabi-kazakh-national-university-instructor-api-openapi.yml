@@ -307,24 +307,40 @@ paths:
           description: The requested course does not exist.
 components:
   schemas:
-    ProblemResponseReportPostParams:
+    InstructorTasksList:
       required:
-      - problem_locations
+      - tasks
       type: object
       properties:
-        problem_locations:
-          description: 'A list of usage keys for the blocks to include in the report. '
+        tasks:
+          description: List of instructor tasks.
           type: array
           items:
-            description: A usage key location for a section or a problem. If the location is a block that contains other blocks, (such as the course, section, subsection, or unit blocks) then all blocks under that block will be included in the report.
-            type: string
-            minLength: 1
-        problem_types_filter:
-          description: 'A list of problem/block types to generate the report for. This field can be omitted if the report should include details of allblock types. '
-          type: array
-          items:
-            type: string
-            minLength: 1
+            $ref: '#/components/schemas/InstructorTask'
+    ReportDownload:
+      description: Report Download
+      required:
+      - url
+      - name
+      - link
+      type: object
+      properties:
+        url:
+          title: Url
+          description: URL from which report can be downloaded.
+          type: string
+          format: uri
+          minLength: 1
+        name:
+          title: Name
+          description: Name of report.
+          type: string
+          minLength: 1
+        link:
+          title: Link
+          description: HTML anchor tag that contains the name and link.
+          type: string
+          minLength: 1
     ProblemResponsesReportStatus:
       required:
       - status
@@ -341,6 +357,16 @@ components:
           description: A unique id for the report generation task. It can be used to query the latest report generation status.
           type: string
           format: uuid
+    ReportDownloadsList:
+      required:
+      - downloads
+      type: object
+      properties:
+        downloads:
+          description: List of report downloads
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportDownload'
     InstructorTask:
       required:
       - status
@@ -402,50 +428,24 @@ components:
           description: User-friendly task status information, if available.
           type: string
           minLength: 1
-    InstructorTasksList:
+    ProblemResponseReportPostParams:
       required:
-      - tasks
+      - problem_locations
       type: object
       properties:
-        tasks:
-          description: List of instructor tasks.
+        problem_locations:
+          description: 'A list of usage keys for the blocks to include in the report. '
           type: array
           items:
-            $ref: '#/components/schemas/InstructorTask'
-    ReportDownloadsList:
-      required:
-      - downloads
-      type: object
-      properties:
-        downloads:
-          description: List of report downloads
+            description: A usage key location for a section or a problem. If the location is a block that contains other blocks, (such as the course, section, subsection, or unit blocks) then all blocks under that block will be included in the report.
+            type: string
+            minLength: 1
+        problem_types_filter:
+          description: 'A list of problem/block types to generate the report for. This field can be omitted if the report should include details of allblock types. '
           type: array
           items:
-            $ref: '#/components/schemas/ReportDownload'
-    ReportDownload:
-      description: Report Download
-      required:
-      - url
-      - name
-      - link
-      type: object
-      properties:
-        url:
-          title: Url
-          description: URL from which report can be downloaded.
-          type: string
-          format: uri
-          minLength: 1
-        name:
-          title: Name
-          description: Name of report.
-          type: string
-          minLength: 1
-        link:
-          title: Link
-          description: HTML anchor tag that contains the name and link.
-          type: string
-          minLength: 1
+            type: string
+            minLength: 1
   securitySchemes:
     Basic:
       type: http

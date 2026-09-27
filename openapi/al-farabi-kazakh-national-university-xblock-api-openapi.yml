@@ -128,7 +128,7 @@ paths:
       x-summary-source: derived
   /xblock/v2/xblocks/{usage_key}@{version}/:
     get:
-      operationId: xblock_v2_xblocks_read
+      operationId: getXblockV2XblocksByUsageKey}@{version
       summary: Get metadata about the specified block
       description: 'Accepts the following query parameters:
 
@@ -152,9 +152,11 @@ paths:
       responses:
         '200':
           description: ''
+      x-operation-id-source: normalized
+      x-operation-id-original: xblock_v2_xblocks_read
   /xblock/v2/xblocks/{usage_key}@{version}/fields/:
     get:
-      operationId: xblock_v2_xblocks_fields_list
+      operationId: getXblockV2XblocksByUsageKey}@{versionFields
       description: retrieves the xblock, returning display_name, data, and metadata
       tags:
       - xblock
@@ -174,8 +176,10 @@ paths:
           description: ''
       summary: Xblock v2 xblocks fields list
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: xblock_v2_xblocks_fields_list
     post:
-      operationId: xblock_v2_xblocks_fields_create
+      operationId: postXblockV2XblocksByUsageKey}@{versionFields
       description: edits the xblock, saving changes to data and metadata only (display_name included in metadata)
       tags:
       - xblock
@@ -195,9 +199,11 @@ paths:
           description: ''
       summary: Xblock v2 xblocks fields create
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: xblock_v2_xblocks_fields_create
   /xblock/v2/xblocks/{usage_key}@{version}/handler_url/{handler_name}/:
     get:
-      operationId: xblock_v2_xblocks_handler_url_read
+      operationId: getXblockV2XblocksByUsageKey}@{versionHandlerUrlByHandlerName
       summary: Get an absolute URL which can be used (without any authentication) to call the…
       description: The URL will expire but is guaranteed to be valid for a minimum of 2 days.
       tags:
@@ -221,9 +227,11 @@ paths:
       responses:
         '200':
           description: ''
+      x-operation-id-source: normalized
+      x-operation-id-original: xblock_v2_xblocks_handler_url_read
   /xblock/v2/xblocks/{usage_key}@{version}/olx/:
     get:
-      operationId: xblock_v2_xblocks_olx_list
+      operationId: getXblockV2XblocksByUsageKey}@{versionOlx
       description: Get the OLX (XML serialization) of the specified XBlock
       tags:
       - xblock
@@ -243,9 +251,11 @@ paths:
           description: ''
       summary: Xblock v2 xblocks olx list
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: xblock_v2_xblocks_olx_list
   /xblock/v2/xblocks/{usage_key}@{version}/view/{view_name}/:
     get:
-      operationId: xblock_v2_xblocks_view_read
+      operationId: getXblockV2XblocksByUsageKey}@{versionViewByViewName
       description: Get the HTML, JS, and CSS needed to render the given XBlock.
       tags:
       - xblock
@@ -270,6 +280,8 @@ paths:
           description: ''
       summary: Xblock v2 xblocks view read
       x-summary-source: derived
+      x-operation-id-source: normalized
+      x-operation-id-original: xblock_v2_xblocks_view_read
 components:
   securitySchemes:
     Basic:

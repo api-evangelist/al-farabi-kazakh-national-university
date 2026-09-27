@@ -216,7 +216,7 @@ paths:
         '404':
           description: The verified_name record associated with the username provided does not exist.
     post:
-      operationId: edx_name_affirmation_v1_verified_name_create
+      operationId: postEdxNameAffirmationV1VerifiedNameByVerifiedNameId
       summary: Creates a new VerifiedName
       description: 'Expected POST data: {
 
@@ -256,8 +256,10 @@ paths:
           description: User lacks required permission. Only an edX staff user can invoke this API
         '400':
           description: The posted data have conflicts with already stored verified name
+      x-operation-id-source: normalized
+      x-operation-id-original: edx_name_affirmation_v1_verified_name_create
     patch:
-      operationId: edx_name_affirmation_v1_verified_name_partial_update
+      operationId: patchEdxNameAffirmationV1VerifiedNameByVerifiedNameId
       summary: Update verified name status
       description: 'Example PATCH data: {
 
@@ -289,8 +291,10 @@ paths:
           description: User lacks required permission. Only an edX staff user can invoke this API
         '400':
           description: The edit action failed validation rules
+      x-operation-id-source: normalized
+      x-operation-id-original: edx_name_affirmation_v1_verified_name_partial_update
     delete:
-      operationId: edx_name_affirmation_v1_verified_name_delete
+      operationId: deleteEdxNameAffirmationV1VerifiedNameByVerifiedNameId
       summary: Delete verified name
       description: /edx_name_affirmation/v1/verified_name/{verified_name_id}
       tags:
@@ -314,6 +318,8 @@ paths:
           description: User lacks required permission. Only an edX staff user can invoke this API
         '404':
           description: The verified_name record associated with the id provided does not exist.
+      x-operation-id-source: normalized
+      x-operation-id-original: edx_name_affirmation_v1_verified_name_delete
 components:
   schemas:
     UpdateVerifiedName:
@@ -374,25 +380,6 @@ components:
           title: Status
           type: string
           minLength: 1
-    VerifiedNameConfig:
-      required:
-      - username
-      type: object
-      properties:
-        change_date:
-          title: Change date
-          type: string
-          format: date-time
-          readOnly: true
-        username:
-          title: Username
-          type: string
-          minLength: 1
-        use_verified_name_for_certs:
-          title: Use verified name for certs
-          type:
-          - boolean
-          - 'null'
     VerifiedName:
       required:
       - username
@@ -454,6 +441,25 @@ components:
           - string
           - 'null'
           minLength: 1
+    VerifiedNameConfig:
+      required:
+      - username
+      type: object
+      properties:
+        change_date:
+          title: Change date
+          type: string
+          format: date-time
+          readOnly: true
+        username:
+          title: Username
+          type: string
+          minLength: 1
+        use_verified_name_for_certs:
+          title: Use verified name for certs
+          type:
+          - boolean
+          - 'null'
   securitySchemes:
     Basic:
       type: http

@@ -386,28 +386,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    Membership:
-      required:
-      - user
-      - team
-      type: object
-      properties:
-        user:
-          title: User
-          type: string
-        team:
-          title: Team
-          type: string
-        date_joined:
-          title: Date joined
-          type: string
-          format: date-time
-          readOnly: true
-        last_activity_at:
-          title: Last activity at
-          type: string
-          format: date-time
-          readOnly: true
     CourseTeam:
       required:
       - name
@@ -658,6 +636,28 @@ components:
         organization_protected:
           title: Organization protected
           type: boolean
+    Membership:
+      required:
+      - user
+      - team
+      type: object
+      properties:
+        user:
+          title: User
+          type: string
+        team:
+          title: Team
+          type: string
+        date_joined:
+          title: Date joined
+          type: string
+          format: date-time
+          readOnly: true
+        last_activity_at:
+          title: Last activity at
+          type: string
+          format: date-time
+          readOnly: true
   securitySchemes:
     Basic:
       type: http

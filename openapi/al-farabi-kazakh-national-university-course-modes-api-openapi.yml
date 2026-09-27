@@ -191,7 +191,7 @@ paths:
                 $ref: '#/components/schemas/course_modes.CourseMode'
   /course_modes/v1/courses/{course_id}/{mode_slug}:
     get:
-      operationId: course_modes_v1_courses_read
+      operationId: getCourseModesV1CoursesByCourseIdByModeSlug
       summary: View to retrieve, update, or delete a specific course mode for a course
       description: '**Use Case**
 
@@ -292,6 +292,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/course_modes.CourseMode'
+      x-operation-id-source: normalized
+      x-operation-id-original: course_modes_v1_courses_read
     patch:
       operationId: course_modes_v1_courses_partial_update
       description: Performs a partial update of a CourseMode instance.

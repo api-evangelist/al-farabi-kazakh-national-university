@@ -124,7 +124,7 @@ x-coverage:
 specificationVersion: '0.23'
 apis:
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-agreements-api
-  name: Al-Farabi Kazakh National University agreements API
+  name: Al-Farabi Kazakh National University Agreements API
   description: >-
     The agreements API from Al-Farabi Kazakh National University — 2 operation(s) for agreements.
   humanURL: https://open.kaznu.kz/
@@ -152,7 +152,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-bookmarks-api
-  name: Al-Farabi Kazakh National University bookmarks API
+  name: Al-Farabi Kazakh National University Bookmarks API
   description: >-
     The bookmarks API from Al-Farabi Kazakh National University — 2 operation(s) for bookmarks.
   humanURL: https://open.kaznu.kz/
@@ -181,7 +181,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-certificates-api
-  name: Al-Farabi Kazakh National University certificates API
+  name: Al-Farabi Kazakh National University Certificates API
   description: >-
     The certificates API from Al-Farabi Kazakh National University — 2 operation(s) for certificates.
   humanURL: https://open.kaznu.kz/
@@ -210,7 +210,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-change-email-settings-api
-  name: Al-Farabi Kazakh National University change_email_settings API
+  name: Al-Farabi Kazakh National University Change Email Settings API
   description: >-
     The change_email_settings API from Al-Farabi Kazakh National University — 1 operation(s) for change_email_settings.
   humanURL: https://open.kaznu.kz/
@@ -237,7 +237,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-cohorts-api
-  name: Al-Farabi Kazakh National University cohorts API
+  name: Al-Farabi Kazakh National University Cohorts API
   description: The cohorts API from Al-Farabi Kazakh National University — 4 operation(s) for cohorts.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
@@ -264,7 +264,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-commerce-api
-  name: Al-Farabi Kazakh National University commerce API
+  name: Al-Farabi Kazakh National University Commerce API
   description: >-
     The commerce API from Al-Farabi Kazakh National University — 5 operation(s) for commerce.
   humanURL: https://open.kaznu.kz/
@@ -292,7 +292,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-completion-api
-  name: Al-Farabi Kazakh National University completion API
+  name: Al-Farabi Kazakh National University Completion API
   description: >-
     The completion API from Al-Farabi Kazakh National University — 2 operation(s) for completion.
   humanURL: https://open.kaznu.kz/
@@ -321,7 +321,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-course-experience-api
-  name: Al-Farabi Kazakh National University course_experience API
+  name: Al-Farabi Kazakh National University Course Experience API
   description: >-
     The course_experience API from Al-Farabi Kazakh National University — 2 operation(s) for course_experience.
   humanURL: https://open.kaznu.kz/
@@ -349,7 +349,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-course-home-api
-  name: Al-Farabi Kazakh National University course_home API
+  name: Al-Farabi Kazakh National University Course Home API
   description: >-
     The course_home API from Al-Farabi Kazakh National University — 18 operation(s) for course_home.
   humanURL: https://open.kaznu.kz/
@@ -377,7 +377,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-course-live-api
-  name: Al-Farabi Kazakh National University course_live API
+  name: Al-Farabi Kazakh National University Course Live API
   description: >-
     The course_live API from Al-Farabi Kazakh National University — 3 operation(s) for course_live.
   humanURL: https://open.kaznu.kz/
@@ -405,7 +405,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-course-modes-api
-  name: Al-Farabi Kazakh National University course_modes API
+  name: Al-Farabi Kazakh National University Course Modes API
   description: >-
     The course_modes API from Al-Farabi Kazakh National University — 2 operation(s) for course_modes.
   humanURL: https://open.kaznu.kz/
@@ -432,7 +432,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-courses-api
-  name: Al-Farabi Kazakh National University courses API
+  name: Al-Farabi Kazakh National University Courses API
   description: The courses API from Al-Farabi Kazakh National University — 9 operation(s) for courses.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
@@ -459,7 +459,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-courseware-api
-  name: Al-Farabi Kazakh National University courseware API
+  name: Al-Farabi Kazakh National University Courseware API
   description: >-
     The courseware API from Al-Farabi Kazakh National University — 4 operation(s) for courseware.
   humanURL: https://open.kaznu.kz/
@@ -487,7 +487,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-credit-api
-  name: Al-Farabi Kazakh National University credit API
+  name: Al-Farabi Kazakh National University Credit API
   description: The credit API from Al-Farabi Kazakh National University — 7 operation(s) for credit.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
@@ -514,7 +514,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-dashboard-api
-  name: Al-Farabi Kazakh National University dashboard API
+  name: Al-Farabi Kazakh National University Dashboard API
   description: >-
     The dashboard API from Al-Farabi Kazakh National University — 2 operation(s) for dashboard.
   humanURL: https://open.kaznu.kz/
@@ -542,7 +542,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-discounts-api
-  name: Al-Farabi Kazakh National University discounts API
+  name: Al-Farabi Kazakh National University Discounts API
   description: >-
     The discounts API from Al-Farabi Kazakh National University — 2 operation(s) for discounts.
   humanURL: https://open.kaznu.kz/
@@ -570,7 +570,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-discussion-api
-  name: Al-Farabi Kazakh National University discussion API
+  name: Al-Farabi Kazakh National University Discussion API
   description: >-
     The discussion API from Al-Farabi Kazakh National University — 16 operation(s) for discussion.
   humanURL: https://open.kaznu.kz/
@@ -599,7 +599,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-edx-name-affirmation-api
-  name: Al-Farabi Kazakh National University edx_name_affirmation API
+  name: Al-Farabi Kazakh National University Edx Name Affirmation API
   description: >-
     The edx_name_affirmation API from Al-Farabi Kazakh National University — 4 operation(s) for edx_name_affirmation.
   humanURL: https://open.kaznu.kz/
@@ -627,7 +627,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-edx-proctoring-api
-  name: Al-Farabi Kazakh National University edx_proctoring API
+  name: Al-Farabi Kazakh National University Edx Proctoring API
   description: >-
     The edx_proctoring API from Al-Farabi Kazakh National University — 30 operation(s) for edx_proctoring.
   humanURL: https://open.kaznu.kz/
@@ -654,7 +654,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-edxnotes-api
-  name: Al-Farabi Kazakh National University edxnotes API
+  name: Al-Farabi Kazakh National University Edxnotes API
   description: >-
     The edxnotes API from Al-Farabi Kazakh National University — 1 operation(s) for edxnotes.
   humanURL: https://open.kaznu.kz/
@@ -680,7 +680,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-enrollment-api
-  name: Al-Farabi Kazakh National University enrollment API
+  name: Al-Farabi Kazakh National University Enrollment API
   description: >-
     The enrollment API from Al-Farabi Kazakh National University — 8 operation(s) for enrollment.
   humanURL: https://open.kaznu.kz/
@@ -709,7 +709,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-entitlements-api
-  name: Al-Farabi Kazakh National University entitlements API
+  name: Al-Farabi Kazakh National University Entitlements API
   description: >-
     The entitlements API from Al-Farabi Kazakh National University — 3 operation(s) for entitlements.
   humanURL: https://open.kaznu.kz/
@@ -738,7 +738,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-experiments-api
-  name: Al-Farabi Kazakh National University experiments API
+  name: Al-Farabi Kazakh National University Experiments API
   description: >-
     The experiments API from Al-Farabi Kazakh National University — 6 operation(s) for experiments.
   humanURL: https://open.kaznu.kz/
@@ -766,7 +766,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-grades-api
-  name: Al-Farabi Kazakh National University grades API
+  name: Al-Farabi Kazakh National University Grades API
   description: The grades API from Al-Farabi Kazakh National University — 9 operation(s) for grades.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
@@ -793,7 +793,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-instructor-api
-  name: Al-Farabi Kazakh National University instructor API
+  name: Al-Farabi Kazakh National University Instructor API
   description: >-
     The instructor API from Al-Farabi Kazakh National University — 3 operation(s) for instructor.
   humanURL: https://open.kaznu.kz/
@@ -822,7 +822,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-instructor-task-api
-  name: Al-Farabi Kazakh National University instructor_task API
+  name: Al-Farabi Kazakh National University Instructor Task API
   description: >-
     The instructor_task API from Al-Farabi Kazakh National University — 2 operation(s) for instructor_task.
   humanURL: https://open.kaznu.kz/
@@ -850,7 +850,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-learner-home-api
-  name: Al-Farabi Kazakh National University learner_home API
+  name: Al-Farabi Kazakh National University Learner Home API
   description: >-
     The learner_home API from Al-Farabi Kazakh National University — 4 operation(s) for learner_home.
   humanURL: https://open.kaznu.kz/
@@ -878,7 +878,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-learning-sequences-api
-  name: Al-Farabi Kazakh National University learning_sequences API
+  name: Al-Farabi Kazakh National University Learning Sequences API
   description: >-
     The learning_sequences API from Al-Farabi Kazakh National University — 1 operation(s) for learning_sequences.
   humanURL: https://open.kaznu.kz/
@@ -906,7 +906,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-lti-consumer-api
-  name: Al-Farabi Kazakh National University lti_consumer API
+  name: Al-Farabi Kazakh National University Lti Consumer API
   description: >-
     The lti_consumer API from Al-Farabi Kazakh National University — 6 operation(s) for lti_consumer.
   humanURL: https://open.kaznu.kz/
@@ -933,7 +933,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-mfe-config-api
-  name: Al-Farabi Kazakh National University mfe_config API
+  name: Al-Farabi Kazakh National University Mfe Config API
   description: >-
     The mfe_config API from Al-Farabi Kazakh National University — 1 operation(s) for mfe_config.
   humanURL: https://open.kaznu.kz/
@@ -961,7 +961,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-mfe-context-api
-  name: Al-Farabi Kazakh National University mfe_context API
+  name: Al-Farabi Kazakh National University Mfe Context API
   description: >-
     The mfe_context API from Al-Farabi Kazakh National University — 1 operation(s) for mfe_context.
   humanURL: https://open.kaznu.kz/
@@ -988,7 +988,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-mobile-api
-  name: Al-Farabi Kazakh National University mobile API
+  name: Al-Farabi Kazakh National University Mobile API
   description: The mobile API from Al-Farabi Kazakh National University — 11 operation(s) for mobile.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
@@ -1016,7 +1016,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-notifications-api
-  name: Al-Farabi Kazakh National University notifications API
+  name: Al-Farabi Kazakh National University Notifications API
   description: >-
     The notifications API from Al-Farabi Kazakh National University — 9 operation(s) for notifications.
   humanURL: https://open.kaznu.kz/
@@ -1045,7 +1045,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-ora-staff-grader-api
-  name: Al-Farabi Kazakh National University ora_staff_grader API
+  name: Al-Farabi Kazakh National University Ora Staff Grader API
   description: >-
     The ora_staff_grader API from Al-Farabi Kazakh National University — 15 operation(s) for ora_staff_grader.
   humanURL: https://open.kaznu.kz/
@@ -1073,7 +1073,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-organizations-api
-  name: Al-Farabi Kazakh National University organizations API
+  name: Al-Farabi Kazakh National University Organizations API
   description: >-
     The organizations API from Al-Farabi Kazakh National University — 2 operation(s) for organizations.
   humanURL: https://open.kaznu.kz/
@@ -1102,7 +1102,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-profile-images-api
-  name: Al-Farabi Kazakh National University profile_images API
+  name: Al-Farabi Kazakh National University Profile Images API
   description: >-
     The profile_images API from Al-Farabi Kazakh National University — 2 operation(s) for profile_images.
   humanURL: https://open.kaznu.kz/
@@ -1131,7 +1131,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-program-enrollments-api
-  name: Al-Farabi Kazakh National University program_enrollments API
+  name: Al-Farabi Kazakh National University Program Enrollments API
   description: >-
     The program_enrollments API from Al-Farabi Kazakh National University — 8 operation(s) for program_enrollments.
   humanURL: https://open.kaznu.kz/
@@ -1159,7 +1159,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-send-account-activation-email-api
-  name: Al-Farabi Kazakh National University send_account_activation_email API
+  name: Al-Farabi Kazakh National University Send Account Activation Email API
   description: >-
     The send_account_activation_email API from Al-Farabi Kazakh National University — 1 operation(s) for
     send_account_activation_email.
@@ -1188,7 +1188,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-team-api
-  name: Al-Farabi Kazakh National University team API
+  name: Al-Farabi Kazakh National University Team API
   description: The team API from Al-Farabi Kazakh National University — 8 operation(s) for team.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
@@ -1216,7 +1216,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-third-party-auth-api
-  name: Al-Farabi Kazakh National University third_party_auth API
+  name: Al-Farabi Kazakh National University Third Party Auth API
   description: >-
     The third_party_auth API from Al-Farabi Kazakh National University — 4 operation(s) for third_party_auth.
   humanURL: https://open.kaznu.kz/
@@ -1245,7 +1245,7 @@ apis:
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: >-
     al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-third-party-auth-context-api
-  name: Al-Farabi Kazakh National University third_party_auth_context API
+  name: Al-Farabi Kazakh National University Third Party Auth Context API
   description: >-
     The third_party_auth_context API from Al-Farabi Kazakh National University — 1 operation(s) for third_party_auth_context.
   humanURL: https://open.kaznu.kz/
@@ -1272,7 +1272,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-toggles-api
-  name: Al-Farabi Kazakh National University toggles API
+  name: Al-Farabi Kazakh National University Toggles API
   description: The toggles API from Al-Farabi Kazakh National University — 1 operation(s) for toggles.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
@@ -1297,7 +1297,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-univertest-api
-  name: Al-Farabi Kazakh National University univertest API
+  name: Al-Farabi Kazakh National University Univertest API
   description: >-
     The univertest API from Al-Farabi Kazakh National University — 1 operation(s) for univertest.
   humanURL: https://open.kaznu.kz/
@@ -1323,7 +1323,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-user-api
-  name: Al-Farabi Kazakh National University user API
+  name: Al-Farabi Kazakh National University User API
   description: The user API from Al-Farabi Kazakh National University — 38 operation(s) for user.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
@@ -1350,7 +1350,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-user-tours-api
-  name: Al-Farabi Kazakh National University user_tours API
+  name: Al-Farabi Kazakh National University User Tours API
   description: >-
     The user_tours API from Al-Farabi Kazakh National University — 2 operation(s) for user_tours.
   humanURL: https://open.kaznu.kz/
@@ -1377,7 +1377,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-val-api
-  name: Al-Farabi Kazakh National University val API
+  name: Al-Farabi Kazakh National University Val API
   description: The val API from Al-Farabi Kazakh National University — 9 operation(s) for val.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api
@@ -1402,7 +1402,7 @@ apis:
   - type: x-json-ld
     url: json-ld/al-farabi-kazakh-national-university-context.jsonld
 - aid: al-farabi-kazakh-national-university:al-farabi-kazakh-national-university-xblock-api
-  name: Al-Farabi Kazakh National University xblock API
+  name: Al-Farabi Kazakh National University Xblock API
   description: The xblock API from Al-Farabi Kazakh National University — 10 operation(s) for xblock.
   humanURL: https://open.kaznu.kz/
   baseURL: https://open.kaznu.kz/api

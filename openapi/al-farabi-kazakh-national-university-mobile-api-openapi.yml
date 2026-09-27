@@ -567,6 +567,35 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    mobile_api.User:
+      required:
+      - username
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        username:
+          title: Имя пользователя
+          description: Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.
+          type: string
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+          minLength: 1
+        email:
+          title: Адрес электронной почты
+          type: string
+          format: email
+          maxLength: 254
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        course_enrollments:
+          title: Course enrollments
+          type: string
+          readOnly: true
     GCMDevice:
       required:
       - registration_id
@@ -648,35 +677,6 @@ components:
           readOnly: true
         course_modes:
           title: Course modes
-          type: string
-          readOnly: true
-    mobile_api.User:
-      required:
-      - username
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        username:
-          title: Имя пользователя
-          description: Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.
-          type: string
-          pattern: ^[\w.@+-]+$
-          maxLength: 150
-          minLength: 1
-        email:
-          title: Адрес электронной почты
-          type: string
-          format: email
-          maxLength: 254
-        name:
-          title: Name
-          type: string
-          readOnly: true
-        course_enrollments:
-          title: Course enrollments
           type: string
           readOnly: true
   securitySchemes:

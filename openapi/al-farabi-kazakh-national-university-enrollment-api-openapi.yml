@@ -91,7 +91,7 @@ paths:
           description: ''
   /enrollment/v1/enrollment/{username},{course_id}:
     get:
-      operationId: enrollment_v1_enrollment_read
+      operationId: getEnrollmentV1EnrollmentByUsername},{courseId
       summary: Create, read, or update enrollment information for a user
       description: 'HTTP Endpoint for all CRUD operations for a user course enrollment. Allows creation, reading, and
 
@@ -112,6 +112,8 @@ paths:
       responses:
         '200':
           description: ''
+      x-operation-id-source: normalized
+      x-operation-id-original: enrollment_v1_enrollment_read
   /enrollment/v1/enrollment_allowed/:
     get:
       operationId: enrollment_v1_enrollment_allowed_list
