@@ -455,6 +455,13 @@ components:
           - string
           - 'null'
           minLength: 1
+    NotificationCourseEnrollment:
+      required:
+      - course
+      type: object
+      properties:
+        course:
+          $ref: '#/components/schemas/CourseOverview'
     Notification:
       required:
       - app_name
@@ -512,13 +519,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    NotificationCourseEnrollment:
-      required:
-      - course
-      type: object
-      properties:
-        course:
-          $ref: '#/components/schemas/CourseOverview'
   securitySchemes:
     Basic:
       type: http

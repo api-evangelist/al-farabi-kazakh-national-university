@@ -449,25 +449,6 @@ paths:
           description: The requested program does not exist.
 components:
   schemas:
-    DueDate:
-      required:
-      - name
-      - url
-      - date
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-          minLength: 1
-        url:
-          title: Url
-          type: string
-          minLength: 1
-        date:
-          title: Date
-          type: string
-          format: date-time
     PageOfCourseRunOverview:
       required:
       - results
@@ -490,6 +471,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CourseRunOverview'
+    DueDate:
+      required:
+      - name
+      - url
+      - date
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          minLength: 1
+        date:
+          title: Date
+          type: string
+          format: date-time
     CourseRunOverviewList:
       required:
       - course_runs

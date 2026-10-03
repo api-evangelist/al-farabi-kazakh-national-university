@@ -141,6 +141,35 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    Lti:
+      required:
+      - lti_config
+      type: object
+      properties:
+        lti_1p1_client_key:
+          title: Lti 1p1 client key
+          description: Client key provided by the LTI tool provider.
+          type: string
+          maxLength: 255
+        lti_1p1_client_secret:
+          title: Lti 1p1 client secret
+          description: Client secret provided by the LTI tool provider.
+          type: string
+          maxLength: 255
+        lti_1p1_launch_url:
+          title: Lti 1p1 launch url
+          description: The URL of the external tool that initiates the launch.
+          type: string
+          maxLength: 255
+        version:
+          title: Version
+          type: string
+          enum:
+          - lti_1p1
+          - lti_1p3
+        lti_config:
+          title: Lti config
+          type: object
     CourseLiveConfiguration:
       required:
       - provider_type
@@ -171,35 +200,6 @@ components:
           title: Free tier
           description: True, if LTI credential are provided by Org globally
           type: boolean
-    Lti:
-      required:
-      - lti_config
-      type: object
-      properties:
-        lti_1p1_client_key:
-          title: Lti 1p1 client key
-          description: Client key provided by the LTI tool provider.
-          type: string
-          maxLength: 255
-        lti_1p1_client_secret:
-          title: Lti 1p1 client secret
-          description: Client secret provided by the LTI tool provider.
-          type: string
-          maxLength: 255
-        lti_1p1_launch_url:
-          title: Lti 1p1 launch url
-          description: The URL of the external tool that initiates the launch.
-          type: string
-          maxLength: 255
-        version:
-          title: Version
-          type: string
-          enum:
-          - lti_1p1
-          - lti_1p3
-        lti_config:
-          title: Lti config
-          type: object
   securitySchemes:
     Basic:
       type: http

@@ -322,18 +322,13 @@ paths:
       x-operation-id-original: edx_name_affirmation_v1_verified_name_delete
 components:
   schemas:
-    UpdateVerifiedName:
+    VerifiedNameConfig:
       required:
       - username
-      - status
       type: object
       properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        created:
-          title: Создано
+        change_date:
+          title: Change date
           type: string
           format: date-time
           readOnly: true
@@ -341,45 +336,11 @@ components:
           title: Username
           type: string
           minLength: 1
-        verified_name:
-          title: Verified name
-          type: string
-          minLength: 1
-        profile_name:
-          title: Profile name
-          type: string
-          minLength: 1
-        verification_attempt_id:
-          title: Verification attempt id
+        use_verified_name_for_certs:
+          title: Use verified name for certs
           type:
-          - integer
+          - boolean
           - 'null'
-        verification_attempt_status:
-          title: Verification attempt status
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        proctored_exam_attempt_id:
-          title: Proctored exam attempt id
-          type:
-          - integer
-          - 'null'
-        platform_verification_attempt_id:
-          title: Platform verification attempt id
-          type:
-          - integer
-          - 'null'
-        platform_verification_attempt_status:
-          title: Platform verification attempt status
-          type:
-          - string
-          - 'null'
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          minLength: 1
     VerifiedName:
       required:
       - username
@@ -441,13 +402,18 @@ components:
           - string
           - 'null'
           minLength: 1
-    VerifiedNameConfig:
+    UpdateVerifiedName:
       required:
       - username
+      - status
       type: object
       properties:
-        change_date:
-          title: Change date
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        created:
+          title: Создано
           type: string
           format: date-time
           readOnly: true
@@ -455,11 +421,45 @@ components:
           title: Username
           type: string
           minLength: 1
-        use_verified_name_for_certs:
-          title: Use verified name for certs
+        verified_name:
+          title: Verified name
+          type: string
+          minLength: 1
+        profile_name:
+          title: Profile name
+          type: string
+          minLength: 1
+        verification_attempt_id:
+          title: Verification attempt id
           type:
-          - boolean
+          - integer
           - 'null'
+        verification_attempt_status:
+          title: Verification attempt status
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        proctored_exam_attempt_id:
+          title: Proctored exam attempt id
+          type:
+          - integer
+          - 'null'
+        platform_verification_attempt_id:
+          title: Platform verification attempt id
+          type:
+          - integer
+          - 'null'
+        platform_verification_attempt_status:
+          title: Platform verification attempt status
+          type:
+          - string
+          - 'null'
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          minLength: 1
   securitySchemes:
     Basic:
       type: http

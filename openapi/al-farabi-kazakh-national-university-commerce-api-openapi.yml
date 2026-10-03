@@ -149,31 +149,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    commerce.Course:
-      required:
-      - id
-      - modes
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          minLength: 1
-        name:
-          title: Name
-          type: string
-          readOnly: true
-          minLength: 1
-        verification_deadline:
-          title: Verification deadline
-          type:
-          - string
-          - 'null'
-          format: date-time
-        modes:
-          type: array
-          items:
-            $ref: '#/components/schemas/commerce.CourseMode'
     commerce.CourseMode:
       required:
       - name
@@ -226,6 +201,31 @@ components:
           - string
           - 'null'
           maxLength: 255
+    commerce.Course:
+      required:
+      - id
+      - modes
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          readOnly: true
+          minLength: 1
+        verification_deadline:
+          title: Verification deadline
+          type:
+          - string
+          - 'null'
+          format: date-time
+        modes:
+          type: array
+          items:
+            $ref: '#/components/schemas/commerce.CourseMode'
   securitySchemes:
     Basic:
       type: http

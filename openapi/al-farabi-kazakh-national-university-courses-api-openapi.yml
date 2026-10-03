@@ -959,6 +959,22 @@ components:
           type: string
           readOnly: true
           minLength: 1
+    _CourseApiMediaCollection:
+      required:
+      - banner_image
+      - course_image
+      - course_video
+      - image
+      type: object
+      properties:
+        banner_image:
+          $ref: '#/components/schemas/_AbsolutMedia'
+        course_image:
+          $ref: '#/components/schemas/_Media'
+        course_video:
+          $ref: '#/components/schemas/_Media'
+        image:
+          $ref: '#/components/schemas/Image'
     _Media:
       type: object
       properties:
@@ -977,44 +993,6 @@ components:
           title: Uri absolute
           type: string
           readOnly: true
-    Image:
-      required:
-      - raw
-      - small
-      - large
-      type: object
-      properties:
-        raw:
-          title: Raw
-          type: string
-          format: uri
-          minLength: 1
-        small:
-          title: Small
-          type: string
-          format: uri
-          minLength: 1
-        large:
-          title: Large
-          type: string
-          format: uri
-          minLength: 1
-    _CourseApiMediaCollection:
-      required:
-      - banner_image
-      - course_image
-      - course_video
-      - image
-      type: object
-      properties:
-        banner_image:
-          $ref: '#/components/schemas/_AbsolutMedia'
-        course_image:
-          $ref: '#/components/schemas/_Media'
-        course_video:
-          $ref: '#/components/schemas/_Media'
-        image:
-          $ref: '#/components/schemas/Image'
     CourseDetail:
       required:
       - effort
@@ -1112,6 +1090,28 @@ components:
           title: Overview
           type: string
           readOnly: true
+    Image:
+      required:
+      - raw
+      - small
+      - large
+      type: object
+      properties:
+        raw:
+          title: Raw
+          type: string
+          format: uri
+          minLength: 1
+        small:
+          title: Small
+          type: string
+          format: uri
+          minLength: 1
+        large:
+          title: Large
+          type: string
+          format: uri
+          minLength: 1
   securitySchemes:
     Basic:
       type: http

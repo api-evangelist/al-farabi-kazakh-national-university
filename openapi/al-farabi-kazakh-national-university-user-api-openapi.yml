@@ -1102,6 +1102,75 @@ paths:
                     type: string
 components:
   schemas:
+    UserPreference:
+      required:
+      - user
+      - key
+      - value
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/user_api.User'
+        key:
+          title: Key
+          type: string
+          pattern: '[-_a-zA-Z0-9]+'
+          maxLength: 255
+          minLength: 1
+        value:
+          title: Value
+          type: string
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+    IDVerificationDetails:
+      required:
+      - status
+      - expiration_datetime
+      - updated_at
+      type: object
+      properties:
+        type:
+          title: Type
+          type: string
+          readOnly: true
+        status:
+          title: Status
+          type: string
+          minLength: 1
+        expiration_datetime:
+          title: Expiration datetime
+          type: string
+          format: date-time
+        message:
+          title: Message
+          type: string
+          readOnly: true
+        updated_at:
+          title: Updated at
+          type: string
+          format: date-time
+        receipt_id:
+          title: Receipt id
+          type: string
+          readOnly: true
+    CountryTimeZone:
+      required:
+      - time_zone
+      - description
+      type: object
+      properties:
+        time_zone:
+          title: Time zone
+          type: string
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          minLength: 1
     user_api.User:
       type: object
       properties:
@@ -1132,75 +1201,6 @@ components:
           minLength: 1
         preferences:
           title: Preferences
-          type: string
-          readOnly: true
-    UserPreference:
-      required:
-      - user
-      - key
-      - value
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/user_api.User'
-        key:
-          title: Key
-          type: string
-          pattern: '[-_a-zA-Z0-9]+'
-          maxLength: 255
-          minLength: 1
-        value:
-          title: Value
-          type: string
-          minLength: 1
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-    CountryTimeZone:
-      required:
-      - time_zone
-      - description
-      type: object
-      properties:
-        time_zone:
-          title: Time zone
-          type: string
-          minLength: 1
-        description:
-          title: Description
-          type: string
-          minLength: 1
-    IDVerificationDetails:
-      required:
-      - status
-      - expiration_datetime
-      - updated_at
-      type: object
-      properties:
-        type:
-          title: Type
-          type: string
-          readOnly: true
-        status:
-          title: Status
-          type: string
-          minLength: 1
-        expiration_datetime:
-          title: Expiration datetime
-          type: string
-          format: date-time
-        message:
-          title: Message
-          type: string
-          readOnly: true
-        updated_at:
-          title: Updated at
-          type: string
-          format: date-time
-        receipt_id:
-          title: Receipt id
           type: string
           readOnly: true
   securitySchemes:

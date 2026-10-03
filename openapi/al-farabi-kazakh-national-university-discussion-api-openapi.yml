@@ -502,6 +502,22 @@ paths:
           description: ''
 components:
   schemas:
+    ReasonCodeSeralizer:
+      required:
+      - code
+      - label
+      type: object
+      properties:
+        code:
+          title: Code
+          description: A code for the an edit or close reason
+          type: string
+          minLength: 1
+        label:
+          title: Label
+          description: A user-friendly name text for the close or edit reason
+          type: string
+          minLength: 1
     DiscussionTopicSerializerV2:
       type: object
       properties:
@@ -533,38 +549,6 @@ components:
           description: Whether this topic is enabled in its context
           type: boolean
           readOnly: true
-    BlackoutDate:
-      required:
-      - start
-      - end
-      type: object
-      properties:
-        start:
-          title: Start
-          description: The ISO 8601 timestamp for the start of the blackout period
-          type: string
-          format: date-time
-        end:
-          title: End
-          description: The ISO 8601 timestamp for the end of the blackout period
-          type: string
-          format: date-time
-    ReasonCodeSeralizer:
-      required:
-      - code
-      - label
-      type: object
-      properties:
-        code:
-          title: Code
-          description: A code for the an edit or close reason
-          type: string
-          minLength: 1
-        label:
-          title: Label
-          description: A user-friendly name text for the close or edit reason
-          type: string
-          minLength: 1
     CourseMetadataSerailizer:
       required:
       - id
@@ -651,6 +635,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReasonCodeSeralizer'
+    BlackoutDate:
+      required:
+      - start
+      - end
+      type: object
+      properties:
+        start:
+          title: Start
+          description: The ISO 8601 timestamp for the start of the blackout period
+          type: string
+          format: date-time
+        end:
+          title: End
+          description: The ISO 8601 timestamp for the end of the blackout period
+          type: string
+          format: date-time
   securitySchemes:
     Basic:
       type: http
