@@ -1157,20 +1157,6 @@ components:
           title: Receipt id
           type: string
           readOnly: true
-    CountryTimeZone:
-      required:
-      - time_zone
-      - description
-      type: object
-      properties:
-        time_zone:
-          title: Time zone
-          type: string
-          minLength: 1
-        description:
-          title: Description
-          type: string
-          minLength: 1
     user_api.User:
       type: object
       properties:
@@ -1203,6 +1189,20 @@ components:
           title: Preferences
           type: string
           readOnly: true
+    CountryTimeZone:
+      required:
+      - time_zone
+      - description
+      type: object
+      properties:
+        time_zone:
+          title: Time zone
+          type: string
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          minLength: 1
   securitySchemes:
     Basic:
       type: http

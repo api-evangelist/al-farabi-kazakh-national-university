@@ -618,17 +618,13 @@ components:
         organization_protected:
           title: Organization protected
           type: boolean
-    Membership:
+    UserMembership:
       required:
       - user
-      - team
       type: object
       properties:
         user:
           title: User
-          type: string
-        team:
-          title: Team
           type: string
         date_joined:
           title: Date joined
@@ -640,13 +636,17 @@ components:
           type: string
           format: date-time
           readOnly: true
-    UserMembership:
+    Membership:
       required:
       - user
+      - team
       type: object
       properties:
         user:
           title: User
+          type: string
+        team:
+          title: Team
           type: string
         date_joined:
           title: Date joined

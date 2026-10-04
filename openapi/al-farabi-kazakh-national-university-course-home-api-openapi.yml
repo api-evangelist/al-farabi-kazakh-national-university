@@ -846,55 +846,79 @@ paths:
           description: ''
 components:
   schemas:
-    GradingPolicy:
+    DateSummary:
       required:
-      - grade_range
+      - complete
+      - date
+      - date_type
+      - description
+      - link_text
+      - title
+      - extra_info
       type: object
       properties:
-        assignment_policies:
-          title: Assignment policies
+        assignment_type:
+          title: Assignment type
+          type: string
+          minLength: 1
+        complete:
+          title: Complete
+          type:
+          - boolean
+          - 'null'
+        date:
+          title: Date
+          type: string
+          format: date-time
+        date_type:
+          title: Date type
+          type: string
+          minLength: 1
+        description:
+          title: Description
+          type: string
+          minLength: 1
+        learner_has_access:
+          title: Learner has access
           type: string
           readOnly: true
-        grade_range:
-          title: Grade range
-          type: object
-          additionalProperties:
-            type:
-            - string
-            - 'null'
-    CourseModeSerrializer:
+        link:
+          title: Link
+          type: string
+          readOnly: true
+        link_text:
+          title: Link text
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        extra_info:
+          title: Extra info
+          type: string
+          minLength: 1
+        first_component_block_id:
+          title: First component block id
+          type: string
+          readOnly: true
+    CourseTab:
       required:
-      - slug
-      - name
+      - tab_id
       type: object
       properties:
-        slug:
-          title: Slug
+        tab_id:
+          title: Tab id
           type: string
           minLength: 1
-        name:
-          title: Name
+        title:
+          title: Title
           type: string
-          minLength: 1
-    DatesWidget:
-      required:
-      - course_date_blocks
-      - dates_tab_link
-      - user_timezone
-      type: object
-      properties:
-        course_date_blocks:
-          type: array
-          items:
-            $ref: '#/components/schemas/DateSummary'
-        dates_tab_link:
-          title: Dates tab link
+          readOnly: true
+        url:
+          title: Url
           type: string
-          minLength: 1
-        user_timezone:
-          title: User timezone
-          type: string
-          minLength: 1
+          readOnly: true
     OutlineTab:
       required:
       - access_expiration
@@ -973,6 +997,39 @@ components:
         user_has_passing_grade:
           title: User has passing grade
           type: boolean
+    CourseBlock:
+      type: object
+      properties:
+        blocks:
+          title: Blocks
+          type: string
+          readOnly: true
+    DatesTab:
+      required:
+      - course_date_blocks
+      - has_ended
+      - learner_is_full_access
+      - user_timezone
+      type: object
+      properties:
+        dates_banner_info:
+          title: Dates banner info
+          type: string
+          readOnly: true
+        course_date_blocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/DateSummary'
+        has_ended:
+          title: Has ended
+          type: boolean
+        learner_is_full_access:
+          title: Learner is full access
+          type: boolean
+        user_timezone:
+          title: User timezone
+          type: string
+          minLength: 1
     EnrollAlert:
       required:
       - can_enroll
@@ -985,6 +1042,20 @@ components:
         extra_text:
           title: Extra text
           type: string
+          minLength: 1
+    ResumeCourse:
+      required:
+      - has_visited_course
+      - url
+      type: object
+      properties:
+        has_visited_course:
+          title: Has visited course
+          type: boolean
+        url:
+          title: Url
+          type: string
+          format: uri
           minLength: 1
     CourseHomeMetadata:
       required:
@@ -1087,70 +1158,6 @@ components:
         has_course_author_access:
           title: Has course author access
           type: boolean
-    SectionScores:
-      required:
-      - display_name
-      - subsections
-      type: object
-      properties:
-        display_name:
-          title: Display name
-          type: string
-          minLength: 1
-        subsections:
-          type: array
-          items:
-            $ref: '#/components/schemas/SubsectionScores'
-    CourseTab:
-      required:
-      - tab_id
-      type: object
-      properties:
-        tab_id:
-          title: Tab id
-          type: string
-          minLength: 1
-        title:
-          title: Title
-          type: string
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          readOnly: true
-    DatesTab:
-      required:
-      - course_date_blocks
-      - has_ended
-      - learner_is_full_access
-      - user_timezone
-      type: object
-      properties:
-        dates_banner_info:
-          title: Dates banner info
-          type: string
-          readOnly: true
-        course_date_blocks:
-          type: array
-          items:
-            $ref: '#/components/schemas/DateSummary'
-        has_ended:
-          title: Has ended
-          type: boolean
-        learner_is_full_access:
-          title: Learner is full access
-          type: boolean
-        user_timezone:
-          title: User timezone
-          type: string
-          minLength: 1
-    CourseBlock:
-      type: object
-      properties:
-        blocks:
-          title: Blocks
-          type: string
-          readOnly: true
     SubsectionScores:
       required:
       - assignment_type
@@ -1210,48 +1217,87 @@ components:
           title: Url
           type: string
           readOnly: true
-    CertificateData:
+    CourseGrade:
       required:
-      - cert_status
-      - cert_web_view_url
-      - download_url
-      - certificate_available_date
+      - letter_grade
+      - percent
+      - is_passing
       type: object
       properties:
-        cert_status:
-          title: Cert status
+        letter_grade:
+          title: Letter grade
           type: string
           minLength: 1
-        cert_web_view_url:
-          title: Cert web view url
-          type: string
-          minLength: 1
-        download_url:
-          title: Download url
-          type: string
-          minLength: 1
-        certificate_available_date:
-          title: Certificate available date
-          type: string
-          format: date-time
-    CourseTool:
+        percent:
+          title: Percent
+          type: number
+        is_passing:
+          title: Is passing
+          type: boolean
+    CourseModeSerrializer:
       required:
-      - analytics_id
-      - title
+      - slug
+      - name
       type: object
       properties:
-        analytics_id:
-          title: Analytics id
+        slug:
+          title: Slug
           type: string
           minLength: 1
-        title:
-          title: Title
+        name:
+          title: Name
           type: string
           minLength: 1
-        url:
-          title: Url
+    GradingPolicy:
+      required:
+      - grade_range
+      type: object
+      properties:
+        assignment_policies:
+          title: Assignment policies
           type: string
           readOnly: true
+        grade_range:
+          title: Grade range
+          type: object
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+    SectionScores:
+      required:
+      - display_name
+      - subsections
+      type: object
+      properties:
+        display_name:
+          title: Display name
+          type: string
+          minLength: 1
+        subsections:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubsectionScores'
+    VerificationData:
+      required:
+      - link
+      - status
+      - status_date
+      type: object
+      properties:
+        link:
+          title: Link
+          type: string
+          format: uri
+          minLength: 1
+        status:
+          title: Status
+          type: string
+          minLength: 1
+        status_date:
+          title: Status date
+          type: string
+          format: date-time
     ProgressTab:
       required:
       - access_expiration
@@ -1333,112 +1379,24 @@ components:
         disable_progress_graph:
           title: Disable progress graph
           type: boolean
-    DateSummary:
+    DatesWidget:
       required:
-      - complete
-      - date
-      - date_type
-      - description
-      - link_text
-      - title
-      - extra_info
+      - course_date_blocks
+      - dates_tab_link
+      - user_timezone
       type: object
       properties:
-        assignment_type:
-          title: Assignment type
+        course_date_blocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/DateSummary'
+        dates_tab_link:
+          title: Dates tab link
           type: string
           minLength: 1
-        complete:
-          title: Complete
-          type:
-          - boolean
-          - 'null'
-        date:
-          title: Date
+        user_timezone:
+          title: User timezone
           type: string
-          format: date-time
-        date_type:
-          title: Date type
-          type: string
-          minLength: 1
-        description:
-          title: Description
-          type: string
-          minLength: 1
-        learner_has_access:
-          title: Learner has access
-          type: string
-          readOnly: true
-        link:
-          title: Link
-          type: string
-          readOnly: true
-        link_text:
-          title: Link text
-          type: string
-          minLength: 1
-        title:
-          title: Title
-          type: string
-          minLength: 1
-        extra_info:
-          title: Extra info
-          type: string
-          minLength: 1
-        first_component_block_id:
-          title: First component block id
-          type: string
-          readOnly: true
-    CourseGrade:
-      required:
-      - letter_grade
-      - percent
-      - is_passing
-      type: object
-      properties:
-        letter_grade:
-          title: Letter grade
-          type: string
-          minLength: 1
-        percent:
-          title: Percent
-          type: number
-        is_passing:
-          title: Is passing
-          type: boolean
-    VerificationData:
-      required:
-      - link
-      - status
-      - status_date
-      type: object
-      properties:
-        link:
-          title: Link
-          type: string
-          format: uri
-          minLength: 1
-        status:
-          title: Status
-          type: string
-          minLength: 1
-        status_date:
-          title: Status date
-          type: string
-          format: date-time
-    ResumeCourse:
-      required:
-      - has_visited_course
-      - url
-      type: object
-      properties:
-        has_visited_course:
-          title: Has visited course
-          type: boolean
-        url:
-          title: Url
-          type: string
-          format: uri
           minLength: 1
     CourseGoals:
       required:
@@ -1456,6 +1414,48 @@ components:
           title: Weekly learning goal enabled
           type: boolean
           default: false
+    CourseTool:
+      required:
+      - analytics_id
+      - title
+      type: object
+      properties:
+        analytics_id:
+          title: Analytics id
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          readOnly: true
+    CertificateData:
+      required:
+      - cert_status
+      - cert_web_view_url
+      - download_url
+      - certificate_available_date
+      type: object
+      properties:
+        cert_status:
+          title: Cert status
+          type: string
+          minLength: 1
+        cert_web_view_url:
+          title: Cert web view url
+          type: string
+          minLength: 1
+        download_url:
+          title: Download url
+          type: string
+          minLength: 1
+        certificate_available_date:
+          title: Certificate available date
+          type: string
+          format: date-time
   securitySchemes:
     Basic:
       type: http

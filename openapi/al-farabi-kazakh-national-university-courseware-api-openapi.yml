@@ -134,59 +134,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    CourseProgram:
-      required:
-      - slug
-      - title
-      - url
-      - uuid
-      type: object
-      properties:
-        progress:
-          title: Progress
-          type: string
-          readOnly: true
-        slug:
-          title: Slug
-          type: string
-          minLength: 1
-        title:
-          title: Title
-          type: string
-          minLength: 1
-        url:
-          title: Url
-          type: string
-          format: uri
-          minLength: 1
-        uuid:
-          title: Uuid
-          type: string
-          format: uuid
-    CertificateData:
-      required:
-      - cert_status
-      - cert_web_view_url
-      - download_url
-      - certificate_available_date
-      type: object
-      properties:
-        cert_status:
-          title: Cert status
-          type: string
-          minLength: 1
-        cert_web_view_url:
-          title: Cert web view url
-          type: string
-          minLength: 1
-        download_url:
-          title: Download url
-          type: string
-          minLength: 1
-        certificate_available_date:
-          title: Certificate available date
-          type: string
-          format: date-time
     CourseInfo:
       required:
       - access_expiration
@@ -379,13 +326,6 @@ components:
         learning_assistant_enabled:
           title: Learning assistant enabled
           type: boolean
-    courseware_api:
-      type: object
-      properties:
-        uri:
-          title: Uri
-          type: string
-          readOnly: true
     CourseGoals:
       required:
       - selected_goal
@@ -402,6 +342,66 @@ components:
           title: Weekly learning goal enabled
           type: boolean
           default: false
+    courseware_api:
+      type: object
+      properties:
+        uri:
+          title: Uri
+          type: string
+          readOnly: true
+    CourseProgram:
+      required:
+      - slug
+      - title
+      - url
+      - uuid
+      type: object
+      properties:
+        progress:
+          title: Progress
+          type: string
+          readOnly: true
+        slug:
+          title: Slug
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          minLength: 1
+        uuid:
+          title: Uuid
+          type: string
+          format: uuid
+    CertificateData:
+      required:
+      - cert_status
+      - cert_web_view_url
+      - download_url
+      - certificate_available_date
+      type: object
+      properties:
+        cert_status:
+          title: Cert status
+          type: string
+          minLength: 1
+        cert_web_view_url:
+          title: Cert web view url
+          type: string
+          minLength: 1
+        download_url:
+          title: Download url
+          type: string
+          minLength: 1
+        certificate_available_date:
+          title: Certificate available date
+          type: string
+          format: date-time
   securitySchemes:
     Basic:
       type: http

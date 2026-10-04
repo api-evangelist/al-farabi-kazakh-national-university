@@ -567,38 +567,33 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    CourseEnrollment:
+    mobile_api.User:
+      required:
+      - username
       type: object
       properties:
-        audit_access_expires:
-          title: Audit access expires
-          type: string
+        id:
+          title: ID
+          type: integer
           readOnly: true
-        created:
-          title: Created
-          type:
-          - string
-          - 'null'
-          format: date-time
-          readOnly: true
-        mode:
-          title: Mode
+        username:
+          title: Имя пользователя
+          description: Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.
           type: string
-          maxLength: 100
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
           minLength: 1
-        is_active:
-          title: Is active
-          type: boolean
-        course:
-          title: Course
+        email:
+          title: Адрес электронной почты
+          type: string
+          format: email
+          maxLength: 254
+        name:
+          title: Name
           type: string
           readOnly: true
-        certificate:
-          title: Certificate
-          type: string
-          readOnly: true
-        course_modes:
-          title: Course modes
+        course_enrollments:
+          title: Course enrollments
           type: string
           readOnly: true
     GCMDevice:
@@ -650,33 +645,38 @@ components:
           - string
           - 'null'
           maxLength: 64
-    mobile_api.User:
-      required:
-      - username
+    CourseEnrollment:
       type: object
       properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        username:
-          title: Имя пользователя
-          description: Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.
+        audit_access_expires:
+          title: Audit access expires
           type: string
-          pattern: ^[\w.@+-]+$
-          maxLength: 150
+          readOnly: true
+        created:
+          title: Created
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        mode:
+          title: Mode
+          type: string
+          maxLength: 100
           minLength: 1
-        email:
-          title: Адрес электронной почты
-          type: string
-          format: email
-          maxLength: 254
-        name:
-          title: Name
+        is_active:
+          title: Is active
+          type: boolean
+        course:
+          title: Course
           type: string
           readOnly: true
-        course_enrollments:
-          title: Course enrollments
+        certificate:
+          title: Certificate
+          type: string
+          readOnly: true
+        course_modes:
+          title: Course modes
           type: string
           readOnly: true
   securitySchemes:
