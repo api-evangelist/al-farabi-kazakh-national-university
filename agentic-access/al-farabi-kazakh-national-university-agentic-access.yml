@@ -1,17 +1,40 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/al-farabi-kazakh-national-university-open-edx.yaml
+source: openapi/al-farabi-kazakh-national-university-agreements-api-openapi.yml, openapi/al-farabi-kazakh-national-university-bookmarks-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-certificates-api-openapi.yml, openapi/al-farabi-kazakh-national-university-change-email-settings-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-cohorts-api-openapi.yml, openapi/al-farabi-kazakh-national-university-commerce-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-completion-api-openapi.yml, openapi/al-farabi-kazakh-national-university-course-experience-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-course-home-api-openapi.yml, openapi/al-farabi-kazakh-national-university-course-live-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-course-modes-api-openapi.yml, openapi/al-farabi-kazakh-national-university-courses-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-courseware-api-openapi.yml, openapi/al-farabi-kazakh-national-university-credit-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-dashboard-api-openapi.yml, openapi/al-farabi-kazakh-national-university-discounts-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-discussion-api-openapi.yml, openapi/al-farabi-kazakh-national-university-edx-name-affirmation-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-edx-proctoring-api-openapi.yml, openapi/al-farabi-kazakh-national-university-edxnotes-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-enrollment-api-openapi.yml, openapi/al-farabi-kazakh-national-university-entitlements-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-experiments-api-openapi.yml, openapi/al-farabi-kazakh-national-university-grades-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-instructor-api-openapi.yml, openapi/al-farabi-kazakh-national-university-instructor-task-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-learner-home-api-openapi.yml, openapi/al-farabi-kazakh-national-university-learning-sequences-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-lti-consumer-api-openapi.yml, openapi/al-farabi-kazakh-national-university-mfe-config-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-mfe-context-api-openapi.yml, openapi/al-farabi-kazakh-national-university-mobile-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-notifications-api-openapi.yml, openapi/al-farabi-kazakh-national-university-ora-staff-grader-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-organizations-api-openapi.yml, openapi/al-farabi-kazakh-national-university-profile-images-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-program-enrollments-api-openapi.yml, openapi/al-farabi-kazakh-national-university-send-account-activation-email-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-team-api-openapi.yml, openapi/al-farabi-kazakh-national-university-third-party-auth-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-third-party-auth-context-api-openapi.yml, openapi/al-farabi-kazakh-national-university-toggles-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-univertest-api-openapi.yml, openapi/al-farabi-kazakh-national-university-user-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-user-tours-api-openapi.yml, openapi/al-farabi-kazakh-national-university-val-api-openapi.yml,
+  openapi/al-farabi-kazakh-national-university-xblock-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 400
   by_action_class:
-    connected: 216
-    acting: 184
+    connected: 217
+    acting: 183
   by_consequence:
-    read: 216
-    write: 176
+    read: 217
+    write: 175
     safety-critical: 4
     physical: 4
   human_in_the_loop_required: 4
@@ -4782,18 +4805,12 @@ operations:
   method: post
   operationId: val_v0_videos_missing-hls_create
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /val/v0/videos/missing-hls/
   method: put
   operationId: val_v0_videos_missing-hls_update
