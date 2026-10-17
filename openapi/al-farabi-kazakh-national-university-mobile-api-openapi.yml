@@ -596,6 +596,40 @@ components:
           title: Course enrollments
           type: string
           readOnly: true
+    CourseEnrollment:
+      type: object
+      properties:
+        audit_access_expires:
+          title: Audit access expires
+          type: string
+          readOnly: true
+        created:
+          title: Created
+          type:
+          - string
+          - 'null'
+          format: date-time
+          readOnly: true
+        mode:
+          title: Mode
+          type: string
+          maxLength: 100
+          minLength: 1
+        is_active:
+          title: Is active
+          type: boolean
+        course:
+          title: Course
+          type: string
+          readOnly: true
+        certificate:
+          title: Certificate
+          type: string
+          readOnly: true
+        course_modes:
+          title: Course modes
+          type: string
+          readOnly: true
     GCMDevice:
       required:
       - registration_id
@@ -645,40 +679,6 @@ components:
           - string
           - 'null'
           maxLength: 64
-    CourseEnrollment:
-      type: object
-      properties:
-        audit_access_expires:
-          title: Audit access expires
-          type: string
-          readOnly: true
-        created:
-          title: Created
-          type:
-          - string
-          - 'null'
-          format: date-time
-          readOnly: true
-        mode:
-          title: Mode
-          type: string
-          maxLength: 100
-          minLength: 1
-        is_active:
-          title: Is active
-          type: boolean
-        course:
-          title: Course
-          type: string
-          readOnly: true
-        certificate:
-          title: Certificate
-          type: string
-          readOnly: true
-        course_modes:
-          title: Course modes
-          type: string
-          readOnly: true
   securitySchemes:
     Basic:
       type: http

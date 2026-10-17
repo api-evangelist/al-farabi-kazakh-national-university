@@ -533,6 +533,22 @@ components:
           description: Whether this topic is enabled in its context
           type: boolean
           readOnly: true
+    BlackoutDate:
+      required:
+      - start
+      - end
+      type: object
+      properties:
+        start:
+          title: Start
+          description: The ISO 8601 timestamp for the start of the blackout period
+          type: string
+          format: date-time
+        end:
+          title: End
+          description: The ISO 8601 timestamp for the end of the blackout period
+          type: string
+          format: date-time
     CourseMetadataSerailizer:
       required:
       - id
@@ -619,22 +635,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReasonCodeSeralizer'
-    BlackoutDate:
-      required:
-      - start
-      - end
-      type: object
-      properties:
-        start:
-          title: Start
-          description: The ISO 8601 timestamp for the start of the blackout period
-          type: string
-          format: date-time
-        end:
-          title: End
-          description: The ISO 8601 timestamp for the end of the blackout period
-          type: string
-          format: date-time
     ReasonCodeSeralizer:
       required:
       - code

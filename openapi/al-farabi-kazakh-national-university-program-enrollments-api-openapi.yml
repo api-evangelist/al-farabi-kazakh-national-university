@@ -449,25 +449,6 @@ paths:
           description: The requested program does not exist.
 components:
   schemas:
-    DueDate:
-      required:
-      - name
-      - url
-      - date
-      type: object
-      properties:
-        name:
-          title: Name
-          type: string
-          minLength: 1
-        url:
-          title: Url
-          type: string
-          minLength: 1
-        date:
-          title: Date
-          type: string
-          format: date-time
     PageOfCourseRunOverview:
       required:
       - results
@@ -490,15 +471,25 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CourseRunOverview'
-    CourseRunOverviewList:
+    DueDate:
       required:
-      - course_runs
+      - name
+      - url
+      - date
       type: object
       properties:
-        course_runs:
-          type: array
-          items:
-            $ref: '#/components/schemas/CourseRunOverview'
+        name:
+          title: Name
+          type: string
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          minLength: 1
+        date:
+          title: Date
+          type: string
+          format: date-time
     CourseRunOverview:
       required:
       - course_run_id
@@ -567,6 +558,15 @@ components:
           description: URL to download a certificate, if available; if absent, certificate is not downloadable.
           type: string
           minLength: 1
+    CourseRunOverviewList:
+      required:
+      - course_runs
+      type: object
+      properties:
+        course_runs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CourseRunOverview'
   securitySchemes:
     Basic:
       type: http

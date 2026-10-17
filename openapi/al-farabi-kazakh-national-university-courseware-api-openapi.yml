@@ -134,6 +134,35 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    CourseProgram:
+      required:
+      - slug
+      - title
+      - url
+      - uuid
+      type: object
+      properties:
+        progress:
+          title: Progress
+          type: string
+          readOnly: true
+        slug:
+          title: Slug
+          type: string
+          minLength: 1
+        title:
+          title: Title
+          type: string
+          minLength: 1
+        url:
+          title: Url
+          type: string
+          format: uri
+          minLength: 1
+        uuid:
+          title: Uuid
+          type: string
+          format: uuid
     CourseInfo:
       required:
       - access_expiration
@@ -326,58 +355,6 @@ components:
         learning_assistant_enabled:
           title: Learning assistant enabled
           type: boolean
-    CourseGoals:
-      required:
-      - selected_goal
-      type: object
-      properties:
-        selected_goal:
-          title: Selected goal
-          type: object
-          additionalProperties:
-            type:
-            - string
-            - 'null'
-        weekly_learning_goal_enabled:
-          title: Weekly learning goal enabled
-          type: boolean
-          default: false
-    courseware_api:
-      type: object
-      properties:
-        uri:
-          title: Uri
-          type: string
-          readOnly: true
-    CourseProgram:
-      required:
-      - slug
-      - title
-      - url
-      - uuid
-      type: object
-      properties:
-        progress:
-          title: Progress
-          type: string
-          readOnly: true
-        slug:
-          title: Slug
-          type: string
-          minLength: 1
-        title:
-          title: Title
-          type: string
-          minLength: 1
-        url:
-          title: Url
-          type: string
-          format: uri
-          minLength: 1
-        uuid:
-          title: Uuid
-          type: string
-          format: uuid
     CertificateData:
       required:
       - cert_status
@@ -402,6 +379,29 @@ components:
           title: Certificate available date
           type: string
           format: date-time
+    CourseGoals:
+      required:
+      - selected_goal
+      type: object
+      properties:
+        selected_goal:
+          title: Selected goal
+          type: object
+          additionalProperties:
+            type:
+            - string
+            - 'null'
+        weekly_learning_goal_enabled:
+          title: Weekly learning goal enabled
+          type: boolean
+          default: false
+    courseware_api:
+      type: object
+      properties:
+        uri:
+          title: Uri
+          type: string
+          readOnly: true
   securitySchemes:
     Basic:
       type: http

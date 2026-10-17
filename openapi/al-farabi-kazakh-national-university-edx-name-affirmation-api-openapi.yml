@@ -380,6 +380,25 @@ components:
           title: Status
           type: string
           minLength: 1
+    VerifiedNameConfig:
+      required:
+      - username
+      type: object
+      properties:
+        change_date:
+          title: Change date
+          type: string
+          format: date-time
+          readOnly: true
+        username:
+          title: Username
+          type: string
+          minLength: 1
+        use_verified_name_for_certs:
+          title: Use verified name for certs
+          type:
+          - boolean
+          - 'null'
     VerifiedName:
       required:
       - username
@@ -441,25 +460,6 @@ components:
           - string
           - 'null'
           minLength: 1
-    VerifiedNameConfig:
-      required:
-      - username
-      type: object
-      properties:
-        change_date:
-          title: Change date
-          type: string
-          format: date-time
-          readOnly: true
-        username:
-          title: Username
-          type: string
-          minLength: 1
-        use_verified_name_for_certs:
-          title: Use verified name for certs
-          type:
-          - boolean
-          - 'null'
   securitySchemes:
     Basic:
       type: http

@@ -1102,6 +1102,38 @@ paths:
                     type: string
 components:
   schemas:
+    user_api.User:
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        url:
+          title: Url
+          type: string
+          format: uri
+          readOnly: true
+        email:
+          title: Адрес электронной почты
+          type: string
+          format: email
+          readOnly: true
+          minLength: 1
+        name:
+          title: Name
+          type: string
+          readOnly: true
+        username:
+          title: Имя пользователя
+          description: Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.
+          type: string
+          readOnly: true
+          minLength: 1
+        preferences:
+          title: Preferences
+          type: string
+          readOnly: true
     UserPreference:
       required:
       - user
@@ -1155,38 +1187,6 @@ components:
           format: date-time
         receipt_id:
           title: Receipt id
-          type: string
-          readOnly: true
-    user_api.User:
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        url:
-          title: Url
-          type: string
-          format: uri
-          readOnly: true
-        email:
-          title: Адрес электронной почты
-          type: string
-          format: email
-          readOnly: true
-          minLength: 1
-        name:
-          title: Name
-          type: string
-          readOnly: true
-        username:
-          title: Имя пользователя
-          description: Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.
-          type: string
-          readOnly: true
-          minLength: 1
-        preferences:
-          title: Preferences
           type: string
           readOnly: true
     CountryTimeZone:

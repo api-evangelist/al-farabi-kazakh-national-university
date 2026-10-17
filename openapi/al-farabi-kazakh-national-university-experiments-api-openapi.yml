@@ -431,41 +431,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    ExperimentKeyValue:
-      required:
-      - experiment_id
-      - key
-      - value
-      type: object
-      properties:
-        id:
-          title: ID
-          type: integer
-          readOnly: true
-        experiment_id:
-          title: Experiment ID
-          type: integer
-          maximum: 65535
-          minimum: 0
-        key:
-          title: Key
-          type: string
-          maxLength: 255
-          minLength: 1
-        value:
-          title: Value
-          type: string
-          minLength: 1
-        created:
-          title: Создано
-          type: string
-          format: date-time
-          readOnly: true
-        modified:
-          title: Изменено
-          type: string
-          format: date-time
-          readOnly: true
     ExperimentData:
       required:
       - experiment_id
@@ -488,6 +453,41 @@ components:
           pattern: ^[\w.@+-]+$
           readOnly: true
           default: ''
+        key:
+          title: Key
+          type: string
+          maxLength: 255
+          minLength: 1
+        value:
+          title: Value
+          type: string
+          minLength: 1
+        created:
+          title: Создано
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          title: Изменено
+          type: string
+          format: date-time
+          readOnly: true
+    ExperimentKeyValue:
+      required:
+      - experiment_id
+      - key
+      - value
+      type: object
+      properties:
+        id:
+          title: ID
+          type: integer
+          readOnly: true
+        experiment_id:
+          title: Experiment ID
+          type: integer
+          maximum: 65535
+          minimum: 0
         key:
           title: Key
           type: string

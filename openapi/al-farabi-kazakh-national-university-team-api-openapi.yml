@@ -368,6 +368,28 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    Membership:
+      required:
+      - user
+      - team
+      type: object
+      properties:
+        user:
+          title: User
+          type: string
+        team:
+          title: Team
+          type: string
+        date_joined:
+          title: Date joined
+          type: string
+          format: date-time
+          readOnly: true
+        last_activity_at:
+          title: Last activity at
+          type: string
+          format: date-time
+          readOnly: true
     CourseTeam:
       required:
       - name
@@ -625,28 +647,6 @@ components:
       properties:
         user:
           title: User
-          type: string
-        date_joined:
-          title: Date joined
-          type: string
-          format: date-time
-          readOnly: true
-        last_activity_at:
-          title: Last activity at
-          type: string
-          format: date-time
-          readOnly: true
-    Membership:
-      required:
-      - user
-      - team
-      type: object
-      properties:
-        user:
-          title: User
-          type: string
-        team:
-          title: Team
           type: string
         date_joined:
           title: Date joined

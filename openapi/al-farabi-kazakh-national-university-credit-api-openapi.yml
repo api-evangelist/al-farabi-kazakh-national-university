@@ -237,6 +237,17 @@ components:
           description: Крайний срок подачи заявки и оформления кредита.
           type: string
           format: date-time
+    CreditCourse:
+      required:
+      - course_key
+      type: object
+      properties:
+        course_key:
+          title: Course key
+          type: string
+        enabled:
+          title: Enabled
+          type: boolean
     CreditProvider:
       required:
       - id
@@ -287,17 +298,6 @@ components:
           format: uri
           maxLength: 255
           minLength: 1
-    CreditCourse:
-      required:
-      - course_key
-      type: object
-      properties:
-        course_key:
-          title: Course key
-          type: string
-        enabled:
-          title: Enabled
-          type: boolean
   securitySchemes:
     Basic:
       type: http
