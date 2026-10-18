@@ -63,6 +63,23 @@ tags:
   - Kazakhstan
   - Central Asia
   - Course Catalog
+  - LMS
+  - Open edX
+  - MOOC
+  - Scholarly Publishing
+  - OAI-PMH
+  - Open Access
+  - Research Data
+tags_raw:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Library
+  - Open Education
+  - Kazakhstan
+  - Central Asia
+  - Course Catalog
   - Learning Management
   - Open edX
   - MOOC
@@ -1473,6 +1490,9 @@ apis:
   baseURL: https://dl.kaznu.edu.kz/webservice/rest/server.php
   x-operator: institution
   tags:
+  - LMS
+  - Moodle
+  tags_raw:
   - Learning Management
   - Moodle
   properties:
